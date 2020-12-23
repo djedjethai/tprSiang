@@ -1,0 +1,10 @@
+FROM node:alpine
+ENV NODE_ENV=production
+WORKDIR '/app'
+COPY package*.json ./
+RUN npm install --only=production \
+ && npm cache clean --force 
+COPY . .
+# add --tiny for shutting down
+EXPOSE 5000
+CMD ["node bin/www"]

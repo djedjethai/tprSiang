@@ -1,0 +1,62 @@
+.pageRender {
+	width: 100%;
+	height:100%;
+	border: 3px solid $color-black;
+	overflow: hidden;
+
+	&__text {		
+		overflow: scroll;
+		overflow-x: hidden; /* Hide horizontal scrollbar */
+		transition: all .5s;
+		border-bottom: 1px solid $color-black;
+		padding: 3rem 3rem 3rem 0rem;
+		// position: relative; // doesn t work with the following elements
+
+		&--grade {
+			text-align: center;
+			margin-top: 15rem;
+			// position: sticky; 
+			// top: 50px;
+			// position: fixed;
+			// width: 25%;
+			// position: absolute;
+			// top: 50%;
+    			// left: 50%;
+    			// transform: translate(-50%, -50%);
+		}
+		&__big {
+			height:90%;
+			transform: translateY(0);
+		}
+		&__small {
+			height: 35%;
+			transform: translateY(1);
+		}
+	}
+
+	&__comments {
+		// width: 100%;
+		border-radius: 3px;
+		-webkit-box-shadow: inset 0 8px 6px -6px black;
+	   	-moz-box-shadow: inset 0 8px 6px -6px black;
+	        box-shadow: inset 0 8px 6px -6px black;
+			
+		// border: 1px solid $color-black;
+		&__banner {
+			height: 10%;
+			text-align: center;
+			padding-top: 1.5rem;
+			// box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+			cursor: pointer;
+			// transform: translateY(1);
+		}
+
+
+		&__display {
+			height: 65%;
+			// transition: all .5s;
+			overflow: scroll;
+			overflow-x: hidden; 
+		}
+	}
+}

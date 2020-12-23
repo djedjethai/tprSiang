@@ -1,0 +1,21 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    // adding rgba() on the back-ground color, permet d'ajouter l'opacity
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    // font-size: $default-font-size;
+    font-size: 2rem;
+    border: 1px solid black;
+         
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }    
+}
+
+

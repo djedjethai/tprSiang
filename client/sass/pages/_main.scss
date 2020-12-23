@@ -1,0 +1,78 @@
+.header {
+        /*95% of the view port point*/
+        height: 85vh;
+        background: linear-gradient( to right bottom, rgba($color-primary-light, 0.801), rgba($color-primary-dark, 0.801));
+        /*what ever the view port, cover will always try to fit the elmt inside the box*/
+        background-size: cover;
+        /*fix the backGr at the top*/
+        background-position: top;
+        position: relative;
+                // // la virgule signifie "OR". so this code compile les 2 media query
+        // // to get the em unit, on divise the px par 16
+        // // ht e-webkit cmd is for this commad to work on safari
+        // @media only screen and (min-resolution: 192dpi) only screen and (min-width: 37.5em),
+        // (-webkit-min-device-pixel-ratio: 2) only screen and (min-width: 37.5em),
+        // (min-width: 125em) {
+        //     background-image: linear-gradient( to right bottom, rgba($color-secondary-light, 0.801), rgba($color-secondary-dark, 0.801)), url(../img/hero.jpg);
+}
+
+.intro {
+	padding: 25rem 0;
+	background-color: $color-grey-light-1;
+    	/*we almost always add that for the backGround*/
+    	background-size: cover;
+    	// transform: skewY(-7deg);
+    	// margin-top: -10rem;
+    	// /*select all the 'DIRECT' childs*/
+    	// &>* {
+    	//     transform: skewY(7deg);
+    	// }
+    	@include respond(tab-port) {
+    	    padding: 12rem 0;
+    	}
+}
+
+.intohead {
+    	background: linear-gradient( to right bottom, rgba($color-primary-light, 0.801), rgba($color-primary-dark, 0.801));
+    	padding: 25rem 0;
+    	// margin-top: -20vh;
+    	@include respond(tab-port) {
+    	    padding: 20rem 0;
+    	}
+	
+}
+
+.pic {
+	background-color: $color-grey-light-1;
+    	padding: 25rem 0;
+    	// margin-top: -10rem;
+    	@include respond(tab-port) {
+    	    padding: 20rem 0 10rem 0;
+    	}	
+}
+
+.skills {
+	padding: 25rem 0rem;
+	background-color: $color-grey-light-1;
+    	@include respond(tab-port) {
+        	padding: 10rem 0;
+    	}	
+}
+
+.portfolio {
+    	background: linear-gradient( to right bottom, rgba($color-primary-light, 0.801), rgba($color-primary-dark, 0.801));
+	// position: relative; as the bg-video is absolute and should appear behind this section
+    	// position: relative;
+    	padding: 25rem 0;
+    	@include respond(tab-port) {
+    	    padding: 10rem 0;
+    	}	
+}
+
+.vision {
+	padding: 25rem 0rem;
+	background-color: $color-grey-light-1;
+    	@include respond(tab-port) {
+        	padding: 10rem 0;
+    	}	
+}

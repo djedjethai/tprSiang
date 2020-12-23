@@ -1,0 +1,11 @@
+FROM node:14-alpine
+ENV NODE_ENV=development
+WORKDIR /opt
+COPY package*.json ./
+RUN npm install --force \
+ 	&& npm cache clean --force 
+WORKDIR /opt/app
+COPY . .
+EXPOSE 5000
+CMD ["npm", "run", "dev"]
+

@@ -1,0 +1,55 @@
+/* universal selector will select all elements on the page and apply it to them. to prevent pre-setting of the differents browser.
+Like it s the same for all*/
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /*by default box-sizing do not herite. but setting up the all page like it will make it everywhere*/
+    box-sizing: inherit;
+}
+
+
+/*html element is the root font-size. so set it up, and then we use rem with all other font-size
+(like this we can modify this one, and all get modify)*/
+
+html {
+    //that s define what rem is.
+    /*10px to make it easy ! as 1rem is root's font-size * rem. So 1rem will be 10px.
+    But we don t want it in px bc it will lock the screen of the user: if he want to agrandir, il ne pourra plus, donc
+    on convertir en %. 100% = 16px dc 62.5% = 10px*/
+    font-size: 62.5%; // 1rem = 10px
+    // we won t use this one as 50% is small enought
+    /*@include respond(phone) {
+        font-size: 50%; // we want 1rem to be 8px, so 8/16 = 50%
+    }*/
+    //!!! ATTENTION A L'ORDRE 'DE LA PLUS GRANDE A LA PLUS PETITE', ainsi la petite a le dernier mot (pour les max-size)
+    @include respond(tab-land) {
+        // < 1200
+        font-size: 56.25%; // we want 1rem to be 9px, so 9/16 = 56.25%
+    }
+    // we choice the px, like for tab-port 8px is good, then on en deduit le %
+    @include respond(tab-port) {
+        // < 900
+        font-size: 50%; // we want 1rem to be 8px, so 8/16 = 50%
+    }
+    @include respond(big-desktop) {
+        font-size: 80%; // we want 1rem to be 12px, so 12/16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+::selection {
+  // background-color: $color-primary;
+  // color: $color-white;
+}
+
+/*setting it here will make it available for the all doc, via l'heritage*/

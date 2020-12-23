@@ -1,0 +1,50 @@
+/*we can use the animation created on any object*/
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    /*just to show like crazy animation*/
+    60% {
+        transform: rotate(180deg);
+    }
+    80% {
+        transform: translateX(1rem) rotate(180deg);
+    }
+    /*on pourrait aussi mettre des etapes/pourcentage intermediare*/
+    100% {
+        opacity: 1;
+        transform: translate(0) rotate(180deg);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(+10rem);
+    }
+    80% {
+        transform: translateX(-1rem)
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+/*make the button coming from the bottom*/
+
+@keyframes moveInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(+3rem);
+    }
+    100% {
+        /*the pb here, is that this animation start with a delay, so the opacity 1 occur with delay as well...
+        pr palier a ca on utilise: animation-fill-mode: backwards; see the button effect below*/
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
