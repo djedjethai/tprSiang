@@ -41,7 +41,11 @@ require('./routes/tprMainRt')(app)
 
 
 //----------- NODEJS ADMIN ------------
-const User = require('./models/user')
+const User = require('./models/User')
+require('./models/Car')
+require('./models/Picmain')
+require('./models/Picstyle')
+require('./models/Review')
 
 app.use(session({
   resave: true,
@@ -56,7 +60,7 @@ app.use(session({
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 
-// require('./routes/various routes to mange account')
+// various routes to manage account')
 require('./routes/adminRt/authRt')(app)
 require('./routes/adminRt/carsRt')(app)
 require('./routes/adminRt/picsmainRt')(app)

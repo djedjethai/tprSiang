@@ -1,3 +1,5 @@
+const Car = require('mongoose').model('Car')
+
 exports.getCars = (req, res, next) => {
 	// req to get all pics 
 	console.log('grrrrrr')

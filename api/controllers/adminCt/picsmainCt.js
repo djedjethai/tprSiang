@@ -1,3 +1,5 @@
+const Picmain = require('mongoose').model('Picmain')
+
 exports.getPicsmain = (req, res, next) => {
 	// req to get all pics 
 	console.log(req.session)

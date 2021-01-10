@@ -25,7 +25,6 @@ exports.postSignin = async (req, res, next) => {
 	// 	}); 	
 	// });
 	//
-	console.log(keys.adminName1)
     	const user = req.body.name
 	const password = req.body.password
 	
@@ -35,13 +34,8 @@ exports.postSignin = async (req, res, next) => {
 	}
 
 	try {
-		console.log('euuuu')
-		console.log(keys.adminPassword1)
-		console.log(password)
 		const match = await bcrypt.compare(password, keys.adminPassword1)
-		console.log('bcrypt works')
 
-		console.log(match)
 		if(match) {
 			//login 
 			req.session.isLoggedIn = true
@@ -59,20 +53,19 @@ exports.postSignin = async (req, res, next) => {
 			})
 		}
 		else{	
-			// next(new Error('Invalid credentials'))
-			console.log('in the hhhhhhhhh')
-			// res.redirect('/admin/getsignin')
-
-			// should log this err to see if someone try
-			throw new Error('jjjjjjj')
+			throw new Error()
 		}
 	}
 	catch(e) {
-		console.log('ooookkkkkk')
-		// should log this err as well 
 		res.redirect('/admin/getsignin')
+		
+		// set an err page later
+		// don t like this way easy for force brute attack
+		// as well, set journal to report err
+		
+		// this create an err(resend res), 
+		// next(new Error('A technical problem occur, please try again'))
 		return
-		next(new Error('A technical problem occur, please try again'))
 	}
 
 }

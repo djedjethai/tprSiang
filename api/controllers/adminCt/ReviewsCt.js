@@ -1,3 +1,5 @@
+const Review = require('mongoose').model('Review')
+
 exports.getReviews = (req, res, next) => {
 	// query reviews
 	
