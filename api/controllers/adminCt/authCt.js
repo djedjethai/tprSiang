@@ -40,17 +40,19 @@ exports.postSignin = async (req, res, next) => {
 			//login 
 			req.session.isLoggedIn = true
 			req.session.user = user
-				
-			return req.session.save((err) => {
-				res.render('tprmain/cars', {
-        				pageTitle: 'tprmain',
-        				path: '/cars',
-        				editing: false,
-        				test: 'alors',
-        				// errorMessage: err[0],
-        				errorDetails: ''
-    				});
-			})
+			
+			res.redirect('/admin/cars')
+			return
+			// return req.session.save((err) => {
+			// 	res.render('tprmain/cars', {
+        		// 		pageTitle: 'tprmain',
+        		// 		path: '/cars',
+        		// 		editing: false,
+        		// 		test: 'alors',
+        		// 		// errorMessage: err[0],
+        		// 		errorDetails: ''
+    			// 	});
+			// })
 		}
 		else{	
 			throw new Error()

@@ -1,0 +1,82 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+    	</head>
+    	<body>
+		<div>
+			<h1>Welcome to the CARS page</h1>
+			<form action="/admin/<% if (editing && !errorMessage) { %>edit-car<% } else { %>add-car<% } %>" method="POST" enctype="multipart/form-data" class="col-xs-8 col-sm-6 col-md-5">
+                             	<div class="form-group">
+                                    	<label for="serie">Serie:</label>
+                                    	<select name="serie" id="serie" class="form-control" placeholder="<% if (editing) { %><%=car.serie%><% } else { %> Camry <% } %>" />
+					<option>Camry</option>
+					<option>Vios</option>
+					<option>Altis</option>
+					<option>Corolla</option>
+					<option>Hilux</option>
+					<option>Avanza</option>
+					<option>Sienta</option>
+					<option>Innova Crysta</option>
+					<option>Majesty</option>
+					<option>Coaster</option>
+					<option>Alphard</option>
+					<option>Fortuner</option>
+                                </div>
+                                <div class="form-group">
+                                  	<label for="serieDetails">Serie details:</label>
+                                       	<input type="text" name="serieDetails" id="serieDetails" class="form-control" value="<% if (editing) { %><%=prod.serieDetails%><% } %>" />
+                                </div>
+                                <div class="form-group">
+                                       	<label for="wheel">Wheel:</label>
+					<input type="number" name="wheel" id="wheel" class="form-control" value="<% if (editing) { %><%=car.wheel%><% } %>" /> 
+                               	</div>
+				<div class="form-group">
+                                       	<label for="engine">Engine:</label>
+					<input type="text" name="engine" id="engine" class="form-control" value="<% if (editing) { %><%=car.enginel%><% } %>" /> 
+ 				<div class="form-group">
+                                       	<label for="grade">Grade:</label>
+					<input type="text" name="grade" id="grade" class="form-control" value="<% if (editing) { %><%=car.grade%><% } %>" /> 
+ 				<div class="form-group">
+                                       	<label for="price">Price:</label>
+					<input type="text" name="price" id="price" class="form-control" value="<% if (editing) { %><%=car.price%><% } %>" /> 
+			<div class="form-group">
+                                       	<label for="color">Color:</label>
+					<input type="text" name="color" id="color" class="form-control" value="<% if (editing) { %><%=car.color%><% } %>" />
+ 			<div class="form-group">
+                                       	<label for="details">Details:</label>
+                                       	<textarea name="details" id="details" class="form-control" row="5"><% if (editing) { %><%=prod.details%><% } %></textarea>
+                               	</div>
+
+ 			<div class="form-group">
+                                       	<label for="picture">Picture:</label>
+					<input type="text" name="picture" id="picture" class="form-control" value="<% if (editing) { %><%=car.picture%><% } %>" /> 
+ 			<div class="form-group">
+                                    	<label for="style">Style:</label>
+                                    	<select name="style" id="style" class="form-control" placeholder="<% if (editing) { %><%=car.style%><% } else { %> Standart <% } %>" />
+					<option>Pick-up</option>
+					<option>Single</option>
+					<option>Smart</option>
+					<option>Double</option>
+					<option>Standart</option>
+                                </div>
+			<div class="form-group">
+                                    	<label for="type">Type:</label>
+                                    	<select name="type" id="type" class="form-control" placeholder="<% if (editing) { %><%=car.type%><% } else { %> thai1 <% } %>" />
+					<option>thai1</option>
+					<option>thai2</option>
+					<option>thai3</option>
+					<option>thai4</option>
+                                </div>
+
+			<p>Add it on the first page:</p>
+			<label class="radio-inline"><input type="radio" name="bestSell" checked>False</label>
+			<label class="radio-inline"><input type="radio" name="bestSell">True</label>
+
+            	<% if (editing) { %>
+                 	<input type="hidden" value="<%=car._id%>" name="carId" />
+                            	<%= console.log(car._id) %>
+                <% } %>
+                        <button class="btn btn-primary " type="submit"><% if (editing && !errorMessage) { %>Update Car<% } else { %>Add Car<% } %></button>
+            </form>
+         </div>
+</body>
+</html>

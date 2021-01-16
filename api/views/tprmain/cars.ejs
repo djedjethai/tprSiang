@@ -2,8 +2,49 @@
 <%- include('../includes/navigation.ejs') %>
     	</head>
     	<body>
-		<div>
-			<h1>Welcome to the CARS page</h1>
-               	</div>
+		<h1>Welcome to the CARS page</h1>
+	
+	<% if(hasCars){ %>
+
+		<% console.log(cars) %>
+		<div class="table-responsive">
+			<table class="table table-hover">
+	  		<thead><tr><th>Serie</th><th>Serie details</th><th>Engine</th><th>Grade</th><th>Price</th><th>Best seller<th>Action</th></tr></thead>
+                        <%  cars.forEach((car) => { %>
+                              	<tbody><tr>
+					<td>
+                                        	<%=car.serie%>
+					</td>
+					<td>
+                                        	<%=car.serieDetails%>
+					</td>
+					<td>
+                                        	<%=car.engine%>
+					</td>
+					<td>
+                                        	<%=car.grade%>
+					</td>
+					<td>
+                                        	<%=car.price%>
+					</td>
+					<td>
+                                        	<%=car.bestSeller%>
+					</td>
+					<td>
+                                        <a href="/admin/edit-car/<%= car._id %>/?edit=true" class="btn btn-success btn-xs">Edit</a>                               
+                                        <button class="btn btn-success btn-xs" type="button" onclick="deleteProduct(this)">Delete</button>
+                                    	</td>
+
+                                        <input type="hidden" name="prodId" value="<%= car._id %>" />
+                                </tr></tbody>
+                                <% }) %>
+			</table>
+		</div>	
+   	<% } else { %> 
+            	<p>No car found</p>    
+        <% } %>    
+	
+	<button class="btn btn-success btn-xs"><a href="/admin/add-car" class="btn btn-success btn-xs">Add car</a></button>                               
+
 	</body>
-	</html>
+</html>
