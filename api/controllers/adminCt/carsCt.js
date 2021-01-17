@@ -9,10 +9,11 @@ const arrayCars = [{
 	engine:"2.0 - 2.5 / hybrid",
 	grade:"2.0 - 2.5 / hybrid",
 	price:"M 3030344",
+	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
 	style:"single",
-	type:"thai2",
+	type:"thai4",
 	bestSeller:false
 	},{
 	_id: "jhgfj9765",
@@ -22,10 +23,11 @@ const arrayCars = [{
 	engine:"2.0 - 2.5 / hybrid",
 	grade:"2.0 - 2.5 / hybrid",
 	price:"M 3030344",
+	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
 	style:"single",
-	type:"thai2",
+	type:"ดดดด",
 	bestSeller:false
 	},{
 	_id: "jhgerlkjhlkjhfds",
@@ -35,10 +37,11 @@ const arrayCars = [{
 	engine:"2.0 - 2.5 / hybrid",
 	grade:"2.0 - 2.5 / hybrid",
 	price:"M 3030344",
+	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
 	style:"single",
-	type:"thai2",
+	type:"ดดดด",
 	bestSeller:false
 	}
 ]
@@ -69,13 +72,21 @@ exports.getAddCar = (req, res, next) => {
 }
 
 exports.getEditCar = (req, res, next) => {
+	const id = req.params.id 
 	// req to get all pics 
 	console.log('ds getEditcar')
-	console.log(req.session)
+	console.log('the IIIDDD: ', id)
+	
+	const car = arrayCars.filter(data => data._id.toString() === id.toString())
+	
+	console.log('Thhe car: ', car)
+
 	res.render('tprmain/edit-car', {
 		pageTitle: 'edit-car',
 		path: '/edit-car',
-		editing: true
+		editing: true,
+		errorMessage: false,
+		car: car[0]
 	})
 }
 
