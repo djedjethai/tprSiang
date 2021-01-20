@@ -4,23 +4,10 @@
     	<body>
 		<div>
 			<h1>Welcome to the CARS page</h1>
-			<form action="/admin/<% if (editing && !errorMessage) { %>edit-car<% } else { %>add-car<% } %>" method="POST" enctype="multipart/form-data" class="col-xs-8 col-sm-6 col-md-5">
+			<form action="/admin/<% if (editing && !errorMessage) { %>edit-car/<%=car._id%><% } else { %>add-car<% } %>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
                              	<div class="form-group">
                                     	<label for="serie">Serie:</label>
-                                    	<select name="serie" id="serie" class="form-control" placeholder="<% if (editing) { %><%=car.serie%><% } else { %> Camry <% } %>" />
-					<option>Camry</option>
-					<option>Vios</option>
-					<option>Altis</option>
-					<option>Corolla</option>
-					<option>Hilux</option>
-					<option>Avanza</option>
-					<option>Sienta</option>
-					<option>Innova Crysta</option>
-					<option>Majesty</option>
-					<option>Coaster</option>
-					<option>Alphard</option>
-					<option>Fortuner</option>
-                                	</select>
+					<input type="text" name="serie" id="serie" class="form-control" value="<% if (editing) { %><%=car.serie%><% } %>" />
 				</div>
                                 <div class="form-group">
                                   	<label for="serieDetails">Serie details:</label>
@@ -49,7 +36,9 @@
 
  			<div class="form-group">
                                        	<label for="picture">Picture:</label>
-					<input type="text" name="picture" id="picture" class="form-control" value="<% if (editing) { %><%=car.picture%><% } %>" /> 
+					<input type="text" name="picture" id="picture" class="form-control" value="<% if (editing) { %><%=car.picture%><% } %>" />
+			</div>
+		<% if (editing) { %> 
  			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" />
@@ -59,20 +48,44 @@
 		<option <%= car.style === 'double' ? 'selected' : '' %>>Double</option>
 		<option <%= car.style === 'standart' ? 'selected' : '' %>>Standart</option>
 					</select>
-                                </div>
+                       	</div>
 			<div class="form-group">
                                     	<label for="type">Type:</label>
-                                    	<select name="type" id="type" class="form-control" placeholder="<% if (editing) { %><%=car.type%><% } else { %> thai1 <% } %>" />
-					<option>thai1</option>
-					<option>ดดดด</option>
-					<option>thai3</option>
-					<option>thai4</option>
+                                    	<select name="type" id="type" class="form-control" />
+		<option <%= car.type === 'รุนรถ' ? 'selected' : '' %>>รุนรถ</option>
+		<option <%= car.type === 'รถยนฅ์นั่งส่วนบุคคล' ? 'selected' : '' %>>รถยนฅ์นั่งส่วนบุคคล</option>
+		<option <%= car.type === 'รถยนฅ์เพื่อการพาฌิซย์' ? 'selected' : '' %>>รถยนฅ์เพื่อการพาฌิซย์</option>
+		<option <%= car.type === 'รถยนฅ์อเนกประสงค์' ? 'selected' : '' %>>รถยนฅ์อเนกประสงค์</option>
 					</select>
-                                </div>
-		<div>
+                         </div>
+
+		<% } else { %>
+			<div class="form-group">
+                                    	<label for="style">Style:</label>
+                                    	<select name="style" id="style" class="form-control" />
+		<option selected>Pick-up</option>
+		<option>Single</option>
+		<option>Smart</option>
+		<option>Double</option>
+		<option>Standart</option>
+					</select>
+                       	</div>
+			<div class="form-group">
+                                    	<label for="type">Type:</label>
+                                    	<select name="type" id="type" class="form-control" />
+		<option selected>รุนรถ</option>
+		<option>รถยนฅ์นั่งส่วนบุคคล</option>
+		<option>รถยนฅ์เพื่อการพาฌิซย์</option>
+		<option>รถยนฅ์อเนกประสงค์</option>
+					</select>
+                         </div>
+
+		<% } %>
+
+					<div>
 			<p>Add it on the first page:</p>
-			<label class="radio-inline"><input type="radio" name="bestSell" checked>False</label>
-			<label class="radio-inline"><input type="radio" name="bestSell">True</label>
+			<label class="radio-inline"><input type="radio" name="bestSeller" checked>False</label>
+			<label class="radio-inline"><input type="radio" name="bestSeller">True</label>
 		</div>
 
             	<% if (editing) { %>

@@ -13,7 +13,7 @@ const arrayCars = [{
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
 	style:"single",
-	type:"thai4",
+	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:false
 	},{
 	_id: "jhgfj9765",
@@ -27,7 +27,7 @@ const arrayCars = [{
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
 	style:"single",
-	type:"ดดดด",
+	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:false
 	},{
 	_id: "jhgerlkjhlkjhfds",
@@ -41,7 +41,7 @@ const arrayCars = [{
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
 	style:"single",
-	type:"ดดดด",
+	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:false
 	}
 ]
@@ -94,10 +94,55 @@ exports.postAddCar = (req, res, next) => {
 	// req to get all pics 
 	console.log('ds postaddcar')
 	console.log(req.session)
+
+	const nc = req.body
+	const newCar = {
+		_id: "jhgejhfds",
+		serie: nc.serie,
+		serieDetails: nc.serieDetails,
+		wheel: nc.wheel,
+		engine: nc.engine,
+		grade: nc.grade,
+		price: nc.price,
+		color: nc.color,
+		details: nc.details,
+		picture: nc.picture,
+		style: nc.style,
+		type: nc.type,
+		bestSeller: nc.bestSeller
+	}
+	// console.log(req.body)
+	arrayCars.push(newCar)
+	console.log('car ADDDDD')
+	console.log(arrayCars)
+	res.redirect('/admin/cars')
 }
 
 exports.postEditCar = (req, res, next) => {
 	// req to get all pics 
 	console.log('ds postEditcar')
 	console.log(req.session)
+	
+	const ID = req.params.id
+
+	const nc = req.body
+	const newCar = {
+		_id: ID,
+		serie: nc.serie,
+		serieDetails: nc.serieDetails,
+		wheel: nc.wheel,
+		engine: nc.engine,
+		grade: nc.grade,
+		price: nc.price,
+		color: nc.color,
+		details: nc.details,
+		picture: nc.picture,
+		style: nc.style,
+		type: nc.type,
+		bestSeller: nc.bestSeller
+	}
+	
+	const indexRepl = arrayCars.findIndex(car => car._id === ID)
+	arrayCars[indexRepl] = newCar
+	res.redirect('/admin/cars')
 }
