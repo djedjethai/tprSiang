@@ -14,7 +14,7 @@ const arrayCars = [{
 	picture:"www.pic.com",
 	style:"single",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
-	bestSeller:false
+	bestSeller:'false'
 	},{
 	_id: "jhgfj9765",
 	serie: "Fortuner",
@@ -28,7 +28,7 @@ const arrayCars = [{
 	picture:"www.pic.com",
 	style:"single",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
-	bestSeller:false
+	bestSeller:'false'
 	},{
 	_id: "jhgerlkjhlkjhfds",
 	serie: "Fortuner",
@@ -42,7 +42,7 @@ const arrayCars = [{
 	picture:"www.pic.com",
 	style:"single",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
-	bestSeller:false
+	bestSeller:'false'
 	}
 ]
 
@@ -122,6 +122,7 @@ exports.postEditCar = (req, res, next) => {
 	// req to get all pics 
 	console.log('ds postEditcar')
 	console.log(req.session)
+	console.log(req.body.bestSeller)
 	
 	const ID = req.params.id
 
@@ -144,5 +145,15 @@ exports.postEditCar = (req, res, next) => {
 	
 	const indexRepl = arrayCars.findIndex(car => car._id === ID)
 	arrayCars[indexRepl] = newCar
+	res.redirect('/admin/cars')
+}
+
+exports.getDeleteCar = (req, res, next) => {
+	// console.log('dddddddddddeeeeeeeeeellllllllleeeeeeeettte')
+	console.log(req.params.id)
+	const ID = req.params.id
+
+	const indexToDelete = arrayCars.findIndex(car => car._id === ID)
+	arrayCars.splice(indexToDelete, 1)
 	res.redirect('/admin/cars')
 }

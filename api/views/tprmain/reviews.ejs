@@ -2,8 +2,42 @@
 <%- include('../includes/navigation.ejs') %>
     	</head>
     	<body>
-		<div>
-			<h1>Welcome to the REVIEWS page</h1>
-               	</div>
+		<h1>Welcome to the REVIEWS page</h1>
+	
+	<% if(hasReview){ %>
+
+		<% console.log(reviews) %>
+		<div class="table-responsive">
+			<table class="table table-hover">
+	  		<thead><tr><th>Name</th><th>Comment</th><th>Date</th><th>Action</th></tr></thead>
+                        <%  reviews.forEach((review) => { %>
+                              	<tbody><tr>
+					<td>
+                                        	<%=review.name%>
+					</td>
+					<td>
+                                        	<%=review.comment%>
+					</td>
+					<td>
+                                        	<%=review.quand%>
+					</td>
+					<td>
+                                        <a href="/admin/edit-review/<%= review._id %>/?edit=true" class="btn btn-success btn-xs">Edit</a>                               
+                                        
+                                        <a href="/admin/delete-review/<%= review._id %>/?edit=true" class="btn btn-danger btn-xs">Delete</a>                               
+                                    	</td>
+
+                                        <input type="hidden" name="reviewId" value="<%= review._id %>" />
+                                </tr></tbody>
+                                <% }) %>
+			</table>
+		</div>	
+   	<% } else { %> 
+            	<p>No car found</p>    
+        <% } %>    
+	
+	<button class="btn btn-xs"><a href="/admin/add-review" class="btn btn-primary btn-xs">Add review</a></button>                               
+
 	</body>
-	</html>
+</html>
+

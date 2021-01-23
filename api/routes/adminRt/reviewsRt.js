@@ -1,10 +1,10 @@
-const { getCars,
-	getAddCar,
-	getEditCar,
-	getDeleteCar,
-	postAddCar,
-	postEditCar
-} = require('../../controllers/adminCt/carsCt')
+const { getReviews,
+	getAddReview,
+	getEditReview,
+	getDeleteReview,
+	postAddReview,
+	postEditReview
+} = require('../../controllers/adminCt/reviewsCt.jsCt')
 const isAuth = require('../../middleware/isAuth')
 
 module.exports = app => {
@@ -15,4 +15,16 @@ module.exports = app => {
 	
 	app.post('/add-car', postAddCar)
 	app.post('/edit-car/:id', postEditCar)
+}
+
+
+
+
+
+
+
+const { getReviews } = require('../../controllers/adminCt/ReviewsCt')
+
+module.exports = app => {
+	app.get('/reviews', getReviews)
 }

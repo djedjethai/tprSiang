@@ -47,8 +47,8 @@ const carSchema = new Schema({
 		type: String,
             	require: false
 	},
-	bestSell: {
-		type: Boolean,
+	bestSeller: {
+		type: String,
             	require: false
 	}
 })

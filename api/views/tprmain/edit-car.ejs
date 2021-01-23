@@ -58,6 +58,14 @@
 		<option <%= car.type === 'รถยนฅ์อเนกประสงค์' ? 'selected' : '' %>>รถยนฅ์อเนกประสงค์</option>
 					</select>
                          </div>
+		<div>
+			<p>Add it on the first page:</p>
+			<label class="radio-inline">
+			<input type="radio" name="bestSeller" value='false' <%=car.bestSeller === 'false' ? 'checked' : ''%>>False</label>
+			<label class="radio-inline">
+			<input type="radio" name="bestSeller" value='true' <%=car.bestSeller === 'true' ? 'checked' : ''%>>True</label>
+		</div>
+
 
 		<% } else { %>
 			<div class="form-group">
@@ -79,14 +87,15 @@
 		<option>รถยนฅ์อเนกประสงค์</option>
 					</select>
                          </div>
+		<div>
+			<p>Add it on the first page:</p>
+			<label class="radio-inline">
+			<input type="radio" name="bestSeller" value='false' checked>False</label>
+			<label class="radio-inline">
+			<input type="radio" name="bestSeller" value='true'>True</label>
+		</div>
 
 		<% } %>
-
-					<div>
-			<p>Add it on the first page:</p>
-			<label class="radio-inline"><input type="radio" name="bestSeller" checked>False</label>
-			<label class="radio-inline"><input type="radio" name="bestSeller">True</label>
-		</div>
 
             	<% if (editing) { %>
                  	<input type="hidden" value="<%=car._id%>" name="carId" />

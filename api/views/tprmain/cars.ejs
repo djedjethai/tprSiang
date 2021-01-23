@@ -9,7 +9,7 @@
 		<% console.log(cars) %>
 		<div class="table-responsive">
 			<table class="table table-hover">
-	  		<thead><tr><th>Serie</th><th>Serie details</th><th>Engine</th><th>Grade</th><th>Price</th><th>Best seller<th>Action</th></tr></thead>
+	  		<thead><tr><th>Serie</th><th>Serie details</th><th>Engine</th><th>Grade</th><th>Price</th><th>Best seller</th><th>Action</th></tr></thead>
                         <%  cars.forEach((car) => { %>
                               	<tbody><tr>
 					<td>
@@ -32,10 +32,11 @@
 					</td>
 					<td>
                                         <a href="/admin/edit-car/<%= car._id %>/?edit=true" class="btn btn-success btn-xs">Edit</a>                               
-                                        <button class="btn btn-success btn-xs" type="button" onclick="deleteProduct(this)">Delete</button>
+                                        
+                                        <a href="/admin/delete-car/<%= car._id %>/?edit=true" class="btn btn-danger btn-xs">Delete</a>                               
                                     	</td>
 
-                                        <input type="hidden" name="prodId" value="<%= car._id %>" />
+                                        <input type="hidden" name="carId" value="<%= car._id %>" />
                                 </tr></tbody>
                                 <% }) %>
 			</table>
@@ -44,7 +45,7 @@
             	<p>No car found</p>    
         <% } %>    
 	
-	<button class="btn btn-success btn-xs"><a href="/admin/add-car" class="btn btn-success btn-xs">Add car</a></button>                               
+	<button class="btn btn-xs"><a href="/admin/add-car" class="btn btn-primary btn-xs">Add car</a></button>                               
 
 	</body>
 </html>
