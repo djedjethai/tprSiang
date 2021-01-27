@@ -20,19 +20,23 @@
 				<div class="form-group">
                                        	<label for="engine">Engine:</label>
 					<input type="text" name="engine" id="engine" class="form-control" value="<% if (editing) { %><%=car.engine%><% } %>" /> 
+				</div>
  				<div class="form-group">
                                        	<label for="grade">Grade:</label>
 					<input type="text" name="grade" id="grade" class="form-control" value="<% if (editing) { %><%=car.grade%><% } %>" /> 
+				</div>
  				<div class="form-group">
                                        	<label for="price">Price:</label>
 					<input type="text" name="price" id="price" class="form-control" value="<% if (editing) { %><%=car.price%><% } %>" /> 
+				</div>
 			<div class="form-group">
                                        	<label for="color">Color:</label>
 					<input type="text" name="color" id="color" class="form-control" value="<% if (editing) { %><%=car.color%><% } %>" />
+			</div>
  			<div class="form-group">
                                        	<label for="details">Details:</label>
                                        	<textarea name="details" id="details" class="form-control" row="5"><% if (editing) { %><%=car.details%><% } %></textarea>
-                               	</div>
+                        </div>
 
  			<div class="form-group">
                                        	<label for="picture">Picture:</label>

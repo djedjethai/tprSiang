@@ -3,7 +3,34 @@
     	</head>
     	<body>
 		<div>
-			<h1>Welcome to the PICSMAIN page</h1>
-               	</div>
+			<h1>Welcome to the PicsMain page</h1>
+
+			<table class="table table-hover">
+	  		<thead><tr><th>Picture</th><th>Action</th></tr></thead>
+                        <%  pictures.forEach((picture) => { %>
+                              	<tbody><tr>
+					<td>
+                                        	<%=picture._id%>
+					</td>
+                                        <td> 
+                                        <a href="/admin/delete-picsmain/<%= picture._id %>" class="btn btn-danger btn-xs">Delete</a>                               
+                                    	</td>
+
+                                        <input type="hidden" name="reviewId" value="<%= picture._id %>" />
+                                </tr></tbody>
+                                <% }) %>
+			</table>
+
+			
+			<p>
+                        <a href="/admin/presignurl-picsmain" class="btn btn-success btn-xs">Add Picture</a>                               
+			</p>
+		</div>
 	</body>
-	</html>
+</html>
+
+
+
+
+
+

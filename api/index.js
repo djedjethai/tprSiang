@@ -65,7 +65,7 @@ require('./routes/adminRt/authRt')(app)
 require('./routes/adminRt/carsRt')(app)
 require('./routes/adminRt/picsmainRt')(app)
 require('./routes/adminRt/picsstyleRt')(app)
-require('./routes/adminRt/ReviewsRt')(app)
+require('./routes/adminRt/reviewsRt')(app)
 
 app.use((req, res, next) => {
 	if(!req.session.user) return next()

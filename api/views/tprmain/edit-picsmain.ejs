@@ -1,0 +1,27 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+    	</head>
+    	<body>
+		<div>
+			<h1>Welcome to the PicsMain Add-Pics</h1>	
+
+			<form action="<%= presignUrl %>" method="POST" encType="multipart/form-data" class="col-xs-8 col-sm-6 col-md-5">
+				<label for="image" class="form-label">Add an image:</label>
+				<input class="form-control" type="file" id="image" name="image" />
+				<p></p>
+			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
+			<a href="http://localhost:3050/admin/picsmain" class="btn btn-primary">Back to main page</a> 
+			</form>
+        	</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

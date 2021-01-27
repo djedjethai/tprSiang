@@ -4,17 +4,17 @@ const { getReviews,
 	getDeleteReview,
 	postAddReview,
 	postEditReview
-} = require('../../controllers/adminCt/reviewsCt.jsCt')
+} = require('../../controllers/adminCt/reviewsCt.js')
 const isAuth = require('../../middleware/isAuth')
 
 module.exports = app => {
-	app.get('/cars', isAuth, getCars)
-	app.get('/add-car', getAddCar)
-	app.get('/edit-car/:id', getEditCar)
-	app.get('/delete-car/:id', getDeleteCar)
+	app.get('/reviews', isAuth, getReviews)
+	app.get('/add-review', getAddReview)
+	app.get('/edit-review/:id', getEditReview)
+	app.get('/delete-review/:id', getDeleteReview)
 	
-	app.post('/add-car', postAddCar)
-	app.post('/edit-car/:id', postEditCar)
+	app.post('/add-review', postAddReview)
+	app.post('/edit-review/:id', postEditReview)
 }
 
 
@@ -23,8 +23,4 @@ module.exports = app => {
 
 
 
-const { getReviews } = require('../../controllers/adminCt/ReviewsCt')
 
-module.exports = app => {
-	app.get('/reviews', getReviews)
-}

@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 
 const keys = require('../../config/keys')
 
+
 exports.getSignin = (req, res, next) => {
     	// const err = req.flash('error');
     	res.render('auth/signin', {
