@@ -55,6 +55,10 @@ exports.postAddPicsmain = (req, res, next) => {
 	console.log(req.session)
 
 	console.log(req.file)
+	
+	res.status(200).send({ok:"ok"})
+	// res.redirect('/admin/picsmain')
+
 	// const newPicture = {
 	// 	_id: "jhgejhfds",
 	// 	picture: nc.picture,

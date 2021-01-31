@@ -1,18 +1,43 @@
 <%- include('../includes/head.ejs') %>
 <%- include('../includes/navigation.ejs') %>
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     	</head>
     	<body>
 		<div>
 			<h1>Welcome to the PicsMain Add-Pics</h1>	
 
-			<form action="<%= presignUrl %>" method="POST" encType="multipart/form-data" class="col-xs-8 col-sm-6 col-md-5">
+			<p id="urlS3"><%= presignUrl %></p>		
+	
+			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 				<label for="image" class="form-label">Add an image:</label>
 				<input class="form-control" type="file" id="image" name="image" />
 				<p></p>
 			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
-			<a href="http://localhost:3050/admin/picsmain" class="btn btn-primary">Back to main page</a> 
 			</form>
         	</div>
+
+		<script type="text/javascript">
+      	  		$('#eventForm').submit(function (e) {
+          		e.preventDefault();
+		
+			var uu = $('#urlS3')
+			console.log(uu[0].namespaceURI)	
+          		var fd = new FormData(this);
+
+          		$.ajax({
+          		     //url: 'http://localhost:3050/admin/add-picsmain',
+          		     url: uu[0].innerText,
+          		     data: fd,
+          		     processData: false,
+          		     contentType: false,
+          		     type: 'POST',
+          		     success: function(data){
+          		         console.log(data);
+				 // window.location.replace("http://localhost:3050/admin/picsmain")
+          		     }
+          		});
+     			});
+		</script >
 	</body>
 </html>
 
