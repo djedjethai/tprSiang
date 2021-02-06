@@ -1,0 +1,94 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    	</head>
+    	<body>
+		<div>
+			<h1>Welcome to the Picsstyle Add-Pics</h1>	
+
+
+		<% if (editing) { %> 
+
+		<form action="/admin/modify-picsstyle/<%=picture._id%>>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
+ 			<div class="form-group">
+                                    	<label for="style">Style:</label>
+                                    	<select name="style" id="style" class="form-control" />
+		<option <%= picture.style === 'pick-up' ? 'selected' : '' %>>Pick-up</option>
+		<option <%= picture.style === 'single' ? 'selected' : '' %>>Single</option>
+		<option <%= picture.style === 'smart' ? 'selected' : '' %>>Smart</option>
+		<option <%= picture.style === 'double' ? 'selected' : '' %>>Double</option>
+		<option <%= picture.style === 'standart' ? 'selected' : '' %>>Standart</option>
+					</select>
+                       	</div>
+			<input type="hidden" value="<%=picture._id%>" name="carId" />
+                      
+	  		<button class="btn btn-primary " type="submit">Update picture style</button>
+            	</form>
+
+		<% } else { %>
+
+			<p id="urlS3" hidden><%= presignUrl %></p>		
+			 			
+
+			<div class="form-group">
+                                    	<label for="style">Style:</label>
+                                    	<select name="style" id="style" class="form-control" />
+						<option 'selected'>Pick-up</option>
+						<option>Single</option>
+						<option>Smart</option>
+						<option>Double</option>
+						<option>Standart</option>
+					</select>
+                       	</div>
+
+			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
+		
+				<label for="image" class="form-label">Add an image:</label>
+				<input class="form-control" type="file" id="image" name="image" />
+				<p></p>
+			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
+			</form>
+		<% } %>
+        	</div>
+
+		<script type="text/javascript">
+      	  		$('#eventForm').submit(function (e) {
+          		e.preventDefault();
+			
+			var style = $('#style')
+			var uu = $('#urlS3')
+			console.log(uu[0].namespaceURI)	
+          		var fd = new FormData(this);
+
+          		$.ajax({
+          		     //url: 'http://localhost:3050/admin/add-picsstyle',
+          		     url: uu[0].innerText,
+          		     data: fd,
+          		     processData: false,
+          		     contentType: false,
+          		     type: 'POST',
+          		     success: function(data){
+          		         console.log("sent pict suuccess: ", data);
+					
+				$.ajax({
+					url: "http://localhost:3050/admin/add-picsstyle",
+				  	// context: document.body,
+				  	data: {
+						"picUrl": uu[0].innerText, 
+						"style": style[0].innerText
+					},
+					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+					type: 'POST',
+					success: function(d) {
+						console.log('ouuuuaaarr: ', d)	
+				  		// window.location.replace("http://localhost:3050/admin/picsmain")
+					}
+          		        })
+			     }
+          		});
+     			});
+		</script >
+	</body>
+</html>
+
+

@@ -39,6 +39,8 @@ exports.getDeletePicsmain = (req, res, next) => {
 exports.getPresignurlPicsmain = (req, res, next) => {
 	console.log('dans presignurl')
 	// logique with aws to get presign url
+	// then send it to ejs page 
+	// here take this url for testing, 
 	const presignUrl = 'http://localhost:3050/admin/add-picsmain'
 	res.render('tprmain/edit-picsmain', {
 		pageTitle: 'edit-picsmain',
@@ -54,16 +56,15 @@ exports.postAddPicsmain = (req, res, next) => {
 
 	console.log(req.session)
 
-	console.log(req.file)
+	if (req.body) {
+		const urls3B = req.body
+		const url = {
+			url: urls3B.picUrl
+		}
+		console.log(url)
+	}
+	
+	// set logic to save in db picture url (which have been already saved in S3 bucket)
 	
 	res.status(200).send({ok:"ok"})
-	// res.redirect('/admin/picsmain')
-
-	// const newPicture = {
-	// 	_id: "jhgejhfds",
-	// 	picture: nc.picture,
-	// }
-	// // console.log(req.body)
-	// arrayPics.push(newPicture)
-	// res.redirect('/admin/reviews')
 }

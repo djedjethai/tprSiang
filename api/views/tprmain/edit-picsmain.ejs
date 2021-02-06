@@ -6,7 +6,7 @@
 		<div>
 			<h1>Welcome to the PicsMain Add-Pics</h1>	
 
-			<p id="urlS3"><%= presignUrl %></p>		
+			<p id="urlS3" hidden><%= presignUrl %></p>		
 	
 			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 				<label for="image" class="form-label">Add an image:</label>
@@ -32,9 +32,20 @@
           		     contentType: false,
           		     type: 'POST',
           		     success: function(data){
-          		         console.log(data);
-				 // window.location.replace("http://localhost:3050/admin/picsmain")
-          		     }
+          		         console.log("sent pict suuccess: ", data);
+					
+				$.ajax({
+					url: "http://localhost:3050/admin/add-picsmain",
+				  	// context: document.body,
+				  	data: {"picUrl": uu[0].innerText},
+					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+					type: 'POST',
+					success: function(d) {
+						console.log('ouuuuaaarr: ', d)	
+				  		// window.location.replace("http://localhost:3050/admin/picsmain")
+					}
+          		        })
+			     }
           		});
      			});
 		</script >

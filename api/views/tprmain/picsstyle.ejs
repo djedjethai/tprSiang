@@ -5,5 +5,30 @@
 		<div>
 			<h1>Welcome to the PICSSTYLE page</h1>
                	</div>
+		<table class="table table-hover">
+	  		<thead><tr><th>Picture</th><th>style</th><th>Action</th></tr></thead>
+                        <%  pictures.forEach((picture) => { %>
+                              	<tbody><tr>
+					<td>
+                                        	<%=picture._id%>
+					</td>
+					<td>
+						<%=picture.style%>
+					</td>
+                                        <td> 
+                                        <a href="/admin/delete-picsstyle/<%= picture._id %>" class="btn btn-danger btn-xs">Delete</a>                               
+                                        <a href="/admin/modify-picsstyle/<%= picture._id %>" class="btn btn-success btn-xs">Modify</a>                               
+                                    	</td>
+
+                                        <input type="hidden" name="reviewId" value="<%= picture._id %>" />
+                                </tr></tbody>
+                                <% }) %>
+			</table>
+
+			
+			<p>
+                        <a href="/admin/presignurl-picsstyle" class="btn btn-primary btn-xs">Add Picture</a>                               
+			</p>
+
 	</body>
-	</html>
+</html>
