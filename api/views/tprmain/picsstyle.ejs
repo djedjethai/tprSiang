@@ -2,6 +2,7 @@
 <%- include('../includes/navigation.ejs') %>
     	</head>
     	<body>
+<%- include('../includes/gridTop.ejs') %>
 		<div>
 			<h1>Welcome to the PICSSTYLE page</h1>
                	</div>
@@ -16,8 +17,8 @@
 						<%=picture.style%>
 					</td>
                                         <td> 
-                                        <a href="/admin/delete-picsstyle/<%= picture._id %>" class="btn btn-danger btn-xs">Delete</a>                               
                                         <a href="/admin/modify-picsstyle/<%= picture._id %>" class="btn btn-success btn-xs">Modify</a>                               
+                                        <a href="/admin/delete-picsstyle/<%= picture._id %>" class="btn btn-danger btn-xs">Delete</a>                               
                                     	</td>
 
                                         <input type="hidden" name="reviewId" value="<%= picture._id %>" />
@@ -30,5 +31,6 @@
                         <a href="/admin/presignurl-picsstyle" class="btn btn-primary btn-xs">Add Picture</a>                               
 			</p>
 
+<%- include('../includes/gridBottom.ejs') %>
 	</body>
 </html>

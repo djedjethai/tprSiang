@@ -2,6 +2,7 @@
 <%- include('../includes/navigation.ejs') %>
     	</head>
     	<body>
+<%- include('../includes/gridTop.ejs') %>
 		<h1>Welcome to the REVIEWS page</h1>
 	
 	<% if(hasReview){ %>
@@ -38,6 +39,7 @@
 	
 	<button class="btn btn-xs"><a href="/admin/add-review" class="btn btn-primary btn-xs">Add review</a></button>                               
 
+<%- include('../includes/gridBottom.ejs') %>
 	</body>
 </html>
 

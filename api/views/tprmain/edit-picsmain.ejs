@@ -3,6 +3,8 @@
 <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     	</head>
     	<body>
+		
+<%- include('../includes/gridTop.ejs') %>
 		<div>
 			<h1>Welcome to the PicsMain Add-Pics</h1>	
 
@@ -16,6 +18,8 @@
 			</form>
         	</div>
 
+<%- include('../includes/gridBottom.ejs') %>
+		
 		<script type="text/javascript">
       	  		$('#eventForm').submit(function (e) {
           		e.preventDefault();
@@ -42,7 +46,7 @@
 					type: 'POST',
 					success: function(d) {
 						console.log('ouuuuaaarr: ', d)	
-				  		// window.location.replace("http://localhost:3050/admin/picsmain")
+				  		window.location.replace("http://localhost:3050/admin/picsmain")
 					}
           		        })
 			     }

@@ -69,9 +69,11 @@ exports.postAddReview = (req, res, next) => {
 	console.log('ds postaddcar')
 	console.log(req.session)
 
+	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
+
 	const nc = req.body
 	const newReview = {
-		_id: "jhgejhfds",
+		_id: id,
 		name: nc.name,
 		comment: nc.comment,
 		picture: nc.picture,

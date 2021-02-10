@@ -24,6 +24,7 @@ exports.getPicsstyle = (req, res, next) => {
 	res.render('tprmain/picsstyle', {
 		pageTitle: 'picsstyle',
 		path: '/picsstyle',
+		pictures: arrayPics,
 		editing: false
 	})	
 }
@@ -56,14 +57,14 @@ exports.getModifyPicsstyle = (req, res, next) => {
 	const id = req.params.id
 	console.log('dans modif picsstyle: ', id)
 	
-	const picture = arrayPics.select(pic => pic._id === id)
+	const picture = arrayPics.filter(pic => pic._id === id)
 	console.log('pic to midify: ', picture)
 	
 	res.render('tprmain/edit-picsstyle', {
 		pageTitle: 'edit-picsstyle',
 		path: '/edit-picsstyle',
 		editing: true,
-		picture: picture
+		picture: picture[0]
 	})
 }
 
@@ -74,21 +75,41 @@ exports.postAddPicsstyle = (req, res, next) => {
 
 	console.log(req.session)
 
-	if (req.body) {
-		// const urls3B = req.body
-		const url = {
+		
+	// temporary conditon as i use this route to simulate the s3Bucket url
+	 if (req.body.style) {
+	 	// at this point, pic has been saved in s3 bucket, 
+	 	// here we save the url and the syle in db
+	
+		const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
+		console.log('the style: ', req.body.style)
+		const newPic = {
+			_id: id,
 			style: req.body.style,
 			url: req.body.picUrl
 		}
-		console.log(url)
+		
+		arrayPics.push(newPic)
+		// the ajax request will redirect to the picsstyle page 
+		res.status(200).send({ok:"saved"})
+		
+		return
 	}
-	
+
 	// set logic to save in db picture url (which have been already saved in S3 bucket)
 	
 	res.status(200).send({ok:"ok"})
 }
 
 exports.postModifyPicsstyle = (req, res, next) => {
-	console.log('in post midifPiscctyle')
-	console.log(req.body)
+
+	const indexPicToModif = arrayPics.findIndex(pic => pic._id === req.params.id)
+	arrayPics[indexPicToModif].style = req.body.style
+	
+	res.render('tprmain/picsstyle', {
+		pageTitle: 'picsstyle',
+		path: '/picsstyle',
+		pictures: arrayPics,
+		editing: false
+	})	
 }

@@ -3,13 +3,15 @@
 <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     	</head>
     	<body>
+<%- include('../includes/gridTop.ejs') %>
 		<div>
 			<h1>Welcome to the Picsstyle Add-Pics</h1>	
 
 
 		<% if (editing) { %> 
+		<%=console.log(picture)%>		
 
-		<form action="/admin/modify-picsstyle/<%=picture._id%>>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
+		<form action="/admin/modify-picsstyle/<%=picture._id%>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
  			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" />
@@ -20,7 +22,7 @@
 		<option <%= picture.style === 'standart' ? 'selected' : '' %>>Standart</option>
 					</select>
                        	</div>
-			<input type="hidden" value="<%=picture._id%>" name="carId" />
+			<!--<input type="hidden" value="" name="carId" />-->
                       
 	  		<button class="btn btn-primary " type="submit">Update picture style</button>
             	</form>
@@ -51,14 +53,21 @@
 		<% } %>
         	</div>
 
+<%- include('../includes/gridBottom.ejs') %>
+		
 		<script type="text/javascript">
       	  		$('#eventForm').submit(function (e) {
           		e.preventDefault();
 			
 			var style = $('#style')
 			var uu = $('#urlS3')
-			console.log(uu[0].namespaceURI)	
-          		var fd = new FormData(this);
+			// console.log('the pic style choiced: ', style)
+			// const indexStyle = style[0].options.selectedIndex
+			// console.log('selected index: ', indexStyle)	
+          		const styleToSave = style[0][style[0].options.selectedIndex].innerText
+			// console.log(styleToSave)
+
+			var fd = new FormData(this);
 
           		$.ajax({
           		     //url: 'http://localhost:3050/admin/add-picsstyle',
@@ -75,13 +84,13 @@
 				  	// context: document.body,
 				  	data: {
 						"picUrl": uu[0].innerText, 
-						"style": style[0].innerText
+						"style": styleToSave
 					},
 					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 					type: 'POST',
 					success: function(d) {
 						console.log('ouuuuaaarr: ', d)	
-				  		// window.location.replace("http://localhost:3050/admin/picsmain")
+				  		window.location.replace("http://localhost:3050/admin/picsstyle")
 					}
           		        })
 			     }

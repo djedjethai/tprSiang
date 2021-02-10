@@ -95,9 +95,11 @@ exports.postAddCar = (req, res, next) => {
 	console.log('ds postaddcar')
 	console.log(req.session)
 
+	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
+
 	const nc = req.body
 	const newCar = {
-		_id: "jhgejhfds",
+		_id: id,
 		serie: nc.serie,
 		serieDetails: nc.serieDetails,
 		wheel: nc.wheel,

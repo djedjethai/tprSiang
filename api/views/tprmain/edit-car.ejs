@@ -2,6 +2,7 @@
 <%- include('../includes/navigation.ejs') %>
     	</head>
     	<body>
+<%- include('../includes/gridTop.ejs') %>
 		<div>
 			<h1>Welcome to the CARS page</h1>
 			<form action="/admin/<% if (editing && !errorMessage) { %>edit-car/<%=car._id%><% } else { %>add-car<% } %>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
@@ -108,5 +109,6 @@
                         <button class="btn btn-primary " type="submit"><% if (editing && !errorMessage) { %>Update Car<% } else { %>Add Car<% } %></button>
             </form>
          </div>
+<%- include('../includes/gridBottom.ejs') %>
 </body>
 </html>
