@@ -12,7 +12,7 @@ const arrayCars = [{
 	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
-	style:"single",
+	style:"Seden",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:'false'
 	},{
@@ -26,7 +26,7 @@ const arrayCars = [{
 	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
-	style:"single",
+	style:"Suv",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:'false'
 	},{
@@ -40,7 +40,7 @@ const arrayCars = [{
 	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
 	picture:"www.pic.com",
-	style:"single",
+	style:"Smart",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:'false'
 	}

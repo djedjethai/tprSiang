@@ -8,8 +8,7 @@
 			<h1>Welcome to the Picsstyle Add-Pics</h1>	
 
 
-		<% if (editing) { %> 
-		<%=console.log(picture)%>		
+		<% if (editing) { %> 		
 
 		<form action="/admin/modify-picsstyle/<%=picture._id%>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
  			<div class="form-group">
@@ -83,8 +82,8 @@
 					url: "http://localhost:3050/admin/add-picsstyle",
 				  	// context: document.body,
 				  	data: {
-						"picUrl": uu[0].innerText, 
-						"style": styleToSave
+						id: uu[0].innerText,
+						style: styleToSave
 					},
 					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 					type: 'POST',
