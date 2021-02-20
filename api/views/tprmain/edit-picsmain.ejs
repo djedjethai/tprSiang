@@ -8,11 +8,11 @@
 		<div>
 			<h1>Welcome to the PicsMain Add-Pics</h1>	
 
-			<p id="urlS3" hidden><%= presignUrl %></p>		
+			<p id="pass" hidden><%= token %></p>		
 	
 			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 				<label for="image" class="form-label">Add an image:</label>
-				<input class="form-control" type="file" id="image" name="image" />
+				<input class="form-control" type="file" id="image" name="image" onchange="loadFile(event)" />
 				<p></p>
 			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
 			</form>
@@ -21,37 +21,68 @@
 <%- include('../includes/gridBottom.ejs') %>
 		
 		<script type="text/javascript">
-      	  		$('#eventForm').submit(function (e) {
-          		e.preventDefault();
+			
+			// delete this function ???	
+			var loadFile = function(event){
+				console.log('jhgfjgf')
+				console.log(event.target.files[0])
+			}
+			
+			// get the token
+			let pass = document.getElementById('pass')
+			console.log('the token: ', pass)
 		
-			var uu = $('#urlS3')
-			console.log(uu[0].namespaceURI)	
-          		var fd = new FormData(this);
+			var form = document.getElementById('eventForm');
+			form.addEventListener('submit', (event) => {
+				event.preventDefault();
+				console.log('hhhhhhh')
 
-          		$.ajax({
-          		     //url: 'http://localhost:3050/admin/add-picsmain',
-          		     url: uu[0].innerText,
-          		     data: fd,
-          		     processData: false,
-          		     contentType: false,
-          		     type: 'POST',
-          		     success: function(data){
-          		         console.log("sent pict suuccess: ", data);
-					
-				$.ajax({
-					url: "http://localhost:3050/admin/add-picsmain",
-				  	// context: document.body,
-				  	data: {"picUrl": uu[0].innerText},
-					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-					type: 'POST',
-					success: function(d) {
-						console.log('ouuuuaaarr: ', d)	
-				  		window.location.replace("http://localhost:3050/admin/picsmain")
-					}
-          		        })
-			     }
-          		});
-     			});
+				console.log(event.target[0].files[0])
+
+				// connect api to get presihn url 
+
+				// when get back res send url to s3bucket
+				
+				
+				console.log(fd)
+				// eventListenerHandler(fd);
+			})
+
+
+	
+      	  		// $('#eventForm').submit(function (e) {
+          		// e.preventDefault();
+		
+			// var uu = $('#urlS3')
+			// 
+          		// var fd = new FormData(this);
+			// 
+			// console.log('get fd datas: ', fd)
+
+          		// $.ajax({
+          		//      //url: 'http://localhost:3050/admin/add-picsmain',
+          		//      url: uu[0].innerText,
+          		//      data: fd,
+          		//      processData: false,
+          		//      contentType: false,
+          		//      type: 'POST',
+          		//      success: function(data){
+          		//          console.log("sent pict suuccess: ", data);
+			// 		
+			// 	$.ajax({
+			// 		url: "http://localhost:3050/admin/add-picsmain",
+			// 	  	// context: document.body,
+			// 	  	data: {"picUrl": uu[0].innerText},
+			// 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			// 		type: 'POST',
+			// 		success: function(d) {
+			// 			console.log('ouuuuaaarr: ', d)	
+			// 	  		// window.location.replace("http://localhost:3050/admin/picsmain")
+			// 		}
+          		//         })
+			//      }
+          		// });
+     			// });
 		</script >
 	</body>
 </html>

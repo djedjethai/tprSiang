@@ -12,6 +12,9 @@ const app = express()
 // app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// app.use(express.static(path.join(__dirname, 'tmp')));
+console.log('my path at entry module', __dirname)
+
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin','*')
 	res.setHeader('Access-Control-Allow-Methods','GET, POST')
@@ -66,6 +69,7 @@ require('./routes/adminRt/carsRt')(app)
 require('./routes/adminRt/picsmainRt')(app)
 require('./routes/adminRt/picsstyleRt')(app)
 require('./routes/adminRt/reviewsRt')(app)
+require('./routes/uploadRoutes')(app)
 
 app.use((req, res, next) => {
 	if(!req.session.user) return next()
