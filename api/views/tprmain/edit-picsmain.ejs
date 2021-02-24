@@ -29,22 +29,39 @@
 			}
 			
 			// get the token
-			let pass = document.getElementById('pass')
+			let pass = document.getElementById('pass').textContent
 			console.log('the token: ', pass)
 		
 			var form = document.getElementById('eventForm');
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
-				console.log('hhhhhhh')
+				const data = {token: pass}
+				
+				console.log('hhhhhhh: ', data)
+
 
 				console.log(event.target[0].files[0])
+				fetch('http://localhost:3050/admin/add-picsmain', {
+					method: 'POST',
+					mode: 'no-cors',
+					body: JSON.stringify(data),
+					headers: {
+				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
+					//'Content-Type': 'application/json'
+					}
+				})
+				.then(d => {
+					console.log('sent image data and get url ok: ', d)
+					// here second request to s3 bucket
+				})
+				.catch(e => console.log(e))
 
 				// connect api to get presihn url 
 
 				// when get back res send url to s3bucket
 				
 				
-				console.log(fd)
+				//console.log(fd)
 				// eventListenerHandler(fd);
 			})
 
@@ -60,8 +77,8 @@
 			// console.log('get fd datas: ', fd)
 
           		// $.ajax({
-          		//      //url: 'http://localhost:3050/admin/add-picsmain',
-          		//      url: uu[0].innerText,
+          		//      url: 'http://localhost:3050/admin/add-picsmain',
+          		//      //url: uu[0].innerText,
           		//      data: fd,
           		//      processData: false,
           		//      contentType: false,
@@ -81,7 +98,7 @@
 			// 		}
           		//         })
 			//      }
-          		// });
+          		// });script
      			// });
 		</script >
 	</body>

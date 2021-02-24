@@ -5,10 +5,14 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
+// const cors = require('cors')
 
 const keys = require('./config/keys')
 
 const app = express()
+
+// app.use(cors())
+
 // app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
