@@ -1,14 +1,26 @@
-module.exports = (req, res, next) => {
-	// if (!req.session.isLoggedIn) {
-	// 	return res.redirect('/admin/getsignin')
-	// 	    
-	// }   
+const crypto = require('crypto')
+const fs = require('fs').promises
 
-	console.log('in the tokenAuth: ', req.boby)
+module.exports = async(req, res, next) => {
+	  
+	async function verify(password, hash) {
+	    return new Promise((resolve, reject) => {
+	        const [salt, key] = hash.split(":")
+	        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
+	            if (err) reject(err);
+	            resolve(key == derivedKey.toString('hex'))
+	        });
+	    })
+	}
+	const hash = JSON.parse(Object.keys(req.body)[0]).token
 
-	// okkk, set the logique to bcrypt req.body.token
-	// if not ok, return auth
+	const secret = await fs.readFile('/opt/app/tmp/token.txt','utf8')
 
+	if( await verify(secret, hash) === false) {
+		console.log('i am in err')
+		res.status(404).send('wrong path')
+		return
+	}
 	next()
 }
 

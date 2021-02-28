@@ -8,7 +8,7 @@
 		<div>
 			<h1>Welcome to the PicsMain Add-Pics</h1>	
 
-			<p id="pass" hidden><%= token %></p>		
+			<p id="token" hidden><%= token %></p>		
 	
 			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 				<label for="image" class="form-label">Add an image:</label>
@@ -29,13 +29,17 @@
 			}
 			
 			// get the token
-			let pass = document.getElementById('pass').textContent
-			console.log('the token: ', pass)
+			let token = document.getElementById('token').textContent
+			console.log('the token: ', token)
 		
 			var form = document.getElementById('eventForm');
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
-				const data = {token: pass}
+				const data = {
+					token,
+					name: 'paul',
+					age: 78
+				}
 				
 				console.log('hhhhhhh: ', data)
 
@@ -47,7 +51,7 @@
 					body: JSON.stringify(data),
 					headers: {
 				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
-					//'Content-Type': 'application/json'
+					// 'Content-Type': 'application/json'
 					}
 				})
 				.then(d => {

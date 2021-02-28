@@ -2,6 +2,7 @@ const Picmain = require('mongoose').model('Picmain')
 const fs = require('fs')
 const { promisify } = require('util')
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto')
 
 const arrayPics = [
 	{
@@ -42,13 +43,24 @@ exports.getDeletePicsmain = (req, res, next) => {
 exports.getPresignurlPicsmain = async(req, res, next) => {
 	console.log('dans presignurl')
 
+	// func a exporter
+	async function encrypt(password) {
+	    return new Promise((resolve, reject) => {
+	        // generate random 16 bytes long salt
+	        const salt = crypto.randomBytes(16).toString("hex")
+	
+	        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
+	            if (err) reject(err);
+	            resolve(salt + ":" + derivedKey.toString('hex'))
+	        });
+	    })
+	}
+
+	// random token stronger... ???
 	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 	try{
 
-		const saltRounds = 10;
-		const myPlaintextPassword = 'jerome';
-		const salt =  await bcrypt.genSalt(saltRounds)
-        	const hash =  await bcrypt.hash(token, salt) 	
+		const hash = await encrypt(token)
 
 		const print = (e,d) => {
 			if(e) throw Error(e)
@@ -82,8 +94,10 @@ exports.postAddPicsmain = (req, res, next) => {
 	// req to get all pics
 	console.log('dans postAddPics')
 
-	console.log('the body de fouuu: ', req.body)
-	
+	// console.log('the body de fouuu: ', req.body)
+	console.log('the body de fouuu: ', JSON.parse(Object.keys(req.body)[0]))
+	// console.log('the body de fouuu: ', JSON.parse(Object.keys(req.body)[0]).token)
+
 	// set logic to save in db picture url (which have been already saved in S3 bucket)
 	// temporary set this condition as this path simulate the s3Bucker path
 	if (req.body.picUrl) {
