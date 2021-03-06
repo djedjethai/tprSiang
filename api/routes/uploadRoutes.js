@@ -1,19 +1,32 @@
 const AWS = require('aws-sdk')
 const keys = require('../config/keys') 
-const uuid = require('uuid/v1')
+// const uuid = require('uuid/v1')
+// const crypto = require('crypto')
+const tokenAuth = require('../middleware/tokenAuth')
 
 const s3 = new AWS.S3({
 	accessKeyId: keys.accessKeyId,
 	secretAccessKey: keys.secretAccessKey
 })
 
+
 module.exports = app => {
-	app.get('/api/upload/:id', (req, res) => {
-		const key = `${req.params.id}/${uuid()}/.jpeg`
+	app.post('/upload', tokenAuth, (req, res) => {
+
+		const uid = Math.random().toString(36).split('.')[1].slice(0, 10)
+		const namePic = JSON.parse(Object.keys(req.body)[0]).picture
+		const section = JSON.parse(Object.keys(req.body)[0]).section
+		const key = `${section}/${uid}${namePic}`
+		console.log(key)
+		
 		s3.getSignedUrl('putObject', {
 			Bucket: 'node-advance-course',
-			ContentType: 'jpeg',
-
+			ContentType: 'image/jpeg',
+			Key: key
+		}, (e, url) => {
+			console.log('the url from s3: ', url)
+			console.log(typeof url)
+			res.status(200).send({key, url})
 		})
 	})
 }
