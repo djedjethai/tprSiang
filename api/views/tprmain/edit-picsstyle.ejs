@@ -14,11 +14,11 @@
  			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" />
-		<option <%= picture.style === 'pick-up' ? 'selected' : '' %>>Pick-up</option>
-		<option <%= picture.style === 'single' ? 'selected' : '' %>>Single</option>
-		<option <%= picture.style === 'smart' ? 'selected' : '' %>>Smart</option>
-		<option <%= picture.style === 'double' ? 'selected' : '' %>>Double</option>
-		<option <%= picture.style === 'standart' ? 'selected' : '' %>>Standart</option>
+		<option <%= picture.style === 'Pick-up' ? 'selected' : '' %>>Pick-up</option>
+		<option <%= picture.style === 'Single' ? 'selected' : '' %>>Single</option>
+		<option <%= picture.style === 'Smart' ? 'selected' : '' %>>Smart</option>
+		<option <%= picture.style === 'Double' ? 'selected' : '' %>>Double</option>
+		<option <%= picture.style === 'Standart' ? 'selected' : '' %>>Standart</option>
 					</select>
                        	</div>
 			<!--<input type="hidden" value="" name="carId" />-->
@@ -28,12 +28,12 @@
 
 		<% } else { %>
 
-			<p id="urlS3" hidden><%= presignUrl %></p>		
+			<p id="token" hidden><%=token%></p>		
 			 			
 
 			<div class="form-group">
                                     	<label for="style">Style:</label>
-                                    	<select name="style" id="style" class="form-control" />
+                                    	<select name="style" id="style" class="form-control" onchange="loadStyle(event)" />
 						<option 'selected'>Pick-up</option>
 						<option>Single</option>
 						<option>Smart</option>
@@ -55,47 +55,79 @@
 <%- include('../includes/gridBottom.ejs') %>
 		
 		<script type="text/javascript">
-      	  		$('#eventForm').submit(function (e) {
-          		e.preventDefault();
-			
-			var style = $('#style')
-			var uu = $('#urlS3')
-			// console.log('the pic style choiced: ', style)
-			// const indexStyle = style[0].options.selectedIndex
-			// console.log('selected index: ', indexStyle)	
-          		const styleToSave = style[0][style[0].options.selectedIndex].innerText
-			// console.log(styleToSave)
+			// get token and datas from form
+			let key = ''
+			let style = 'Pick-up'	
+			const token = document.getElementById('token').textContent
 
-			var fd = new FormData(this);
+			var loadStyle = function(event) {
+				style = event.target.value
+			}
 
-          		$.ajax({
-          		     //url: 'http://localhost:3050/admin/add-picsstyle',
-          		     url: uu[0].innerText,
-          		     data: fd,
-          		     processData: false,
-          		     contentType: false,
-          		     type: 'POST',
-          		     success: function(data){
-          		         console.log("sent pict suuccess: ", data);
-					
-				$.ajax({
-					url: "http://localhost:3050/admin/add-picsstyle",
-				  	// context: document.body,
-				  	data: {
-						id: uu[0].innerText,
-						style: styleToSave
-					},
-					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-					type: 'POST',
-					success: function(d) {
-						console.log('ouuuuaaarr: ', d)	
-				  		window.location.replace("http://localhost:3050/admin/picsstyle")
+		
+			var form = document.getElementById('eventForm');
+			form.addEventListener('submit', (event) => {
+				event.preventDefault();
+				const data = {
+					token,
+					section: 'picsstyle',
+					picture: event.target[0].files[0].name
+				}
+				
+				fetch('http://localhost:3050/admin/upload', {
+					method: 'POST',
+					mode: 'no-cors',
+					body: JSON.stringify(data),
+					headers: {
+				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
+					// 'Content-Type': 'application/json'
 					}
-          		        })
-			     }
-          		});
-     			});
-		</script >
+				})
+				.then(d => {				
+// in order to access the data from a ReadableStream you need to call one of the conversion
+					return d.json()
+				})
+				.then(d => {
+				key = d.key
+				fetch(d.url, {
+					method: 'PUT',
+					body: event.target[0].files[0],
+					headers: {
+					'Content-Type': "image/jpeg"
+					}	
+				})	
+				})
+				.then(d => {
+					// picture url will be 
+				const picUrl = `https://node-advance-course.s3-ap-southeast-1.amazonaws.com/${key}`
+				console.log('after target s3: ', picUrl)
+				const dataForDb = {
+					style,
+					picUrl,
+					token
+				}
+					
+				return fetch('http://localhost:3050/admin/add-picsstyle', {
+					method: 'POST',
+					mode: 'no-cors',
+					body: JSON.stringify(dataForDb),
+					headers: {
+				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
+					// 'Content-Type': 'application/json'
+					}
+
+				})
+				})
+				.then(d => {
+					if (d) {
+		window.location.replace("http://localhost:3050/admin/picsstyle")
+					}	
+				})
+				.catch(e => console.log(e))
+
+			})
+
+      		</script >
 	</body>
 </html>
 

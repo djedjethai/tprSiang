@@ -10,8 +10,8 @@
 	  		<thead><tr><th>Picture</th><th>style</th><th>Action</th></tr></thead>
                         <%  pictures.forEach((picture) => { %>
                               	<tbody><tr>
-					<td>
-                                        	<%=picture._id%>
+					<td>	
+                                        	<img src=<%=picture.pic%> style="width:100px" alt="pic car by style">
 					</td>
 					<td>
 						<%=picture.style%>
@@ -28,7 +28,7 @@
 
 			
 			<p>
-                        <a href="/admin/presignurl-picsstyle" class="btn btn-primary btn-xs">Add Picture</a>                               
+                        <a href="/admin/choice-picsstyle" class="btn btn-primary btn-xs">Add Picture</a>                               
 			</p>
 
 <%- include('../includes/gridBottom.ejs') %>

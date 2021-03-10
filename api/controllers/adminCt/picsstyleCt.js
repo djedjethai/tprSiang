@@ -1,19 +1,20 @@
 const Picstyle = require('mongoose').model('Picstyle')
+const { encrypt, saveToken } = require('../../services/token')
 
 const arrayPics = [
 	{
 		_id: "jjhbkj",
-		style: "single",
+		style: "Single",
 		pic: "first one"
 	},
 	{
 		_id: "gfds",
-		style: "double",
+		style: "Double",
 		pic: "first two"
 	},
 	{
 		_id: "ncvbv",
-		style: "smart",
+		style: "Smart",
 		pic: "first three"
 	}
 ]
@@ -39,18 +40,27 @@ exports.getDeletePicsstyle = (req, res, next) => {
 	res.redirect('/admin/picsstyle')
 }
 
-exports.getPresignurlPicsstyle = (req, res, next) => {
+exports.getChoicePicsstyle = async(req, res, next) => {
 	console.log('dans presignurl')
-	// logique with aws to get presign url
-	// then send it to ejs page 
-	// here take this url for testing, 
-	const presignUrl = 'http://localhost:3050/admin/add-picsstyle'
-	res.render('tprmain/edit-picsstyle', {
-		pageTitle: 'edit-picsstyle',
-		path: '/edit-picsstyle',
-		editing: false,
-		presignUrl: presignUrl
-	})
+		
+	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
+	try{
+		const hash = await encrypt(token)
+		const tokenSaved = await saveToken(token)
+		if(!tokenSaved) {
+			throw(new Error('err during token saving process')) 
+			return
+		}
+
+		res.render('tprmain/edit-picsstyle', {
+			pageTitle: 'edit-picsstyle',
+			path: '/edit-picsstyle',
+			editing: false,
+			token: hash
+		})
+	} catch(e) {
+		console.error(e)
+	}	
 }
 
 exports.getModifyPicsstyle = (req, res, next) => {
@@ -72,24 +82,25 @@ exports.getModifyPicsstyle = (req, res, next) => {
 exports.postAddPicsstyle = (req, res, next) => {
 	// req to get all pics
 	console.log('dans postAddPics')
-
-	console.log(req.session)
+	
+	const dataToStore = JSON.parse(Object.keys(req.body)[0])
 
 		
 	// temporary conditon as i use this route to simulate the s3Bucket url
-	 if (req.body.style) {
+	 if (dataToStore.picUrl) {
 	 	// at this point, pic has been saved in s3 bucket, 
 	 	// here we save the url and the syle in db
 	
 		const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
-		console.log('the style: ', req.body.style)
+		console.log('the style: ', dataToStore.style)
 		const newPic = {
 			_id: id,
-			style: req.body.style,
-			url: req.body.picUrl
+			style: dataToStore.style,
+			pic: dataToStore.picUrl
 		}
 		
 		arrayPics.push(newPic)
+		console.log('final datas stored', arrayPics)
 		// the ajax request will redirect to the picsstyle page 
 		res.status(200).send({ok:"saved"})
 		
@@ -98,7 +109,7 @@ exports.postAddPicsstyle = (req, res, next) => {
 
 	// set logic to save in db picture url (which have been already saved in S3 bucket)
 	
-	res.status(200).send({ok:"ok"})
+	res.status(500).send({message:"An error occured, please try again"})
 }
 
 exports.postModifyPicsstyle = (req, res, next) => {

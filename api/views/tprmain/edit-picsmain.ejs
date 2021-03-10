@@ -12,7 +12,7 @@
 	
 			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 				<label for="image" class="form-label">Add an image:</label>
-				<input class="form-control" type="file" id="image" name="image" onchange="loadFile(event)" />
+				<input class="form-control" type="file" id="image" name="image" />
 				<p></p>
 			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
 			</form>
@@ -21,16 +21,9 @@
 <%- include('../includes/gridBottom.ejs') %>
 		
 		<script type="text/javascript">
+						
 			let key = ''	
-			// delete this function ???	
-			var loadFile = function(event){
-				console.log('jhgfjgf')
-				console.log(event.target.files[0])
-			}
-			
-			// get the token
 			let token = document.getElementById('token').textContent
-			console.log('the token: ', token)
 		
 			var form = document.getElementById('eventForm');
 			form.addEventListener('submit', (event) => {
@@ -41,10 +34,6 @@
 					picture: event.target[0].files[0].name
 				}
 				
-				console.log('hhhhhhh: ', data)
-
-
-				console.log(event.target[0].files[0].name)
 				fetch('http://localhost:3050/admin/upload', {
 					method: 'POST',
 					mode: 'no-cors',
@@ -59,12 +48,7 @@
 					return d.json()
 				})
 				.then(d => {
-					// set the req to upload the picture to s3
-				console.log('apres traitement: ', d)
-				console.log('files data: ', event.target[0].files[0])
 				key = d.key
-				// const formData = new FormData()
-				//formData.append('file', event.target[0].files[0])
 				fetch(d.url, {
 					method: 'PUT',
 					body: event.target[0].files[0],
@@ -75,56 +59,34 @@
 				})
 				.then(d => {
 					// picture url will be 
-					const picUrl = `https://node-advance-course.s3-ap-southeast-1.amazonaws.com/${key}`
-					console.log('after target s3: ', picUrl)	
+				const picUrl = `https://node-advance-course.s3-ap-southeast-1.amazonaws.com/${key}`
+				console.log('after target s3: ', picUrl)
+				const dataForDb = {
+					picUrl,
+					token
+				}
+					
+				return fetch('http://localhost:3050/admin/add-picsmain', {
+					method: 'POST',
+					mode: 'no-cors',
+					body: JSON.stringify(dataForDb),
+					headers: {
+				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
+					// 'Content-Type': 'application/json'
+					}
+
+				})
+				})
+				.then(d => {
+					if(d) {
+		window.location.replace("http://localhost:3050/admin/picsmain")
+					}
 				})
 				.catch(e => console.log(e))
 
-				// connect api to get presihn url 
-
-				// when get back res send url to s3bucket
-				
-				
-				//console.log(fd)
-				// eventListenerHandler(fd);
 			})
 
-
-	
-      	  		// $('#eventForm').submit(function (e) {
-          		// e.preventDefault();
-		
-			// var uu = $('#urlS3')
-			// 
-          		// var fd = new FormData(this);
-			// 
-			// console.log('get fd datas: ', fd)
-
-          		// $.ajax({
-          		//      url: 'http://localhost:3050/admin/add-picsmain',
-          		//      //url: uu[0].innerText,
-          		//      data: fd,
-          		//      processData: false,
-          		//      contentType: false,
-          		//      type: 'POST',
-          		//      success: function(data){
-          		//          console.log("sent pict suuccess: ", data);
-			// 		
-			// 	$.ajax({
-			// 		url: "http://localhost:3050/admin/add-picsmain",
-			// 	  	// context: document.body,
-			// 	  	data: {"picUrl": uu[0].innerText},
-			// 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-			// 		type: 'POST',
-			// 		success: function(d) {
-			// 			console.log('ouuuuaaarr: ', d)	
-			// 	  		// window.location.replace("http://localhost:3050/admin/picsmain")
-			// 		}
-          		//         })
-			//      }
-          		// });script
-     			// });
-		</script >
+      	  	</script >
 	</body>
 </html>
 

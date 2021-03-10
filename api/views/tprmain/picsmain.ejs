@@ -11,7 +11,7 @@
                         <%  pictures.forEach((picture) => { %>
                               	<tbody><tr>
 					<td>
-                                        	<%=picture._id%>
+                                        	<img src=<%=picture.pic%> style="width:100px" alt="pic car">
 					</td>
                                         <td> 
                                         <a href="/admin/delete-picsmain/<%= picture._id %>" class="btn btn-danger btn-xs">Delete</a>                               
@@ -24,7 +24,7 @@
 
 			
 			<p>
-                        <a href="/admin/presignurl-picsmain" class="btn btn-primary btn-xs">Add Picture</a>                               
+                        <a href="/admin/choice-picsmain" class="btn btn-primary btn-xs">Add Picture</a>                               
 			</p>
 		</div>
 <%- include('../includes/gridTop.ejs') %>
