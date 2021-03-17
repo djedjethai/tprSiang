@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 const keys = require('../../config/keys')
+const { AuthError } = require('../../error/listErrors')
 
 
 exports.getSignin = (req, res, next) => {
@@ -44,23 +45,14 @@ exports.postSignin = async (req, res, next) => {
 			
 			res.redirect('/admin/cars')
 			return
-			// return req.session.save((err) => {
-			// 	res.render('tprmain/cars', {
-        		// 		pageTitle: 'tprmain',
-        		// 		path: '/cars',
-        		// 		editing: false,
-        		// 		test: 'alors',
-        		// 		// errorMessage: err[0],
-        		// 		errorDetails: ''
-    			// 	});
-			// })
-		}
+					}
 		else{	
-			throw new Error()
+			console.log('testing err')
+			throw new AuthError('password incorrect')
 		}
 	}
 	catch(e) {
-		res.redirect('/admin/getsignin')
+		// res.redirect('/admin/getsignin')
 		
 		// set an err page later
 		// don t like this way easy for force brute attack
@@ -68,6 +60,7 @@ exports.postSignin = async (req, res, next) => {
 		
 		// this create an err(resend res), 
 		// next(new Error('A technical problem occur, please try again'))
+		next(e)
 		return
 	}
 

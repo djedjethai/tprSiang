@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
+const { errorHandler } = require('./middleware/errorHandler')
 // const cors = require('cors')
 
 const keys = require('./config/keys')
@@ -91,11 +92,12 @@ app.use((req, res, next) => {
 })
 
 
-app.use((err, req, res, next) => {
-	const status = err.status || 500;
-	const mess = err.message;
-	res.status(status).send({mess})
-})
+app.use(errorHandler)
+// app.use((err, req, res, next) => {
+// 	const status = err.status || 500;
+// 	const mess = err.message;
+// 	res.status(status).send({mess})
+// })
 
 app.listen(5000, () => {
 		console.log('listen on port 5000');
