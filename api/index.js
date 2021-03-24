@@ -93,11 +93,7 @@ app.use((req, res, next) => {
 
 
 app.use(errorHandler)
-// app.use((err, req, res, next) => {
-// 	const status = err.status || 500;
-// 	const mess = err.message;
-// 	res.status(status).send({mess})
-// })
+
 
 app.listen(5000, () => {
 		console.log('listen on port 5000');

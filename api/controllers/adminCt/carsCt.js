@@ -151,7 +151,6 @@ exports.postEditCar = (req, res, next) => {
 }
 
 exports.getDeleteCar = (req, res, next) => {
-	// console.log('dddddddddddeeeeeeeeeellllllllleeeeeeeettte')
 	console.log(req.params.id)
 	const ID = req.params.id
 

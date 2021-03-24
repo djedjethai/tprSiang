@@ -1,5 +1,6 @@
 const Picmain = require('mongoose').model('Picmain')
 const { encrypt, saveToken } = require('../../services/token')
+const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 
 const arrayPics = [
 	{
@@ -16,9 +17,8 @@ const arrayPics = [
 	}
 ]
 
-
+// get all pics
 exports.getPicsmain = (req, res, next) => {
-	// req to get all pics 
 	console.log(req.session)
 	res.render('tprmain/picsmain', {
 		pageTitle: 'picsmain',
@@ -27,6 +27,7 @@ exports.getPicsmain = (req, res, next) => {
 	})
 }
 
+// delete one pic
 exports.getDeletePicsmain = (req, res, next) => {
 	// req to get all pics 
 	console.log(req.params.id)
@@ -37,15 +38,15 @@ exports.getDeletePicsmain = (req, res, next) => {
 	res.redirect('/admin/picsmain')
 }
 
+// access to the page to select a picture, join token for auth
 exports.getChoicePicsmain = async(req, res, next) => { 
-	// random token stronger... ???
 	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 	try{
 
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
 		if(!tokenSaved) {
-			throw(new Error('err during token saving process')) 
+			throw new ProcessError('A system error occured, please retry.')
 			return
 		}
 
@@ -56,18 +57,16 @@ exports.getChoicePicsmain = async(req, res, next) => {
 		})
 	
 	} catch(e) {
-		console.error(e)
+		next(e)
 	}
 
 }
 
-
+// add data into db. from ajax req
 exports.postAddPicsmain = (req, res, next) => {
 
 	const dataToStore = JSON.parse(Object.keys(req.body)[0])
-	// console.log('the body de fouuu: ', dataToStore)
 
-	// store new data to db
 	if (dataToStore.picUrl) {
 		const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
 		console.log('the style: ', req.body.style)
@@ -79,11 +78,15 @@ exports.postAddPicsmain = (req, res, next) => {
 		arrayPics.push(newPic)
 
 		// the ajax request will redirect to the picsstyle page 
+		// if ok from db 
 		res.status(200).send({ok:"saved"})
-		
+		// else throw ServerError
+
+
 		return
 	}
 
-	
-	res.status(500).send({message:"An error occured, please try again"})
+	next(new ApiProcessError('A system error occured, please try again'))
+	return
+	// res.status(500).send({message:"An error occured, please try again"})
 }
