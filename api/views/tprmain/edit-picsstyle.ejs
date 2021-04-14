@@ -55,6 +55,8 @@
 <%- include('../includes/gridBottom.ejs') %>
 		
 		<script type="text/javascript">
+
+			// const tt = require('../../utility/apiFetch')
 			// get token and datas from form
 			let key = ''
 			let style = 'Pick-up'	
@@ -75,8 +77,10 @@
 				}
 			
 				// debut func
+				// url second fetch
 				// args: urlRedirect + one obj with data to save in db(the function will add to it the picUrl )
 				// + pass the data(obj), or the func should be able to access it directly ??
+			
 				fetch('http://localhost:3050/admin/upload', {
 					method: 'POST',
 					mode: 'no-cors',

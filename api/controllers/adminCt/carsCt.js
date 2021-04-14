@@ -1,5 +1,6 @@
 const Car = require('mongoose').model('Car')
-
+const { encrypt, saveToken } = require('../../services/token')
+const { ProcessError, ApiProcessError } = require('../../error/listErrors')
 
 const arrayCars = [{
 	_id: "jhgferrtt",
@@ -60,15 +61,29 @@ exports.getCars = (req, res, next) => {
 	})
 }
 
-exports.getAddCar = (req, res, next) => {
+exports.getAddCar = async (req, res, next) => {
 	// req to get all pics 
-	console.log('ds getaddcar')
-	console.log(req.session)
-	res.render('tprmain/edit-car', {
-		pageTitle: 'edit-car',
-		path: '/edit-car',
-		editing: false
-	})
+	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
+	try {
+		console.log('ds getaddcar')
+		console.log(req.session)
+
+		const hash = await encrypt(token)
+		const tokenSaved = await saveToken(token)
+		if(!tokenSaved) {
+			throw(new ProcessError("A system error occured, please try again"))
+			return
+		}
+
+		res.render('tprmain/edit-car', {
+			pageTitle: 'edit-car',
+			path: '/edit-car',
+			editing: false,
+			token: hash
+		})
+	} catch(e) {
+		next(e)
+	}		
 }
 
 exports.getEditCar = (req, res, next) => {
