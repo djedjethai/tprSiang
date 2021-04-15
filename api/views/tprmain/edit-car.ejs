@@ -5,41 +5,43 @@
 <%- include('../includes/gridTop.ejs') %>
 		<div>
 			<h1>Welcome to the CARS page</h1>
+			<% if(editing && !errorMessage) { %>
 			<form action="/admin/<% if (editing && !errorMessage) { %>edit-car/<%=car._id%><% } %>"  method="POST" class="col-xs-8 col-sm-6 col-md-5">
+			<% } %>
                              	<div class="form-group">
                                     	<label for="serie">Serie:</label>
-					<input type="text" name="serie" id="serie" class="form-control" value="<% if (editing) { %><%=car.serie%><% } %>" />
+					<input type="text" name="serie" id="serie" class="form-control" onchange="loadSerie(event)" value="<% if (editing) { %><%=car.serie%><% } %>" />
 				</div>
                                 <div class="form-group">
                                   	<label for="serieDetails">Serie details:</label>
-                                       	<input type="text" name="serieDetails" id="serieDetails" class="form-control" value="<% if (editing) { %><%=car.serieDetails%><% } %>" />
+                                       	<input type="text" name="serieDetails" id="serieDetails" class="form-control" onchange="loadSerieDetails(event)" value="<% if (editing) { %><%=car.serieDetails%><% } %>" />
                                 </div>
                                 <div class="form-group">
                                        	<label for="wheel">Wheel:</label>
-					<input type="number" name="wheel" id="wheel" class="form-control" value="<% if (editing) { %><%=car.wheel%><% } %>" /> 
+					<input type="number" name="wheel" id="wheel" class="form-control" onchange="loadWheel(event)" value="<% if (editing) { %><%=car.wheel%><% } %>" /> 
                                	</div>
 				<div class="form-group">
                                        	<label for="engine">Engine:</label>
-					<input type="text" name="engine" id="engine" class="form-control" value="<% if (editing) { %><%=car.engine%><% } %>" /> 
+					<input type="text" name="engine" id="engine" class="form-control" onchange="loadEngine(event)" value="<% if (editing) { %><%=car.engine%><% } %>" /> 
 				</div>
  				<div class="form-group">
                                        	<label for="grade">Grade:</label>
-					<input type="text" name="grade" id="grade" class="form-control" value="<% if (editing) { %><%=car.grade%><% } %>" /> 
+					<input type="text" name="grade" id="grade" class="form-control" onchange="loadGrade(event)" value="<% if (editing) { %><%=car.grade%><% } %>" /> 
 				</div>
  				<div class="form-group">
                                        	<label for="price">Price:</label>
-					<input type="text" name="price" id="price" class="form-control" value="<% if (editing) { %><%=car.price%><% } %>" /> 
+					<input type="text" name="price" id="price" class="form-control" onchange="loadPrice(event)" value="<% if (editing) { %><%=car.price%><% } %>" /> 
 				</div>
 			<div class="form-group">
                                        	<label for="color">Color:</label>
-					<input type="text" name="color" id="color" class="form-control" value="<% if (editing) { %><%=car.color%><% } %>" />
+					<input type="text" name="color" id="color" class="form-control" onchange="loadColor(event)" value="<% if (editing) { %><%=car.color%><% } %>" />
 			</div>
  			<div class="form-group">
                                        	<label for="details">Details:</label>
-                                       	<textarea name="details" id="details" class="form-control" row="5"><% if (editing) { %><%=car.details%><% } %></textarea>
+                                       	<textarea name="details" id="details" class="form-control" row="5" onchange="loadDetails(event)"><% if (editing) { %><%=car.details%><% } %> </textarea>
                         </div>
 
- 		<% if (editing) { %> 
+		<% if (editing) { %>
  			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" />
@@ -68,14 +70,13 @@
 			<input type="radio" name="bestSeller" value='true' <%=car.bestSeller === 'true' ? 'checked' : ''%>>True</label>
 		</div>
 
-
 		<% } else { %>
 			
 			<p id="token" hidden><%=token%></p>		
 
 			<div class="form-group">
-                            	<label for="style">Style:</label>
-                                <select name="style" id="style" class="form-control" />
+                        <label for="style">Style:</label>
+                        <select name="style" id="style" class="form-control" onchange="loadStyle(event)" />
 		<option selected>Pick-up</option>
 		<option>Single</option>
 		<option>Smart</option>
@@ -84,8 +85,8 @@
 					</select>
                        	</div>
 			<div class="form-group">
-                                    	<label for="type">Type:</label>
-                                    	<select name="type" id="type" class="form-control" />
+                        <label for="type">Type:</label>
+                        <select name="type" id="type" class="form-control" onchange="loadType(event)" />
 		<option selected>รุนรถ</option>
 		<option>รถยนฅ์นั่งส่วนบุคคล</option>
 		<option>รถยนฅ์เพื่อการพาณิซย์</option>
@@ -97,14 +98,14 @@
 			<label class="radio-inline">
 			<input type="radio" name="bestSeller" value='false' checked>False</label>
 			<label class="radio-inline">
-			<input type="radio" name="bestSeller" value='true'>True</label>
+			<input type="radio" name="bestSeller" value='true' onchange="loadBestSeller(event)">True</label>
 		</div>
 		<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5" />
-                                       	<label for="image" class="form-label">Picture:</label>
-					<input class="form-control" type="file" id="image" name="image" />
-					<p></p>
+                       	<label for="image" class="form-label">Picture:</label>
+			<input class="form-control" type="file" id="image" onchange="loadVerifPic(true)" name="image" />
+			<p></p>
 		
-			<input type="submit" class="btn btn-primary" name="submit" value="Add-car" />
+			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
 		</form>	
 
 		<% } %>
@@ -119,25 +120,38 @@
             </form>
          </div>
 <%- include('../includes/gridBottom.ejs') %>
-
+	
+	
+	<% if(!editing) { %>
 		<script type="text/javascript">
 
-			let key = ''
-			let serie = document.getElementById('serie').textContent
-			let serieDetails = document.getElementById('serieDetails').textContent
-			let wheel = document.getElementById('wheel').textContent
-			let engine = document.getElementById('engine').textContent
-			let grade = document.getElementById('grade').textContent
-			let price = document.getElementById('price').textContent
-			let color = document.getElementById('color').textContent
-			let details = document.getElementById('details').textContent
-			let style = document.getElementById('style').textContent
-			let type = document.getElementById('type').textContent
-			
-			let bestSel = document.getElementByName('bestSeller')
-			let bestSeller = ''
-			for (let i=0; i < bestSel.length; i++) {
-				if(bestSel[i].checked) bestSeller = bestSel[i].value
+			// let key = ''
+			let serie = ''
+			let loadSerie = function() {serie = event.target.value}
+			var serieDetails = ''
+			let loadSerieDetails = function() {serieDetails = event.target.value}
+			var wheel = ''
+			let loadWheel = function(event) {wheel = event.target.value}
+			var engine = ''
+			let loadEngine = function(event) {engine = event.target.value}
+			var grade = ''
+			let loadGrade = function(event) {grade = event.target.value} 
+			var price = ''
+			let loadPrice = function(event) {price = event.target.value}
+			var color = ''
+			let loadColor = function(event) {color = event.target.value}
+			var details = ''
+			let loadDetails = function(event) {details = event.target.value}
+			let style = "Pick-up"
+			let loadStyle = function(event) {style = event.target.value}
+			let type = "รุนรถ"
+			let loadType = function(event) {type = event.target.value}
+			let bestSeller = false
+			let loadBestSeller = function(event) {bestSeller = event.target.value}
+			var verifPic = false
+			let loadVerifPic = function(dt) {
+				console.log(dt)
+				verifPic = dt
 			}
 
 			const token = document.getElementById('token').textContent
@@ -145,6 +159,11 @@
 			var form = document.getElementById('eventForm');
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
+				if(!verifPic) { 
+					console.log('grrrrrrrrrrr')
+					alert('A picture must be include')
+					return 
+				}
 				const data = {
 					token,
 					section: 'car',
@@ -181,12 +200,23 @@
 				
 				// dataForDb should be pass as arg, and here we add the picUrl
 				const dataForDb = {
+					serie,
+					serieDetails,
+					wheel,
+					engine,
+					grade,
+					price,
+					color,
+					details,
 					style,
+					type,
+					bestSeller,
 					picUrl,
 					token
 				}
+				console.log("all datas from browser: ", dataForDb)
 					
-				return fetch('http://localhost:3050/admin/add-picsstyle', {
+				return fetch('http://localhost:3050/admin/add-car', {
 					method: 'POST',
 					mode: 'no-cors',
 					body: JSON.stringify(dataForDb),
@@ -199,7 +229,7 @@
 				})
 				.then(d => {
 					if (d) {
-		window.location.replace("http://localhost:3050/admin/picsstyle")
+		window.location.replace("http://localhost:3050/admin/cars")
 					}	
 				})
 				.catch(e => console.log(e))
@@ -207,7 +237,37 @@
 			})
 
       		</script >
-
-
+		<% } else { %>
+		
+		<script type="text/javascript">
+			let serie = ''
+			let loadSerie = function() {serie = event.target.value}
+			var serieDetails = ''
+			let loadSerieDetails = function() {serieDetails = event.target.value}
+			var wheel = ''
+			let loadWheel = function(event) {wheel = event.target.value}
+			var engine = ''
+			let loadEngine = function(event) {engine = event.target.value}
+			var grade = ''
+			let loadGrade = function(event) {grade = event.target.value} 
+			var price = ''
+			let loadPrice = function(event) {price = event.target.value}
+			var color = ''
+			let loadColor = function(event) {color = event.target.value}
+			var details = ''
+			let loadDetails = function(event) {details = event.target.value}
+			let style = "Pick-up"
+			let loadStyle = function(event) {style = event.target.value}
+			let type = "รุนรถ"
+			let loadType = function(event) {type = event.target.value}
+			let bestSeller = false
+			let loadBestSeller = function(event) {bestSeller = event.target.value}
+			var verifPic = false
+			let loadVerifPic = function(dt) {
+				console.log(dt)
+				verifPic = dt
+			}
+		</script>
+		<% } %>
 </body>
 </html>

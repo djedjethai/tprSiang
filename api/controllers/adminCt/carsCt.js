@@ -112,7 +112,8 @@ exports.postAddCar = (req, res, next) => {
 
 	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
 
-	const nc = req.body
+	const nc = JSON.parse(Object.keys(req.body)[0])
+	console.log(nc)
 	const newCar = {
 		_id: id,
 		serie: nc.serie,
@@ -123,16 +124,16 @@ exports.postAddCar = (req, res, next) => {
 		price: nc.price,
 		color: nc.color,
 		details: nc.details,
-		picture: nc.picture,
+		picture: nc.picUrl,
 		style: nc.style,
 		type: nc.type,
 		bestSeller: nc.bestSeller
 	}
 	// console.log(req.body)
 	arrayCars.push(newCar)
-	console.log('car ADDDDD')
-	console.log(arrayCars)
-	res.redirect('/admin/cars')
+	console.log('car final datas stored: ', arrayCars)
+	res.status(200).send({ok:"car saved"})
+	return 
 }
 
 exports.postEditCar = (req, res, next) => {
