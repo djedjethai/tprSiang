@@ -45,15 +45,15 @@
 			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 		
 				<label for="image" class="form-label">Add an image:</label>
-				<input class="form-control" type="file" id="image" name="image" />
+				<input class="form-control" type="file" id="image" name="image" onchange="loadVerifPic(true)"/>
 				<p></p>
-			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
+				<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
 			</form>
 		<% } %>
         	</div>
 
 <%- include('../includes/gridBottom.ejs') %>
-		
+		<%if(!editing) {%>	
 		<script type="text/javascript">
 
 			// const tt = require('../../utility/apiFetch')
@@ -66,10 +66,20 @@
 				style = event.target.value
 			}
 
+			var verifPic = false
+			let loadVerifPic = function(dt) {
+				console.log(dt)
+				verifPic = dt
+			}
 		
 			var form = document.getElementById('eventForm');
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
+				if(!verifPic) { 
+					alert('A picture must be include')
+					return 
+				}
+
 				const data = {
 					token,
 					section: 'picsstyle',
@@ -137,6 +147,7 @@
 			})
 
       		</script >
+		<% } %>
 	</body>
 </html>
 

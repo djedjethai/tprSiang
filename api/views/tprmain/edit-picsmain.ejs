@@ -12,7 +12,7 @@
 	
 			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5">
 				<label for="image" class="form-label">Add an image:</label>
-				<input class="form-control" type="file" id="image" name="image" />
+				<input class="form-control" type="file" id="image" name="image" onchange="loadVerifPic(true)"/>
 				<p></p>
 			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
 			</form>
@@ -25,9 +25,22 @@
 			let key = ''	
 			let token = document.getElementById('token').textContent
 		
+			var verifPic = false
+			let loadVerifPic = function(dt) {
+				console.log(dt)
+				verifPic = dt
+			}
+
+
 			var form = document.getElementById('eventForm');
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
+				if(!verifPic) { 
+					console.log('grrrrrrrrrrr')
+					alert('A picture must be include')
+					return 
+				}
+
 				const data = {
 					token,
 					section: 'picsmain',

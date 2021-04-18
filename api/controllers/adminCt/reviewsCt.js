@@ -1,4 +1,6 @@
 const Review = require('mongoose').model('Review')
+const { encrypt, saveToken } = require('../../services/token')
+const { ProcessError, ApiProcessError } = require('../../error/listErrors')
 
 const arrayReviews = [{
 	_id: "jhgferrtt",
@@ -22,9 +24,6 @@ const arrayReviews = [{
 
 exports.getReviews = (req, res, next) => {
 	// req to get all pics 
-	// check if have car if yes hasCars = true
-	console.log('grrrrrr')
-	console.log(req.session)
 	res.render('tprmain/reviews', {
 		pageTitle: 'reviews',
 		path: '/tprmain/reviews',
@@ -34,26 +33,32 @@ exports.getReviews = (req, res, next) => {
 	})
 }
 
-exports.getAddReview = (req, res, next) => {
+exports.getAddReview = async(req, res, next) => {
 	// req to get all pics 
-	console.log('ds getaddcar')
-	console.log(req.session)
-	res.render('tprmain/edit-review', {
-		pageTitle: 'edit-review',
-		path: '/edit-review',
-		editing: false
-	})
+	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
+	try {
+		const hash = await encrypt(token)
+		const tokenSaved = await saveToken(token)
+		if(!tokenSaved) {
+			throw(new ProcessError("A system error occured, please try again"))
+			return
+		}
+
+		res.render('tprmain/edit-review', {
+			pageTitle: 'edit-review',
+			path: '/edit-review',
+			editing: false,
+			token: hash
+		})
+	} catch(e) {
+		next(e)
+	}	
 }
 
 exports.getEditReview = (req, res, next) => {
-	const ID = req.params.id 
 	// req to get all pics 
-	console.log('ds getEditcar')
-	console.log('the IIIDDD: ', ID)
-	
+	const ID = req.params.id 
 	const review = arrayReviews.filter(data => data._id.toString() === ID.toString())
-	
-	console.log('Thhe car: ', review)
 
 	res.render('tprmain/edit-review', {
 		pageTitle: 'edit-review',
@@ -66,45 +71,36 @@ exports.getEditReview = (req, res, next) => {
 
 exports.postAddReview = (req, res, next) => {
 	// req to get all pics 
-	console.log('ds postaddcar')
-	console.log(req.session)
-
 	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
+	const nc = JSON.parse(Object.keys(req.body)[0])
 
-	const nc = req.body
-	const newReview = {
-		_id: id,
-		name: nc.name,
-		comment: nc.comment,
-		picture: nc.picture,
-		quand: Date.now()
-	}
-	// console.log(req.body)
-	arrayReviews.push(newReview)
-	console.log('car ADDDDD')
-	console.log(arrayReviews)
-	res.redirect('/admin/reviews')
+	if(nc.picUrl) {
+		const newReview = {
+			_id: id,
+			name: nc.name,
+			comment: nc.comment,
+			picture: nc.picUrl,
+			quand: Date.now()
+		}
+		// console.log(req.body)
+		arrayReviews.push(newReview)
+		res.status(200).send({ok:"review saved"})
+		return 
+	} 
+
+	next(new ApiProcessError('A system error occured, please try again'))
 }
 
 exports.postEditReview = (req, res, next) => {
 	// req to get all pics 
-	console.log('ds postEditcar')
-	console.log(req.session)
-	console.log(req.body)
-	
 	const ID = req.params.id
 
-	const nc = req.body
-	const newReview = {
-		_id: ID,
-		name: nc.name,
-		comment: nc.comment,
-		picture: nc.picture,
-		quand: Date.now()
-	}
-	
 	const indexRepl = arrayReviews.findIndex(rv => rv._id === ID)
-	arrayReviews[indexRepl] = newReview
+	const nc = req.body
+	arrayReviews[indexRepl].name = nc.name
+	arrayReviews[indexRepl].comment = nc.comment	
+	arrayReviews[indexRepl].quand = Date.now()
+	
 	res.redirect('/admin/reviews')
 }
 

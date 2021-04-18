@@ -1,32 +1,138 @@
 <%- include('../includes/head.ejs') %>
 <%- include('../includes/navigation.ejs') %>
-    	</head>
+</head>
     	<body>
-<%- include('../includes/gridTop.ejs') %>
+		<%- include('../includes/gridTop.ejs') %>
 		<div>
-			<h1>Welcome to the Edit-review page</h1>
-			<form action="/admin/<% if (editing && !errorMessage) { %>edit-review/<%=review._id%><% } else { %>add-review<% } %>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
+			<h1>Welcome to the Edit-review page</h1>	
+		<% if(editing && !errorMessage) { %>
+			<form action="/admin/edit-review/<%=review._id%>" method="POST" class="col-xs-8 col-sm-6 col-md-5">
+		<% } %>
                              	<div class="form-group">
                                     	<label for="name">Name:</label>
-					<input type="text" name="name" id="name" class="form-control" value="<% if (editing) { %><%=review.name%><% } %>" />
+					<input type="text" name="name" id="name" class="form-control" onchange="loadName(event)" value="<% if (editing) { %><%=review.name%><% } %>" />
 				</div>
                                  <div class="form-group">
                                        	<label for="comment">Comment:</label>
-                                       	<textarea name="comment" id="comment" class="form-control" row="5"><% if (editing) { %><%=review.comment%><% } %></textarea>
+                                       	<textarea name="comment" id="comment" class="form-control" onchange="loadComment(event)" row="5"><% if (editing) { %><%=review.comment%><% } %></textarea>
                                	</div>
 
- 			<div class="form-group">
-                                       	<label for="picture">Picture:</label>
-					<input type="text" name="picture" id="picture" class="form-control" value="<% if (editing) { %><%=review.picture%><% } %>" />
-			</div>
+		<% if(editing) { %>
+			
+			 <input type="hidden" value="<%=review._id%>" name="carId" />
+			 <button class="btn btn-primary" type="submit">Update Review</button>
+			
+		<% } else { %>
+			
+			<p id="token" hidden><%=token%></p>		
+
+			<form id="eventForm" class="col-xs-8 col-sm-6 col-md-5" />
+                       		<label for="image" class="form-label">Picture:</label>
+				<input class="form-control" type="file" id="image" onchange="loadVerifPic(true)" name="image" />
+				<p></p>
 		
-            	<% if (editing) { %>
-                 	<input type="hidden" value="<%=review._id%>" name="reviewId" />
-                            	<%= console.log(review._id) %>
-                <% } %>
-                        <button class="btn btn-primary" type="submit"><% if (editing && !errorMessage) { %>Update Review<% } else { %>Add Review<% } %></button>
-            </form>
-         </div>
-<%- include('../includes/gridBottom.ejs') %>
-</body>
+				<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
+		<% } %>
+			</form>
+		</div>
+
+                <%- include('../includes/gridBottom.ejs') %>
+		
+		<% if(!editing) { %>
+		<script type="text/javascript">
+
+			let key = ''
+			let name = ''
+			let loadName = function() {name = event.target.value}
+			var comment = ''
+			let loadComment = function() {comment = event.target.value}
+			
+			var verifPic = false
+			let loadVerifPic = function(dt) {
+				console.log(dt)
+				verifPic = dt
+			}
+
+			const token = document.getElementById('token').textContent
+		
+			var form = document.getElementById('eventForm');
+			form.addEventListener('submit', (event) => {
+				event.preventDefault();
+				if(!verifPic) { 
+					alert('A picture must be include')
+					return 
+				}
+				const data = {
+					token,
+					section: 'review',
+					picture: event.target[0].files[0].name
+				}
+
+				fetch('http://localhost:3050/admin/upload', {
+					method: 'POST',
+					mode: 'no-cors',
+					body: JSON.stringify(data),
+					headers: {
+				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
+					// 'Content-Type': 'application/json'
+					}
+				})
+				.then(d => {				
+// in order to access the data from a ReadableStream you need to call one of the conversion
+					return d.json()
+				})
+				.then(d => {
+					key = d.key
+					fetch(d.url, {
+						method: 'PUT',
+						body: event.target[0].files[0],
+						headers: {
+						'Content-Type': "image/jpeg"
+						}	
+					})	
+				})
+				.then(d => {
+					// picture url will be 
+				const picUrl = `https://node-advance-course.s3-ap-southeast-1.amazonaws.com/${key}`
+				console.log('after target s3: ', picUrl)	
+				// dataForDb should be pass as arg, and here we add the picUrl
+				const dataForDb = {
+					name,
+					comment,
+					picUrl,
+					token
+				}
+					
+				return fetch('http://localhost:3050/admin/add-review', {
+					method: 'POST',
+					mode: 'no-cors',
+					body: JSON.stringify(dataForDb),
+					headers: {
+				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
+					// 'Content-Type': 'application/json'
+					}
+				})
+				})
+				.then(d => {
+					if (d) {
+						setTimeout(() => {
+			window.location.replace("http://localhost:3050/admin/reviews")
+						}, 500)
+					}	
+				})
+				.catch(e => console.log(e))
+			})
+
+      		</script >
+		<% } else { %>
+		<script type="text/javascript">
+			// trick for the func to be reconize in edit reviews mode
+			let name = ''
+			let loadName = function() {name = event.target.value}
+			var comment = ''
+			let loadComment = function() {comment = event.target.value}
+		</script>
+		<% } %>		
+
+	</body>
 </html>

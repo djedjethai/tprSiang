@@ -6,7 +6,7 @@
 		<div>
 			<h1>Welcome to the CARS page</h1>
 			<% if(editing && !errorMessage) { %>
-			<form action="/admin/<% if (editing && !errorMessage) { %>edit-car/<%=car._id%><% } %>"  method="POST" class="col-xs-8 col-sm-6 col-md-5">
+			<form action="/admin/edit-car/<%=car._id%>"  method="POST" class="col-xs-8 col-sm-6 col-md-5">
 			<% } %>
                              	<div class="form-group">
                                     	<label for="serie">Serie:</label>
@@ -70,6 +70,9 @@
 			<input type="radio" name="bestSeller" value='true' <%=car.bestSeller === 'true' ? 'checked' : ''%>>True</label>
 		</div>
 
+			<input type="hidden" value="<%=car._id%>" name="carId" />
+                        <button class="btn btn-primary " type="submit">Update Car</button>
+			<p></p>
 		<% } else { %>
 			
 			<p id="token" hidden><%=token%></p>		
@@ -106,26 +109,20 @@
 			<p></p>
 		
 			<input type="submit" class="btn btn-primary" name="submit" value="Submit" />
-		</form>	
-
+			<p></p>
 		<% } %>
+		</form>
+	</div>
 
-            	<% if (editing) { %>
-			
-                 	<input type="hidden" value="<%=car._id%>" name="carId" />
-                            	<%= console.log(car._id) %>
-                        <button class="btn btn-primary " type="submit"><% if (editing && !errorMessage) { %>Update Car<% } %></button>
-		
-                <% } %>
-            </form>
-         </div>
+              <!--</form>
+         </div>-->
 <%- include('../includes/gridBottom.ejs') %>
 	
 	
 	<% if(!editing) { %>
 		<script type="text/javascript">
 
-			// let key = ''
+			let key = ''
 			let serie = ''
 			let loadSerie = function() {serie = event.target.value}
 			var serieDetails = ''
@@ -160,7 +157,6 @@
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
 				if(!verifPic) { 
-					console.log('grrrrrrrrrrr')
 					alert('A picture must be include')
 					return 
 				}
@@ -169,7 +165,7 @@
 					section: 'car',
 					picture: event.target[0].files[0].name
 				}
-			
+
 				fetch('http://localhost:3050/admin/upload', {
 					method: 'POST',
 					mode: 'no-cors',
@@ -196,8 +192,7 @@
 				.then(d => {
 					// picture url will be 
 				const picUrl = `https://node-advance-course.s3-ap-southeast-1.amazonaws.com/${key}`
-				console.log('after target s3: ', picUrl)
-				
+				console.log('after target s3: ', picUrl)	
 				// dataForDb should be pass as arg, and here we add the picUrl
 				const dataForDb = {
 					serie,
@@ -229,7 +224,9 @@
 				})
 				.then(d => {
 					if (d) {
-		window.location.replace("http://localhost:3050/admin/cars")
+						setTimeout(() => {
+			window.location.replace("http://localhost:3050/admin/cars")
+						}, 500)
 					}	
 				})
 				.catch(e => console.log(e))
@@ -256,17 +253,6 @@
 			let loadColor = function(event) {color = event.target.value}
 			var details = ''
 			let loadDetails = function(event) {details = event.target.value}
-			let style = "Pick-up"
-			let loadStyle = function(event) {style = event.target.value}
-			let type = "รุนรถ"
-			let loadType = function(event) {type = event.target.value}
-			let bestSeller = false
-			let loadBestSeller = function(event) {bestSeller = event.target.value}
-			var verifPic = false
-			let loadVerifPic = function(dt) {
-				console.log(dt)
-				verifPic = dt
-			}
 		</script>
 		<% } %>
 </body>

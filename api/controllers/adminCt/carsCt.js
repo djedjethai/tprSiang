@@ -49,9 +49,6 @@ const arrayCars = [{
 
 exports.getCars = (req, res, next) => {
 	// req to get all pics 
-	// check if have car if yes hasCars = true
-	console.log('grrrrrr')
-	console.log(req.session)
 	res.render('tprmain/cars', {
 		pageTitle: 'cars',
 		path: '/tprmain/cars',
@@ -88,13 +85,7 @@ exports.getAddCar = async (req, res, next) => {
 
 exports.getEditCar = (req, res, next) => {
 	const id = req.params.id 
-	// req to get all pics 
-	console.log('ds getEditcar')
-	console.log('the IIIDDD: ', id)
-	
 	const car = arrayCars.filter(data => data._id.toString() === id.toString())
-	
-	console.log('Thhe car: ', car)
 
 	res.render('tprmain/edit-car', {
 		pageTitle: 'edit-car',
@@ -106,34 +97,34 @@ exports.getEditCar = (req, res, next) => {
 }
 
 exports.postAddCar = (req, res, next) => {
-	// req to get all pics 
-	console.log('ds postaddcar')
-	console.log(req.session)
-
 	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
-
 	const nc = JSON.parse(Object.keys(req.body)[0])
-	console.log(nc)
-	const newCar = {
-		_id: id,
-		serie: nc.serie,
-		serieDetails: nc.serieDetails,
-		wheel: nc.wheel,
-		engine: nc.engine,
-		grade: nc.grade,
-		price: nc.price,
-		color: nc.color,
-		details: nc.details,
-		picture: nc.picUrl,
-		style: nc.style,
-		type: nc.type,
-		bestSeller: nc.bestSeller
+	
+	if(nc.picUrl) {
+		console.log(nc)
+		const newCar = {
+			_id: id,
+			serie: nc.serie,
+			serieDetails: nc.serieDetails,
+			wheel: nc.wheel,
+			engine: nc.engine,
+			grade: nc.grade,
+			price: nc.price,
+			color: nc.color,
+			details: nc.details,
+			picture: nc.picUrl,
+			style: nc.style,
+			type: nc.type,
+			bestSeller: nc.bestSeller.toString()
+		}
+		// console.log(req.body)
+		arrayCars.push(newCar)
+		console.log('car final datas stored: ', arrayCars)
+		res.status(200).send({ok:"car saved"})
+		return 
 	}
-	// console.log(req.body)
-	arrayCars.push(newCar)
-	console.log('car final datas stored: ', arrayCars)
-	res.status(200).send({ok:"car saved"})
-	return 
+	
+	next(new ApiProcessError('A system error occured, please try again'))
 }
 
 exports.postEditCar = (req, res, next) => {
@@ -145,24 +136,21 @@ exports.postEditCar = (req, res, next) => {
 	const ID = req.params.id
 
 	const nc = req.body
-	const newCar = {
-		_id: ID,
-		serie: nc.serie,
-		serieDetails: nc.serieDetails,
-		wheel: nc.wheel,
-		engine: nc.engine,
-		grade: nc.grade,
-		price: nc.price,
-		color: nc.color,
-		details: nc.details,
-		picture: nc.picture,
-		style: nc.style,
-		type: nc.type,
-		bestSeller: nc.bestSeller
-	}
-	
+	console.log('to modif in ctroller', nc)
 	const indexRepl = arrayCars.findIndex(car => car._id === ID)
-	arrayCars[indexRepl] = newCar
+
+	arrayCars[indexRepl].serie = nc.serie
+	arrayCars[indexRepl].serieDetails = nc.serieDetails
+	arrayCars[indexRepl].wheel = nc.wheel
+	arrayCars[indexRepl].engine = nc.engine
+	arrayCars[indexRepl].grade = nc.grade
+	arrayCars[indexRepl].price = nc.price
+	arrayCars[indexRepl].color = nc.color
+	arrayCars[indexRepl].details = nc.details
+	arrayCars[indexRepl].style = nc.style
+	arrayCars[indexRepl].type = nc.type
+	arrayCars[indexRepl].bestSeller = nc.bestSeller.toString()
+
 	res.redirect('/admin/cars')
 }
 
