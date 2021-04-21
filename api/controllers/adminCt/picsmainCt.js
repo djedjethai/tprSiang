@@ -1,6 +1,11 @@
 const Picmain = require('mongoose').model('Picmain')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
+const deleteHandler = require('../../services/deletePic')
+
+
+const AWS = require('aws-sdk')
+const keys = require('../../config/keys') 
 
 const arrayPics = [
 	{
@@ -28,14 +33,21 @@ exports.getPicsmain = (req, res, next) => {
 }
 
 // delete one pic
-exports.getDeletePicsmain = (req, res, next) => {
+exports.getDeletePicsmain = async(req, res, next) => {
 	// req to get all pics 
-	console.log(req.params.id)
-	const ID = req.params.id
+	try{
+		const ID = req.params.id
+		const indexToDelete = arrayPics.findIndex(rv => rv._id === ID)
+		const urlArr = arrayPics[indexToDelete].pic.split('/')
 
-	const indexToDelete = arrayPics.findIndex(rv => rv._id === ID)
-	arrayPics.splice(indexToDelete, 1)
-	res.redirect('/admin/picsmain')
+		const d = await deleteHandler(urlArr)
+		arrayPics.splice(indexToDelete, 1)
+		
+		res.redirect('/admin/picsmain')
+	} catch(e) {
+		console.log('an err occ in the delete pic')
+		next(new ProcessError('A system error occured during deleting the picture'))
+	}	
 }
 
 // access to the page to select a picture, join token for auth
@@ -59,7 +71,6 @@ exports.getChoicePicsmain = async(req, res, next) => {
 	} catch(e) {
 		next(e)
 	}
-
 }
 
 // add data into db. from ajax req
