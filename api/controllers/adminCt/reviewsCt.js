@@ -1,40 +1,28 @@
 const Review = require('mongoose').model('Review')
 const { encrypt, saveToken } = require('../../services/token')
-const { ProcessError, ApiProcessError } = require('../../error/listErrors')
+const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
+const deleteHandler = require('../../services/deletePic')
 
-const arrayReviews = [{
-	_id: "jhgferrtt",
-	name: "Harry",
-	comment: "i am super happy about tpr, they take care me so gooood",
-	picture: "www.pic.com",
-	quand: Date.now()
-	},{
-	_id: "jhfdgdfgs",
-	name: "Alice",
-	comment: "i am super happy about tpr, they take care me so gooood",
-	picture: "www.pic.com",
-	quand: Date.now()
-	},{
-	_id: "jmnbvnb",
-	name: "Borris",
-	comment: "i am super happy about tpr, they take care me so gooood",
-	picture: "www.pic.com",
-	quand: Date.now()
-}]
 
-exports.getReviews = (req, res, next) => {
-	// req to get all pics 
-	res.render('tprmain/reviews', {
-		pageTitle: 'reviews',
-		path: '/tprmain/reviews',
-		reviews: arrayReviews,
-		hasReview: true,
-		editing: false
-	})
+// get all reviews 
+exports.getReviews = async(req, res, next) => {
+	try{
+		const reviewsDB = await Review.find()
+
+		res.render('tprmain/reviews', {
+			pageTitle: 'reviews',
+			path: '/tprmain/reviews',
+			reviews: reviewsDB,
+			hasReview: true,
+			editing: false
+		})
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
+// get token for auth before saving-picture's ajax request  
 exports.getAddReview = async(req, res, next) => {
-	// req to get all pics 
 	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 	try {
 		const hash = await encrypt(token)
@@ -51,65 +39,81 @@ exports.getAddReview = async(req, res, next) => {
 			token: hash
 		})
 	} catch(e) {
-		next(e)
+		next(new ProcessError('A system error occured, please try again'))
 	}	
 }
 
-exports.getEditReview = (req, res, next) => {
-	// req to get all pics 
-	const ID = req.params.id 
-	const review = arrayReviews.filter(data => data._id.toString() === ID.toString())
+// req review's datas for editing 
+exports.getEditReview = async(req, res, next) => {
+	try{
+		const ID = req.params.id 
+		const reviewToEdit = await Review.findById(ID)
 
-	res.render('tprmain/edit-review', {
-		pageTitle: 'edit-review',
-		path: '/edit-review',
-		editing: true,
-		errorMessage: false,
-		review: review[0]
-	})
+		res.render('tprmain/edit-review', {
+			pageTitle: 'edit-review',
+			path: '/edit-review',
+			editing: true,
+			errorMessage: false,
+			review: reviewToEdit
+		})
+	} catch(e) {	
+		next(new ServerError('A network error occured please try again'))
+	}	
 }
 
-exports.postAddReview = (req, res, next) => {
-	// req to get all pics 
-	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
-	const nc = JSON.parse(Object.keys(req.body)[0])
+// add review to db
+exports.postAddReview = async(req, res, next) => { 
+	try{
+		const nc = JSON.parse(Object.keys(req.body)[0])
 
-	if(nc.picUrl) {
-		const newReview = {
-			_id: id,
-			name: nc.name,
-			comment: nc.comment,
-			picture: nc.picUrl,
-			quand: Date.now()
+		if(nc.picUrl) {
+			const newReview = new Review({
+				name: nc.name,
+				comment: nc.comment,
+				pic: nc.picUrl,
+				quand: Date.now()
+			})
+			await newReview.save()
+
+			res.status(200).send({ok:"review saved"})
+			return 
 		}
-		// console.log(req.body)
-		arrayReviews.push(newReview)
-		res.status(200).send({ok:"review saved"})
-		return 
-	} 
-
-	next(new ApiProcessError('A system error occured, please try again'))
+	} catch(e) {
+		next(new ApiProcessError('A system error occured, please try again'))
+	}
 }
 
-exports.postEditReview = (req, res, next) => {
-	// req to get all pics 
-	const ID = req.params.id
+// datas to update selected review
+exports.postEditReview = async(req, res, next) => {
+	try{
+		const ID = req.params.id
+		const reviewToEdit = await Review.findById(ID)
 
-	const indexRepl = arrayReviews.findIndex(rv => rv._id === ID)
-	const nc = req.body
-	arrayReviews[indexRepl].name = nc.name
-	arrayReviews[indexRepl].comment = nc.comment	
-	arrayReviews[indexRepl].quand = Date.now()
-	
-	res.redirect('/admin/reviews')
+		const nc = req.body
+		reviewToEdit.name = nc.name
+		reviewToEdit.comment = nc.comment	
+		reviewToEdit.quand = Date.now()
+		
+		await reviewToEdit.save()
+
+		res.redirect('/admin/reviews')
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
-exports.getDeleteReview = (req, res, next) => {
-	console.log(req.params.id)
-	const ID = req.params.id
+exports.getDeleteReview = async(req, res, next) => {
+	try{
+		const ID = req.params.id
+		const reviewDeleted = await Review.findOneAndDelete({_id:ID})
+		
+		const urlArr = reviewDeleted.pic.split('/')
+		const d = await deleteHandler(urlArr)
 
-	const indexToDelete = arrayReviews.findIndex(rv => rv._id === ID)
-	arrayReviews.splice(indexToDelete, 1)
-	res.redirect('/admin/reviews')
+		res.redirect('/admin/reviews')
+	} catch(e) {
+		next(new ProcessError('A system error occured during deleting the picture'))
+	}
 }
+
 

@@ -45,7 +45,6 @@ exports.getDeletePicsmain = async(req, res, next) => {
 		
 		res.redirect('/admin/picsmain')
 	} catch(e) {
-		console.log('an err occ in the delete pic')
 		next(new ProcessError('A system error occured during deleting the picture'))
 	}	
 }

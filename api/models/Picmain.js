@@ -3,7 +3,7 @@ const mongoose =require('mongoose')
 const { Schema } = mongoose
 
 const picmainSchema = new Schema({
-    	pictures: [{
+    	pic: [{
             	type: String,
             	require: false
         }]

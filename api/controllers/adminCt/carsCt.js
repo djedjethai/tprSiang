@@ -1,6 +1,7 @@
 const Car = require('mongoose').model('Car')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError } = require('../../error/listErrors')
+const deleteHandler = require('../../services/deletePic')
 
 const arrayCars = [{
 	_id: "jhgferrtt",
@@ -12,7 +13,7 @@ const arrayCars = [{
 	price:"M 3030344",
 	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
-	picture:"www.pic.com",
+	pic:"www.pic.com",
 	style:"Seden",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:'false'
@@ -26,7 +27,7 @@ const arrayCars = [{
 	price:"M 3030344",
 	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
-	picture:"www.pic.com",
+	pic:"www.pic.com",
 	style:"Suv",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:'false'
@@ -40,7 +41,7 @@ const arrayCars = [{
 	price:"M 3030344",
 	color:"red",
 	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
-	picture:"www.pic.com",
+	pic:"www.pic.com",
 	style:"Smart",
 	type:"รถยนฅ์นั่งส่วนบุคคล",
 	bestSeller:'false'
@@ -112,7 +113,7 @@ exports.postAddCar = (req, res, next) => {
 			price: nc.price,
 			color: nc.color,
 			details: nc.details,
-			picture: nc.picUrl,
+			pic: nc.picUrl,
 			style: nc.style,
 			type: nc.type,
 			bestSeller: nc.bestSeller.toString()
@@ -154,11 +155,17 @@ exports.postEditCar = (req, res, next) => {
 	res.redirect('/admin/cars')
 }
 
-exports.getDeleteCar = (req, res, next) => {
-	console.log(req.params.id)
-	const ID = req.params.id
+exports.getDeleteCar = async(req, res, next) => {
+	try{
+		const ID = req.params.id
+		const indexToDelete = arrayCars.findIndex(car => car._id === ID)
+		const urlArr = arrayCars[indexToDelete].pic.split('/')
 
-	const indexToDelete = arrayCars.findIndex(car => car._id === ID)
-	arrayCars.splice(indexToDelete, 1)
-	res.redirect('/admin/cars')
+		const d = await deleteHandler(urlArr)
+		arrayCars.splice(indexToDelete, 1)
+
+		res.redirect('/admin/cars')
+	} catch(e) {
+		next(new ProcessError('A system error occured during deleting the picture'))
+	}
 }

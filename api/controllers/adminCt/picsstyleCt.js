@@ -1,6 +1,7 @@
 const Picstyle = require('mongoose').model('Picstyle')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError } = require('../../error/listErrors')
+const deleteHandler = require('../../services/deletePic')
 
 const arrayPics = [
 	{
@@ -30,12 +31,19 @@ exports.getPicsstyle = (req, res, next) => {
 }
 
 // delete one pic
-exports.getDeletePicsstyle = (req, res, next) => {
-	const ID = req.params.id
+exports.getDeletePicsstyle = async(req, res, next) => {
+	try{
+		const ID = req.params.id
+		const indexToDelete = arrayPics.findIndex(rv => rv._id === ID)
+		const urlArr = arrayPics[indexToDelete].pic.split('/')
 
-	const indexToDelete = arrayPics.findIndex(rv => rv._id === ID)
-	arrayPics.splice(indexToDelete, 1)
-	res.redirect('/admin/picsstyle')
+		const d = await deleteHandler(urlArr)
+		arrayPics.splice(indexToDelete, 1)
+	
+		res.redirect('/admin/picsstyle')
+	} catch(e) {	
+		next(new ProcessError('A system error occured during deleting the picture'))
+	}
 }
 
 // access to choice a pic, set the token for auth

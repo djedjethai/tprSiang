@@ -139,7 +139,9 @@
 				})
 				.then(d => {
 					if (d) {
+						setTimeout(() => {
 		window.location.replace("http://localhost:3050/admin/picsstyle")
+						}, 500)
 					}	
 				})
 				.catch(e => console.log(e))

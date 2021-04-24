@@ -92,7 +92,9 @@
 				})
 				.then(d => {
 					if(d) {
+						setTimeout(() => {
 		window.location.replace("http://localhost:3050/admin/picsmain")
+						}, 500)
 					}
 				})
 				.catch(e => console.log(e))

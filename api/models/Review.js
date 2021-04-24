@@ -11,11 +11,11 @@ const reviewSchema = new Schema({
             	type: String,
             	require: false
         },  
-    	picture: {
+    	pic: {
             	type: String,
-            	require: false
+            	require: true
         },  
-    	when: {
+    	quand: {
             	type: Date,
 		default: Date.now
         }
