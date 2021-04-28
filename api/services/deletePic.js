@@ -17,7 +17,7 @@ module.exports = (urlArr) => {
 	return new Promise((resolve, reject) => {
 		s3.deleteObject(params, (e,d) => {
 			if(e) reject(e)
-			else resolve(d)
+			else resolve(true)
 		})
 	})
 }

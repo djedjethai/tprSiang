@@ -22,4 +22,4 @@ class ApiProcessError extends CustomError {
 
 
 
-module.exports = { AuthError, BadReqError, ServerError }
+module.exports = { AuthError, BadReqError, ServerError, ProcessError, ApiProcessError }

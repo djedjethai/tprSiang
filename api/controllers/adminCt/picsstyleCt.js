@@ -1,45 +1,34 @@
 const Picstyle = require('mongoose').model('Picstyle')
 const { encrypt, saveToken } = require('../../services/token')
-const { ProcessError, ApiProcessError } = require('../../error/listErrors')
+const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 
-const arrayPics = [
-	{
-		_id: "jjhbkj",
-		style: "Single",
-		pic: "first one"
-	},
-	{
-		_id: "gfds",
-		style: "Double",
-		pic: "first two"
-	},
-	{
-		_id: "ncvbv",
-		style: "Smart",
-		pic: "first three"
-	}
-]
+exports.getPicsstyle = async(req, res, next) => {
+	try{
+		const picsStyle = await Picstyle.find()
 
-exports.getPicsstyle = (req, res, next) => {
-	res.render('tprmain/picsstyle', {
-		pageTitle: 'picsstyle',
-		path: '/picsstyle',
-		pictures: arrayPics,
-		editing: false
-	})	
+		res.render('tprmain/picsstyle', {
+			pageTitle: 'picsstyle',
+			path: '/picsstyle',
+			pictures: picsStyle,
+			editing: false
+		})
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
-// delete one pic
+// delete a selected picStyle
 exports.getDeletePicsstyle = async(req, res, next) => {
 	try{
 		const ID = req.params.id
-		const indexToDelete = arrayPics.findIndex(rv => rv._id === ID)
-		const urlArr = arrayPics[indexToDelete].pic.split('/')
+		const picStyleDeleted = await Picstyle.findOneAndDelete({_id:ID})
 
+		const urlArr = picStyleDeleted.pic[0].split('/')
+		// delete the pic in s3 bucket
 		const d = await deleteHandler(urlArr)
-		arrayPics.splice(indexToDelete, 1)
-	
+		if(!d) throw Error()
+
 		res.redirect('/admin/picsstyle')
 	} catch(e) {	
 		next(new ProcessError('A system error occured during deleting the picture'))
@@ -54,10 +43,7 @@ exports.getChoicePicsstyle = async(req, res, next) => {
 	try{
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
-		if(!tokenSaved) {
-			throw(new ProcessError('A system error occured, please try again.')) 
-			return
-		}
+		if(!tokenSaved) throw Error() 
 
 		res.render('tprmain/edit-picsstyle', {
 			pageTitle: 'edit-picsstyle',
@@ -66,59 +52,58 @@ exports.getChoicePicsstyle = async(req, res, next) => {
 			token: hash
 		})
 	} catch(e) {
-		next(e)
+		next(new ProcessError('A system error occured, please try again'))
 	}	
 }
 
-exports.getModifyPicsstyle = (req, res, next) => {
-	const id = req.params.id
-	
-	const picture = arrayPics.filter(pic => pic._id === id)
-	
-	res.render('tprmain/edit-picsstyle', {
-		pageTitle: 'edit-picsstyle',
-		path: '/edit-picsstyle',
-		editing: true,
-		picture: picture[0]
-	})
+// get the pic's style datas to modify/edit it
+exports.getModifyPicsstyle = async(req, res, next) => {
+	try{
+		const id = req.params.id
+		const picStyleToEdit = await Picstyle.findById(id)
+		
+		res.render('tprmain/edit-picsstyle', {
+			pageTitle: 'edit-picsstyle',
+			path: '/edit-picsstyle',
+			editing: true,
+			picture: picStyleToEdit
+		})
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
 // add data to db after pic has been saved, ajax req
-exports.postAddPicsstyle = (req, res, next) => {
-	
-	const dataToStore = JSON.parse(Object.keys(req.body)[0])
+exports.postAddPicsstyle = async(req, res, next) => {
+	try{
+		const dataToStore = JSON.parse(Object.keys(req.body)[0])
+		if (dataToStore.picUrl) {
+		
+			const newPic = new Picstyle({
+				style: dataToStore.style,
+				pic: dataToStore.picUrl
+			})
+			await newPic.save()
 
-	if (dataToStore.picUrl) {
-	
-		const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
-		const newPic = {
-			_id: id,
-			style: dataToStore.style,
-			pic: dataToStore.picUrl
+			// the ajax request will redirect to the picsstyle page 
+			res.status(200).send({ok:"saved"})	
+			return
 		}
-		
-		arrayPics.push(newPic)
-		console.log('final datas stored', arrayPics)
-		// the ajax request will redirect to the picsstyle page 
-		res.status(200).send({ok:"saved"})
-		
-		return
+	} catch(e) {
+		next(new ApiProcessError('A system error occured, please try again'))
 	}
-
-	next(new ApiProcessError('A system error occured, please try again'))
-	// res.status(500).send({message:"An error occured, please try again"})
 }
 
-// modidy datas
-exports.postModifyPicsstyle = (req, res, next) => {
+// modidy datas after edit
+exports.postModifyPicsstyle = async(req, res, next) => {
+	try{
+		const picStyleToEdit = await Picstyle.findById(req.params.id)
+		picStyleToEdit.style = req.body.style
 
-	const indexPicToModif = arrayPics.findIndex(pic => pic._id === req.params.id)
-	arrayPics[indexPicToModif].style = req.body.style
+		await picStyleToEdit.save()
 	
-	res.render('tprmain/picsstyle', {
-		pageTitle: 'picsstyle',
-		path: '/picsstyle',
-		pictures: arrayPics,
-		editing: false
-	})	
+		res.redirect('/admin/picsStyle')
+	} catch(e) {
+		next(new ServerError('A network error occured please try again')) 
+	}
 }

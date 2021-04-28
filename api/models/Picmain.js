@@ -3,10 +3,10 @@ const mongoose =require('mongoose')
 const { Schema } = mongoose
 
 const picmainSchema = new Schema({
-    	pic: [{
+    	pic: {
             	type: String,
-            	require: false
-        }]
+            	require: true
+        }
  })
 
 mongoose.model('Picmain', picmainSchema)

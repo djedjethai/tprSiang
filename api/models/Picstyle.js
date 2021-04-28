@@ -9,7 +9,7 @@ const picstyleSchema = new Schema({
         },
 	pic: [{
             	type: String,
-            	require: false
+            	require: true
         }]
 })
 

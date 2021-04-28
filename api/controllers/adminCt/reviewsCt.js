@@ -27,10 +27,7 @@ exports.getAddReview = async(req, res, next) => {
 	try {
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
-		if(!tokenSaved) {
-			throw(new ProcessError("A system error occured, please try again"))
-			return
-		}
+		if(!tokenSaved) throw Error()
 
 		res.render('tprmain/edit-review', {
 			pageTitle: 'edit-review',
@@ -108,8 +105,10 @@ exports.getDeleteReview = async(req, res, next) => {
 		const reviewDeleted = await Review.findOneAndDelete({_id:ID})
 		
 		const urlArr = reviewDeleted.pic.split('/')
+		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
-
+		if(!d) throw Error()
+		
 		res.redirect('/admin/reviews')
 	} catch(e) {
 		next(new ProcessError('A system error occured during deleting the picture'))

@@ -4,44 +4,36 @@ const { ProcessError, ApiProcessError, ServerError } = require('../../error/list
 const deleteHandler = require('../../services/deletePic')
 
 
-const AWS = require('aws-sdk')
-const keys = require('../../config/keys') 
+// const AWS = require('aws-sdk')
+// const keys = require('../../config/keys') 
 
-const arrayPics = [
-	{
-		_id: "jjhbkj",
-		pic: "first one"
-	},
-	{
-		_id: "gfds",
-		pic: "first two"
-	},
-	{
-		_id: "ncvbv",
-		pic: "first three"
-	}
-]
 
 // get all pics
-exports.getPicsmain = (req, res, next) => {
-	console.log(req.session)
-	res.render('tprmain/picsmain', {
-		pageTitle: 'picsmain',
-		path: '/picsmain',
-		pictures: arrayPics	
-	})
+exports.getPicsmain = async(req, res, next) => {
+	try{
+		const picsMain = await Picmain.find()
+
+		res.render('tprmain/picsmain', {
+			pageTitle: 'picsmain',
+			path: '/picsmain',
+			pictures: picsMain	
+		})
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
-// delete one pic
+// delete selected picture
 exports.getDeletePicsmain = async(req, res, next) => {
 	// req to get all pics 
 	try{
 		const ID = req.params.id
-		const indexToDelete = arrayPics.findIndex(rv => rv._id === ID)
-		const urlArr = arrayPics[indexToDelete].pic.split('/')
-
+		const picMainDeleted = await Picmain.findByIdAndDelete({_id:ID})
+		
+		const urlArr = picMainDeleted.pic.split('/')
+		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
-		arrayPics.splice(indexToDelete, 1)
+		if(!d) throw Error()
 		
 		res.redirect('/admin/picsmain')
 	} catch(e) {
@@ -49,17 +41,14 @@ exports.getDeletePicsmain = async(req, res, next) => {
 	}	
 }
 
-// access to the page to select a picture, join token for auth
+// access to the page to select a picture, and add a token for ajax req's authentification
 exports.getChoicePicsmain = async(req, res, next) => { 
 	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 	try{
-
+		
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
-		if(!tokenSaved) {
-			throw new ProcessError('A system error occured, please retry.')
-			return
-		}
+		if(!tokenSaved) throw Error()
 
 		res.render('tprmain/edit-picsmain', {
 			pageTitle: 'edit-picsmain',
@@ -68,35 +57,25 @@ exports.getChoicePicsmain = async(req, res, next) => {
 		})
 	
 	} catch(e) {
-		next(e)
+		next(new ProcessError('A system error occured, please try again'))
 	}
 }
 
 // add data into db. from ajax req
-exports.postAddPicsmain = (req, res, next) => {
+exports.postAddPicsmain = async(req, res, next) => {
+	try{
+		const dataToStore = JSON.parse(Object.keys(req.body)[0])
 
-	const dataToStore = JSON.parse(Object.keys(req.body)[0])
-
-	if (dataToStore.picUrl) {
-		const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
-		console.log('the style: ', req.body.style)
-		const newPic = {
-			_id: id,
-			pic: dataToStore.picUrl
+		if (dataToStore.picUrl) {
+			const newPic = new Picmain({
+				pic: dataToStore.picUrl
+			})
+			await newPic.save()
+			
+			res.status(200).send({ok:"saved"})
+			return
 		}
-		
-		arrayPics.push(newPic)
-
-		// the ajax request will redirect to the picsstyle page 
-		// if ok from db 
-		res.status(200).send({ok:"saved"})
-		// else throw ServerError
-
-
-		return
+	} catch(e) {
+		next(new ApiProcessError('A system error occured, please try again'))
 	}
-
-	next(new ApiProcessError('A system error occured, please try again'))
-	return
-	// res.status(500).send({message:"An error occured, please try again"})
 }

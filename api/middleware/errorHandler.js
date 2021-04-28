@@ -18,7 +18,7 @@ exports.errorHandler = (err, req, res, next) => {
 		}
 	}
 	else {
-		console.log(e)
+		console.log(err)
 	}
 }
 
