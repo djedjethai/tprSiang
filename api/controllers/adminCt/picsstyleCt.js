@@ -3,6 +3,8 @@ const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 
+const PICST_CT = 'picsstyleCt.js'
+
 exports.getPicsstyle = async(req, res, next) => {
 	try{
 		const picsStyle = await Picstyle.find()
@@ -27,7 +29,7 @@ exports.getDeletePicsstyle = async(req, res, next) => {
 		const urlArr = picStyleDeleted.pic[0].split('/')
 		// delete the pic in s3 bucket
 		const d = await deleteHandler(urlArr)
-		if(!d) throw Error()
+		if(!d) throw Error(PICST_CT,' - deleting s3 has a problem')
 
 		res.redirect('/admin/picsstyle')
 	} catch(e) {	
@@ -37,13 +39,11 @@ exports.getDeletePicsstyle = async(req, res, next) => {
 
 // access to choice a pic, set the token for auth
 exports.getChoicePicsstyle = async(req, res, next) => {
-	console.log('dans presignurl')
-		
-	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 	try{
+		const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
-		if(!tokenSaved) throw Error() 
+		if(!tokenSaved) throw Error(PICST_CT,' - token is not save') 
 
 		res.render('tprmain/edit-picsstyle', {
 			pageTitle: 'edit-picsstyle',
@@ -89,6 +89,7 @@ exports.postAddPicsstyle = async(req, res, next) => {
 			res.status(200).send({ok:"saved"})	
 			return
 		}
+		else throw Error(PICST_CT,' - picture url is missing')
 	} catch(e) {
 		next(new ApiProcessError('A system error occured, please try again'))
 	}

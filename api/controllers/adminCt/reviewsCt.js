@@ -3,6 +3,7 @@ const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 
+const REVIEW_CT = 'reviewCT'
 
 // get all reviews 
 exports.getReviews = async(req, res, next) => {
@@ -27,7 +28,7 @@ exports.getAddReview = async(req, res, next) => {
 	try {
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
-		if(!tokenSaved) throw Error()
+		if(!tokenSaved) throw Error(REVIEW_CT,' - token is not save')
 
 		res.render('tprmain/edit-review', {
 			pageTitle: 'edit-review',
@@ -75,6 +76,7 @@ exports.postAddReview = async(req, res, next) => {
 			res.status(200).send({ok:"review saved"})
 			return 
 		}
+		else throw Error(REVIEW_CT,' - picture url is missing')	
 	} catch(e) {
 		next(new ApiProcessError('A system error occured, please try again'))
 	}
@@ -107,7 +109,7 @@ exports.getDeleteReview = async(req, res, next) => {
 		const urlArr = reviewDeleted.pic.split('/')
 		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
-		if(!d) throw Error()
+		if(!d) throw Error(REVIEW_CT,' - deleting s3 has a problem')
 		
 		res.redirect('/admin/reviews')
 	} catch(e) {

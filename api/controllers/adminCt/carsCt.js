@@ -1,77 +1,34 @@
 const Car = require('mongoose').model('Car')
 const { encrypt, saveToken } = require('../../services/token')
-const { ProcessError, ApiProcessError } = require('../../error/listErrors')
+const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 
-const arrayCars = [{
-	_id: "jhgferrtt",
-	serie: "Fortuner",
-	serieDetails:"cab prerunner",
-	wheel:4,
-	engine:"2.0 - 2.5 / hybrid",
-	grade:"2.0 - 2.5 / hybrid",
-	price:"M 3030344",
-	color:"red",
-	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
-	pic:"www.pic.com",
-	style:"Seden",
-	type:"รถยนฅ์นั่งส่วนบุคคล",
-	bestSeller:'false'
-	},{
-	_id: "jhgfj9765",
-	serie: "Fortuner",
-	serieDetails:"cab prerunner",
-	wheel:4,
-	engine:"2.0 - 2.5 / hybrid",
-	grade:"2.0 - 2.5 / hybrid",
-	price:"M 3030344",
-	color:"red",
-	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
-	pic:"www.pic.com",
-	style:"Suv",
-	type:"รถยนฅ์นั่งส่วนบุคคล",
-	bestSeller:'false'
-	},{
-	_id: "jhgerlkjhlkjhfds",
-	serie: "Fortuner",
-	serieDetails:"cab prerunner",
-	wheel:4,
-	engine:"2.0 - 2.5 / hybrid",
-	grade:"2.0 - 2.5 / hybrid",
-	price:"M 3030344",
-	color:"red",
-	details:" kjhgkkhgfjhf jhgfjhgfjhgfjhgf jhgfjhgfjhgf jhgfjhgfjhgfjhgf jhgfjhgf jhgfjf",
-	pic:"www.pic.com",
-	style:"Smart",
-	type:"รถยนฅ์นั่งส่วนบุคคล",
-	bestSeller:'false'
-	}
-]
+const CAR_CT = 'carsCt'
 
-exports.getCars = (req, res, next) => {
-	// req to get all pics 
-	res.render('tprmain/cars', {
-		pageTitle: 'cars',
-		path: '/tprmain/cars',
-		cars: arrayCars,
-		hasCars: true,
-		editing: false
-	})
+// req to get all pics 
+exports.getCars = async(req, res, next) => {
+	try{
+		const carsList = await Car.find()
+		
+		res.render('tprmain/cars', {
+			pageTitle: 'cars',
+			path: '/tprmain/cars',
+			cars: carsList,
+			hasCars: true,
+			editing: false
+		})
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
+// get token before to add pic to s3
 exports.getAddCar = async (req, res, next) => {
-	// req to get all pics 
 	const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 	try {
-		console.log('ds getaddcar')
-		console.log(req.session)
-
 		const hash = await encrypt(token)
 		const tokenSaved = await saveToken(token)
-		if(!tokenSaved) {
-			throw(new ProcessError("A system error occured, please try again"))
-			return
-		}
+		if(!tokenSaved) throw Error(CAR_CT,' - token is not save')
 
 		res.render('tprmain/edit-car', {
 			pageTitle: 'edit-car',
@@ -80,89 +37,94 @@ exports.getAddCar = async (req, res, next) => {
 			token: hash
 		})
 	} catch(e) {
-		next(e)
+		next(new ProcessError('A system error occured, please try again'))
 	}		
 }
 
-exports.getEditCar = (req, res, next) => {
-	const id = req.params.id 
-	const car = arrayCars.filter(data => data._id.toString() === id.toString())
+// get datas about the car to modify
+exports.getEditCar = async(req, res, next) => {
+	try{
+		const id = req.params.id 
+		const carToEdit = await Car.findById(id)
 
-	res.render('tprmain/edit-car', {
-		pageTitle: 'edit-car',
-		path: '/edit-car',
-		editing: true,
-		errorMessage: false,
-		car: car[0]
-	})
-}
-
-exports.postAddCar = (req, res, next) => {
-	const id = Math.random().toString(36).split('.')[1].slice(0, 4)	
-	const nc = JSON.parse(Object.keys(req.body)[0])
-	
-	if(nc.picUrl) {
-		console.log(nc)
-		const newCar = {
-			_id: id,
-			serie: nc.serie,
-			serieDetails: nc.serieDetails,
-			wheel: nc.wheel,
-			engine: nc.engine,
-			grade: nc.grade,
-			price: nc.price,
-			color: nc.color,
-			details: nc.details,
-			pic: nc.picUrl,
-			style: nc.style,
-			type: nc.type,
-			bestSeller: nc.bestSeller.toString()
-		}
-		// console.log(req.body)
-		arrayCars.push(newCar)
-		console.log('car final datas stored: ', arrayCars)
-		res.status(200).send({ok:"car saved"})
-		return 
+		res.render('tprmain/edit-car', {
+			pageTitle: 'edit-car',
+			path: '/edit-car',
+			editing: true,
+			errorMessage: false,
+			car: carToEdit
+		})
+	} catch(e) {
+		next(new ProcessError('A system error occured, please try again'))
 	}
-	
-	next(new ApiProcessError('A system error occured, please try again'))
 }
 
-exports.postEditCar = (req, res, next) => {
-	// req to get all pics 
-	console.log('ds postEditcar')
-	console.log(req.session)
-	console.log(req.body.bestSeller)
-	
-	const ID = req.params.id
+// add a car
+exports.postAddCar = async(req, res, next) => {
+	try{
+		const nc = JSON.parse(Object.keys(req.body)[0])
+		
+		if(nc.picUrl) {
+			const newCar = new Car({
+				serie: nc.serie,
+				serieDetails: nc.serieDetails,
+				wheel: nc.wheel,
+				engine: nc.engine,
+				grade: nc.grade,
+				price: nc.price,
+				color: nc.color,
+				details: nc.details,
+				pic: nc.picUrl,
+				style: nc.style,
+				type: nc.type,
+				bestSeller: nc.bestSeller.toString()
+			})
+			await newCar.save()
+			
+			res.status(200).send({ok:"car saved"})
+			return 
+		}
+		else throw Error(CAR_CT,' - picture url is missing')
+	} catch(e) {
+		next(new ApiProcessError('A system error occured, please try again'))
+	}
+}
 
-	const nc = req.body
-	console.log('to modif in ctroller', nc)
-	const indexRepl = arrayCars.findIndex(car => car._id === ID)
+// save datas about the modifyied car 
+exports.postEditCar = async(req, res, next) => {
+	try{
+		const ID = req.params.id
+		const nc = req.body
+		const carToModify = await Car.findById(ID)
 
-	arrayCars[indexRepl].serie = nc.serie
-	arrayCars[indexRepl].serieDetails = nc.serieDetails
-	arrayCars[indexRepl].wheel = nc.wheel
-	arrayCars[indexRepl].engine = nc.engine
-	arrayCars[indexRepl].grade = nc.grade
-	arrayCars[indexRepl].price = nc.price
-	arrayCars[indexRepl].color = nc.color
-	arrayCars[indexRepl].details = nc.details
-	arrayCars[indexRepl].style = nc.style
-	arrayCars[indexRepl].type = nc.type
-	arrayCars[indexRepl].bestSeller = nc.bestSeller.toString()
+		carToModify.serie = nc.serie
+		carToModify.serieDetails = nc.serieDetails
+		carToModify.wheel = nc.wheel
+		carToModify.engine = nc.engine
+		carToModify.grade = nc.grade
+		carToModify.price = nc.price
+		carToModify.color = nc.color
+		carToModify.details = nc.details
+		carToModify.style = nc.style
+		carToModify.type = nc.type
+		carToModify.bestSeller = nc.bestSeller.toString()
+		
+		await carToModify.save()
 
-	res.redirect('/admin/cars')
+		res.redirect('/admin/cars')
+	} catch(e) {
+		next(new ServerError('A network error occured please try again'))
+	}
 }
 
 exports.getDeleteCar = async(req, res, next) => {
 	try{
 		const ID = req.params.id
-		const indexToDelete = arrayCars.findIndex(car => car._id === ID)
-		const urlArr = arrayCars[indexToDelete].pic.split('/')
-
+		const carToDelete = await Car.findOneAndDelete({_id:ID})
+		const urlArr = carToDelete.pic.split('/')
+		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
-		arrayCars.splice(indexToDelete, 1)
+		if(!d) throw Error(CAR_CT,' - deleting s3 has a problem')
 
 		res.redirect('/admin/cars')
 	} catch(e) {

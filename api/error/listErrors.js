@@ -1,6 +1,5 @@
 const { CustomError } = require('./customError')
 
-
 class AuthError extends CustomError { 
 	constructor(message){ super(message, 401, 'AUTH_ERROR', 'EJS') 
 }}
@@ -22,4 +21,10 @@ class ApiProcessError extends CustomError {
 
 
 
-module.exports = { AuthError, BadReqError, ServerError, ProcessError, ApiProcessError }
+module.exports = { 
+	AuthError, 
+	BadReqError, 
+	ServerError, 
+	ProcessError, 
+	ApiProcessError
+}

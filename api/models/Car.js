@@ -37,7 +37,7 @@ const carSchema = new Schema({
 	},
 	pic: {
 		type: String,
-            	require: false
+            	require: true
 	},
 	style: {
 		type: String,
