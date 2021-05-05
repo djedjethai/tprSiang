@@ -1,7 +1,7 @@
 const Review = require('mongoose').model('Review')
-const { encrypt, saveToken } = require('../../services/token')
-const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
-const deleteHandler = require('../../services/deletePic')
+const { encrypt, saveToken } = require('../services/token')
+const { ProcessError, ApiProcessError, ServerError } = require('../error/listErrors')
+const deleteHandler = require('../services/deletePic')
 
 const REVIEW_CT = 'reviewCT'
 

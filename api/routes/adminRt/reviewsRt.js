@@ -4,7 +4,7 @@ const { getReviews,
 	getDeleteReview,
 	postAddReview,
 	postEditReview
-} = require('../../controllers/adminCt/reviewsCt.js')
+} = require('../../controllers/reviewsCt.js')
 const isAuth = require('../../middleware/isAuth')
 
 module.exports = app => {

@@ -1,7 +1,7 @@
 const Picmain = require('mongoose').model('Picmain')
-const { encrypt, saveToken } = require('../../services/token')
-const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
-const deleteHandler = require('../../services/deletePic')
+const { encrypt, saveToken } = require('../services/token')
+const { ProcessError, ApiProcessError, ServerError } = require('../error/listErrors')
+const deleteHandler = require('../services/deletePic')
 
 const PICMAIN_CT = 'picsmainCt'
 

@@ -1,4 +1,4 @@
-const { getSignin, postSignin, postLogout } = require('../../controllers/adminCt/authCt')
+const { getSignin, postSignin, postLogout } = require('../../controllers/authCt')
 
 module.exports = app => {
 	app.get('/getsignin', getSignin)

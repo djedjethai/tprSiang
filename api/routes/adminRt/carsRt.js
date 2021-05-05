@@ -4,7 +4,7 @@ const { getCars,
 	getDeleteCar,
 	postAddCar,
 	postEditCar
-} = require('../../controllers/adminCt/carsCt')
+} = require('../../controllers/carsCt')
 const isAuth = require('../../middleware/isAuth')
 
 module.exports = app => {

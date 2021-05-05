@@ -1,7 +1,7 @@
 const Car = require('mongoose').model('Car')
-const { encrypt, saveToken } = require('../../services/token')
-const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
-const deleteHandler = require('../../services/deletePic')
+const { encrypt, saveToken } = require('../services/token')
+const { ProcessError, ApiProcessError, ServerError } = require('../error/listErrors')
+const deleteHandler = require('../services/deletePic')
 
 const CAR_CT = 'carsCt'
 

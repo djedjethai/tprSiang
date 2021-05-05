@@ -5,7 +5,7 @@ const {
 	postAddPicsstyle,
 	getModifyPicsstyle,
 	postModifyPicsstyle
-} = require('../../controllers/adminCt/picsstyleCt')
+} = require('../../controllers/picsstyleCt')
 const isAuth = require('../../middleware/isAuth')
 const isToken = require('../../middleware/isToken')
 

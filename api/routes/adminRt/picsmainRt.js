@@ -2,7 +2,7 @@ const { getPicsmain,
 	getDeletePicsmain,
 	getChoicePicsmain,
 	postAddPicsmain 
-} = require('../../controllers/adminCt/picsmainCt')
+} = require('../../controllers/picsmainCt')
 const isAuth = require('../../middleware/isAuth')
 const isToken = require('../../middleware/isToken')
 

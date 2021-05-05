@@ -1,11 +1,21 @@
 const bcrypt = require('bcryptjs');
 
-const keys = require('../../config/keys')
-const { AuthError } = require('../../error/listErrors')
+const keys = require('../config/keys')
+const { AuthError } = require('../error/listErrors')
 
 
 exports.getSignin = (req, res, next) => {
-    	res.render('auth/signin', {
+    	// temporary code to generate the password for the admin envVar
+	// const saltRounds = 10;
+	// const myPlaintextPassword = 'jerome';
+	// bcrypt.genSalt(saltRounds, function(err, salt) {
+	// 	bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+	// 		// Store hash in your password DB
+	// 		console.log('the hash to save: ',hash)
+	// 	}); 	
+	// });
+
+	res.render('auth/signin', {
         	pageTitle: 'signInForm',
        	 	path: '/signin',
         	editing: false,
@@ -14,17 +24,7 @@ exports.getSignin = (req, res, next) => {
     	});
 }
 
-exports.postSignin = async (req, res, next) => {
-	// temporary code to generate the password for the admin envVar
-	// const saltRounds = 10;
-	// const myPlaintextPassword = 'jerome';
-	// bcrypt.genSalt(saltRounds, function(err, salt) {
-	// 	bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-	// 		// Store hash in your password DB
-	// 		console.log(hash)
-	// 	}); 	
-	// });
-	//
+exports.postSignin = async (req, res, next) => {	
     	const user = req.body.name
 	const password = req.body.password
 	
