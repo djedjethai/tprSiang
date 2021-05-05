@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "NODE_ENV='development' nodemon index.js",
     "prod": "node bin/www"
   },
   "author": "",
@@ -16,11 +16,14 @@
     "cluster": "^0.7.7",
     "connect-mongo": "3.2.0",
     "cors": "^2.8.5",
+    "debug": "^3.2.6",
     "ejs": "3.1.5",
     "express": "4.17.1",
     "express-session": "1.17.1",
+    "jade": "^1.11.0",
     "mongodb": "3.6.3",
     "mongoose": "5.10.11",
+    "morgan": "^1.10.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

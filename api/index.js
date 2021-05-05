@@ -94,9 +94,12 @@ app.use((req, res, next) => {
 
 app.use(errorHandler)
 
-
-app.listen(5000, () => {
+if(process.env.NODE_ENV === 'development'){
+	app.listen(5000, () => {
 		console.log('listen on port 5000');
-})
-
+	})
+} 
+else{
+	module.exports = app
+}
 
