@@ -14,9 +14,19 @@ services:
                         dockerfile: Dockerfile.dev
                         context: ./client
                 volumes:
-                        - ./client:/opt/app
+                        - ./client:/app/src
                 ports:
                         - "3000:3000"
+
+        apiclient:
+                build:
+                        dockerfile: Dockerfile.dev
+                        context: ./apiclient
+                volumes:
+                        - ./apiclient:/app/src
+                ports:
+                        - "4000:4000"
+
         api:
                 build:
                         dockerfile: Dockerfile.dev

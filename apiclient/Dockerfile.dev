@@ -6,5 +6,5 @@ RUN npm install \
 	&& npm cache clean --force
 WORKDIR /app/src
 COPY . .
-EXPOSE 3000
+EXPOSE 4000
 CMD ["npm","run","dev"]
