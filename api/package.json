@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "prod": "node ./bin/www"
+    "prod": "node ./bin/www",
+    "test": "jest --watchAll --no-cache"
   },
   "author": "",
   "license": "ISC",
