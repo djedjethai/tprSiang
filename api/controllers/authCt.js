@@ -27,7 +27,7 @@ exports.getSignin = (req, res, next) => {
 exports.postSignin = async (req, res, next) => {	
     	const user = req.body.name
 	const password = req.body.password
-	
+
 	if (!password || (user !== keys.adminName1)) {
 		res.redirect('/admin/getsignin')
 		return
@@ -52,10 +52,9 @@ exports.postSignin = async (req, res, next) => {
 		next(e)
 		return
 	}
-
 }
 
-exports.postLogout = (req, res, next) => {
+exports.getLogout = (req, res, next) => {
 	req.session.destroy(err => {
 		res.redirect('/admin/getsignin')
 	})

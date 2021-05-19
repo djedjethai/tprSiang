@@ -1,7 +1,7 @@
 //const express = require('express')
 //const router = express.Router()
 
-const { getSignin, postSignin, postLogout } = require('../../controllers/authCt')
+const { getSignin, postSignin, getLogout } = require('../../controllers/authCt')
 
 // router.get('/getsignin', getSignin)
 // router.post('/postsignin', postSignin)
@@ -12,5 +12,5 @@ const { getSignin, postSignin, postLogout } = require('../../controllers/authCt'
 module.exports = app => {
 	app.get('/getsignin', getSignin)
 	app.post('/postsignin', postSignin)
-	app.get('/logout', postLogout)
+	app.get('/logout', getLogout)
 }

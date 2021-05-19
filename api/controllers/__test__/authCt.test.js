@@ -1,61 +1,55 @@
-const request = require('supertest')
-const session = require('supertest-session')
 const app = require('../../index')
+const session = require('supertest-session')
 
 const keys = require('../../config/keys')
 
 it('show the signin form page', async() => {	
-	await request(app)
+	await session(app)
 		.get('/getsignin')
 		.send()
 		.expect(200)
 })
 
-// bullshit 
 it('signin with correct credentials', async() => {
 
-	
-
-	const response = await session(app)
+	await session(app)
 		.post('/postsignin')
+		.set('Content-Type','application/x-www-form-urlencoded')
 		.send({
 			name: keys.adminName1,
-			password: keys.adminPassword1
+			password: keys.adminPasswordClear
 		})
 		.expect('Location', '/admin/cars')
-
-	// console.log(response.cookies)
-	// expect(response.res.headers.location).toEqual('/admin/getsignin')
-
-	// const response = await request(app)
-	// 	.post('/postsignin')
-	// 	.send({
-	// 		name: keys.adminName1,
-	// 		password: keys.adminPassword1
-	// 	})
-	// 	.expect('Location', '/admin/cars')
-	//expect(response.res.headers.location).toEqual('/admin/getsignin')
 })
 
-it('signin with incorrect credentials', async() => {
-	await request(app)
+it('signin with wrong name', async() => {
+	await session(app)
 		.post('/postsignin')
+		.set('Content-Type','application/x-www-form-urlencoded')
 		.send({
-			name: 'khhgfjk',
-			password: 'jhgfjgfjh'
+			name: 'jgfjfdu',
+			password: keys.adminPasswordClear
 		})
-		.expect('Location', '/admin/getsignin')
+		.expect('Location', '/admin/getsignin')	
+})
 
-	// expect(response.res.headers.location).toEqual('/admin/getsignin')
+it('signin with wrong password', async() => {
+	const response = await session(app)
+		.post('/postsignin')
+		.set('Content-Type','application/x-www-form-urlencoded')
+		.send({
+			name: keys.adminName1,
+			password: 'iytruity'
+		})
+	expect(response.res.headers.location).not.toEqual('/admin/getsignin')
+	expect(response.res.headers.location).not.toEqual('/admin/cars')
 })
 
 it('logout', async() => {
-	const response = await request(app)
-		.post('/postlogout')
+	await session(app)
+		.get('/logout')
 		.send()
 		.expect('Location', '/admin/getsignin')
-
-	// console.log(response)
-	// expect(response.res.headers.location).toEqual('/admin/getsignin')
 })
+
 

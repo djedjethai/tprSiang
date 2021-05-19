@@ -1,6 +1,6 @@
 const { MongoMemoryServer } = require('mongodb-memory-server')
 const mongoose = require('mongoose')
-const request = require('supertest')
+const session = require('supertest-session')
 
 const keys = require('../config/keys')
 const app = require('../index')
@@ -32,4 +32,20 @@ afterAll(async() => {
 	await mongoose.connection.close()
 })
 
+global.signin = async() => {
+	let testSession = session(app)
+
+	return await new Promise((resolve, reject) => { 
+		testSession.post('/postsignin')
+			.set('Content-Type','application/x-www-form-urlencoded')
+			.send({
+				name: keys.adminName1,
+				password: keys.adminPasswordClear
+			})
+			.end(err => {
+				if(err) reject(err)
+				resolve(testSession)
+			})
+	})
+} 
 
