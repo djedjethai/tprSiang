@@ -5,7 +5,7 @@ const { Schema } = mongoose
 const reviewSchema = new Schema({
 	name: {
             	type: String,
-            	require: true
+            	require: false
         },  
     	comment: {
             	type: String,
