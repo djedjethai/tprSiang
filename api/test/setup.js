@@ -49,3 +49,14 @@ global.signin = async() => {
 	})
 } 
 
+// const { readFile, writeFile } = require('fs').promises
+// const { join } = require('path')
+// global.createFile = async() => {
+// 	const pathToken = join('/','opt','app','tmp','token.txt')
+// 	
+// 	await writeFile(pathToken, 'thisd is a test', {encoding:'utf8'})
+// 	
+// 	const check = await readFile(pathToken, 'utf8')
+// 	console.log('grrrrr: ', check)
+// 
+// }

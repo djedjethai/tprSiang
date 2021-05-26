@@ -16,10 +16,16 @@ async function encrypt(password) {
 
 async function saveToken(token) {
 	try{
-		const fd = await promisify(fs.open)('/opt/app/tmp/token.txt', 'w')
-  		await promisify(fs.appendFile)(fd, token, 'utf8')
-        	const err = await promisify(fs.close)(fd)
-		
+		// const fd = await promisify(fs.open)('/opt/app/tmp/token.txt', 'w')
+  		// await promisify(fs.appendFile)(fd, token, 'utf8')
+        	// const err = await promisify(fs.close)(fd)
+	
+		const err = await promisify(fs.writeFile)(
+			'/opt/app/tmp/token.txt',
+			token,
+			{encoding: 'utf8', flag: 'w'}
+		)
+
 		if(err) throw Error('error in close: ', err)
 		else return true
 

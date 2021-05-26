@@ -6,15 +6,16 @@ const { getReviews,
 	postEditReview
 } = require('../../controllers/reviewsCt.js')
 const isAuth = require('../../middleware/isAuth')
+const isToken = require('../../middleware/isToken')
 
 module.exports = app => {
 	app.get('/reviews', isAuth, getReviews)
-	app.get('/add-review', getAddReview)
-	app.get('/edit-review/:id', getEditReview)
-	app.get('/delete-review/:id', getDeleteReview)
+	app.get('/add-review', isAuth, getAddReview)
+	app.get('/edit-review/:id', isAuth, getEditReview)
+	app.get('/delete-review/:id', isAuth, getDeleteReview)
 	
-	app.post('/add-review', postAddReview)
-	app.post('/edit-review/:id', postEditReview)
+	app.post('/add-review', isToken, postAddReview)
+	app.post('/edit-review/:id', isAuth, postEditReview)
 }
 
 
