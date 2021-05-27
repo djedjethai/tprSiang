@@ -29,13 +29,13 @@ it('get all the reviews', async() => {
 it('save token', async() => {
 	const resp = await global.signin()
 
-	jest.mock('fs')
+	// jest.mock('fs')
 
-	const MOCK_FILE_INFO = {
-    		'/opt/app/tmp/token.txt': ''
-  	};	
+	// const MOCK_FILE_INFO = {
+    	// 	'/opt/app/tmp/token.txt': ''
+  	// };	
 
-	require('fs').__setMockFiles(MOCK_FILE_INFO)
+	// require('fs').__setMockFiles(MOCK_FILE_INFO)
 	
 	await resp
 		.get('/add-review')
