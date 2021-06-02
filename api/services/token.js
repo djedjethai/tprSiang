@@ -14,17 +14,27 @@ async function encrypt(password) {
 	 })
 }
 
+async function verify(password, hash) {
+	return new Promise((resolve, reject) => {
+	        const [salt, key] = hash.split(":")
+	        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
+	            if (err) reject(err);
+	            resolve(key == derivedKey.toString('hex'))
+	        });
+	})
+}
+
 async function saveToken(token) {
 	try{
-		// const fd = await promisify(fs.open)('/opt/app/tmp/token.txt', 'w')
-  		// await promisify(fs.appendFile)(fd, token, 'utf8')
-        	// const err = await promisify(fs.close)(fd)
+		const fd = await promisify(fs.open)('/opt/app/tmp/token.txt', 'w')
+  		await promisify(fs.appendFile)(fd, token, 'utf8')
+        	const err = await promisify(fs.close)(fd)
 	
-		const err = await promisify(fs.writeFile)(
-			'/opt/app/tmp/token.txt',
-			token,
-			{encoding: 'utf8', flag: 'w'}
-		)
+		// const err = await promisify(fs.writeFile)(
+		// 	'/opt/app/tmp/token.txt',
+		// 	token,
+		// 	{encoding: 'utf8', flag: 'w'}
+		// )
 
 		if(err) throw Error('error in close: ', err)
 		else return true
@@ -35,6 +45,4 @@ async function saveToken(token) {
 	}	
 }
 
-
-
-module.exports = { encrypt, saveToken }
+module.exports = { encrypt, saveToken, verify }

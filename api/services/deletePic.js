@@ -22,17 +22,4 @@ module.exports = (urlArr) => {
 	})
 }
 
-// const s3 = new AWS.S3({
-		// 	accessKeyId: keys.accessKeyId,
-		// 	secretAccessKey: keys.secretAccessKey
-		// })
-
-		// const params = {
-		// 	Bucket:'node-advance-course',
-		// 	Key:s3keypic
-		// }
-		// s3.deleteObject(params, function(e,d) {
-		// 	if(e) console.log('err delete obj: ', e)
-		// 	else console.log('obj deleted ??: ', d)
-		// })	
 

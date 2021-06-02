@@ -5,7 +5,6 @@ const session = require('supertest-session')
 const keys = require('../config/keys')
 const app = require('../index')
 
-
 let mongo 
 beforeAll(async() => {
 	// process.env.NODE_ENV = 'test'
@@ -31,6 +30,10 @@ afterAll(async() => {
 	await mongo.stop()
 	await mongoose.connection.close()
 })
+
+// afterEach(async() => {	
+// 	mock.restore();	
+// })
 
 global.signin = async() => {
 	let testSession = session(app)
