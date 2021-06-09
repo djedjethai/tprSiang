@@ -95,6 +95,7 @@ exports.postEditCar = async(req, res, next) => {
 	try{
 		const ID = req.params.id
 		const nc = req.body
+
 		const carToModify = await Car.findById(ID)
 
 		carToModify.serie = nc.serie

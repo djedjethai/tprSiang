@@ -3,8 +3,6 @@ const session = require('supertest-session')
 const keys = require('../../config/keys')
 const Review = require('mongoose').model('Review')
 
-const mock = require('mock-fs');
-
 //  test get reviews
 it('makes sure getReviews need authentification', async() => {
 	await session(app)
@@ -88,7 +86,7 @@ it('update a review', async() => {
 	const dataSample = new Review({
 		name:'addReview',
 		comment:'comment addReview',
-		picUrl:'http://urlPicture.com',
+		picUrl:'http://urlCanNotUpdate',
 		quand: Date.now()
 	})
 	const reviewSaved = await dataSample.save()
@@ -97,7 +95,7 @@ it('update a review', async() => {
 	const updatedDatas = {
 		name:'addReview updated',
 		comment:'comment addReview updated',
-		picUrl:'http://updated.com',
+		picUrl:'http://urlCanNotUpdate',
 		quand: Date.now()
 	}
 	// save updated datas

@@ -11,10 +11,10 @@ const isToken = require('../../middleware/isToken')
 
 module.exports = app => {
 	app.get('/picsstyle', isAuth, getPicsstyle)
-	app.get('/delete-picsstyle/:id', getDeletePicsstyle)
-	app.get('/choice-picsstyle', getChoicePicsstyle)
-	app.get('/modify-picsstyle/:id', getModifyPicsstyle)
+	app.get('/delete-picsstyle/:id', isAuth, getDeletePicsstyle)
+	app.get('/choice-picsstyle', isAuth, getChoicePicsstyle)
+	app.get('/modify-picsstyle/:id', isAuth, getModifyPicsstyle)
 
 	app.post('/add-picsstyle', isToken, postAddPicsstyle)
-	app.post('/modify-picsstyle/:id', postModifyPicsstyle)
+	app.post('/modify-picsstyle/:id', isAuth, postModifyPicsstyle)
 }
