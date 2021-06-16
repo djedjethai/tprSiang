@@ -34,6 +34,9 @@ services:
     - ./apiclient:/app/src
     ports:
     - "4000:4000"
+    environment:
+    - REDIS_HOST=redis
+    - REDIS_PORT=6379
     networks:
     - app-network
 
@@ -45,6 +48,17 @@ services:
     - ./api:/opt/app
     ports:
     - "5000:5000"
+    environment:
+    - REDIS_HOST=redis
+    - REDIS_PORT=6379
+    networks:
+    - app-network
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+    - "6379:6379"
     networks:
     - app-network
 

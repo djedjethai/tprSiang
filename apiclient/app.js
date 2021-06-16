@@ -5,9 +5,9 @@ const AutoLoad = require('fastify-autoload')
 const carSchema = require('./models/Car')
 const keys = require('./config/keys')
 
+
 module.exports = async function (fastify, opts) {
   	// Place here your custom code!
-
 	fastify.register(
 		require('fastify-mongoose-driver').plugin,
 		{
@@ -32,6 +32,9 @@ module.exports = async function (fastify, opts) {
 		}
 	)
 
+	
+	fastify.register(require('fastify-redis'), { host: keys.redisHost })
+	
 	// block methods post/delete etc.... See if not disturb redis ??
 
   	fastify.register(AutoLoad, {
