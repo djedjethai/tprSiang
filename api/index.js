@@ -5,6 +5,8 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose')
 
+const cache = require('./services/cache')
+
 // const authRouter = require('./routes/adminRt/authRt')
 const { errorHandler } = require('./middleware/errorHandler')
 
@@ -48,7 +50,6 @@ app.use(session({
     autoReconnect: true
   })  
 }))
-
 
 require('./routes/adminRt/authRt')(app)
 require('./routes/adminRt/carsRt')(app)

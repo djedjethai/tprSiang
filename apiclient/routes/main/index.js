@@ -13,7 +13,7 @@ module.exports = async function (fastify, opts) {
 	  		const cars = await fastify.mongoose.Cars.find()
 	  	
 			const carToRedis = JSON.stringify(cars)
-			redis.set('cars', carToRedis)
+			redis.set('cars', carToRedis, 'EX', 3600)
 
 	  		return "from db !!!!"
 		}
