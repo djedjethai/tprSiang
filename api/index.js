@@ -5,7 +5,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose')
 
-const cache = require('./services/cache')
+
 
 // const authRouter = require('./routes/adminRt/authRt')
 const { errorHandler } = require('./middleware/errorHandler')
@@ -34,6 +34,7 @@ require('./models/Picmain')
 require('./models/Picstyle')
 require('./models/Review')
 
+const cache = require('./services/cache')
 
 app.set('view engine', 'ejs')
 app.set('views', 'views')

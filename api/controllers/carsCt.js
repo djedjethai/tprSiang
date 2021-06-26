@@ -3,7 +3,10 @@ const { encrypt, saveToken } = require('../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../error/listErrors')
 const deleteHandler = require('../services/deletePic')
 
+const { carDelCache} = require('../services/cache')
+
 const CAR_CT = 'carsCt'
+
 
 // req to get all pics 
 exports.getCars = async(req, res, next) => {
@@ -80,6 +83,8 @@ exports.postAddCar = async(req, res, next) => {
 				bestSeller: nc.bestSeller.toString()
 			})
 			await newCar.save()
+
+			carDelCache(nc.type, nc.style)
 			
 			res.status(200).send({ok:"car saved"})
 			return 
@@ -112,6 +117,8 @@ exports.postEditCar = async(req, res, next) => {
 		
 		await carToModify.save()
 
+		carDelCache(carToModify.type, carToModify.style)
+
 		res.redirect('/admin/cars')
 	} catch(e) {
 		next(new ServerError('A network error occured please try again'))
@@ -126,6 +133,8 @@ exports.getDeleteCar = async(req, res, next) => {
 		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
 		if(!d) throw Error(CAR_CT,' - deleting s3 has a problem')
+
+		carDelCache(carToDelete.type, carToDelete.style)
 
 		res.redirect('/admin/cars')
 	} catch(e) {
