@@ -2,22 +2,21 @@
   "name": "client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "next.config.js",
   "scripts": {
     "dev": "next",
     "compile:sass": "node-sass sass/main.scss css/style.css",
     "compile:Wsass": "node-sass sass/main.scss css/style.css -w"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
-    "next": "^10.2.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "node-sass": "^5.0.0"
-  }
+      "axios": "^0.21.1",
+      "next": "^10.2.0",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2"
+   },
+   "devDependencies": {
+      "node-sass": "^5.0.0"
+   }
 }

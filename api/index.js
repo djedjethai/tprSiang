@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin','*')
 	res.setHeader('Access-Control-Allow-Methods','GET, POST')
 	res.setHeader('Access-Control-Allow-Headers','Content-Type, application/x-www-form-urlencoded')
-	// res.setHeader('Access-Control-Allow-Headers','Content-Type, authorization')
+	res.setHeader('Access-Control-Allow-Headers','Content-Type, application/json')
 	// res.setHeader('Content-Type', 'application/json');
 	next()
 })
@@ -52,12 +52,16 @@ app.use(session({
   })  
 }))
 
+// admin routes
 require('./routes/adminRt/authRt')(app)
 require('./routes/adminRt/carsRt')(app)
 require('./routes/adminRt/picsmainRt')(app)
 require('./routes/adminRt/picsstyleRt')(app)
 require('./routes/adminRt/reviewsRt')(app)
 require('./routes/uploadRoutes')(app)
+
+// client routes
+require('./routes/clientRt/routes')(app)
 
 app.use((req, res, next) => {
 	if(!req.session.user) return next()

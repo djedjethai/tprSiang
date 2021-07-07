@@ -22,21 +22,7 @@ services:
     ports:
     - "3000:3000"
     depends_on:
-    - apiclient                    
-    networks:
-    - app-network
-
-  apiclient:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./apiclient
-    volumes:
-    - ./apiclient:/app/src
-    ports:
-    - "4000:4000"
-    environment:
-    - REDIS_HOST=redis
-    - REDIS_PORT=6379
+    - api                    
     networks:
     - app-network
 

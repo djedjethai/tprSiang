@@ -7,8 +7,8 @@ const MainPage = ({ data }) => {
  MainPage.getInitialProps = async () => {
  	// domain "apiclient:4000" as apiclient and nextjs are in a bridge network
 	// localhost from a container belong to the container, can t be use between container
- 	const response = await axios.get("http://apiclient:4000/main")
- 
+ 	const response = await axios.get("http://api:5000/main")
+
  	// need to create an arr to then destruct
  	// otherwise the datas get parsed
  	const str = { data: response.data } 
