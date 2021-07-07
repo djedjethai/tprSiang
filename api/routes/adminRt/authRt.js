@@ -1,7 +1,7 @@
 //const express = require('express')
 //const router = express.Router()
 
-const { getSignin, postSignin, getLogout } = require('../../controllers/authCt')
+const { getSignin, postSignin, getLogout } = require('../../controllers/adminCt/authCt')
 
 // router.get('/getsignin', getSignin)
 // router.post('/postsignin', postSignin)

@@ -1,7 +1,7 @@
 const Picstyle = require('mongoose').model('Picstyle')
-const { encrypt, saveToken } = require('../services/token')
-const { ProcessError, ApiProcessError, ServerError } = require('../error/listErrors')
-const deleteHandler = require('../services/deletePic')
+const { encrypt, saveToken } = require('../../services/token')
+const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
+const deleteHandler = require('../../services/deletePic')
 
 const PICST_CT = 'picsstyleCt.js'
 

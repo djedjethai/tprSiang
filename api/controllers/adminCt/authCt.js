@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 
-const keys = require('../config/keys')
-const { AuthError } = require('../error/listErrors')
+const keys = require('../../config/keys')
+const { AuthError } = require('../../error/listErrors')
 
 
 exports.getSignin = (req, res, next) => {

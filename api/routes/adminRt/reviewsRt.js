@@ -4,7 +4,7 @@ const { getReviews,
 	getDeleteReview,
 	postAddReview,
 	postEditReview
-} = require('../../controllers/reviewsCt.js')
+} = require('../../controllers/adminCt/reviewsCt')
 const isAuth = require('../../middleware/isAuth')
 const isToken = require('../../middleware/isToken')
 

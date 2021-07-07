@@ -4,7 +4,7 @@ const { getCars,
 	getDeleteCar,
 	postAddCar,
 	postEditCar
-} = require('../../controllers/carsCt')
+} = require('../../controllers/adminCt/carsCt')
 const isAuth = require('../../middleware/isAuth')
 const isToken = require('../../middleware/isToken')
 
