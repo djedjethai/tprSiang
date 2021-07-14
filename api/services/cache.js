@@ -20,7 +20,24 @@ function carDelCache(cchType, cchStyle){
 	deleteCache(cacheEnum.carsStyle, cchStyle)
 }
 
-module.exports = { carDelCache }
+function fromRedis(model){
+	return new Promise((resolve, reject) => {
+		redisInstance.getInstance().get(model, (err, val) => {
+			if(err){
+				reject(err)
+			}
+			const dts = JSON.parse(val)
+			resolve(dts)
+		})
+	})	
+}
+
+function setDataInRedis(cacheName, datas){
+	redisInstance.getInstance().set(cacheName, datas, 'EX', 3600)
+}
+
+module.exports = { carDelCache, fromRedis, setDataInRedis, cacheEnum }
+
 
 
 

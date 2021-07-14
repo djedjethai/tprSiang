@@ -56,7 +56,6 @@
 		<%if(!editing) {%>	
 		<script type="text/javascript">
 
-			// const tt = require('../../utility/apiFetch')
 			// get token and datas from form
 			let key = ''
 			let style = 'Pick-up'	
@@ -86,18 +85,12 @@
 					picture: event.target[0].files[0].name
 				}
 			
-				// debut func
-				// url second fetch
-				// args: urlRedirect + one obj with data to save in db(the function will add to it the picUrl )
-				// + pass the data(obj), or the func should be able to access it directly ??
-			
 				fetch('http://localhost:3050/admin/upload', {
 					method: 'POST',
 					mode: 'no-cors',
 					body: JSON.stringify(data),
 					headers: {
 				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
-					// 'Content-Type': 'application/json'
 					}
 				})
 				.then(d => {				
@@ -116,8 +109,7 @@
 				})
 				.then(d => {
 					// picture url will be 
-				const picUrl = `https://node-advance-course.s3-ap-southeast-1.amazonaws.com/${key}`
-				console.log('after target s3: ', picUrl)
+				const picUrl = `https://tprcar-bucket.s3.amazonaws.com/${key}`
 				
 				// dataForDb should be pass as arg, and here we add the picUrl
 				const dataForDb = {
@@ -132,7 +124,6 @@
 					body: JSON.stringify(dataForDb),
 					headers: {
 				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
-					// 'Content-Type': 'application/json'
 					}
 
 				})

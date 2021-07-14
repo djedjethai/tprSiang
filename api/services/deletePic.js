@@ -11,7 +11,7 @@ const s3 = new AWS.S3({
 module.exports = (urlArr) => {
 	const s3keypic = `${urlArr[urlArr.length - 2]}/${urlArr[urlArr.length - 1]}`
 	const params ={
-		Bucket:'node-advance-course',
+		Bucket: keys.bucketName,
 		Key:s3keypic
 	}
 	return new Promise((resolve, reject) => {

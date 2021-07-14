@@ -9,7 +9,6 @@ const s3 = new AWS.S3({
 	secretAccessKey: keys.secretAccessKey
 })
 
-
 module.exports = app => {
 	app.post('/upload', isToken, (req, res) => {
 
@@ -20,7 +19,7 @@ module.exports = app => {
 		// console.log(key)
 		
 		s3.getSignedUrl('putObject', {
-			Bucket: 'node-advance-course',
+			Bucket: keys.bucketName,
 			ContentType: 'image/jpeg',
 			Key: key
 		}, (e, url) => {
