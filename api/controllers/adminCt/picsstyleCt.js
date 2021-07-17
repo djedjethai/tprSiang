@@ -2,6 +2,7 @@ const Picstyle = require('mongoose').model('Picstyle')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
+const { picsStyleDelCache } = require('../../services/cache')
 
 const PICST_CT = 'picsstyleCt.js'
 
@@ -30,6 +31,8 @@ exports.getDeletePicsstyle = async(req, res, next) => {
 		// delete the pic in s3 bucket
 		const d = await deleteHandler(urlArr)
 		if(!d) throw Error(PICST_CT,' - deleting s3 has a problem')
+
+		picsStyleDelCache(picStyleDeleted.style)
 
 		res.redirect('/admin/picsstyle')
 	} catch(e) {	
@@ -85,6 +88,8 @@ exports.postAddPicsstyle = async(req, res, next) => {
 			})
 			await newPic.save()
 
+			picsStyleDelCache(newPic.style)
+
 			// the ajax request will redirect to the picsstyle page 
 			res.status(200).send({ok:"saved"})	
 			return
@@ -102,6 +107,8 @@ exports.postModifyPicsstyle = async(req, res, next) => {
 		picStyleToEdit.style = req.body.style
 
 		await picStyleToEdit.save()
+
+		picsStyleDelCache(picStyleToEdit.style)
 	
 		res.redirect('/admin/picsStyle')
 	} catch(e) {
