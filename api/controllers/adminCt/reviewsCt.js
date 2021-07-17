@@ -2,6 +2,7 @@ const Review = require('mongoose').model('Review')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
+const { reviewDelCache } = require('../../services/cache')
 
 const REVIEW_CT = 'reviewCT'
 
@@ -73,6 +74,8 @@ exports.postAddReview = async(req, res, next) => {
 			})
 			await newReview.save()
 
+			reviewDelCache()
+
 			res.status(200).send({ok:"review saved"})
 			return 
 		}
@@ -94,6 +97,8 @@ exports.postEditReview = async(req, res, next) => {
 		reviewToEdit.quand = Date.now()
 		
 		await reviewToEdit.save()
+		
+		reviewDelCache()
 
 		res.redirect('/admin/reviews')
 	} catch(e) {
@@ -110,7 +115,9 @@ exports.getDeleteReview = async(req, res, next) => {
 		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
 		if(!d) throw Error(REVIEW_CT,' - deleting s3 has a problem')
-		
+	
+		reviewDelCache()
+
 		res.redirect('/admin/reviews')
 	} catch(e) {
 		next(new ProcessError('A system error occured during deleting the picture'))

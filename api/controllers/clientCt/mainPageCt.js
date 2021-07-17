@@ -1,30 +1,44 @@
+const Picmain = require('mongoose').model('Picmain')
 const Car = require('mongoose').model('Car')
+const Review = require('mongoose').model('Review')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
 
 
 module.exports = async(req, res) => {
 	try{
 
-		const carsData = await fromRedis(cacheEnum.mainCarReview)
+		let mainPicsData = await fromRedis(cacheEnum.mainPics)
+		let carsData = await fromRedis(cacheEnum.mainCars)
+		let reviewsData = await fromRedis(cacheEnum.mainReviews)
 
-		if(!carsData){
-			// query the db where bestSeller == true
-			const cars = await Car.find()
-
-			// save cars to redis for next req, 
-			// will need to add other mainPage datas
-			const carsToRedis = JSON.stringify(cars)
-			setDataInRedis(cacheEnum.mainCarReview, carsToRedis)
-			
-			console.log('cars from db to show on main page :', cars)
-
-			res.send("from db")
+		if(!mainPicsData) {
+			mainPicsData = await Picmain.find() 
+			setDataInRedis(cacheEnum.mainPics, JSON.stringify(mainPicsData))
+		}
+		
+		if(!carsData) {
+			carsData = await Car.find({bestSeller: true})
+			setDataInRedis(cacheEnum.mainCars, JSON.stringify(carsData))
 		}
 
-		console.log('cars from redis to show on main page: ', carsData)
-		res.send("from redis")
+		if(!reviewsData) {
+			reviewsData = await Review.find().sort('-quand').limit(3)
+			setDataInRedis(cacheEnum.mainReviews, JSON.stringify(reviewsData))
+		}
+
+		const dataToReturn = {
+			mainPics: mainPicsData,
+			cars: carsData,
+			reviews: reviewsData
+		}
+
+		console.log('final datas: ', dataToReturn)
+		
+		// res.send("final data")
+		res.send(dataToReturn)
 
 	} catch(e) {
+		// sett up the err !, use the already setted-up class 
 		console.log('from front, req main: ', e)
 	}		
 }

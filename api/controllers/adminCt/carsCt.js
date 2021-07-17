@@ -117,7 +117,8 @@ exports.postEditCar = async(req, res, next) => {
 		
 		await carToModify.save()
 
-		carDelCache(carToModify.type, carToModify.style)
+		console.log('car del cache id', ID)
+		carDelCache(carToModify.type, carToModify.style, ID)
 
 		res.redirect('/admin/cars')
 	} catch(e) {
@@ -134,7 +135,7 @@ exports.getDeleteCar = async(req, res, next) => {
 		const d = await deleteHandler(urlArr)
 		if(!d) throw Error(CAR_CT,' - deleting s3 has a problem')
 
-		carDelCache(carToDelete.type, carToDelete.style)
+		carDelCache(carToDelete.type, carToDelete.style, ID)
 
 		res.redirect('/admin/cars')
 	} catch(e) {

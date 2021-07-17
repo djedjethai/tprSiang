@@ -2,7 +2,8 @@ const redisInstance = require('./redisInstance')
 
 const cacheEnum = Object.freeze({
 	mainPics: "mainpics", 
-	mainCarReview: "maincarreview",
+	mainCars: "maincar",
+	mainReviews: "mainreview",
 	reviews: "reviews", 
 	carsType: "carstype-",
 	carsStyle: "carsstyle-",
@@ -14,10 +15,24 @@ function deleteCache(name, spec=""){
 	redisInstance.getInstance().del(`${name}${spec}`)
 }
 
-function carDelCache(cchType, cchStyle){
-	deleteCache(cacheEnum.mainCarReview)
+function carDelCache(cchType, cchStyle, cchCarId=""){
+	deleteCache(cacheEnum.mainCars)
 	deleteCache(cacheEnum.carsType, cchType)
 	deleteCache(cacheEnum.carsStyle, cchStyle)
+	deleteCache(cacheEnum.car, cchCarId)
+}
+
+function reviewDelCache(){
+	deleteCache(cacheEnum.mainReviews)
+	deleteCache(cacheEnum.reviews)
+}
+
+function picsMainDelCache(){
+	deleteCache(cacheEnum.mainPics)
+}
+
+function picsStyleDelCache(cchStyle){
+	deleteCache(cacheEnum.picsStyle, cchStyle)
 }
 
 function fromRedis(model){
@@ -36,7 +51,15 @@ function setDataInRedis(cacheName, datas){
 	redisInstance.getInstance().set(cacheName, datas, 'EX', 3600)
 }
 
-module.exports = { carDelCache, fromRedis, setDataInRedis, cacheEnum }
+module.exports = { 
+	carDelCache, 
+	reviewDelCache,
+	picsMainDelCache,
+	picsStyleDelCache,
+	fromRedis, 
+	setDataInRedis, 
+	cacheEnum 
+}
 
 
 

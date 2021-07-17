@@ -2,6 +2,7 @@ const Picmain = require('mongoose').model('Picmain')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
+const { picsMainDelCache } = require('../../services/cache')
 
 const PICMAIN_CT = 'picsmainCt'
 
@@ -30,7 +31,9 @@ exports.getDeletePicsmain = async(req, res, next) => {
 		// delete pic in s3 bucket
 		const d = await deleteHandler(urlArr)
 		if(!d) throw Error(PICMAIN_CT,' - deleting s3 has a problem')
-		
+	
+		picsMainDelCache()
+
 		res.redirect('/admin/picsmain')
 	} catch(e) {
 		next(new ProcessError('A system error occured during deleting the picture'))
@@ -68,6 +71,8 @@ exports.postAddPicsmain = async(req, res, next) => {
 			})
 			await newPic.save()
 			
+			picsMainDelCache()
+
 			res.status(200).send({ok:"saved"})
 			return
 		}
