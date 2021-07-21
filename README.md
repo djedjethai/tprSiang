@@ -29,4 +29,4 @@ The library React, or more precisely Next.js(for SEO purpose) is use for the SPA
 > A Continous integration pipeline will be set-up, using Travis. It will ease all futur updates and deployments of the application. 
 
 
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg"The stormtroopocat")
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The stormtroopocat")
