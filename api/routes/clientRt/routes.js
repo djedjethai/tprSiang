@@ -1,8 +1,7 @@
 const mainPage = require('../../controllers/clientCt/mainPageCt')
+const typePage = require('../../controllers/clientCt/typePageCt')
 
 module.exports = app => {
 	app.get('/main', mainPage)
-	// app.get('/main', (req, res) => {
-	// 	res.send("jsonnnnnn")
-	// })
+	app.get('/type/:type', typePage)
 }
