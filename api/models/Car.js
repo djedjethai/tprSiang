@@ -41,15 +41,15 @@ const carSchema = new Schema({
 	},
 	style: {
 		type: String,
-            	require: false
+            	require: true
 	},
 	type: {
 		type: String,
-            	require: false
+            	require: true
 	},
 	bestSeller: {
 		type: String,
-            	require: false
+            	require: true
 	}
 })
 

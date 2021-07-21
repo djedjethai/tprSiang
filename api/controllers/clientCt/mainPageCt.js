@@ -2,14 +2,17 @@ const Picmain = require('mongoose').model('Picmain')
 const Car = require('mongoose').model('Car')
 const Review = require('mongoose').model('Review')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
+const { ApiServerError } = require('../../error/listErrors')
 
 
-module.exports = async(req, res) => {
+module.exports = async(req, res, next) => {
 	try{
 
-		let mainPicsData = await fromRedis(cacheEnum.mainPics)
-		let carsData = await fromRedis(cacheEnum.mainCars)
-		let reviewsData = await fromRedis(cacheEnum.mainReviews)
+		let [mainPicsData, carsData, reviewsData] = await Promise.all([
+			fromRedis(cacheEnum.mainPics),
+			fromRedis(cacheEnum.mainCars),
+			fromRedis(cacheEnum.mainReviews)
+		])
 
 		if(!mainPicsData) {
 			mainPicsData = await Picmain.find() 
@@ -34,11 +37,12 @@ module.exports = async(req, res) => {
 
 		console.log('final datas: ', dataToReturn)
 		
-		// res.send("final data")
-		res.send(dataToReturn)
+		res.send("final data")
+		// res.send(dataToReturn)
 
 	} catch(e) {
 		// sett up the err !, use the already setted-up class 
 		console.log('from front, req main: ', e)
+		next(new ApiServerError('An unexpected server error occured, please try again'))
 	}		
 }
