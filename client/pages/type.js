@@ -1,17 +1,21 @@
 import axios from 'axios'
+import translator from '../services/translator'
 
-const TypePage = ({ data }) => {
+const TypePage = ({ picsmain, data }) => {
+	console.log('picsmain from type: ', picsmain)
 	return <h1>the typepage { data }</h1> 
 }
 
 TypePage.getInitialProps = async () => {
-	// const response = await axios.get("http://api:5000/main")
-	// const response = await axios.get("http://api:5000/type/moncul")
-	const response = await axios.get("http://api:5000/type/รุนรถ")
-	// const response = await axios.get("http://api:5000/type/รถยนฅ์เพื่อการพาณิซย์")
-console.log(response)
-	// const str = { data: response.data }
-	const str = { data: "putain de merde" }
+
+	// data received from link
+	// here we simulate
+	const data = translator('รถยนฅ์เพื่อการพาณิซย์')
+
+	const response = await axios.get(`http://api:5000/type/${data}`)
+	console.log('response type: ', response.data)
+	
+	const str = { data: "page type" }
 	return str
 }
 

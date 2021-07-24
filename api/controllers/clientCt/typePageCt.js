@@ -1,17 +1,20 @@
 const Car = require('mongoose').model('Car')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
 const { ApiServerError } = require('../../error/listErrors')
+const translator = require('../../services/translator')
 
 module.exports = async(req, res, next) => {
 	const { type } = req.params
-	console.log('in server: ', type)
+	
+	// transalte from eng to thai
+	const data = translator(type)
 
 	try{
-		let picsType = await fromRedis(`${cacheEnum.carsType}${type}`)
+		let picsType = await fromRedis(`${cacheEnum.carsType}${data}`)
 
 		if(!picsType){
-			picsType = await Car.find({type: `${type}`})
-			setDataInRedis(cacheEnum.carsType, JSON.stringify(picsType))
+			picsType = await Car.find({type: `${data}`})
+			setDataInRedis(cacheEnum.carsType+data, JSON.stringify(picsType))
 		}
 
 		console.log(`pics type ${type} : `, picsType)

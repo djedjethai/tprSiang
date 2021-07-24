@@ -1,4 +1,3 @@
-const Picmain = require('mongoose').model('Picmain')
 const Car = require('mongoose').model('Car')
 const Review = require('mongoose').model('Review')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
@@ -9,15 +8,9 @@ module.exports = async(req, res, next) => {
 	try{
 
 		let [mainPicsData, carsData, reviewsData] = await Promise.all([
-			fromRedis(cacheEnum.mainPics),
 			fromRedis(cacheEnum.mainCars),
 			fromRedis(cacheEnum.mainReviews)
 		])
-
-		if(!mainPicsData) {
-			mainPicsData = await Picmain.find() 
-			setDataInRedis(cacheEnum.mainPics, JSON.stringify(mainPicsData))
-		}
 		
 		if(!carsData) {
 			carsData = await Car.find({bestSeller: true})
@@ -30,7 +23,6 @@ module.exports = async(req, res, next) => {
 		}
 
 		const dataToReturn = {
-			mainPics: mainPicsData,
 			cars: carsData,
 			reviews: reviewsData
 		}
