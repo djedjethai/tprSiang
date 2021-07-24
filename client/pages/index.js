@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const MainPage = ({ data }) => {
+const MainPage = ({ picsmain, data }) => {
+	console.log("c de la bombe bb: ", picsmain)
+
 	return <h1>index !!!! { data }</h1>
 }
 
