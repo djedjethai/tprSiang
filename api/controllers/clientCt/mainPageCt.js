@@ -37,8 +37,8 @@ module.exports = async(req, res, next) => {
 
 		console.log('final datas: ', dataToReturn)
 		
-		res.send("final data")
-		// res.send(dataToReturn)
+		// res.send("final data")
+		res.send(dataToReturn)
 
 	} catch(e) {
 		// sett up the err !, use the already setted-up class 

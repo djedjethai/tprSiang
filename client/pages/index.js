@@ -1,20 +1,37 @@
-import axios from 'axios'
+const MainPage = ({ pics }) => {
+	console.log("c de la bombe bb: ", pics)
 
-const MainPage = ({ picsmain, data }) => {
-	console.log("c de la bombe bb: ", picsmain)
+	const carsList = pics.cars.map(car => {
+		return(
+			<div key={car._id}>
+				<img src={car.pic} style={{width:150}} /><br />
+				{car.serie}<br />
+				{car.price}<br />
+				{car.style}<br />
+				<hr />
+			</div>
+		)
+	})
 
-	return <h1>index !!!! { data }</h1>
+	return (
+		<div>
+			<h1>index !!!!, main page</h1>
+			{carsList}
+		</div>
+	)
+	
 }
 
- MainPage.getInitialProps = async () => {
+ MainPage.getInitialProps = async (context, client) => {
  	// domain "apiclient:4000" as apiclient and nextjs are in a bridge network
 	// localhost from a container belong to the container, can t be use between container
- 	const response = await axios.get("http://api:5000/main")
+ 	
+	// const { data } = await axios.get("http://api:5000/main")
+	const { data } = await client.get('/main')
 
- 	// need to create an arr to then destruct
+	// need to create an arr to then destruct
  	// otherwise the datas get parsed
- 	const str = { data: response.data } 
- 	return str
+ 	return { pics: data }
  }
 
 export default MainPage
