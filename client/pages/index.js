@@ -1,38 +1,20 @@
-import { useEffect, useState } from 'react'
+import useBanner  from '../hooks/use-banner'
 
 const MainPage = ({ pics }) => {
-	const [count, setCount] = useState(0)
+	const { count } = useBanner(pics)
 
-	console.log("c de la bombe bb: ", pics)
+	// const renderBanner = () => {
+	// 	const lgt = pics.mainPics.length
+	// 	console.log(lgt)
+	// 	if(lgt > 0) {
+	// 		return (
+	// 			<div>
+	// 			<img src={pics.mainPics[count].pic} style={{width:300}} />
+	// 			</div>
+	// 		)
+	// 	}
+	// }
 	
-	
-	let ref = 0
-
-	useEffect(() => {
-		const lgt = pics.mainPics.length
-		
-		const runCount = () => {
-			if(lgt === 0) setCount(0)
-
-			if(ref < lgt - 1) {
-				ref++
-				setCount(ref)
-			}
-			else {
-				ref = 0
-				setCount(ref)
-			}
-		}
-
-		const inter = setInterval(runCount, 2000)
-
-
-		return () => {
-			clearInterval(inter)
-		}
-	},[])
-
-
 	const carsList = pics.cars.map(car => {
 		return(
 			<div key={car._id}>
@@ -47,7 +29,6 @@ const MainPage = ({ pics }) => {
 
 	return (
 		<div>
-			{count}
 			<div>
 				<img src={pics.mainPics[count].pic} style={{width:300}} />
 			</div>
