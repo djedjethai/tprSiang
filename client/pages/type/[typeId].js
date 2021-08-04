@@ -1,5 +1,3 @@
-import translator from '../../services/translator'
-
 const TypePage = ({ pics }) => {
 	console.log('picsmain from type: ', pics)
 	return <h1>the typepage</h1> 

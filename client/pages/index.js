@@ -1,5 +1,37 @@
+import { useEffect, useState } from 'react'
+
 const MainPage = ({ pics }) => {
+	const [count, setCount] = useState(0)
+
 	console.log("c de la bombe bb: ", pics)
+	
+	
+	let ref = 0
+
+	useEffect(() => {
+		const lgt = pics.mainPics.length
+		
+		const runCount = () => {
+			if(lgt === 0) setCount(0)
+
+			if(ref < lgt - 1) {
+				ref++
+				setCount(ref)
+			}
+			else {
+				ref = 0
+				setCount(ref)
+			}
+		}
+
+		const inter = setInterval(runCount, 2000)
+
+
+		return () => {
+			clearInterval(inter)
+		}
+	},[])
+
 
 	const carsList = pics.cars.map(car => {
 		return(
@@ -15,6 +47,10 @@ const MainPage = ({ pics }) => {
 
 	return (
 		<div>
+			{count}
+			<div>
+				<img src={pics.mainPics[count].pic} style={{width:300}} />
+			</div>
 			<h1>index !!!!, main page</h1>
 			{carsList}
 		</div>
