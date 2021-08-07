@@ -1,7 +1,6 @@
 import renderBanner from '../services/renderBanner'
 
 const MainPage = ({ pics }) => {
-		
 	const carsList = pics.cars.map(car => {
 		return(
 			<div key={car._id}>
