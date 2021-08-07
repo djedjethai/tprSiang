@@ -1,20 +1,7 @@
-import useBanner  from '../hooks/use-banner'
+import renderBanner from '../services/renderBanner'
 
 const MainPage = ({ pics }) => {
-	const { count } = useBanner(pics)
-
-	// const renderBanner = () => {
-	// 	const lgt = pics.mainPics.length
-	// 	console.log(lgt)
-	// 	if(lgt > 0) {
-	// 		return (
-	// 			<div>
-	// 			<img src={pics.mainPics[count].pic} style={{width:300}} />
-	// 			</div>
-	// 		)
-	// 	}
-	// }
-	
+		
 	const carsList = pics.cars.map(car => {
 		return(
 			<div key={car._id}>
@@ -29,9 +16,7 @@ const MainPage = ({ pics }) => {
 
 	return (
 		<div>
-			<div>
-				<img src={pics.mainPics[count].pic} style={{width:300}} />
-			</div>
+			{renderBanner(pics)}
 			<h1>index !!!!, main page</h1>
 			{carsList}
 		</div>
@@ -52,4 +37,23 @@ const MainPage = ({ pics }) => {
  }
 
 export default MainPage
+
+
+
+// const NewRenderBanner = renderBanner(pics)
+
+	// const NewRenderBanner = () => {
+	// 	const lgt = pics.mainPics.length
+	// 	console.log('titititit: ', pics.mainPics.length)
+	// 	if(pics.mainPics.length > 0) {
+	// 		return (
+	// 			<div>
+	// 			<img src={pics.mainPics[count].pic} style={{width:300}} />
+	// 			</div>
+	// 		)
+	// 		
+	// 	} else {
+	// 		return <p>Banner under building</p>
+	// 	}
+	// }
 
