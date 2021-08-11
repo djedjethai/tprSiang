@@ -1,15 +1,34 @@
+import Router from 'next/router'
+
+import Cardstd from '../components/cardStd/Cardstd'
 import renderBanner from '../services/renderBanner'
 
 const MainPage = ({ pics }) => {
+	
+	const goToStyle = value => {
+		console.log(value)
+		Router.push(`/style/${value}`)
+	}
+
 	const carsList = pics.cars.map(car => {
 		return(
-			<div key={car._id}>
-				<img src={car.pic} style={{width:150}} /><br />
-				{car.serie}<br />
-				{car.price}<br />
-				{car.style}<br />
-				<hr />
-			</div>
+			<Cardstd 
+				key={car._id}
+				pic={car.pic}
+				serie={car.serie}
+				price={car.price}
+				style={car.style}
+				engine={car.engine}
+				clicked={() => goToStyle(car.style)}	
+			/>
+
+			// <div key={car._id}>
+			// 	<img src={car.pic} style={{width:150}} /><br />
+			// 	{car.serie}<br />
+			// 	{car.price}<br />
+			// 	{car.style}<br />
+			// 	<hr />
+			// </div>
 		)
 	})
 
