@@ -4,10 +4,10 @@ export default (pics) => {
 
 		const { count } = useBanner(pics)
 		
-		if(pics.mainPics.length > 0) {
+		if(pics.length > 0) {
 			return (
 				<div>
-				<img src={pics.mainPics[count].pic} style={{width:400}} />
+				<img src={pics[count].pic} style={{width:400}} />
 				</div>
 			)
 			

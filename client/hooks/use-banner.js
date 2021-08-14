@@ -6,7 +6,7 @@ export default ( pics ) => {
 	let ref = 0
 
 	useEffect(() => {
-		const lgt = pics.mainPics.length
+		const lgt = pics.length
 		
 		const runCount = () => {
 			if(lgt === 0) setCount(0)

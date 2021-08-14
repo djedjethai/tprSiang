@@ -10,28 +10,27 @@ const TypePage = ({ pics, type }) => {
 	const goToCar = value => {
 		console.log(value)
 		// here we push for single car details
-		// Router.push(`/style/${value}`)
+		Router.push(`/car/${value}`)
 	}
 
 
-	const carsList = pics.picsType.map(car => {
+	const carsList = pics.carsData.map(car => {
 		return(
 			<Cardstd
-				key={car._id}
+				refKey={car._id}
 				pic={car.pic}
 				serie={car.serie}
 				price={car.price}
 				style={car.style}
 				engine={car.engine}
-				clicked={() => goToCar(car.style)}	
+				clicked={() => goToCar(car._id)}
 			/>
-		
 		)
 	})
 
 	return (
 		<div>
-			{renderBanner(pics)}
+			{renderBanner(pics.mainPics)}
 			<h1>the typepage: {translator(type)}</h1> 
 			{carsList}
 		</div>
