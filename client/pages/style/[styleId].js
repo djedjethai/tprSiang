@@ -1,7 +1,6 @@
 import Router from 'next/router'
 
 import Cardstd from '../../components/cardStd/Cardstd'
-import renderBanner from '../../services/renderBanner'
 
 const StylePage = ({ pics, style }) => {
 	
@@ -10,39 +9,33 @@ const StylePage = ({ pics, style }) => {
 		Router.push(`/car/${value}`)
 	}
 
-
 	const carsList = pics.carsData.map(car => {
 		return(
 			<Cardstd
-				refKey={car._id}
-				pic={car.pic}
-				serie={car.serie}
-				price={car.price}
-				style={car.style}
-				engine={car.engine}
+				key={car._id}
+				carDetails={car}
 				clicked={() => goToCar(car._id)}
 			/>
 		)
 	})
-
+	
 	return (
 		<div>
-			{renderBanner(pics.mainPics)}
 			<h1>the style page: {style}</h1> 
 			{carsList}
 		</div>
 	)
-
-	console.log('picsmain from stylepage: ', picsmain)
-	return <h1>the stylepage { data }</h1> 
 }
 
 StylePage.getInitialProps = async (context, client) => {
 	const { styleId } =  context.query
+	const arrStyleId = styleId.split('=')
 
-	const { data } = await client.get(`/style/${styleId}`)
-	
-	return { pics: data, style: styleId }
+	const { data } = await client.get(`/style/${arrStyleId[0]}?styleid=${arrStyleId[1]}`)
+
+	console.log('the datas: ', data)
+
+	return { pics: data, style: arrStyleId[0] }
 }
 
 export default StylePage

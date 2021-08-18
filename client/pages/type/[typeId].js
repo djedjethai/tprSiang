@@ -13,16 +13,11 @@ const TypePage = ({ pics, type }) => {
 		Router.push(`/car/${value}`)
 	}
 
-
 	const carsList = pics.carsData.map(car => {
 		return(
 			<Cardstd
-				refKey={car._id}
-				pic={car.pic}
-				serie={car.serie}
-				price={car.price}
-				style={car.style}
-				engine={car.engine}
+				key={car._id}
+				carDetails={car}
 				clicked={() => goToCar(car._id)}
 			/>
 		)

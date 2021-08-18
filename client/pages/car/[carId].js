@@ -1,19 +1,14 @@
-import Cardstd from '../../components/cardStd/Cardstd'
+import Cardcardetails from '../../components/cardCarDetails/Cardcardetails'
 
 const CarPage = ({ pics }) => {
 
 	const goToCar = (value) => {}
 
-	const carsList = pics.carsData.map(car => {
+	const carDetails = pics.carsData.map(car => {
 		return(
-			<Cardstd
-				refKey={car._id}
-				pic={car.pic}
-				serie={car.serie}
-				price={car.price}
-				style={car.style}
-				engine={car.engine}
-				clicked={() => goToCar(car.style)}
+			<Cardcardetails
+				key={car._id}
+				carDts={car}
 			/>
 		)
 	})
@@ -21,7 +16,7 @@ const CarPage = ({ pics }) => {
 	return (
 		<div>
 			<h1>the car page</h1> 
-			{carsList}
+			{carDetails}
 		</div>
 	)
 

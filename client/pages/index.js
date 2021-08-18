@@ -5,24 +5,35 @@ import renderBanner from '../services/renderBanner'
 
 const MainPage = ({ pics }) => {
 	
+	// const goToStyle = value => {
+	// 	Router.push(`/style/${value}`)
+	// }
+
+	// const carsList = pics.carsData.map(car => {
+	// 	return(
+	// 		<Cardstd
+	// 			key={car._id}
+	// 			carDetails={car} 
+	// 			clicked={() => goToStyle(car.style)
+	// 		/>
+	// 	)
+	// })
+
 	const goToStyle = value => {
 		Router.push(`/style/${value}`)
 	}
 
 	const carsList = pics.carsData.map(car => {
+
 		return(
-			<Cardstd 
-				refKey={car._id}
-				pic={car.pic}
-				serie={car.serie}
-				price={car.price}
-				style={car.style}
-				engine={car.engine}
-				clicked={() => goToStyle(car.style)}
+			<Cardstd
+				key={car._id}
+				carDetails={car} 
+				clicked={() => goToStyle(`${car.style}=${car._id}`)}
 			/>
 		)
 	})
-
+		
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}

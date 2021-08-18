@@ -6,16 +6,20 @@ const { ApiServerError } = require('../../error/listErrors')
 
 module.exports = async(req, res, next) => {
 	const { style } = req.params
+	const {styleid } = req.query
 	
+	console.log('the style: ', style)
+	console.log('the id: ', styleid)
+
 	try{
-		let [mainPicsData, picsStyle] = await Promise.all([
-			fromRedis(cacheEnum.mainPics),
+		let [car, picsStyle] = await Promise.all([
+			fromRedis(`${cacheEnum.car}${styleid}`),
 			fromRedis(`${cacheEnum.picsStyle}${style}`)
 		])
 
-		if(!mainPicsData) {
-			mainPicsData = await Picmain.find() 
-			setDataInRedis(cacheEnum.mainPics, JSON.stringify(mainPicsData))
+		if(!car) {
+			carData = await Car.find({_id: styleid}) 
+			setDataInRedis(cacheEnum.car+styleid, JSON.stringify(carData))
 		}
 
 		if(!picsStyle){
@@ -24,10 +28,12 @@ module.exports = async(req, res, next) => {
 		}
 
 		const dataToReturn = {
-			mainPics: mainPicsData,
+			carSelected: car,
 			carsData: picsStyle
 		}
 		
+		console.log('oook: ', dataToReturn)
+
 		res.send(dataToReturn)
 
 	} catch(e) {
