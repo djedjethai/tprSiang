@@ -15,8 +15,6 @@ module.exports = async(req, res, next) => {
 			fromRedis(`${cacheEnum.car}${id}`),
 			fromRedis(`${cacheEnum.picsStyle}${style}`)
 		])
-		// let car = await fromRedis(`${cacheEnum.car}${id}`)
-		// let carPicStyle = await fromRedis(`${cacheEnum.picsStyle}${style}`)
 
 		if(!car){
 			car = await Car.find({_id: id})
@@ -24,7 +22,6 @@ module.exports = async(req, res, next) => {
 		}
 
 		// let carPicStyle = null
-		console.log("cache from picsStyle bug??: ", carPicStyle)
 		if(!carPicStyle){
 			carPicStyle = await Picstyle.find({style: style})
 			setDataInRedis(cacheEnum.picsStyle+style, JSON.stringify(carPicStyle))
@@ -34,8 +31,6 @@ module.exports = async(req, res, next) => {
 			carsData: car,
 			picsStyle: carPicStyle
 		}
-
-		console.log("the datas from ouuuf: ", dataToReturn)
 
 		res.send(dataToReturn)
 
