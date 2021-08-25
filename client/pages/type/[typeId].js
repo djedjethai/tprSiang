@@ -18,7 +18,7 @@ const TypePage = ({ pics, type }) => {
 			<Cardstd
 				key={car._id}
 				carDetails={car}
-				clicked={() => goToCar(car._id)}
+				clicked={() => goToCar(`${car._id}=${car.style}`)}
 			/>
 		)
 	})

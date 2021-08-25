@@ -104,12 +104,17 @@ exports.postAddPicsstyle = async(req, res, next) => {
 exports.postModifyPicsstyle = async(req, res, next) => {
 	try{
 		const picStyleToEdit = await Picstyle.findById(req.params.id)
-		picStyleToEdit.style = req.body.style
 
+		// delete previous style cache
+		picsStyleDelCache(picStyleToEdit.style)
+
+		picStyleToEdit.style = req.body.style
 		await picStyleToEdit.save()
 
-		picsStyleDelCache(picStyleToEdit.style)
-	
+		// delete new style cache
+		await picsStyleDelCache(req.body.style)
+
+			
 		res.redirect('/admin/picsStyle')
 	} catch(e) {
 		next(new ServerError('A network error occured please try again')) 
