@@ -1,24 +1,31 @@
+import Router from 'next/router'
 import renderBanner from '../../services/renderBanner'
 import translator from '../../services/translator'
+
+import Cardstd from '../../components/cardStd/Cardstd' 
 
 const TypePage = ({ pics, type }) => {
 	console.log('picsmain from type: ', pics)
 
-	const carsList = pics.picsType.map(car => {
+	const goToCar = value => {
+		console.log(value)
+		// here we push for single car details
+		Router.push(`/car/${value}`)
+	}
+
+	const carsList = pics.carsData.map(car => {
 		return(
-			<div key={car._id}>
-				<img src={car.pic} style={{width:150}} /><br />
-				{car.serie}<br/>
-				{car.price}<br/>
-				{car.style}<br/>
-				{car.engine}<br/>
-			</div>
+			<Cardstd
+				key={car._id}
+				carDetails={car}
+				clicked={() => goToCar(`${car._id}=${car.style}`)}
+			/>
 		)
 	})
 
 	return (
 		<div>
-			{renderBanner(pics)}
+			{renderBanner(pics.mainPics)}
 			<h1>the typepage: {translator(type)}</h1> 
 			{carsList}
 		</div>

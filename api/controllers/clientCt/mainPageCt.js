@@ -31,7 +31,7 @@ module.exports = async(req, res, next) => {
 
 		const dataToReturn = {
 			mainPics: mainPicsData,
-			cars: carsData,
+			carsData,
 			reviews: reviewsData
 		}
 

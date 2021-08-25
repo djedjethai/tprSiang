@@ -9,7 +9,7 @@ module.exports = async(req, res, next) => {
 
 	// transalte from eng to thai
 	const data = translator(type)
-console.log('from server: type', data)
+	
 	try{
 		let [mainPicsData, typePicsData] = await Promise.all([
 			fromRedis(cacheEnum.mainPics),
@@ -28,7 +28,7 @@ console.log('from server: type', data)
 
 		const dataToReturn = {
 			mainPics: mainPicsData,
-			picsType: typePicsData
+			carsData: typePicsData
 		}
 	
 		res.send(dataToReturn)
