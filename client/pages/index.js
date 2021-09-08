@@ -1,6 +1,8 @@
 import Router from 'next/router'
 
 import Cardstd from '../components/cardStd/Cardstd'
+import Cardreview from '../components/cardReviews/Cardreview'
+import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
 
 const MainPage = ({ pics }) => {
@@ -22,9 +24,23 @@ const MainPage = ({ pics }) => {
 	const goToStyle = value => {
 		Router.push(`/style/${value}`)
 	}
+	
+	const goToReviews = () => {
+		// console.log('go to reviews page coool')
+		Router.push(`/reviews`)
+	}
+
+
+	const reviewsList = pics.reviews.map(review => {
+		return(
+			<Cardreview
+				key={review._id}
+				reviewDetails={review}
+			/>
+		)
+	})
 
 	const carsList = pics.carsData.map(car => {
-
 		return(
 			<Cardstd
 				key={car._id}
@@ -37,11 +53,14 @@ const MainPage = ({ pics }) => {
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
-			<h1>index !!!!, main page</h1>
+			<h1>Index !!!!, main page</h1>
 			{carsList}
+			<h1>Reviews ....</h1>
+			{reviewsList}
+			<p></p>
+			<Accessbutton clicked={() => goToReviews()}>See All Reviews</Accessbutton>
 		</div>
 	)
-	
 }
 
  MainPage.getInitialProps = async (context, client) => {

@@ -1,9 +1,14 @@
+import Router from 'next/router'
+
 import Cardcardetails from '../../components/cardCarDetails/Cardcardetails'
 import Cardpicdetails from '../../components/cardCarDetails/Cardpicdetails.js'
+import Contactbutton from '../../components/buttons/Contactbutton'
 
 const CarPage = ({ pics }) => {
 
-	const goToCar = (value) => {}
+	const goToContact = () => {
+		Router.push('/contact')
+	}
 
 	const displayPicsStyle = pics.picsStyle.map(picture => {
 		return(
@@ -29,21 +34,18 @@ const CarPage = ({ pics }) => {
 			<h1>the car page</h1> 
 			{carDetails}
 			<h1>car pics style</h1>
+			<Contactbutton clicked={() => goToContact()}>ติดต่อ</Contactbutton>
+			<p></p>
 			{displayPicsStyle}
 		</div>
 	)
-
 }
 
 CarPage.getInitialProps = async (context, client) => {
 	const { carId } =  context.query
 	const arrStyleId = carId.split('=')
 
-	console.log('archhhh: ', arrStyleId)
-
 	const { data } = await client.get(`/car/${arrStyleId[0]}?style=${arrStyleId[1]}`)
-
-	console.log("full datas: ", data)
 
 	return { pics: data }
 }

@@ -1,5 +1,6 @@
 import '../css/style.css'
-import Header from '../components/header'
+import Header from '../components/templates/header'
+import Footer from '../components/templates/footer'
 import buildClient from '../services/build-client'
 
 const AppComponent = ({ Component, pageProps }) => {
@@ -8,6 +9,7 @@ const AppComponent = ({ Component, pageProps }) => {
 		<div>
 		<Header />
 		<Component {...pageProps} />
+		<Footer />
 		</div>
 	)
 }
