@@ -1,7 +1,7 @@
 import Router from 'next/router'
 
-import Cardcardetails from '../../components/cardCarDetails/Cardcardetails'
-import Cardpicdetails from '../../components/cardCarDetails/Cardpicdetails.js'
+import Cardcardetails from '../../components/cards/Cardcardetails'
+import Cardpicdetails from '../../components/cards/Cardpicdetails.js'
 import Contactbutton from '../../components/buttons/Contactbutton'
 
 const CarPage = ({ pics }) => {

@@ -1,7 +1,8 @@
 import Router from 'next/router'
 
-import Cardstd from '../components/cardStd/Cardstd'
-import Cardreview from '../components/cardReviews/Cardreview'
+import Cardstd from '../components/cards/Cardstd'
+import Cardreview from '../components/cards/Cardreview'
+import Gotocontact from '../components/cards/cardGlobal/Gotocontact'
 import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
 
@@ -50,11 +51,14 @@ const MainPage = ({ pics }) => {
 
 	const carsList = pics.carsData.map(car => {
 		return(
-			<Cardstd
-				key={car._id}
-				carDetails={car} 
-				clicked={() => goToStyle(`${car.style}=${car._id}`)}
-			/>
+			<div>
+				<Cardstd
+					key={car._id}
+					carDetails={car} 
+					clicked={() => goToStyle(`${car.style}=${car._id}`)}
+				/>
+				<Gotocontact />
+			</div>
 		)
 	})
 		
