@@ -6,21 +6,7 @@ import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
 
 const MainPage = ({ pics }) => {
-	
-	// const goToStyle = value => {
-	// 	Router.push(`/style/${value}`)
-	// }
-
-	// const carsList = pics.carsData.map(car => {
-	// 	return(
-	// 		<Cardstd
-	// 			key={car._id}
-	// 			carDetails={car} 
-	// 			clicked={() => goToStyle(car.style)
-	// 		/>
-	// 	)
-	// })
-
+		
 	const goToStyle = value => {
 		Router.push(`/style/${value}`)
 	}
@@ -31,14 +17,36 @@ const MainPage = ({ pics }) => {
 	}
 
 
-	const reviewsList = pics.reviews.map(review => {
-		return(
-			<Cardreview
-				key={review._id}
-				reviewDetails={review}
-			/>
-		)
-	})
+	const reviewsList = () => {
+		if(pics.reviews.length > 0){		
+			return pics.reviews.map(review => {
+				return (
+					<div>
+						<Cardreview
+							key={review._id}
+							reviewDetails={review}
+						/>
+						<p></p>
+					</div>
+				)
+			})
+		} else {
+			return (
+				<div>
+					<p>No Available review</p>
+				</div>
+			)
+		}
+	}
+
+	const renderAccessToAllReviews = () => {
+		
+		if(pics.reviews.length > 0){		
+			return <Accessbutton clicked={() => goToReviews()}>See All Reviews</Accessbutton>
+		} else {
+			return ""
+		}
+	}
 
 	const carsList = pics.carsData.map(car => {
 		return(
@@ -56,9 +64,8 @@ const MainPage = ({ pics }) => {
 			<h1>Index !!!!, main page</h1>
 			{carsList}
 			<h1>Reviews ....</h1>
-			{reviewsList}
-			<p></p>
-			<Accessbutton clicked={() => goToReviews()}>See All Reviews</Accessbutton>
+			{reviewsList()}
+			{renderAccessToAllReviews()}
 		</div>
 	)
 }
@@ -76,23 +83,4 @@ const MainPage = ({ pics }) => {
  }
 
 export default MainPage
-
-
-
-// const NewRenderBanner = renderBanner(pics)
-
-	// const NewRenderBanner = () => {
-	// 	const lgt = pics.mainPics.length
-	// 	console.log('titititit: ', pics.mainPics.length)
-	// 	if(pics.mainPics.length > 0) {
-	// 		return (
-	// 			<div>
-	// 			<img src={pics.mainPics[count].pic} style={{width:300}} />
-	// 			</div>
-	// 		)
-	// 		
-	// 	} else {
-	// 		return <p>Banner under building</p>
-	// 	}
-	// }
 
