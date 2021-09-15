@@ -1,7 +1,7 @@
 import Router from 'next/router'
 
 import Contactbutton from '../../components/buttons/Contactbutton'
-import Cardreview from '../../components/cardReviews/Cardreview'
+import Cardreview from '../../components/cards/Cardreview'
 import renderBanner from '../../services/renderBanner'
 // import translator from '../../services/translator'
 

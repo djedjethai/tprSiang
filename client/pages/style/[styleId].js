@@ -1,7 +1,8 @@
 import Router from 'next/router'
 
-import Headerstyle from '../../components/headerSelectedCarStyle/Headerstyle'
-import Cardstd from '../../components/cardStd/Cardstd'
+import Headerstyle from '../../components/cards/Headerstyle'
+import Cardstd from '../../components/cards/Cardstd'
+import Gotocontact from '../../components/cards/cardGlobal/Gotocontact'
 
 const StylePage = ({ pics, style, carid }) => {
 	
@@ -28,11 +29,14 @@ const StylePage = ({ pics, style, carid }) => {
 
 	const carsList = pics.carsData.map(car => {
 		return(
-			<Cardstd
-				key={car._id}
-				carDetails={car}
-				clicked={() => goToCar(`${car._id}=${car.style}`)}
-			/>
+			<div>
+				<Cardstd
+					key={car._id}
+					carDetails={car}
+					clicked={() => goToCar(`${car._id}=${car.style}`)}
+				/>
+				<Gotocontact />
+			</div>
 		)
 	})
 	
