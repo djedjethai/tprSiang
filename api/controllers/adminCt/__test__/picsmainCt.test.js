@@ -1,6 +1,6 @@
-const app = require('../../index')
+const app = require('../../../index')
 const session = require('supertest-session')
-const keys = require('../../config/keys')
+const keys = require('../../../config/keys')
 const PicsMain = require('mongoose').model('Picmain')
 
 //  test get all picsmain

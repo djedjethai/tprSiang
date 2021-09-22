@@ -9,6 +9,7 @@ module.exports = async(req, res, next) => {
 	const { style } = req.query
 
 	console.log("the style de ouff: ", style)
+	console.log("the style de ouff2: ", id)
 
 	try{
 		let [car, carPicStyle] = await Promise.all([
@@ -16,7 +17,9 @@ module.exports = async(req, res, next) => {
 			fromRedis(`${cacheEnum.picsStyle}${style}`)
 		])
 
+			console.log('alllo_start')
 		if(!car){
+			console.log('alllo')
 			car = await Car.find({_id: id})
 			setDataInRedis(cacheEnum.car+id, JSON.stringify(car))
 		}

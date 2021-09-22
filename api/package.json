@@ -39,6 +39,7 @@
     "mock-fs": "^5.0.0",
     "mongodb-memory-server": "^6.9.6",
     "nodemon": "2.0.4",
+    "supertest": "^6.1.6",
     "supertest-session": "^4.1.0"
   }
 }
