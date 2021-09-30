@@ -7,7 +7,6 @@ const app = require('../index')
 
 let mongo 
 beforeAll(async() => {
-	// process.env.NODE_ENV = 'test'
 
 	mongo = new MongoMemoryServer()
 	const mongoUri = await mongo.getUri()

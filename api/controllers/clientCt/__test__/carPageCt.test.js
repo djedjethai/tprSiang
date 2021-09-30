@@ -26,7 +26,7 @@ it('make sure the req return PicsStyle and Car datas', async() => {
 		pic:'http://urlPicture.com',
 	})
 
-	console.log("the node_env: ", process.env.NODE_ENV)
+	// console.log("the node_env: ", process.env.NODE_ENV)
 	// console.log('etst 1')
 
 	// save datas
