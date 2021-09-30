@@ -3,6 +3,8 @@ const Car = require('mongoose').model('Car')
 const PicsStyle = require('mongoose').model('Picstyle')
 const request = require('supertest')
 
+// jest.mock('../../../services/cache')
+
 it('make sure the req return PicsStyle and Car datas', async() => {
 	// Arrange
 	const carSample = new Car({
@@ -24,13 +26,14 @@ it('make sure the req return PicsStyle and Car datas', async() => {
 		pic:'http://urlPicture.com',
 	})
 
-	console.log('etst 1')
+	console.log("the node_env: ", process.env.NODE_ENV)
+	// console.log('etst 1')
 
 	// save datas
 	const svdCar = await carSample.save()
 	const svdPicSample = await picSample.save()
 
-	console.log('etst 2 ', svdCar._id)
+	// console.log('etst 2 ', svdCar._id)
 	// Act
 	// const response = await session(app)
 	const response = await request(app)

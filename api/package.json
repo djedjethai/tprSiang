@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon ./bin/www",
     "prod": "node ./bin/www",
-    "test": "jest --watchAll --no-cache --detectOpenHandles"
+    "test": "NODE_ENV=test jest --watchAll --no-cache --detectOpenHandles"
   },
   "jest": {
     "testEnvironment": "node",
@@ -39,6 +39,7 @@
     "mock-fs": "^5.0.0",
     "mongodb-memory-server": "^6.9.6",
     "nodemon": "2.0.4",
+    "redis-mock": "^0.56.3",
     "supertest": "^6.1.6",
     "supertest-session": "^4.1.0"
   }
