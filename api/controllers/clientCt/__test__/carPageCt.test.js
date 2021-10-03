@@ -3,12 +3,13 @@ const Car = require('mongoose').model('Car')
 const PicsStyle = require('mongoose').model('Picstyle')
 const request = require('supertest')
 
+// const { fromRedis } = require('../../../services/cache')
 // jest.mock('../../../services/cache')
 
 it('make sure the req return PicsStyle and Car datas', async() => {
 	// Arrange
 	const carSample = new Car({
-		serie:'serie',
+		serie:'Smart',
 		serieDetails:'serieDetails',
 		wheel: 4,
 		engine:'engine',
@@ -26,23 +27,20 @@ it('make sure the req return PicsStyle and Car datas', async() => {
 		pic:'http://urlPicture.com',
 	})
 
-	// console.log("the node_env: ", process.env.NODE_ENV)
-	// console.log('etst 1')
-
 	// save datas
 	const svdCar = await carSample.save()
-	const svdPicSample = await picSample.save()
+	await picSample.save()
 
-	// console.log('etst 2 ', svdCar._id)
 	// Act
 	// const response = await session(app)
 	const response = await request(app)
-		.get(`/car/${svdCar._id}?style=style`)
+		.get(`/car/${svdCar._id}?style=${carSample.serie}`)
 		.send()
 		.expect(200)
 	
-	// console.log('the ressponse: ', response)
 	// Assert
-	//expect(response.)
+	expect(response.body.carsData[0].title).toEqual(carSample.title)
+	expect(response.body.picsStyle[0].style).toEqual(picSample.style)
+	// expect(fromRedis.fromRedis).toHaveBeenCalled()
 })
 

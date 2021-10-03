@@ -34,8 +34,6 @@ module.exports = async(req, res, next) => {
 			carsData,
 			reviews: reviewsData
 		}
-
-		console.log('final datas: ', dataToReturn)
 		
 		// res.send("final data")
 		res.send(dataToReturn)

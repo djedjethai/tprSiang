@@ -1,7 +1,11 @@
-module.exports = {
-	// console.log('gugugu')
-	fromRedis: jest.fn().mockResolvedValue({})
-	// fromRedis: jest.fn(() => Promise.resolve({}))
+const fromRedis = {
+	// fromRedis: jest.fn().mockResolvedValue({})
+	fromRedis: jest.fn(() => Promise.resolve({}))
 }
+
+const cacheEnum = () => {}
+const setDataInRedis = () => {}
+
+module.exports = {fromRedis, cacheEnum, setDataInRedis}
 
 
