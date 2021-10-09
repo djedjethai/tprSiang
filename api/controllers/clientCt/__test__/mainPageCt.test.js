@@ -15,7 +15,7 @@ it('make sure the req return PicsStyle and Cardatas and reviews', async() => {
 	// save datas
 	const carSaved = await saveCars()
 	const picSaved = await picMainSample.save()
-	await saveReviews()
+	reviewToTest = await saveReviews()
 
 	// Act
 	// const response = await session(app)
@@ -24,13 +24,13 @@ it('make sure the req return PicsStyle and Cardatas and reviews', async() => {
 		.send()
 		.expect(200)
 
-	console.log(response.body)
 	// Assert
 	expect(response.body.carsData[0]._id.toString()).toEqual(carSaved._id.toString())
 	expect(response.body.mainPics[0]._id.toString()).toEqual(picSaved._id.toString())
 	
 	// test the order of the reviews ... look like we have a pb...
 	expect(response.body.reviews.length).toEqual(3)
+	expect(response.body.reviews[0]._id.toString()).toEqual(reviewToTest._id.toString())
 })
 
 async function saveCars(){
@@ -67,6 +67,7 @@ async function saveCars(){
 	const carSaved = await carSample.save()
 	await carSample1.save()
 
+	// this other car won't be return as bestSeller is false
 	return carSaved
 }
 
@@ -75,30 +76,33 @@ async function saveReviews() {
 		name: 'myName',
 		comment: 'this is my comment',
 		pic: 'http://urlPic.com',
-		quand: Date.now()
+		quand: new Date('July 1, 2015')
 	})
 	const reviewSample1 = new Review({
 		name: 'myName1',
 		comment: 'this is my comment1',
 		pic: 'http://urlPic1.com',
-		quand: Date.now()
+		quand: new Date('July 1, 2005')
 	})
 	const reviewSample2 = new Review({
 		name: 'myName2',
 		comment: 'this is my comment2',
 		pic: 'http://urlPic2.com',
-		quand: Date.now()
+		quand: new Date('July 1, 2006')
 	})
 	const reviewSample3 = new Review({
 		name: 'myName3',
 		comment: 'this is my comment3',
 		pic: 'http://urlPic3.com',
-		quand: Date.now()
+		quand: new Date('July 1, 2010')
 	})
 
-	await reviewSample.save()
+	const reviewSampleToCheckInTest = await reviewSample.save()
 	await reviewSample1.save()
 	await reviewSample2.save()
 	await reviewSample3.save()
+
+	// should be first element from the db as it is the most recent
+	return reviewSampleToCheckInTest
 }
 

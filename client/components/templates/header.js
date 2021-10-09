@@ -22,7 +22,7 @@ export default () => {
 		<Link href="/" >
 			<a>second hand cars</a>
 		</Link><br />
-		<Link href="/" >
+		<Link href="/contact" >
 			<a>ติดต่อ</a>
 		</Link><br />
 

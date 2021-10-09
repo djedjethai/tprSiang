@@ -1,4 +1,4 @@
-const Picmain = require('mongoose').model('Picmain')
+// const Picmain = require('mongoose').model('Picmain')
 const Car = require('mongoose').model('Car')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
 const { ApiServerError } = require('../../error/listErrors')

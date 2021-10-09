@@ -9,7 +9,7 @@ const request = require('supertest')
 it('make sure the req return PicsStyle and Car datas', async() => {
 	// Arrange
 	const carSample = new Car({
-		serie:'Smart',
+		serie:'theserie',
 		serieDetails:'serieDetails',
 		wheel: 4,
 		engine:'engine',
@@ -18,7 +18,7 @@ it('make sure the req return PicsStyle and Car datas', async() => {
 		color:'color',
 		details:'details',
 		pic:'http://urlPicture.com',
-		style:'style',
+		style:'Smart',
 		type:'string',
 		bestSeller:'1'
 	})
@@ -26,21 +26,32 @@ it('make sure the req return PicsStyle and Car datas', async() => {
 		style:'Smart',
 		pic:'http://urlPicture.com',
 	})
+	const picSample2 = new PicsStyle({
+		style:'Smart',
+		pic:'http://urlPicture2.com',
+	})
+	const picSample3 = new PicsStyle({
+		style:'Double',
+		pic:'http://urlPicture.com',
+	})
+
 
 	// save datas
 	const svdCar = await carSample.save()
 	await picSample.save()
+	await picSample2.save()
+	await picSample3.save()
 
 	// Act
 	// const response = await session(app)
 	const response = await request(app)
-		.get(`/car/${svdCar._id}?style=${carSample.serie}`)
+		.get(`/car/${svdCar._id}?style=${carSample.style}`)
 		.send()
 		.expect(200)
 	
 	// Assert
-	expect(response.body.carsData[0].title).toEqual(carSample.title)
-	expect(response.body.picsStyle[0].style).toEqual(picSample.style)
+	expect(response.body.carsData[0]._id.toString()).toEqual(svdCar._id.toString())
+	expect(response.body.picsStyle.length).toEqual(2)
 	// expect(fromRedis.fromRedis).toHaveBeenCalled()
 })
 
