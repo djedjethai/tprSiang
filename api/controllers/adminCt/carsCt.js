@@ -117,7 +117,7 @@ exports.postEditCar = async(req, res, next) => {
 		
 		await carToModify.save()
 
-		console.log('car del cache id', ID)
+		// console.log('car del cache id', ID)
 		carDelCache(carToModify.type, carToModify.style, ID)
 
 		res.redirect('/admin/cars')
