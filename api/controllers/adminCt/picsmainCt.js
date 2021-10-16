@@ -3,6 +3,7 @@ const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 const { picsMainDelCache } = require('../../services/cache')
+const logger = require('../../services/logger')
 
 const PICMAIN_CT = 'picsmainCt'
 
@@ -17,6 +18,7 @@ exports.getPicsmain = async(req, res, next) => {
 			pictures: picsMain	
 		})
 	} catch(e) {
+		logger.error(`adminCt picsmainCt getPicsmain: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -36,6 +38,7 @@ exports.getDeletePicsmain = async(req, res, next) => {
 
 		res.redirect('/admin/picsmain')
 	} catch(e) {
+		logger.error(`adminCt picsmainCt getDeletePicsmain: ${e}`)
 		next(new ProcessError('A system error occured during deleting the picture'))
 	}	
 }
@@ -56,6 +59,7 @@ exports.getChoicePicsmain = async(req, res, next) => {
 		})
 	
 	} catch(e) {
+		logger.error(`adminCt picsmainCt getChoicePicsmain: ${e}`)
 		next(new ProcessError('A system error occured, please try again'))
 	}
 }
@@ -78,6 +82,7 @@ exports.postAddPicsmain = async(req, res, next) => {
 		}
 		else throw Error(PICMAIN_CT,' - picture url is missing')
 	} catch(e) {
+		logger.error(`adminCt picsmainCt postAddPicsmain: ${e}`)
 		next(new ApiProcessError('A system error occured, please try again'))
 	}
 }

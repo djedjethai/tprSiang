@@ -8,6 +8,7 @@ var app = require('../index');
 var debug = require('debug')('express-manipdata:server');
 var http = require('http');
 const mongoose = require('mongoose')
+const logger = require('../services/logger')
 
 const keys = require('../config/keys')
 
@@ -21,14 +22,21 @@ mongoose.connect(MONGO_URI, {
 	useUnifiedTopology: true
 })
 mongoose.connection
-	.once('open', () => console.log('db connection successful'))
-	.on('error', (err) => console.log('db connection error', err))
+	.once('open', () => {
+		console.log('db connection successful')
+		logger.info('db connection successful')
+	})
+	.on('error', (err) => {
+		console.log('db connection error', err)
+		logger.error(`db connection error: ${err}`)
+	})
 
 
 
 if(process.env.NODE_ENV === 'development'){
 	app.listen(5000, () => {
 		console.log('listen on port 5000');
+		logger.info('listen on port 5000')
 	})
 } 
 else{
@@ -81,6 +89,7 @@ else{
 	
 	function onError(error) {
 	  if (error.syscall !== 'listen') {
+	    logger.error(`error.syscall !== listen: ${error}`)	  
 	    throw error;
 	  }
 	
@@ -92,10 +101,12 @@ else{
 	  switch (error.code) {
 	    case 'EACCES':
 	      console.error(bind + ' requires elevated privileges');
+	      logger.error(`${bind} requires elevated privileges`);
 	      process.exit(1);
 	      break;
 	    case 'EADDRINUSE':
 	      console.error(bind + ' is already in use');
+	      logger.error(`${bind} is already in use`);
 	      process.exit(1);
 	      break;
 	    default:

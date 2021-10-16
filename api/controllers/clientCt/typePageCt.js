@@ -3,6 +3,7 @@ const Car = require('mongoose').model('Car')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
 const { ApiServerError } = require('../../error/listErrors')
 const translator = require('../../services/translator')
+const logger = require('../../services/logger')
 
 module.exports = async(req, res, next) => {
 	const { type } = req.params
@@ -34,6 +35,7 @@ module.exports = async(req, res, next) => {
 		res.send(dataToReturn)
 
 	} catch(e) {
+		logger.error(`clientCt typePageCt: ${e}`)
 		next(new ApiServerError('An unexpected server error occured, please try again'))
 	}
 }

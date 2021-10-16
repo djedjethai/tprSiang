@@ -1,6 +1,7 @@
 const crypto = require('crypto')
 const fs = require('fs')
 const { promisify } = require('util')
+const logger = require('./logger')
 
 async function encrypt(password) {
 	return new Promise((resolve, reject) => {
@@ -8,7 +9,10 @@ async function encrypt(password) {
 	        const salt = crypto.randomBytes(16).toString("hex")
 	
 	        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
-	            if (err) reject(err);
+	            if (err) {
+			    logger.error(`reject when encrypt password: ${err}`)
+			    reject(err);
+		    }
 	            resolve(salt + ":" + derivedKey.toString('hex'))
 	        });
 	 })
@@ -18,7 +22,10 @@ async function verify(password, hash) {
 	return new Promise((resolve, reject) => {
 	        const [salt, key] = hash.split(":")
 	        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
-	            if (err) reject(err);
+	            if (err) {
+			    logger.error(`reject when verify password: ${err}`)
+			    reject(err);
+		    }
 	            resolve(key == derivedKey.toString('hex'))
 	        });
 	})
@@ -29,18 +36,15 @@ async function saveToken(token) {
 		const fd = await promisify(fs.open)('/opt/app/tmp/token.txt', 'w')
   		await promisify(fs.appendFile)(fd, token, 'utf8')
         	const err = await promisify(fs.close)(fd)
-	
-		// const err = await promisify(fs.writeFile)(
-		// 	'/opt/app/tmp/token.txt',
-		// 	token,
-		// 	{encoding: 'utf8', flag: 'w'}
-		// )
 
-		if(err) throw Error('error in close: ', err)
+		if(err) {
+			logger.error(`err when saveToken: ${err}`)
+			throw Error('error in close: ', err)
+		}
 		else return true
 
 	} catch(e) {
-		console.log('error from save token: ', e)
+		// console.log('error from save token: ', e)
 		return false
 	}	
 }

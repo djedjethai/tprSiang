@@ -2,6 +2,7 @@ const { promisify } = require('util')
 
 const AWS = require('aws-sdk')
 const keys = require('../config/keys') 
+const logger = require('./logger')
 
 const s3 = new AWS.S3({
 	accessKeyId: keys.accessKeyId,
@@ -16,7 +17,10 @@ module.exports = (urlArr) => {
 	}
 	return new Promise((resolve, reject) => {
 		s3.deleteObject(params, (e,d) => {
-			if(e) reject(e)
+			if(e){
+				logger.error(`reject when s3 deleteObject from bucket: ${e}`)
+				reject(e)
+			}
 			else resolve(true)
 		})
 	})

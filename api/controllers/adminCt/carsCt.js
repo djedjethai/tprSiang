@@ -2,6 +2,7 @@ const Car = require('mongoose').model('Car')
 const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
+const logger = require('../../services/logger')
 
 const { carDelCache} = require('../../services/cache')
 
@@ -21,6 +22,7 @@ exports.getCars = async(req, res, next) => {
 			editing: false
 		})
 	} catch(e) {
+		logger.error(`adminCt carsCt getCars: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -40,6 +42,7 @@ exports.getAddCar = async (req, res, next) => {
 			token: hash
 		})
 	} catch(e) {
+		logger.error(`adminCt carsCt getAddCars: ${e}`)
 		next(new ProcessError('A system error occured, please try again'))
 	}		
 }
@@ -58,6 +61,7 @@ exports.getEditCar = async(req, res, next) => {
 			car: carToEdit
 		})
 	} catch(e) {
+		logger.error(`adminCt carsCt getEditCar: ${e}`)
 		next(new ProcessError('A system error occured, please try again'))
 	}
 }
@@ -91,6 +95,7 @@ exports.postAddCar = async(req, res, next) => {
 		}
 		else throw Error(CAR_CT,' - picture url is missing')
 	} catch(e) {
+		logger.error(`adminCt carsCt postAddCar: ${e}`)
 		next(new ApiProcessError('A system error occured, please try again'))
 	}
 }
@@ -122,6 +127,7 @@ exports.postEditCar = async(req, res, next) => {
 
 		res.redirect('/admin/cars')
 	} catch(e) {
+		logger.error(`adminCt carsCt postEditCar: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -139,6 +145,7 @@ exports.getDeleteCar = async(req, res, next) => {
 
 		res.redirect('/admin/cars')
 	} catch(e) {
+		logger.error(`adminCt carsCt getDeleteCar: ${e}`)
 		next(new ProcessError('A system error occured during deleting the picture'))
 	}
 }

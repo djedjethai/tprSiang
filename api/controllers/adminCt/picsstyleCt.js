@@ -3,6 +3,7 @@ const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 const { picsStyleDelCache } = require('../../services/cache')
+const logger = require('../../services/logger')
 
 const PICST_CT = 'picsstyleCt.js'
 
@@ -17,6 +18,7 @@ exports.getPicsstyle = async(req, res, next) => {
 			editing: false
 		})
 	} catch(e) {
+		logger.error(`adminCt picsstyleCt getPicsstyle: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -36,6 +38,7 @@ exports.getDeletePicsstyle = async(req, res, next) => {
 
 		res.redirect('/admin/picsstyle')
 	} catch(e) {	
+		logger.error(`adminCt picsstyleCt getDeletePicsstyle: ${e}`)
 		next(new ProcessError('A system error occured during deleting the picture'))
 	}
 }
@@ -55,6 +58,7 @@ exports.getChoicePicsstyle = async(req, res, next) => {
 			token: hash
 		})
 	} catch(e) {
+		logger.error(`adminCt picsstyleCt getChoicePicsstyle: ${e}`)
 		next(new ProcessError('A system error occured, please try again'))
 	}	
 }
@@ -72,6 +76,7 @@ exports.getModifyPicsstyle = async(req, res, next) => {
 			picture: picStyleToEdit
 		})
 	} catch(e) {
+		logger.error(`adminCt picsstyleCt getModifyPicsstyle: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -96,6 +101,7 @@ exports.postAddPicsstyle = async(req, res, next) => {
 		}
 		else throw Error(PICST_CT,' - picture url is missing')
 	} catch(e) {
+		logger.error(`adminCt picsstyleCt getAddPicsstyle: ${e}`)
 		next(new ApiProcessError('A system error occured, please try again'))
 	}
 }
@@ -117,6 +123,7 @@ exports.postModifyPicsstyle = async(req, res, next) => {
 			
 		res.redirect('/admin/picsStyle')
 	} catch(e) {
+		logger.error(`adminCt picsstyleCt postModifyPicsstyle: ${e}`)
 		next(new ServerError('A network error occured please try again')) 
 	}
 }

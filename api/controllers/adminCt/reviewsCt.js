@@ -3,6 +3,7 @@ const { encrypt, saveToken } = require('../../services/token')
 const { ProcessError, ApiProcessError, ServerError } = require('../../error/listErrors')
 const deleteHandler = require('../../services/deletePic')
 const { reviewDelCache } = require('../../services/cache')
+const logger = require('../../services/logger')
 
 const REVIEW_CT = 'reviewCT'
 
@@ -19,6 +20,7 @@ exports.getReviews = async(req, res, next) => {
 			editing: false
 		})
 	} catch(e) {
+		logger.error(`adminCt reviewCt getReviews: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -38,6 +40,7 @@ exports.getAddReview = async(req, res, next) => {
 			token: hash
 		})
 	} catch(e) {
+		logger.error(`adminCt reviewCt getAddReviews: ${e}`)
 		next(new ProcessError('A system error occured, please try again'))
 	}	
 }
@@ -56,6 +59,7 @@ exports.getEditReview = async(req, res, next) => {
 			review: reviewToEdit
 		})
 	} catch(e) {	
+		logger.error(`adminCt reviewCt getEditReview: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}	
 }
@@ -81,6 +85,7 @@ exports.postAddReview = async(req, res, next) => {
 		}
 		else throw Error(REVIEW_CT,' - picture url is missing')	
 	} catch(e) {
+		logger.error(`adminCt reviewCt postAddReview: ${e}`)
 		next(new ApiProcessError('A system error occured, please try again'))
 	}
 }
@@ -102,6 +107,7 @@ exports.postEditReview = async(req, res, next) => {
 
 		res.redirect('/admin/reviews')
 	} catch(e) {
+		logger.error(`adminCt reviewCt postEditReview: ${e}`)
 		next(new ServerError('A network error occured please try again'))
 	}
 }
@@ -120,6 +126,7 @@ exports.getDeleteReview = async(req, res, next) => {
 
 		res.redirect('/admin/reviews')
 	} catch(e) {
+		logger.error(`adminCt reviewCt getDeleteReview: ${e}`)
 		next(new ProcessError('A system error occured during deleting the picture'))
 	}
 }

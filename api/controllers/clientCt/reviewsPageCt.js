@@ -2,7 +2,7 @@ const Picmain = require('mongoose').model('Picmain')
 const Review = require('mongoose').model('Review')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
 const { ApiServerError } = require('../../error/listErrors')
-
+const logger = require('../../services/logger')
 
 module.exports = async(req, res, next) => {
 	try{
@@ -30,14 +30,10 @@ module.exports = async(req, res, next) => {
 			reviews: reviewsData
 		}
 
-		// console.log('final datas: ', dataToReturn)
-		
-		// res.send("final data")
 		res.send(dataToReturn)
 
 	} catch(e) {
-		// sett up the err !, use the already setted-up class 
-		// console.log('from front, req main: ', e)
+		logger.error(`clientCt reviewsPageCt: ${e}`)
 		next(new ApiServerError('An unexpected server error occured, please try again'))
 	}		
 }

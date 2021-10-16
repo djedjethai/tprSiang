@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-
+const logger = require('../../services/logger')
 const keys = require('../../config/keys')
 const { AuthError } = require('../../error/listErrors')
 
@@ -29,6 +29,7 @@ exports.postSignin = async (req, res, next) => {
 	const password = req.body.password
 
 	if (!password || (user !== keys.adminName1)) {
+		logger.error(`auth signin ${password} or ${user} are incorrect`)
 		res.redirect('/admin/getsignin')
 		return
 	}
@@ -49,6 +50,7 @@ exports.postSignin = async (req, res, next) => {
 		}
 	}
 	catch(e) {
+		logger.error(`err when bcrypt compare password: ${e}`)
 		next(e)
 		return
 	}

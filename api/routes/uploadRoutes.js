@@ -3,6 +3,7 @@ const keys = require('../config/keys')
 // const uuid = require('uuid/v1')
 // const crypto = require('crypto')
 const isToken = require('../middleware/isToken')
+const logger = require('../services/logger')
 
 const s3 = new AWS.S3({
 	accessKeyId: keys.accessKeyId,
@@ -23,6 +24,9 @@ module.exports = app => {
 			ContentType: 'image/jpeg',
 			Key: key
 		}, (e, url) => {
+			if(e){
+				logger.error(`error from s3 upload route: ${e}`)
+			}
 			// console.log('the url from s3: ', url)
 			res.status(200).send({key, url})
 		})

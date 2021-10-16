@@ -2,7 +2,7 @@ const Car = require('mongoose').model('Car')
 const Picstyle = require('mongoose').model('Picstyle')
 const { fromRedis, cacheEnum, setDataInRedis } = require('../../services/cache')
 const { ApiServerError } = require('../../error/listErrors')
-
+const logger = require('../../services/logger')
 
 module.exports = async(req, res, next) => {
 	const { id } = req.params
@@ -35,6 +35,7 @@ module.exports = async(req, res, next) => {
 		res.send(dataToReturn)
 
 	} catch(e) {
+		logger.error(`clientCt carPageCt: ${e}`)
 		next(new ApiServerError('An unexpected server error occured, please try again'))
 	}
 }
