@@ -57,3 +57,129 @@ info: Oct-16-2021 09:47:06: 	listen on port 5000
 info: Oct-16-2021 09:47:06: 	db connection successful
 info: Oct-16-2021 09:47:59: 	listen on port 5000
 info: Oct-16-2021 09:47:59: 	db connection successful
+info: Oct-23-2021 08:57:04: 	listen on port 5000
+info: Oct-23-2021 08:57:05: 	db connection successful
+error: Oct-23-2021 08:58:28: 	auth signin jerome or &lt;p&gt;jerome&lt;&#x2F;p&gt; are incorrect
+info: Oct-23-2021 09:15:16: 	listen on port 5000
+info: Oct-23-2021 09:15:17: 	db connection successful
+info: Oct-23-2021 09:16:28: 	listen on port 5000
+info: Oct-23-2021 09:16:29: 	db connection successful
+info: Oct-23-2021 09:17:26: 	listen on port 5000
+info: Oct-23-2021 09:17:26: 	db connection successful
+info: Oct-23-2021 09:19:14: 	listen on port 5000
+info: Oct-23-2021 09:19:15: 	db connection successful
+info: Oct-23-2021 09:22:50: 	listen on port 5000
+info: Oct-23-2021 09:22:51: 	db connection successful
+info: Oct-23-2021 09:23:32: 	listen on port 5000
+info: Oct-23-2021 09:23:33: 	db connection successful
+info: Oct-23-2021 09:28:41: 	listen on port 5000
+info: Oct-23-2021 09:28:42: 	db connection successful
+info: Oct-23-2021 09:30:50: 	listen on port 5000
+info: Oct-23-2021 09:30:51: 	db connection successful
+info: Oct-23-2021 09:32:40: 	listen on port 5000
+info: Oct-23-2021 09:32:40: 	db connection successful
+info: Oct-23-2021 09:33:45: 	listen on port 5000
+info: Oct-23-2021 09:33:45: 	db connection successful
+info: Oct-23-2021 09:35:06: 	listen on port 5000
+info: Oct-23-2021 09:35:06: 	db connection successful
+info: Oct-23-2021 09:35:23: 	listen on port 5000
+info: Oct-23-2021 09:35:24: 	db connection successful
+info: Oct-23-2021 09:40:05: 	listen on port 5000
+info: Oct-23-2021 09:40:06: 	db connection successful
+info: Oct-23-2021 09:46:20: 	listen on port 5000
+info: Oct-23-2021 09:46:20: 	db connection successful
+info: Oct-23-2021 09:47:30: 	listen on port 5000
+info: Oct-23-2021 09:47:31: 	db connection successful
+info: Oct-23-2021 09:51:38: 	listen on port 5000
+info: Oct-23-2021 09:51:39: 	db connection successful
+info: Oct-23-2021 09:56:21: 	listen on port 5000
+info: Oct-23-2021 09:56:21: 	db connection successful
+info: Oct-23-2021 10:00:38: 	listen on port 5000
+info: Oct-23-2021 10:00:39: 	db connection successful
+info: Oct-23-2021 10:06:47: 	listen on port 5000
+info: Oct-23-2021 10:06:47: 	db connection successful
+info: Oct-23-2021 10:07:45: 	listen on port 5000
+info: Oct-23-2021 10:07:46: 	db connection successful
+info: Oct-23-2021 10:09:06: 	listen on port 5000
+info: Oct-23-2021 10:09:07: 	db connection successful
+info: Oct-23-2021 10:12:09: 	listen on port 5000
+info: Oct-23-2021 10:12:09: 	db connection successful
+info: Oct-23-2021 10:12:16: 	listen on port 5000
+info: Oct-23-2021 10:12:17: 	db connection successful
+info: Oct-23-2021 10:15:04: 	listen on port 5000
+info: Oct-23-2021 10:15:05: 	db connection successful
+info: Oct-23-2021 10:15:56: 	listen on port 5000
+info: Oct-23-2021 10:15:56: 	db connection successful
+error: Oct-23-2021 10:16:05: 	[{"value":"","msg":"Invalid value","param":"serie","location":"body"},{"value":"","msg":"Invalid value","param":"wheel","location":"body"}]
+info: Oct-23-2021 10:17:05: 	listen on port 5000
+info: Oct-23-2021 10:17:06: 	db connection successful
+error: Oct-23-2021 10:17:16: 	[{"value":"","msg":"Invalid value","param":"wheel","location":"body"}]
+info: Oct-23-2021 10:18:30: 	listen on port 5000
+info: Oct-23-2021 10:18:31: 	db connection successful
+error: Oct-23-2021 10:18:46: 	[]
+info: Oct-23-2021 10:20:05: 	listen on port 5000
+info: Oct-23-2021 10:20:06: 	db connection successful
+info: Oct-23-2021 10:21:04: 	listen on port 5000
+info: Oct-23-2021 10:21:04: 	db connection successful
+info: Oct-23-2021 10:22:20: 	listen on port 5000
+info: Oct-23-2021 10:22:20: 	db connection successful
+info: Oct-23-2021 10:24:34: 	listen on port 5000
+info: Oct-23-2021 10:24:35: 	db connection successful
+info: Oct-23-2021 10:25:31: 	listen on port 5000
+info: Oct-23-2021 10:25:32: 	db connection successful
+error: Oct-23-2021 10:25:39: 	[]
+info: Oct-23-2021 10:26:06: 	listen on port 5000
+info: Oct-23-2021 10:26:06: 	db connection successful
+info: Oct-23-2021 10:27:39: 	listen on port 5000
+info: Oct-23-2021 10:27:39: 	db connection successful
+error: Oct-23-2021 10:27:55: 	[{"msg":"Invalid value","param":"picUrl","location":"body"}]
+info: Oct-23-2021 10:29:49: 	listen on port 5000
+info: Oct-23-2021 10:29:49: 	db connection successful
+error: Oct-23-2021 10:29:56: 	[{"msg":"Invalid value","param":"picUrl","location":"body"}]
+info: Oct-23-2021 10:30:24: 	listen on port 5000
+info: Oct-23-2021 10:30:24: 	db connection successful
+info: Oct-23-2021 10:31:08: 	listen on port 5000
+info: Oct-23-2021 10:31:09: 	db connection successful
+info: Oct-23-2021 10:32:31: 	listen on port 5000
+info: Oct-23-2021 10:32:31: 	db connection successful
+error: Oct-23-2021 10:32:38: 	[{"value":"","msg":"Invalid value","param":"serie","location":"body"}]
+info: Oct-23-2021 10:33:00: 	listen on port 5000
+info: Oct-23-2021 10:33:00: 	db connection successful
+info: Oct-23-2021 10:34:19: 	listen on port 5000
+info: Oct-23-2021 10:34:19: 	db connection successful
+info: Oct-23-2021 10:35:24: 	listen on port 5000
+info: Oct-23-2021 10:35:25: 	db connection successful
+info: Oct-23-2021 10:38:07: 	listen on port 5000
+info: Oct-23-2021 10:38:08: 	db connection successful
+info: Oct-23-2021 10:38:12: 	listen on port 5000
+info: Oct-23-2021 10:38:13: 	db connection successful
+error: Oct-23-2021 10:38:31: 	[{"msg":"Invalid value","param":"style","location":"body"},{"msg":"Invalid value","param":"type","location":"body"},{"msg":"Invalid value","param":"bestSeller","location":"body"}]
+info: Oct-23-2021 10:41:54: 	listen on port 5000
+info: Oct-23-2021 10:41:54: 	db connection successful
+info: Oct-23-2021 10:43:10: 	listen on port 5000
+info: Oct-23-2021 10:43:10: 	db connection successful
+info: Oct-23-2021 10:43:57: 	listen on port 5000
+info: Oct-23-2021 10:43:58: 	db connection successful
+error: Oct-23-2021 10:44:09: 	[{"msg":"Invalid value","param":"style","location":"body"},{"msg":"Invalid value","param":"type","location":"body"},{"msg":"Invalid value","param":"bestSeller","location":"body"}]
+info: Oct-23-2021 10:45:45: 	listen on port 5000
+info: Oct-23-2021 10:45:46: 	db connection successful
+error: Oct-23-2021 10:45:59: 	[{"msg":"Invalid value","param":"style","location":"body"},{"msg":"Invalid value","param":"type","location":"body"},{"msg":"Invalid value","param":"bestSeller","location":"body"}]
+info: Oct-23-2021 10:49:54: 	listen on port 5000
+info: Oct-23-2021 10:49:55: 	db connection successful
+info: Oct-23-2021 10:52:24: 	listen on port 5000
+info: Oct-23-2021 10:52:24: 	db connection successful
+error: Oct-23-2021 10:52:37: 	[{"msg":"Invalid value","param":"style","location":"body"},{"msg":"Invalid value","param":"type","location":"body"},{"msg":"Invalid value","param":"bestSeller","location":"body"}]
+info: Oct-23-2021 10:54:17: 	listen on port 5000
+info: Oct-23-2021 10:54:18: 	db connection successful
+info: Oct-23-2021 10:55:32: 	listen on port 5000
+info: Oct-23-2021 10:55:33: 	db connection successful
+info: Oct-23-2021 10:56:26: 	listen on port 5000
+info: Oct-23-2021 10:56:27: 	db connection successful
+info: Oct-23-2021 10:56:38: 	listen on port 5000
+info: Oct-23-2021 10:56:39: 	db connection successful
+info: Oct-23-2021 10:58:27: 	listen on port 5000
+info: Oct-23-2021 10:58:28: 	db connection successful
+info: Oct-23-2021 10:58:39: 	listen on port 5000
+info: Oct-23-2021 10:58:40: 	db connection successful
+info: Oct-23-2021 11:09:00: 	listen on port 5000
+info: Oct-23-2021 11:09:01: 	db connection successful

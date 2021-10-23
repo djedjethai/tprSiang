@@ -71,6 +71,8 @@ exports.postAddCar = async(req, res, next) => {
 	try{
 		const nc = JSON.parse(Object.keys(req.body)[0])
 		
+		console.log("the nc: ", nc)
+
 		if(nc.picUrl) {
 			const newCar = new Car({
 				serie: nc.serie,
