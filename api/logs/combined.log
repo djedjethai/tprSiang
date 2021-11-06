@@ -183,3 +183,108 @@ info: Oct-23-2021 10:58:39: 	listen on port 5000
 info: Oct-23-2021 10:58:40: 	db connection successful
 info: Oct-23-2021 11:09:00: 	listen on port 5000
 info: Oct-23-2021 11:09:01: 	db connection successful
+info: Nov-06-2021 10:31:54: 	listen on port 5000
+info: Nov-06-2021 10:31:55: 	db connection successful
+info: Nov-06-2021 10:41:58: 	listen on port 5000
+info: Nov-06-2021 10:41:59: 	db connection successful
+info: Nov-06-2021 10:43:09: 	listen on port 5000
+info: Nov-06-2021 10:43:10: 	db connection successful
+info: Nov-06-2021 10:45:38: 	listen on port 5000
+info: Nov-06-2021 10:45:39: 	db connection successful
+info: Nov-06-2021 10:56:31: 	listen on port 5000
+info: Nov-06-2021 10:56:32: 	db connection successful
+error: Nov-06-2021 10:56:59: 	[{"msg":"Invalid value","param":"style","location":"body"},{"msg":"Invalid value","param":"style","location":"body"}]
+info: Nov-06-2021 10:58:32: 	listen on port 5000
+info: Nov-06-2021 10:58:33: 	db connection successful
+error: Nov-06-2021 10:58:46: 	[{"msg":"Invalid value","param":"style","location":"body"},{"msg":"Invalid value","param":"style","location":"body"}]
+info: Nov-06-2021 11:03:21: 	listen on port 5000
+info: Nov-06-2021 11:03:22: 	db connection successful
+error: Nov-06-2021 11:03:32: 	[{"msg":"Invalid value","param":"allowHalfOpen","location":"body"},{"msg":"Invalid value","param":"allowHalfOpen","location":"body"}]
+info: Nov-06-2021 11:07:16: 	listen on port 5000
+info: Nov-06-2021 11:07:17: 	db connection successful
+info: Nov-06-2021 11:07:22: 	listen on port 5000
+info: Nov-06-2021 11:07:23: 	db connection successful
+info: Nov-06-2021 11:18:17: 	listen on port 5000
+info: Nov-06-2021 11:18:18: 	db connection successful
+info: Nov-06-2021 11:19:22: 	listen on port 5000
+info: Nov-06-2021 11:19:23: 	db connection successful
+info: Nov-06-2021 11:20:13: 	listen on port 5000
+info: Nov-06-2021 11:20:14: 	db connection successful
+info: Nov-06-2021 11:24:07: 	listen on port 5000
+info: Nov-06-2021 11:24:07: 	db connection successful
+error: Nov-06-2021 11:24:22: 	[{"msg":"Invalid value","param":"method","location":"headers"},{"msg":"Invalid value","param":"method","location":"headers"}]
+info: Nov-06-2021 11:27:11: 	listen on port 5000
+info: Nov-06-2021 11:27:11: 	db connection successful
+info: Nov-06-2021 11:28:03: 	listen on port 5000
+info: Nov-06-2021 11:28:04: 	db connection successful
+error: Nov-06-2021 11:28:12: 	[{"value":"close","msg":"Invalid value","param":"connection","location":"headers"}]
+info: Nov-06-2021 11:28:50: 	listen on port 5000
+info: Nov-06-2021 11:28:51: 	db connection successful
+error: Nov-06-2021 11:29:01: 	[{"value":"close","msg":"Invalid value","param":"connection","location":"headers"}]
+error: Nov-06-2021 11:30:53: 	[{"value":"close","msg":"Invalid value","param":"connection","location":"headers"}]
+info: Nov-06-2021 11:36:00: 	listen on port 5000
+info: Nov-06-2021 11:36:01: 	db connection successful
+info: Nov-06-2021 11:36:50: 	listen on port 5000
+info: Nov-06-2021 11:36:50: 	db connection successful
+info: Nov-06-2021 11:36:54: 	listen on port 5000
+info: Nov-06-2021 11:36:54: 	db connection successful
+info: Nov-06-2021 11:39:28: 	listen on port 5000
+info: Nov-06-2021 11:39:28: 	db connection successful
+info: Nov-06-2021 11:56:21: 	listen on port 5000
+info: Nov-06-2021 11:56:22: 	db connection successful
+info: Nov-06-2021 11:57:46: 	listen on port 5000
+info: Nov-06-2021 11:57:47: 	db connection successful
+info: Nov-06-2021 11:58:44: 	listen on port 5000
+info: Nov-06-2021 11:58:45: 	db connection successful
+info: Nov-06-2021 12:01:22: 	listen on port 5000
+info: Nov-06-2021 12:01:22: 	db connection successful
+info: Nov-06-2021 12:05:42: 	listen on port 5000
+info: Nov-06-2021 12:05:42: 	db connection successful
+info: Nov-06-2021 12:07:05: 	listen on port 5000
+info: Nov-06-2021 12:07:06: 	db connection successful
+info: Nov-06-2021 12:09:40: 	listen on port 5000
+info: Nov-06-2021 12:09:40: 	db connection successful
+info: Nov-06-2021 12:14:26: 	listen on port 5000
+info: Nov-06-2021 12:14:27: 	db connection successful
+info: Nov-06-2021 13:33:20: 	listen on port 5000
+info: Nov-06-2021 13:33:20: 	db connection successful
+info: Nov-06-2021 13:35:06: 	listen on port 5000
+info: Nov-06-2021 13:35:06: 	db connection successful
+info: Nov-06-2021 13:36:29: 	listen on port 5000
+info: Nov-06-2021 13:36:29: 	db connection successful
+info: Nov-06-2021 13:38:03: 	listen on port 5000
+info: Nov-06-2021 13:38:04: 	db connection successful
+info: Nov-06-2021 13:38:10: 	listen on port 5000
+info: Nov-06-2021 13:38:11: 	db connection successful
+info: Nov-06-2021 13:50:13: 	listen on port 5000
+info: Nov-06-2021 13:50:13: 	db connection successful
+info: Nov-06-2021 13:51:09: 	listen on port 5000
+info: Nov-06-2021 13:51:09: 	db connection successful
+info: Nov-06-2021 13:52:06: 	listen on port 5000
+info: Nov-06-2021 13:52:06: 	db connection successful
+info: Nov-06-2021 13:53:13: 	listen on port 5000
+info: Nov-06-2021 13:53:14: 	db connection successful
+info: Nov-06-2021 13:55:42: 	listen on port 5000
+info: Nov-06-2021 13:55:43: 	db connection successful
+info: Nov-06-2021 14:03:26: 	listen on port 5000
+info: Nov-06-2021 14:03:26: 	db connection successful
+info: Nov-06-2021 14:04:30: 	listen on port 5000
+info: Nov-06-2021 14:04:31: 	db connection successful
+info: Nov-06-2021 14:05:07: 	listen on port 5000
+info: Nov-06-2021 14:05:07: 	db connection successful
+info: Nov-06-2021 14:06:29: 	listen on port 5000
+info: Nov-06-2021 14:06:29: 	db connection successful
+info: Nov-06-2021 14:07:50: 	listen on port 5000
+info: Nov-06-2021 14:07:50: 	db connection successful
+info: Nov-06-2021 14:09:01: 	listen on port 5000
+info: Nov-06-2021 14:09:02: 	db connection successful
+info: Nov-06-2021 14:10:14: 	listen on port 5000
+info: Nov-06-2021 14:10:15: 	db connection successful
+info: Nov-06-2021 14:11:52: 	listen on port 5000
+info: Nov-06-2021 14:11:52: 	db connection successful
+info: Nov-06-2021 14:13:01: 	listen on port 5000
+info: Nov-06-2021 14:13:01: 	db connection successful
+info: Nov-06-2021 14:13:41: 	listen on port 5000
+info: Nov-06-2021 14:13:42: 	db connection successful
+info: Nov-06-2021 14:14:42: 	listen on port 5000
+info: Nov-06-2021 14:14:42: 	db connection successful
