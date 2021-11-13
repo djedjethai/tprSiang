@@ -27,14 +27,14 @@ it('add some correct cars', async() => {
 	const dataSample = new Car({
 		serie:'serie',
 		serieDetails:'serieDetails',
-		wheel: 4,
+		wheel: '4',
 		engine:'engine',
 		grade:'grade',
 		price:'12345.45',
 		color:'color',
 		details:'details',
 		pic:'http://urlPicture.com',
-		style:'style',
+		style:'Sedan',
 		type:'string',
 		bestSeller:'1'
 	})
@@ -73,15 +73,15 @@ it('update a car', async() => {
 	const dataSample = new Car({
 		serie:'serie',
 		serieDetails:'serieDetails',
-		wheel: 4,
+		wheel: '4',
 		engine:'engine',
 		grade:'grade',
 		price:'12345',
 		color:'color',
 		details:'details',
 		pic:'http://urlCanNotUpdate',
-		style:'style',
-		type:'string',
+		style:'Sedan',
+		type:'รุนรถ',
 		bestSeller:'true'
 	})
 
@@ -91,15 +91,15 @@ it('update a car', async() => {
 	const updatedDatas = {
 		serie: 'changeeed againnn hhhh',
 		serieDetails: 'bcvcxbv hjhgjh hhh',
-		wheel: 8,
+		wheel: '8',
  		engine: 'fghgfhg hghhhgh yyyy',
 		grade: 'fghghg hjjjhjhhg yyyy',
 		price: '111111111',
 		color: 'vbncbn  hhjhjhjjv hhhh',
 		details: ' ryrstyrtyrty  ghjhjfjg  hhh',
 		pic:'http://urlCanNotUpdate',
-		style: 'Double',
-		type: 'รุนรถ',
+		style: 'SUV',
+		type: 'รถยนฅ์นั่งส่วนบุคคล',
 		bestSeller: 'true'
 	}
 

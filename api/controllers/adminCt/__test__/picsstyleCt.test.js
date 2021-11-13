@@ -58,7 +58,7 @@ it('update picsstyle', async() => {
 
 	// create updated review
 	const updatedDatas = {
-		style: 'Single',
+		style: 'Sedan',
 		pic:'http://urlCanNotUpdate.com',
 	}
 	// save updated datas

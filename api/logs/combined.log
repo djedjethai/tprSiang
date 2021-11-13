@@ -453,3 +453,32 @@ info: Nov-13-2021 10:53:39: 	db connection successful
 error: Nov-13-2021 10:54:06: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
 info: Nov-13-2021 10:57:36: 	listen on port 5000
 info: Nov-13-2021 10:57:36: 	db connection successful
+error: Nov-13-2021 18:25:10: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:25:12: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:25:13: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:25:17: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:25:18: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:26:30: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:26:32: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:26:33: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:26:37: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:26:37: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:28:15: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:28:17: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:28:21: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:28:21: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:29:42: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:29:44: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:29:50: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:29:50: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:31:11: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:31:12: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:31:18: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:31:18: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:32:08: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-13-2021 18:32:10: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:32:16: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:32:16: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:33:13: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:33:19: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:33:19: 	err when bcrypt compare password: Error: password incorrect
