@@ -45,12 +45,11 @@
  			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" />
-		<option <%= car.style === 'Pick-up' ? 'selected' : '' %>>Pick-up</option>
 		<option <%= car.style === 'Sedan' ? 'selected' : '' %>>Sedan</option>
-		<option <%= car.style === 'Suv' ? 'selected' : '' %>>Suv</option>
-		<option <%= car.style === 'Smart' ? 'selected' : '' %>>Smart</option>
-		<option <%= car.style === 'Double' ? 'selected' : '' %>>Double</option>
-		<option <%= car.style === 'Standart' ? 'selected' : '' %>>Standart</option>
+		<option <%= car.style === 'SUV' ? 'selected' : '' %>>SUV</option>
+		<option <%= car.style === 'Standard-cab' ? 'selected' : '' %>>Standard-cab</option>
+		<option <%= car.style === 'Smart-cab' ? 'selected' : '' %>>Smart-cab</option>
+		<option <%= car.style === 'Double-cab' ? 'selected' : '' %>>Double-cab</option>
 					</select>
                        	</div>
 			<div class="form-group">
@@ -80,11 +79,11 @@
 			<div class="form-group">
                         <label for="style">Style:</label>
                         <select name="style" id="style" class="form-control" onchange="loadStyle(event)" />
-		<option selected>Pick-up</option>
-		<option>Single</option>
-		<option>Smart</option>
-		<option>Double</option>
-		<option>Standart</option>
+		<option selected>Sedan</option>
+		<option>SUV</option>
+		<option>Standard-cab</option>
+		<option>Smart-cab</option>
+		<option>Double-cab</option>
 					</select>
                        	</div>
 			<div class="form-group">

@@ -88,8 +88,8 @@ exports.postAddPicsstyle = async(req, res, next) => {
 		if (dataToStore.picUrl) {
 		
 			const newPic = new Picstyle({
-				style: dataToStore.style,
-				pic: dataToStore.picUrl
+				style: dataToStore.style.toString(),
+				pic: dataToStore.picUrl.toString()
 			})
 			await newPic.save()
 
@@ -114,7 +114,7 @@ exports.postModifyPicsstyle = async(req, res, next) => {
 		// delete previous style cache
 		picsStyleDelCache(picStyleToEdit.style)
 
-		picStyleToEdit.style = req.body.style
+		picStyleToEdit.style = req.body.style.toString()
 		await picStyleToEdit.save()
 
 		// delete new style cache

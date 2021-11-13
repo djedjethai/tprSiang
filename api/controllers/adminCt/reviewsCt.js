@@ -71,9 +71,9 @@ exports.postAddReview = async(req, res, next) => {
 
 		if(nc.picUrl) {
 			const newReview = new Review({
-				name: nc.name,
-				comment: nc.comment,
-				pic: nc.picUrl,
+				name: nc.name.toString(),
+				comment: nc.comment.toString(),
+				pic: nc.picUrl.toString(),
 				quand: Date.now()
 			})
 			await newReview.save()
@@ -97,8 +97,8 @@ exports.postEditReview = async(req, res, next) => {
 		const reviewToEdit = await Review.findById(ID)
 
 		const nc = req.body
-		reviewToEdit.name = nc.name
-		reviewToEdit.comment = nc.comment	
+		reviewToEdit.name = nc.name.toString()
+		reviewToEdit.comment = nc.comment.toString()	
 		reviewToEdit.quand = Date.now()
 		
 		await reviewToEdit.save()

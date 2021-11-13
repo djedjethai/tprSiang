@@ -14,16 +14,16 @@
  			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" />
-		<option <%= picture.style === 'Pick-up' ? 'selected' : '' %>>Pick-up</option>
-		<option <%= picture.style === 'Single' ? 'selected' : '' %>>Single</option>
-		<option <%= picture.style === 'Smart' ? 'selected' : '' %>>Smart</option>
-		<option <%= picture.style === 'Double' ? 'selected' : '' %>>Double</option>
-		<option <%= picture.style === 'Standart' ? 'selected' : '' %>>Standart</option>
+		<option <%= picture.style === 'Sedan' ? 'selected' : '' %>>Sedan</option>
+		<option <%= picture.style === 'SUV' ? 'selected' : '' %>>SUV</option>
+		<option <%= picture.style === 'Standard-cab' ? 'selected' : '' %>>Standard-cab</option>
+		<option <%= picture.style === 'Smart-cab' ? 'selected' : '' %>>Smart-cab</option>
+		<option <%= picture.style === 'Double-cab' ? 'selected' : '' %>>Double-cab</option>
 					</select>
                        	</div>
 			<!--<input type="hidden" value="" name="carId" />-->
                       
-	  		<button class="btn btn-primary " type="submit">Update picture style</button>
+	  		<button class="btn btn-primary " type="submit">submit</button>
             	</form>
 
 		<% } else { %>
@@ -34,11 +34,11 @@
 			<div class="form-group">
                                     	<label for="style">Style:</label>
                                     	<select name="style" id="style" class="form-control" onchange="loadStyle(event)" />
-						<option 'selected'>Pick-up</option>
-						<option>Single</option>
-						<option>Smart</option>
-						<option>Double</option>
-						<option>Standart</option>
+						<option 'selected'>Sedan</option>
+						<option>SUV</option>
+						<option>Standard-cab</option>
+						<option>Smart-cab</option>
+						<option>Double-cab</option>
 					</select>
                        	</div>
 
@@ -58,7 +58,7 @@
 
 			// get token and datas from form
 			let key = ''
-			let style = 'Pick-up'	
+			let style = 'Sedan'	
 			const token = document.getElementById('token').textContent
 
 			var loadStyle = function(event) {

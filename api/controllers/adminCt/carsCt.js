@@ -75,17 +75,17 @@ exports.postAddCar = async(req, res, next) => {
 
 		if(nc.picUrl) {
 			const newCar = new Car({
-				serie: nc.serie,
-				serieDetails: nc.serieDetails,
-				wheel: nc.wheel,
-				engine: nc.engine,
-				grade: nc.grade,
-				price: nc.price,
-				color: nc.color,
-				details: nc.details,
-				pic: nc.picUrl,
-				style: nc.style,
-				type: nc.type,
+				serie: nc.serie.toString(),
+				serieDetails: nc.serieDetails.toString(),
+				wheel: nc.wheel.toString(),
+				engine: nc.engine.toString(),
+				grade: nc.grade.toString(),
+				price: nc.price.toString(),
+				color: nc.color.toString(),
+				details: nc.details.toString(),
+				pic: nc.picUrl.toString(),
+				style: nc.style.toString(),
+				type: nc.type.toString(),
 				bestSeller: nc.bestSeller.toString()
 			})
 			await newCar.save()
@@ -110,16 +110,16 @@ exports.postEditCar = async(req, res, next) => {
 
 		const carToModify = await Car.findById(ID)
 
-		carToModify.serie = nc.serie
-		carToModify.serieDetails = nc.serieDetails
-		carToModify.wheel = nc.wheel
-		carToModify.engine = nc.engine
-		carToModify.grade = nc.grade
-		carToModify.price = nc.price
-		carToModify.color = nc.color
-		carToModify.details = nc.details
-		carToModify.style = nc.style
-		carToModify.type = nc.type
+		carToModify.serie = nc.serie.toString()
+		carToModify.serieDetails = nc.serieDetails.toString()
+		carToModify.wheel = nc.wheel.toString()
+		carToModify.engine = nc.engine.toString()
+		carToModify.grade = nc.grade.toString()
+		carToModify.price = nc.price.toString()
+		carToModify.color = nc.color.toString()
+		carToModify.details = nc.details.toString()
+		carToModify.style = nc.style.toString()
+		carToModify.type = nc.type.toString()
 		carToModify.bestSeller = nc.bestSeller.toString()
 		
 		await carToModify.save()

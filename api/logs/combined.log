@@ -288,3 +288,168 @@ info: Nov-06-2021 14:13:41: 	listen on port 5000
 info: Nov-06-2021 14:13:42: 	db connection successful
 info: Nov-06-2021 14:14:42: 	listen on port 5000
 info: Nov-06-2021 14:14:42: 	db connection successful
+info: Nov-13-2021 07:54:19: 	listen on port 5000
+error: Nov-13-2021 07:54:50: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Nov-13-2021 07:56:45: 	listen on port 5000
+info: Nov-13-2021 07:56:46: 	db connection successful
+info: Nov-13-2021 07:59:05: 	listen on port 5000
+info: Nov-13-2021 07:59:05: 	db connection successful
+info: Nov-13-2021 07:59:40: 	listen on port 5000
+info: Nov-13-2021 07:59:40: 	db connection successful
+info: Nov-13-2021 08:01:15: 	listen on port 5000
+info: Nov-13-2021 08:01:15: 	db connection successful
+info: Nov-13-2021 08:03:17: 	listen on port 5000
+info: Nov-13-2021 08:03:18: 	db connection successful
+info: Nov-13-2021 08:03:50: 	listen on port 5000
+info: Nov-13-2021 08:03:50: 	db connection successful
+info: Nov-13-2021 08:05:02: 	listen on port 5000
+info: Nov-13-2021 08:05:02: 	db connection successful
+info: Nov-13-2021 08:05:40: 	listen on port 5000
+info: Nov-13-2021 08:05:41: 	db connection successful
+info: Nov-13-2021 08:07:41: 	listen on port 5000
+info: Nov-13-2021 08:07:42: 	db connection successful
+info: Nov-13-2021 08:08:46: 	listen on port 5000
+info: Nov-13-2021 08:08:46: 	db connection successful
+info: Nov-13-2021 08:10:33: 	listen on port 5000
+info: Nov-13-2021 08:10:33: 	db connection successful
+info: Nov-13-2021 08:11:24: 	listen on port 5000
+info: Nov-13-2021 08:11:24: 	db connection successful
+info: Nov-13-2021 08:12:13: 	listen on port 5000
+info: Nov-13-2021 08:12:14: 	db connection successful
+info: Nov-13-2021 08:15:41: 	listen on port 5000
+info: Nov-13-2021 08:15:42: 	db connection successful
+info: Nov-13-2021 08:22:02: 	listen on port 5000
+info: Nov-13-2021 08:22:03: 	db connection successful
+info: Nov-13-2021 08:24:30: 	listen on port 5000
+info: Nov-13-2021 08:24:31: 	db connection successful
+info: Nov-13-2021 08:25:04: 	listen on port 5000
+info: Nov-13-2021 08:25:05: 	db connection successful
+info: Nov-13-2021 08:30:27: 	listen on port 5000
+info: Nov-13-2021 08:30:28: 	db connection successful
+info: Nov-13-2021 08:32:23: 	listen on port 5000
+info: Nov-13-2021 08:32:24: 	db connection successful
+info: Nov-13-2021 08:40:30: 	listen on port 5000
+info: Nov-13-2021 08:40:31: 	db connection successful
+error: Nov-13-2021 08:40:42: 	adminCt carsCt postAddCar: ValidationError: wheel: Cast to Number failed for value "NaN" at path "wheel"
+error: Nov-13-2021 08:42:37: 	adminCt carsCt postAddCar: ValidationError: wheel: Cast to Number failed for value "NaN" at path "wheel"
+info: Nov-13-2021 08:43:59: 	listen on port 5000
+info: Nov-13-2021 08:44:00: 	db connection successful
+error: Nov-13-2021 08:44:08: 	adminCt carsCt postAddCar: ValidationError: wheel: Cast to Number failed for value "NaN" at path "wheel"
+info: Nov-13-2021 08:45:41: 	listen on port 5000
+info: Nov-13-2021 08:45:41: 	db connection successful
+info: Nov-13-2021 08:46:02: 	listen on port 5000
+info: Nov-13-2021 08:46:03: 	db connection successful
+info: Nov-13-2021 08:47:07: 	listen on port 5000
+info: Nov-13-2021 08:47:07: 	db connection successful
+info: Nov-13-2021 08:50:47: 	listen on port 5000
+info: Nov-13-2021 08:50:47: 	db connection successful
+info: Nov-13-2021 08:51:57: 	listen on port 5000
+info: Nov-13-2021 08:51:57: 	db connection successful
+error: Nov-13-2021 08:52:09: 	[{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 08:54:37: 	listen on port 5000
+info: Nov-13-2021 08:54:38: 	db connection successful
+info: Nov-13-2021 08:58:09: 	listen on port 5000
+info: Nov-13-2021 08:58:10: 	db connection successful
+info: Nov-13-2021 08:59:01: 	listen on port 5000
+info: Nov-13-2021 08:59:02: 	db connection successful
+info: Nov-13-2021 09:00:10: 	listen on port 5000
+info: Nov-13-2021 09:00:11: 	db connection successful
+info: Nov-13-2021 09:00:44: 	listen on port 5000
+info: Nov-13-2021 09:00:44: 	db connection successful
+info: Nov-13-2021 09:01:00: 	listen on port 5000
+info: Nov-13-2021 09:01:00: 	db connection successful
+info: Nov-13-2021 09:02:09: 	listen on port 5000
+info: Nov-13-2021 09:02:10: 	db connection successful
+info: Nov-13-2021 09:02:41: 	listen on port 5000
+info: Nov-13-2021 09:02:41: 	db connection successful
+error: Nov-13-2021 09:03:10: 	[{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 09:04:20: 	listen on port 5000
+info: Nov-13-2021 09:04:20: 	db connection successful
+error: Nov-13-2021 09:04:24: 	[{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 09:04:43: 	listen on port 5000
+info: Nov-13-2021 09:04:44: 	db connection successful
+info: Nov-13-2021 09:11:19: 	listen on port 5000
+info: Nov-13-2021 09:11:19: 	db connection successful
+info: Nov-13-2021 09:11:36: 	listen on port 5000
+info: Nov-13-2021 09:11:36: 	db connection successful
+info: Nov-13-2021 09:12:46: 	listen on port 5000
+info: Nov-13-2021 09:12:46: 	db connection successful
+info: Nov-13-2021 09:15:19: 	listen on port 5000
+info: Nov-13-2021 09:15:20: 	db connection successful
+info: Nov-13-2021 09:15:47: 	listen on port 5000
+info: Nov-13-2021 09:15:47: 	db connection successful
+info: Nov-13-2021 09:15:59: 	listen on port 5000
+info: Nov-13-2021 09:15:59: 	db connection successful
+info: Nov-13-2021 09:18:05: 	listen on port 5000
+info: Nov-13-2021 09:18:05: 	db connection successful
+info: Nov-13-2021 09:19:43: 	listen on port 5000
+info: Nov-13-2021 09:19:44: 	db connection successful
+info: Nov-13-2021 09:21:07: 	listen on port 5000
+info: Nov-13-2021 09:21:08: 	db connection successful
+info: Nov-13-2021 09:23:38: 	listen on port 5000
+info: Nov-13-2021 09:23:39: 	db connection successful
+info: Nov-13-2021 09:26:40: 	listen on port 5000
+info: Nov-13-2021 09:26:40: 	db connection successful
+info: Nov-13-2021 09:27:43: 	listen on port 5000
+info: Nov-13-2021 09:27:44: 	db connection successful
+info: Nov-13-2021 09:28:40: 	listen on port 5000
+info: Nov-13-2021 09:28:41: 	db connection successful
+info: Nov-13-2021 09:31:28: 	listen on port 5000
+info: Nov-13-2021 09:31:28: 	db connection successful
+info: Nov-13-2021 09:31:35: 	listen on port 5000
+info: Nov-13-2021 09:31:36: 	db connection successful
+info: Nov-13-2021 09:33:40: 	listen on port 5000
+info: Nov-13-2021 09:33:40: 	db connection successful
+info: Nov-13-2021 09:34:57: 	listen on port 5000
+info: Nov-13-2021 09:34:58: 	db connection successful
+info: Nov-13-2021 09:36:06: 	listen on port 5000
+info: Nov-13-2021 09:36:07: 	db connection successful
+info: Nov-13-2021 09:36:33: 	listen on port 5000
+info: Nov-13-2021 09:36:33: 	db connection successful
+info: Nov-13-2021 09:37:27: 	listen on port 5000
+info: Nov-13-2021 09:37:27: 	db connection successful
+info: Nov-13-2021 09:38:37: 	listen on port 5000
+info: Nov-13-2021 09:38:37: 	db connection successful
+info: Nov-13-2021 09:39:43: 	listen on port 5000
+info: Nov-13-2021 09:39:43: 	db connection successful
+info: Nov-13-2021 09:39:56: 	listen on port 5000
+info: Nov-13-2021 09:39:57: 	db connection successful
+info: Nov-13-2021 09:40:08: 	listen on port 5000
+info: Nov-13-2021 09:40:08: 	db connection successful
+info: Nov-13-2021 09:41:45: 	listen on port 5000
+info: Nov-13-2021 09:41:46: 	db connection successful
+error: Nov-13-2021 09:41:57: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 09:42:37: 	listen on port 5000
+info: Nov-13-2021 09:42:37: 	db connection successful
+info: Nov-13-2021 09:47:02: 	listen on port 5000
+info: Nov-13-2021 09:47:03: 	db connection successful
+info: Nov-13-2021 09:48:11: 	listen on port 5000
+info: Nov-13-2021 09:48:11: 	db connection successful
+error: Nov-13-2021 09:48:20: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 09:49:07: 	listen on port 5000
+info: Nov-13-2021 09:49:08: 	db connection successful
+error: Nov-13-2021 09:50:07: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 09:52:11: 	listen on port 5000
+info: Nov-13-2021 09:52:12: 	db connection successful
+error: Nov-13-2021 09:52:39: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 09:53:21: 	listen on port 5000
+info: Nov-13-2021 09:53:21: 	db connection successful
+info: Nov-13-2021 09:53:35: 	listen on port 5000
+info: Nov-13-2021 09:53:36: 	db connection successful
+error: Nov-13-2021 09:53:39: 	RouteValidator edit-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 10:05:57: 	listen on port 5000
+info: Nov-13-2021 10:05:58: 	db connection successful
+info: Nov-13-2021 10:06:58: 	listen on port 5000
+info: Nov-13-2021 10:06:58: 	db connection successful
+info: Nov-13-2021 10:07:30: 	listen on port 5000
+info: Nov-13-2021 10:07:31: 	db connection successful
+info: Nov-13-2021 10:33:15: 	listen on port 5000
+info: Nov-13-2021 10:33:15: 	db connection successful
+info: Nov-13-2021 10:36:05: 	listen on port 5000
+info: Nov-13-2021 10:36:05: 	db connection successful
+error: Nov-13-2021 10:52:13: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 10:53:39: 	listen on port 5000
+info: Nov-13-2021 10:53:39: 	db connection successful
+error: Nov-13-2021 10:54:06: 	RouteValidator add-picsstyle: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-13-2021 10:57:36: 	listen on port 5000
+info: Nov-13-2021 10:57:36: 	db connection successful

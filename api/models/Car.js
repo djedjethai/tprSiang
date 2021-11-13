@@ -12,7 +12,7 @@ const carSchema = new Schema({
             	require: false
         },  
     	wheel: {
-            	type: Number,
+            	type: String,
             	require: false
         },  
     	engine: {

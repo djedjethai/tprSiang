@@ -71,7 +71,7 @@ exports.postAddPicsmain = async(req, res, next) => {
 
 		if (dataToStore.picUrl) {
 			const newPic = new Picmain({
-				pic: dataToStore.picUrl
+				pic: dataToStore.picUrl.toString()
 			})
 			await newPic.save()
 			
