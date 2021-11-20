@@ -482,3 +482,37 @@ error: Nov-13-2021 18:32:16: 	err when bcrypt compare password: Error: password 
 error: Nov-13-2021 18:33:13: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
 error: Nov-13-2021 18:33:19: 	auth signin jerome or jgfjfdu are incorrect
 error: Nov-13-2021 18:33:19: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:35:27: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:35:32: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:35:32: 	err when bcrypt compare password: Error: password incorrect
+info: Nov-20-2021 07:17:18: 	listen on port 5000
+info: Nov-20-2021 07:17:28: 	db connection successful
+error: Nov-20-2021 07:47:53: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-20-2021 07:48:41: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-20-2021 07:52:59: 	listen on port 5000
+info: Nov-20-2021 07:53:00: 	db connection successful
+error: Nov-20-2021 07:53:12: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-20-2021 07:54:36: 	listen on port 5000
+info: Nov-20-2021 07:54:37: 	db connection successful
+error: Nov-20-2021 07:54:50: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+info: Nov-20-2021 07:58:17: 	listen on port 5000
+info: Nov-20-2021 07:58:17: 	db connection successful
+error: Nov-20-2021 08:28:54: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:19: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Nov-20-2021 09:40:39: 	listen on port 5000
+info: Nov-20-2021 09:40:41: 	db connection successful
+info: Nov-20-2021 10:27:04: 	listen on port 5000
+info: Nov-20-2021 10:27:04: 	db connection successful
+info: Nov-20-2021 10:52:39: 	listen on port 5000
+info: Nov-20-2021 10:52:39: 	db connection successful
+info: Nov-20-2021 10:53:33: 	listen on port 5000
+info: Nov-20-2021 10:53:34: 	db connection successful
+info: Nov-20-2021 10:55:04: 	listen on port 5000
+info: Nov-20-2021 10:55:04: 	db connection successful
+error: Nov-20-2021 17:56:49: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-20-2021 17:56:54: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-20-2021 17:56:54: 	err when bcrypt compare password: Error: password incorrect

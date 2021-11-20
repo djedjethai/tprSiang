@@ -7,7 +7,6 @@ import Gotocontact from '../../components/cards/cardGlobal/Gotocontact'
 const StylePage = ({ pics, style, carid }) => {
 	
 	const goToCar = value => {
-		console.log("in push to indiv car: ", value)
 		Router.push(`/car/${value}`)
 	}
 
@@ -27,19 +26,23 @@ const StylePage = ({ pics, style, carid }) => {
 		}
 	}
 
-	const carsList = pics.carsData.map(car => {
-		return(
-			<div>
-				<Cardstd
-					key={car._id}
-					carDetails={car}
-					clicked={() => goToCar(`${car._id}=${car.style}`)}
-				/>
-				<Gotocontact />
-			</div>
-		)
-	})
-	
+	const carsList = pics.carsData.reduce((filtered, car) => {
+		if(car._id !== carid){
+			filtered.push(
+				<div>
+					<Cardstd
+						key={car._id}
+						carDetails={car}
+						clicked={() => goToCar(`${car._id}=${car.style}`)}
+					/>
+					<Gotocontact />
+				</div>
+			)
+		}
+		return filtered
+	}, [])
+
+		
 	return (
 		<div>
 			{showSelectedCar()}

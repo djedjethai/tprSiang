@@ -81,7 +81,7 @@ it('update a car', async() => {
 		details:'details',
 		pic:'http://urlCanNotUpdate',
 		style:'Sedan',
-		type:'รุนรถ',
+		type:'รุนรถพิเศษ',
 		bestSeller:'true'
 	})
 

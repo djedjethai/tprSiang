@@ -65,6 +65,7 @@ const MainPage = ({ pics }) => {
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
+			<h1>Picture and Logo TPR </h1> 
 			<h1>Index !!!!, main page</h1>
 			{carsList}
 			<h1>Reviews ....</h1>

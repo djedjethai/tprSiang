@@ -33,7 +33,7 @@ module.exports = app => {
 							input.style.toString() !== 'Double-cab'
 						){
 							throw new Error('badInput')
-						} else if(input.type.toString() !== 'รุนรถ' &&
+						} else if(input.type.toString() !== 'รุนรถพิเศษ' &&
 							input.type.toString() !== 'รถยนฅ์นั่งส่วนบุคคล'&&
 							input.type.toString() !== 'รถยนฅ์เพื่อการพาณิซย์'&&
 							input.type.toString() !== 'รถยนฅ์อเนกประสงค์'
@@ -80,7 +80,7 @@ module.exports = app => {
 						){
 							console.log(input.style)
 							throw new Error('badInput')
-						} else if(input.type.toString() !== 'รุนรถ' &&
+						} else if(input.type.toString() !== 'รุนรถพิเศษ' &&
 							input.type.toString() !== 'รถยนฅ์นั่งส่วนบุคคล'&&
 							input.type.toString() !== 'รถยนฅ์เพื่อการพาณิซย์'&&
 							input.type.toString() !== 'รถยนฅ์อเนกประสงค์'

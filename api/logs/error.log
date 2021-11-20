@@ -64,3 +64,19 @@ error: Nov-13-2021 18:32:16: 	err when bcrypt compare password: Error: password 
 error: Nov-13-2021 18:33:13: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
 error: Nov-13-2021 18:33:19: 	auth signin jerome or jgfjfdu are incorrect
 error: Nov-13-2021 18:33:19: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-13-2021 18:35:27: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-13-2021 18:35:32: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-13-2021 18:35:32: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-20-2021 07:47:53: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-20-2021 07:48:41: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-20-2021 07:53:12: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-20-2021 07:54:50: 	RouteValidator add-car: [{"msg":"badInput","param":"myCustomField","location":"body"}]
+error: Nov-20-2021 08:28:54: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:19: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Nov-20-2021 17:56:49: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-20-2021 17:56:54: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-20-2021 17:56:54: 	err when bcrypt compare password: Error: password incorrect

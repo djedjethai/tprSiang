@@ -55,7 +55,7 @@
 			<div class="form-group">
                                     	<label for="type">Type:</label>
                                     	<select name="type" id="type" class="form-control" />
-		<option <%= car.type === 'รุนรถ' ? 'selected' : '' %>>รุนรถ</option>
+		<option <%= car.type === 'รุนรถพิเศษ' ? 'selected' : '' %>>รุนรถพิเศษ</option>
 		<option <%= car.type === 'รถยนฅ์นั่งส่วนบุคคล' ? 'selected' : '' %>>รถยนฅ์นั่งส่วนบุคคล</option>
 		<option <%= car.type === 'รถยนฅ์เพื่อการพาณิซย์' ? 'selected' : '' %>>รถยนฅ์เพื่อการพาณิซย์</option>
 		<option <%= car.type === 'รถยนฅ์อเนกประสงค์' ? 'selected' : '' %>>รถยนฅ์อเนกประสงค์</option>
@@ -89,7 +89,7 @@
 			<div class="form-group">
                         <label for="type">Type:</label>
                         <select name="type" id="type" class="form-control" onchange="loadType(event)" />
-		<option selected>รุนรถ</option>
+		<option selected>รุนรถพิเศษ</option>
 		<option>รถยนฅ์นั่งส่วนบุคคล</option>
 		<option>รถยนฅ์เพื่อการพาณิซย์</option>
 		<option>รถยนฅ์อเนกประสงค์</option>
@@ -138,9 +138,9 @@
 			let loadColor = function(event) {color = event.target.value}
 			var details = ''
 			let loadDetails = function(event) {details = event.target.value}
-			let style = "Pick-up"
+			let style = "Sedan"
 			let loadStyle = function(event) {style = event.target.value}
-			let type = "รุนรถ"
+			let type = "รุนรถพิเศษ"
 			let loadType = function(event) {type = event.target.value}
 			let bestSeller = false
 			let loadBestSeller = function(event) {bestSeller = event.target.value}

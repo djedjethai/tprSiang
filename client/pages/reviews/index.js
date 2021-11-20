@@ -25,7 +25,6 @@ const ReviewsPage = ({ pics }) => {
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
-			<h1>Picture and Logo TPR </h1> 
 			<Contactbutton clicked={() => goToContact()}>ติดต่อ</Contactbutton>
 			<h1>the reviews page</h1> 
 			{reviewsList}

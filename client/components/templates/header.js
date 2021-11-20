@@ -8,7 +8,7 @@ export default () => {
 			<a>หน๊าหลัก</a>
 		</Link><br />
 		<Link href="/type/[typeId]" as="/type/model">
-			<a>รุนรถ</a>
+			<a>รุนรถพิเศษ</a>
 		</Link><br />
 		<Link href="/type/[typeId]" as="/type/passenger">
 			<a>รถยนฅ์นั่งส่วนบุคคล</a>

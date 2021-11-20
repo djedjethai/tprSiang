@@ -10,7 +10,7 @@
 
 		<div class="table-responsive">
 			<table class="table table-hover">
-	  		<thead><tr><th>Serie</th><th>Serie details</th><th>Engine</th><th>Grade</th><th>Price</th><th>Best seller</th><th>Action</th></tr></thead>
+	  		<thead><tr><th>Picture</th><th>Serie</th><th>Serie details</th><th>Engine</th><th>Grade</th><th>Price</th><th>Best seller</th><th>Action</th></tr></thead>
                         <%  cars.forEach((car) => { %>
                               	<tbody><tr>
 					<td>
@@ -39,9 +39,9 @@
                                         
                                         <a href="/admin/delete-car/<%= car._id %>/?edit=true" class="btn btn-danger btn-xs">Delete</a>                               
                                     	</td>
-
-                                        <input type="hidden" name="carId" value="<%= car._id %>" />
-                                </tr></tbody>
+					<input type="hidden" name="carId" value="<%= car._id %>" />
+                                </tr>
+			</tbody>
                                 <% }) %>
 			</table>
 		</div>	
