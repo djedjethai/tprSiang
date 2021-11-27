@@ -15,10 +15,12 @@ const ReviewsPage = ({ pics }) => {
 
 	const reviewsList = pics.reviews.map(review => {
 		return(
-			<Cardreview
-				key={review._id}
-				reviewDetails={review}
-			/>
+			<div key={review._id}>
+				<Cardreview
+					key={review._id}
+					reviewDetails={review}
+				/>
+			</div>
 		)
 	})
 

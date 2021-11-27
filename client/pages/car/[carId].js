@@ -12,20 +12,24 @@ const CarPage = ({ pics }) => {
 
 	const displayPicsStyle = pics.picsStyle.map(picture => {
 		return(
-			<Cardpicdetails
-				key={picture._id}
-				pict={picture.pic[0]}
-			/>
+			<div key={picture._id}>
+				<Cardpicdetails
+					key={picture._id}
+					pict={picture.pic[0]}
+				/>
+			</div>
 		)
 	})
 
 
 	const carDetails = pics.carsData.map(car => {
 		return(
-			<Cardcardetails
-				key={car._id}
-				carDts={car}
-			/>
+			<div key={car._id}>
+				<Cardcardetails
+					key={car._id}
+					carDts={car}
+				/>
+			</div>
 		)
 	})
 

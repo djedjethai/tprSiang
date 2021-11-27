@@ -4,20 +4,18 @@ import Headerstyle from '../../components/cards/Headerstyle'
 import Cardstd from '../../components/cards/Cardstd'
 import Gotocontact from '../../components/cards/cardGlobal/Gotocontact'
 
-const StylePage = ({ pics, style, carid }) => {
+const StylePage = ({ pics, style }) => {
 	
 	const goToCar = value => {
 		Router.push(`/car/${value}`)
 	}
 
-	// const showSelectedCar = pics.carsData.filter(car => car._id === carid)
 	const showSelectedCar = () => {
-		if(pics.carsData.length > 0){
-			const carDt = pics.carsData.filter(car => car._id === carid)
+		if(pics.selected.length > 0){
 			return (
 				<Headerstyle 
-					carDetails={carDt[0]}
-					clicked={() => goToCar(`${carDt[0]._id}=${carDt[0].style}`)}
+					carDetails={pics.selected[0]}
+					clicked={() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)}
 				/>
 
 			)
@@ -26,10 +24,10 @@ const StylePage = ({ pics, style, carid }) => {
 		}
 	}
 
-	const carsList = pics.carsData.reduce((filtered, car) => {
-		if(car._id !== carid){
-			filtered.push(
-				<div>
+	
+	const carsList = pics.list.map((car, index) => {
+			return (
+				<div key={car._id}>
 					<Cardstd
 						key={car._id}
 						carDetails={car}
@@ -38,10 +36,7 @@ const StylePage = ({ pics, style, carid }) => {
 					<Gotocontact />
 				</div>
 			)
-		}
-		return filtered
-	}, [])
-
+	})	
 		
 	return (
 		<div>
@@ -52,13 +47,26 @@ const StylePage = ({ pics, style, carid }) => {
 	)
 }
 
+function selector(datas, id) {
+	let selected = []
+	let list = []
+	for(const dt of datas){
+		if(dt._id === id) selected.push(dt)
+		else list.push(dt) 
+	}
+
+	return {selected, list}
+}
+
 StylePage.getInitialProps = async (context, client) => {
 	const { styleId } =  context.query
 	const arrStyleId = styleId.split('=')
 
 	const { data } = await client.get(`/style/${arrStyleId[0]}`)
 
-	return { pics: data, style: arrStyleId[0], carid: arrStyleId[1] }
+	const toShow = selector(data.carsData, arrStyleId[1])
+
+	return { pics: toShow, style: arrStyleId[0]}
 }
 
 export default StylePage

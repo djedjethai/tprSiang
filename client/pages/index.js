@@ -22,7 +22,7 @@ const MainPage = ({ pics }) => {
 		if(pics.reviews.length > 0){		
 			return pics.reviews.map(review => {
 				return (
-					<div>
+					<div key={review._id}>
 						<Cardreview
 							key={review._id}
 							reviewDetails={review}
@@ -51,7 +51,7 @@ const MainPage = ({ pics }) => {
 
 	const carsList = pics.carsData.map(car => {
 		return(
-			<div>
+			<div key={car._id}>
 				<Cardstd
 					key={car._id}
 					carDetails={car} 
