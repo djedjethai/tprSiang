@@ -85,7 +85,7 @@
 					picture: event.target[0].files[0].name
 				}
 			
-				fetch('http://localhost:3050/admin/upload', {
+				fetch('http://tpr2u.com/admin/upload', {
 					method: 'POST',
 					mode: 'no-cors',
 					body: JSON.stringify(data),
@@ -118,7 +118,7 @@
 					token
 				}
 					
-				return fetch('http://localhost:3050/admin/add-picsstyle', {
+				return fetch('http://tpr2u.com/admin/add-picsstyle', {
 					method: 'POST',
 					mode: 'no-cors',
 					body: JSON.stringify(dataForDb),
@@ -131,7 +131,7 @@
 				.then(d => {
 					if (d) {
 						setTimeout(() => {
-		window.location.replace("http://localhost:3050/admin/picsstyle")
+		window.location.replace("http://tpr2u.com/admin/picsstyle")
 						}, 500)
 					}	
 				})

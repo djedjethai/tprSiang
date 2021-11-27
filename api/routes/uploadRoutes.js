@@ -17,7 +17,6 @@ module.exports = app => {
 		const namePic = JSON.parse(Object.keys(req.body)[0]).picture
 		const section = JSON.parse(Object.keys(req.body)[0]).section
 		const key = `${section}/${uid}${namePic}`
-		// console.log(key)
 		
 		s3.getSignedUrl('putObject', {
 			Bucket: keys.bucketName,
@@ -27,7 +26,6 @@ module.exports = app => {
 			if(e){
 				logger.error(`error from s3 upload route: ${e}`)
 			}
-			// console.log('the url from s3: ', url)
 			res.status(200).send({key, url})
 		})
 	})

@@ -516,3 +516,18 @@ info: Nov-20-2021 10:55:04: 	db connection successful
 error: Nov-20-2021 17:56:49: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
 error: Nov-20-2021 17:56:54: 	auth signin jerome or jgfjfdu are incorrect
 error: Nov-20-2021 17:56:54: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-20-2021 18:42:59: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-20-2021 18:43:05: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-20-2021 18:43:05: 	err when bcrypt compare password: Error: password incorrect
+info: Nov-27-2021 08:05:48: 	listen on port 5000
+info: Nov-27-2021 08:05:49: 	db connection successful
+info: Nov-27-2021 08:10:24: 	listen on port 5000
+info: Nov-27-2021 08:10:25: 	db connection successful
+info: Nov-27-2021 08:37:02: 	listen on port 5000
+info: Nov-27-2021 08:37:02: 	db connection successful
+info: Nov-27-2021 08:45:28: 	listen on port 5000
+info: Nov-27-2021 08:45:29: 	db connection successful
+info: Nov-27-2021 08:46:16: 	listen on port 5000
+info: Nov-27-2021 08:46:17: 	db connection successful
+info: Nov-27-2021 09:02:37: 	listen on port 5000
+info: Nov-27-2021 09:02:38: 	db connection successful

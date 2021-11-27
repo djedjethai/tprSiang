@@ -80,3 +80,6 @@ error: Nov-20-2021 08:29:24: 	clientCt carPageCt: MongooseServerSelectionError: 
 error: Nov-20-2021 17:56:49: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
 error: Nov-20-2021 17:56:54: 	auth signin jerome or jgfjfdu are incorrect
 error: Nov-20-2021 17:56:54: 	err when bcrypt compare password: Error: password incorrect
+error: Nov-20-2021 18:42:59: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Nov-20-2021 18:43:05: 	auth signin jerome or jgfjfdu are incorrect
+error: Nov-20-2021 18:43:05: 	err when bcrypt compare password: Error: password incorrect
