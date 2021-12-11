@@ -9,7 +9,8 @@ const cacheEnum = Object.freeze({
 	carsType: "carstype-",
 	carsStyle: "carsstyle-",
 	car: "car-",
-	picsStyle: "picsstyle-"
+	picsStyle: "picsstyle-",
+	token: "token-"
 })
 
 function deleteCache(name, spec=""){
@@ -36,6 +37,10 @@ function picsStyleDelCache(cchStyle){
 	deleteCache(cacheEnum.picsStyle, cchStyle)
 }
 
+function tokenDelCache(){
+	deleteCache(cacheEnum.token)
+}
+
 function fromRedis(model){
 	return new Promise((resolve, reject) => {
 		redisInstance.getInstance().get(model, (err, val) => {
@@ -53,13 +58,27 @@ function setDataInRedis(cacheName, datas){
 	redisInstance.getInstance().set(cacheName, datas, 'EX', 3600)
 }
 
+function setTokenInRedis(cacheName, token){
+	return new Promise(resolve => {
+		redisInstance.getInstance().set(cacheName, token, (err, reply) => {
+			if(err){
+				resolve(false)
+			} else {
+				resolve(true)
+			}
+		})
+	})
+}
+
 module.exports = { 
 	carDelCache, 
 	reviewDelCache,
 	picsMainDelCache,
 	picsStyleDelCache,
+	tokenDelCache,
 	fromRedis, 
 	setDataInRedis, 
+	setTokenInRedis,
 	cacheEnum 
 }
 

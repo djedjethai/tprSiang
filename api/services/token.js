@@ -1,5 +1,6 @@
 const crypto = require('crypto')
-const fs = require('fs')
+// const fs = require('fs')
+const { setTokenInRedis, cacheEnum } = require('./cache')
 const { promisify } = require('util')
 const logger = require('./logger')
 
@@ -32,21 +33,11 @@ async function verify(password, hash) {
 }
 
 async function saveToken(token) {
-	try{
-		const fd = await promisify(fs.open)('/opt/app/tmp/token.txt', 'w')
-  		await promisify(fs.appendFile)(fd, token, 'utf8')
-        	const err = await promisify(fs.close)(fd)
+	console.log("the tok in saveToken token file: ", token)
+	// save to redis
+	const isTokenSaved = await setTokenInRedis(cacheEnum.token, JSON.stringify(token))
 
-		if(err) {
-			logger.error(`err when saveToken: ${err}`)
-			throw Error('error in close: ', err)
-		}
-		else return true
-
-	} catch(e) {
-		// console.log('error from save token: ', e)
-		return false
-	}	
+	return isTokenSaved
 }
 
 module.exports = { encrypt, saveToken, verify }

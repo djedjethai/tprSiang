@@ -10,7 +10,7 @@ const REVIEW_CT = 'reviewCT'
 // get all reviews 
 exports.getReviews = async(req, res, next) => {
 	try{
-		const reviewsDB = await Review.find()
+		const reviewsDB = await Review.find().sort('-quand')
 
 		res.render('tprmain/reviews', {
 			pageTitle: 'reviews',

@@ -2,7 +2,8 @@ const bcrypt = require('bcryptjs');
 const logger = require('../../services/logger')
 const keys = require('../../config/keys')
 const { AuthError } = require('../../error/listErrors')
-
+const { setDataInRedis, cacheEnum } = require('../../services/cache')
+const { encrypt, saveToken } = require('../../services/token') 
 
 exports.getSignin = (req, res, next) => {
     	// temporary code to generate the password for the admin envVar
@@ -56,7 +57,20 @@ exports.postSignin = async (req, res, next) => {
 	}
 }
 
-exports.getLogout = (req, res, next) => {
+exports.getLogout = async (req, res, next) => {
+	// create a new token and save it to redis, 
+	// for the standbye stored token to be unknow from anyone
+	console.log("allo.........................")
+	try{
+		const token = Math.random().toString(36).split('.')[1].slice(0, 10)
+		const tokenSaved = await saveToken(token)
+		console.log("in authCt tokenSaved: ", tokenSaved)
+		if(!tokenSaved) throw Error('getLogout - token is not save')
+	} catch(e) {
+		console.log("in authCt errrr: ", e)
+		logger.error(`getLogout new token for stadbye err: ${e}`)	
+	}	
+
 	req.session.destroy(err => {
 		res.redirect('/admin/getsignin')
 	})

@@ -531,3 +531,55 @@ info: Nov-27-2021 08:46:16: 	listen on port 5000
 info: Nov-27-2021 08:46:17: 	db connection successful
 info: Nov-27-2021 09:02:37: 	listen on port 5000
 info: Nov-27-2021 09:02:38: 	db connection successful
+info: Dec-11-2021 09:25:59: 	listen on port 5000
+info: Dec-11-2021 09:26:00: 	db connection successful
+info: Dec-11-2021 09:30:00: 	listen on port 5000
+info: Dec-11-2021 09:30:01: 	db connection successful
+info: Dec-11-2021 09:32:29: 	listen on port 5000
+info: Dec-11-2021 09:32:29: 	db connection successful
+error: Dec-11-2021 09:32:41: 	getLogout new token for stadbye err: ReferenceError: datas is not defined
+error: Dec-11-2021 09:34:01: 	getLogout new token for stadbye err: ReferenceError: datas is not defined
+info: Dec-11-2021 09:34:54: 	listen on port 5000
+info: Dec-11-2021 09:34:55: 	db connection successful
+error: Dec-11-2021 09:35:03: 	getLogout new token for stadbye err: ReferenceError: datas is not defined
+info: Dec-11-2021 09:35:53: 	listen on port 5000
+info: Dec-11-2021 09:35:54: 	db connection successful
+info: Dec-11-2021 09:36:30: 	listen on port 5000
+info: Dec-11-2021 09:36:31: 	db connection successful
+info: Dec-11-2021 09:40:52: 	listen on port 5000
+info: Dec-11-2021 09:40:53: 	db connection successful
+info: Dec-11-2021 09:42:06: 	listen on port 5000
+info: Dec-11-2021 09:42:07: 	db connection successful
+info: Dec-11-2021 09:48:23: 	listen on port 5000
+info: Dec-11-2021 09:48:23: 	db connection successful
+info: Dec-11-2021 09:49:16: 	listen on port 5000
+info: Dec-11-2021 09:49:16: 	db connection successful
+info: Dec-11-2021 09:50:38: 	listen on port 5000
+info: Dec-11-2021 09:50:39: 	db connection successful
+info: Dec-11-2021 09:53:16: 	listen on port 5000
+info: Dec-11-2021 09:53:16: 	db connection successful
+info: Dec-11-2021 09:54:51: 	listen on port 5000
+info: Dec-11-2021 09:54:51: 	db connection successful
+info: Dec-11-2021 09:57:05: 	listen on port 5000
+info: Dec-11-2021 09:57:06: 	db connection successful
+info: Dec-11-2021 10:03:55: 	listen on port 5000
+info: Dec-11-2021 10:03:56: 	db connection successful
+info: Dec-11-2021 10:05:06: 	listen on port 5000
+info: Dec-11-2021 10:05:07: 	db connection successful
+info: Dec-11-2021 10:05:55: 	listen on port 5000
+info: Dec-11-2021 10:05:56: 	db connection successful
+error: Dec-11-2021 10:05:57: 	adminCt carsCt getAddCars: Error: carsCt
+info: Dec-11-2021 10:06:08: 	listen on port 5000
+info: Dec-11-2021 10:06:09: 	db connection successful
+error: Dec-11-2021 10:06:10: 	adminCt carsCt getAddCars: Error: carsCt
+error: Dec-11-2021 10:06:11: 	adminCt carsCt getAddCars: Error: carsCt
+info: Dec-11-2021 10:06:57: 	listen on port 5000
+info: Dec-11-2021 10:06:58: 	db connection successful
+info: Dec-11-2021 10:14:56: 	listen on port 5000
+info: Dec-11-2021 10:14:57: 	db connection successful
+info: Dec-11-2021 10:15:48: 	listen on port 5000
+info: Dec-11-2021 10:15:48: 	db connection successful
+info: Dec-11-2021 10:17:06: 	listen on port 5000
+info: Dec-11-2021 10:17:06: 	db connection successful
+info: Dec-11-2021 10:21:38: 	listen on port 5000
+info: Dec-11-2021 10:21:39: 	db connection successful
