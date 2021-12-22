@@ -14,9 +14,17 @@ module.exports = app => {
 	app.post('/upload', isToken, (req, res) => {
 
 		const uid = Math.random().toString(36).split('.')[1].slice(0, 10)
-		const namePic = JSON.parse(Object.keys(req.body)[0]).picture
-		const section = JSON.parse(Object.keys(req.body)[0]).section
-		const key = `${section}/${uid}${namePic}`
+		const namePic = JSON.parse(Object.keys(req.body)[0]).picture.toString()
+		const section = JSON.parse(Object.keys(req.body)[0]).section.toString()
+
+		let noSpaceName = ""
+		for(let i=0; i < namePic.length; i++){
+			if(namePic[i] !== " "){
+				noSpaceName += namePic[i]
+			}
+		}
+		
+		const key = `${section}/${uid}${noSpaceName}`
 		
 		s3.getSignedUrl('putObject', {
 			Bucket: keys.bucketName,
