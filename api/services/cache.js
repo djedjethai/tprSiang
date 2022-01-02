@@ -55,7 +55,8 @@ function fromRedis(model){
 }
 
 function setDataInRedis(cacheName, datas){
-	redisInstance.getInstance().set(cacheName, datas, 'EX', 3600)
+	// redisInstance.getInstance().set(cacheName, datas, 'EX', 3600)
+	redisInstance.getInstance().set(cacheName, datas)
 }
 
 function setTokenInRedis(cacheName, token){

@@ -1,13 +1,15 @@
 import '../css/style.css'
-import Header from '../components/templates/header'
+import Navbar from '../components/templates/navbar'
 import Footer from '../components/templates/footer'
+import Sidebar from '../components/templates/sidebar'
 import buildClient from '../services/build-client'
 
 const AppComponent = ({ Component, pageProps }) => {
 
 	return 	(
-		<div>
-		<Header />
+		<div class="container">
+		<Sidebar />
+		<Navbar />
 		<Component {...pageProps} />
 		<Footer />
 		</div>
