@@ -33,7 +33,6 @@ async function verify(password, hash) {
 }
 
 async function saveToken(token) {
-	console.log("the tok in saveToken token file: ", token)
 	// save to redis
 	const isTokenSaved = await setTokenInRedis(cacheEnum.token, JSON.stringify(token))
 

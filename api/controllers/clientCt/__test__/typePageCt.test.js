@@ -22,7 +22,7 @@ it('make sure the req return PicsStyle and reviews', async() => {
 	await saveCars()
 
 	// Act
-	// /model will be translate by the api to รุนรถ
+	// /model will be translate by the api to รุนรถพิเศษ
 	const response = await request(app)
 		.get(`/type/model`)
 		.send()
@@ -45,7 +45,7 @@ async function saveCars(){
 		details:'details',
 		pic:'http://urlPicture.com',
 		style:'Smart',
-		type:'รุนรถ',
+		type:'รุนรถพิเศษ',
 		bestSeller:'true'
 	})
 
@@ -75,7 +75,7 @@ async function saveCars(){
 		details:'details2',
 		pic:'http://urlPicture2.com',
 		style:'Double',
-		type:'รุนรถ',
+		type:'รุนรถพิเศษ',
 		bestSeller:'true'
 	})
 

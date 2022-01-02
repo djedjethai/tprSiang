@@ -89,3 +89,33 @@ error: Dec-11-2021 09:35:03: 	getLogout new token for stadbye err: ReferenceErro
 error: Dec-11-2021 10:05:57: 	adminCt carsCt getAddCars: Error: carsCt
 error: Dec-11-2021 10:06:10: 	adminCt carsCt getAddCars: Error: carsCt
 error: Dec-11-2021 10:06:11: 	adminCt carsCt getAddCars: Error: carsCt
+error: Jan-02-2022 13:07:45: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:07:50: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:07:50: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:16:23: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:16:29: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:16:29: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:17:17: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:17:22: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:17:22: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:18:03: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:18:08: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:18:08: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:20:27: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:20:33: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:20:33: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:22:57: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:23:02: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:23:02: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:00:52: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:00:57: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:00:57: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:02:26: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:02:32: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:02:32: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:02:58: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:03:03: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:03:03: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:04:46: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:04:51: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:04:51: 	err when bcrypt compare password: Error: password incorrect

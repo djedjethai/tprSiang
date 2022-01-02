@@ -78,25 +78,20 @@ module.exports = app => {
 							input.style.toString() !== 'Smart-cab' &&
 							input.style.toString() !== 'Double-cab'
 						){
-							console.log(input.style)
 							throw new Error('badInput')
 						} else if(input.type.toString() !== 'รุนรถพิเศษ' &&
 							input.type.toString() !== 'รถยนฅ์นั่งส่วนบุคคล'&&
 							input.type.toString() !== 'รถยนฅ์เพื่อการพาณิซย์'&&
 							input.type.toString() !== 'รถยนฅ์อเนกประสงค์'
 						){
-							console.log(2)
 							throw new Error('badInput')
 						} else if(input.bestSeller.toString() !== 'false' &&
 							input.bestSeller.toString() !== 'true'
 						){	
-							console.log(3)
 							throw new Error('badInput')
 						} else if(input.picUrl === ''){
-							console.log(4)
 							throw new Error('badInput')
 						} else if(input.token === ''){
-							console.log(5)
 							throw new Error('badInput')
 						} 
       				  	},

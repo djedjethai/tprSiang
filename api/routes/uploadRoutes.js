@@ -19,7 +19,7 @@ module.exports = app => {
 
 		let noSpaceName = ""
 		for(let i=0; i < namePic.length; i++){
-			if(namePic[i] !== " "){
+			if(namePic[i] !== " " && namePic[i] !== "/"){
 				noSpaceName += namePic[i]
 			}
 		}

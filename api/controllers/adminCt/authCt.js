@@ -60,14 +60,11 @@ exports.postSignin = async (req, res, next) => {
 exports.getLogout = async (req, res, next) => {
 	// create a new token and save it to redis, 
 	// for the standbye stored token to be unknow from anyone
-	console.log("allo.........................")
 	try{
 		const token = Math.random().toString(36).split('.')[1].slice(0, 10)
 		const tokenSaved = await saveToken(token)
-		console.log("in authCt tokenSaved: ", tokenSaved)
 		if(!tokenSaved) throw Error('getLogout - token is not save')
 	} catch(e) {
-		console.log("in authCt errrr: ", e)
 		logger.error(`getLogout new token for stadbye err: ${e}`)	
 	}	
 

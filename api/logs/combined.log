@@ -587,3 +587,51 @@ info: Dec-22-2021 13:28:43: 	listen on port 5000
 info: Dec-22-2021 13:28:43: 	db connection successful
 info: Dec-22-2021 14:06:37: 	listen on port 5000
 info: Dec-22-2021 14:06:38: 	db connection successful
+info: Jan-02-2022 05:45:06: 	listen on port 5000
+info: Jan-02-2022 05:45:07: 	db connection successful
+info: Jan-02-2022 05:47:47: 	listen on port 5000
+info: Jan-02-2022 05:47:47: 	db connection successful
+info: Jan-02-2022 05:54:08: 	listen on port 5000
+info: Jan-02-2022 05:54:08: 	db connection successful
+error: Jan-02-2022 13:07:45: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:07:50: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:07:50: 	err when bcrypt compare password: Error: password incorrect
+info: Jan-02-2022 06:14:29: 	listen on port 5000
+info: Jan-02-2022 06:14:29: 	db connection successful
+info: Jan-02-2022 06:16:20: 	listen on port 5000
+info: Jan-02-2022 06:16:21: 	db connection successful
+error: Jan-02-2022 13:16:23: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:16:29: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:16:29: 	err when bcrypt compare password: Error: password incorrect
+info: Jan-02-2022 06:17:14: 	listen on port 5000
+info: Jan-02-2022 06:17:14: 	db connection successful
+error: Jan-02-2022 13:17:17: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:17:22: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:17:22: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:18:03: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:18:08: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:18:08: 	err when bcrypt compare password: Error: password incorrect
+info: Jan-02-2022 06:20:24: 	listen on port 5000
+info: Jan-02-2022 06:20:25: 	db connection successful
+error: Jan-02-2022 13:20:27: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:20:33: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:20:33: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 13:22:57: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 13:23:02: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 13:23:02: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:00:52: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:00:57: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:00:57: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:02:26: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:02:32: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:02:32: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:02:58: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:03:03: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:03:03: 	err when bcrypt compare password: Error: password incorrect
+error: Jan-02-2022 14:04:46: 	adminCt reviewCt getDeleteReview: TypeError: Cannot read property 'split' of undefined
+error: Jan-02-2022 14:04:51: 	auth signin jerome or jgfjfdu are incorrect
+error: Jan-02-2022 14:04:51: 	err when bcrypt compare password: Error: password incorrect
+info: Jan-02-2022 07:05:39: 	listen on port 5000
+info: Jan-02-2022 07:05:39: 	db connection successful
+info: Jan-02-2022 07:05:45: 	listen on port 5000
+info: Jan-02-2022 07:05:46: 	db connection successful
