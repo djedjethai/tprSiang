@@ -1,0 +1,63 @@
+:root {
+	--color-primary: #eb2f64; // red
+	--color-primary-light: #FF3366;
+	--color-primary-dark: #BA265D;
+	
+	--color-grey-light-1: #faf9f9;
+	--color-grey-light-2: #f4f2f2;
+	--color-grey-light-3: #f0eeee;
+	--color-grey-light-4: #ccc;
+	
+	--color-grey-dark-1: #333;
+	--color-grey-dark-2: #777;
+	--color-grey-dark-3: #999;
+	
+	--color-white: #fff;
+	--color-black: #000;
+	//FONT
+	--default-font-size: 2rem;
+	//BORDER
+	--border-radius: 3px;
+	--shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+}
+/* universal selector will select all elements on the page and apply it to them. to prevent pre-setting of the differents browser.
+Like it s the same for all*/
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /*by default box-sizing do not herite. but setting up the all page like it will make it everywhere*/
+    box-sizing: inherit;
+}
+
+
+/*html element is the root font-size. so set it up, and then we use rem with all other font-size
+(like this we can modify this one, and all get modify)*/
+
+html {
+    font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+    		// background-color: red;
+		background-image:linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+		background-size: cover;
+		background-repeat: no-repeat;
+		min-height: 100vh;
+	
+		// come from typo
+		font-family: "Lato", sans-serif;
+    		font-weight: 400;
+    		/*font-size: 16px;*/
+    		line-height: 1.6;
+    		/*predefine the line-height 1.7 fois bigger than the default one*/
+    		color: var(--color-grey-dark-2);
+    		/*so from ire all the child class of the doc herite de border-box*/
+    		box-sizing: border-box;
+    		font-size: var(--default-font-size);
+}
+
+
+

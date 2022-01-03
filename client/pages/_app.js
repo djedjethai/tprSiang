@@ -1,17 +1,29 @@
 import '../css/style.css'
-import Navbar from '../components/templates/navbar'
+// import Navbar from '../components/templates/navbar'
 import Footer from '../components/templates/footer'
 import Sidebar from '../components/templates/sidebar'
 import buildClient from '../services/build-client'
 
-const AppComponent = ({ Component, pageProps }) => {
+import { AppWrapper } from '../hooks/app-wrapper';
 
+
+const AppComponent = ({ Component, pageProps }) => {
+	
 	return 	(
-		<div class="container">
-		<Sidebar />
-		<Navbar />
-		<Component {...pageProps} />
-		<Footer />
+		<div className="container">
+			<div className="content">
+				<AppWrapper>
+					// if props backdrop == false  => small bande black
+					// else => class .sidebar
+					<Sidebar />
+				</AppWrapper>
+				<AppWrapper>
+					// if props backdrop == true => black 
+					// else  Component
+					<Component {...pageProps} />
+				</AppWrapper>
+			</div>
+			<Footer />
 		</div>
 	)
 }

@@ -2,8 +2,7 @@ import Link from 'next/link'
 
 export default () => {
 	return (
-		<div>
-		<h1>header</h1>
+		<div className="sidebar">
 		<Link href="/">
 			<a>หน๊าหลัก</a>
 		</Link><br />
@@ -25,8 +24,6 @@ export default () => {
 		<Link href="/contact" >
 			<a>ติดต่อ</a>
 		</Link><br />
-
-
 		</div>
 	)
 }
