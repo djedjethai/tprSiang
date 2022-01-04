@@ -6,8 +6,13 @@ import Gotocontact from '../components/cards/cardGlobal/Gotocontact'
 import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
 
+// import { useAppContext } from '../hooks/app-wrapper';
+
 const MainPage = ({ pics }) => {
-		
+	
+	// const { show } = useAppContext()
+	// console.log(show)
+
 	const goToStyle = value => {
 		Router.push(`/style/${value}`)
 	}

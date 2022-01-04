@@ -1,27 +1,35 @@
 import '../css/style.css'
+import { useState } from 'react';
+
 // import Navbar from '../components/templates/navbar'
 import Footer from '../components/templates/footer'
-import Sidebar from '../components/templates/sidebar'
+import Sidebar from '../components/navigation/sidebar'
+import SmallSidebar from '../components/navigation/smallsidebar'
+import Backdrop from '../components/ui/backdrop'
 import buildClient from '../services/build-client'
 
-import { AppWrapper } from '../hooks/app-wrapper';
-
+// import { AppWrapper, useAppContext } from '../hooks/app-wrapper';
 
 const AppComponent = ({ Component, pageProps }) => {
-	
+
+	// const { show } = useAppContext()
+	const [show, setShow] = useState(false)
+
+	const showSidebar = () => {
+		setShow(true)
+		console.log("myTest ", show)
+	}
+
+	const hideSidebar = () => {
+		setShow(false)
+		console.log("reTest: ", show)
+	}
+
 	return 	(
 		<div className="container">
 			<div className="content">
-				<AppWrapper>
-					// if props backdrop == false  => small bande black
-					// else => class .sidebar
-					<Sidebar />
-				</AppWrapper>
-				<AppWrapper>
-					// if props backdrop == true => black 
-					// else  Component
-					<Component {...pageProps} />
-				</AppWrapper>
+		{ show ? <Sidebar /> : <SmallSidebar clicked={() => showSidebar()} />}
+		{ show ? <Backdrop clicked={() => hideSidebar()}/> : <Component {...pageProps} />}
 			</div>
 			<Footer />
 		</div>

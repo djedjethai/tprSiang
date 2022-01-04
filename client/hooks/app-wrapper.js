@@ -1,17 +1,25 @@
 import { createContext, useContext, useState } from 'react';
 
-const AppContext = createContext();
+const AppContext = createContext(undefined);
 
-export function AppWrapper({ children }) {
-  const [backdrop, setBackdrop] = useState(false)
+function AppWrapper({ children }) {
+  	const [show, setShow] = useState(false)
 
-  return (
-    <AppContext.Provider value={backdrop}>
-      {children}
-    </AppContext.Provider>
-  );
+
+  	return (
+    		<AppContext.Provider 
+			value={{
+				show,
+				setShow
+			}}
+	  	>
+      		{children}
+    		</AppContext.Provider>
+  	);
 }
 
-export function useAppContext() {
-  return useContext(AppContext);
+function useAppContext() {
+  	return useContext(AppContext);
 }
+
+export { AppWrapper, useAppContext }

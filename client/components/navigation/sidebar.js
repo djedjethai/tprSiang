@@ -1,8 +1,19 @@
 import Link from 'next/link'
 
-export default () => {
+// import { useAppContext } from '../../hooks/app-wrapper';
+
+export default (props) => {
+
+	// const { setShow } = useAppContext()
+
+	// const showSidebar = () => {
+	// 	setShow(true)
+	// }
+
 	return (
-		<div className="sidebar">
+		<div 
+			className="sidebar"
+		>
 		<Link href="/">
 			<a>หน๊าหลัก</a>
 		</Link><br />
