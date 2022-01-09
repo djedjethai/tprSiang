@@ -28,8 +28,17 @@ const AppComponent = ({ Component, pageProps }) => {
 	return 	(
 		<div className="container">
 			<div className="content">
-		{ show ? <Sidebar /> : <SmallSidebar clicked={() => showSidebar()} />}
-		{ show ? <Backdrop clicked={() => hideSidebar()}/> : <Component {...pageProps} />}
+				{ show ? <Sidebar /> : <SmallSidebar clicked={() => showSidebar()} />}
+				<div className="views">
+					{ show ? 
+					<div className="views__backdrop" onClick={() => hideSidebar()}>
+							<Component {...pageProps} />
+					</div> :
+					<div className="views__component">
+						<Component {...pageProps} />
+					</div>
+					}
+				</div>
 			</div>
 			<Footer />
 		</div>
