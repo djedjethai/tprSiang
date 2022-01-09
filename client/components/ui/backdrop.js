@@ -1,9 +1,10 @@
 export default (props) => {
 	return (
 		<div 
-			className="backdrop"
+			className="views__backdrop"
 			onClick={props.clicked}
 		>
+		{props.children}
 		</div>
 	)
 }

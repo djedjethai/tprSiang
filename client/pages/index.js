@@ -1,24 +1,22 @@
 import Router from 'next/router'
 
-import Cardstd from '../components/cards/Cardstd'
 import Cardreview from '../components/cards/Cardreview'
-import Gotocontact from '../components/cards/cardGlobal/Gotocontact'
 import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
+import renderCards from '../services/renderCards'
 
-// import { useAppContext } from '../hooks/app-wrapper';
+
+import { useAppContext } from '../hooks/app-wrapper';
 
 const MainPage = ({ pics }) => {
 	
-	// const { show } = useAppContext()
-	// console.log(show)
+	const { show } = useAppContext()
 
 	const goToStyle = value => {
 		Router.push(`/style/${value}`)
 	}
 	
 	const goToReviews = () => {
-		// console.log('go to reviews page coool')
 		Router.push(`/reviews`)
 	}
 
@@ -55,18 +53,15 @@ const MainPage = ({ pics }) => {
 	}
 
 	const carsList = pics.carsData.map(car => {
-		return(
-			<div key={car._id}>
-				<Cardstd
-					key={car._id}
-					carDetails={car} 
-					clicked={() => goToStyle(`${car.style}=${car._id}`)}
-				/>
-				<Gotocontact />
-			</div>
-		)
+		return renderCards(
+				"cardstd", 
+				car, 
+				() => goToStyle(`${car.style}=${car._id}`),
+				car._id
+			)
 	})
-		
+
+			
 	return (
 		<div className="index">
 			{renderBanner(pics.mainPics)}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {AppWrapper, useAppContext} from '../hooks/app-wrapper'
 
 import Sidebar from '../components/navigation/sidebar'
 import SmallSidebar from '../components/navigation/smallsidebar'
@@ -7,16 +7,14 @@ import Footer from '../components/templates/footer'
 
 const Layout = (props) => {
 
-	const [show, setShow] = useState(false)
+	let { show, setShow } = useAppContext()
 
 	const showSidebar = () => {
 		setShow(true)
-		console.log("myTest ", show)
 	}
 
 	const hideSidebar = () => {
 		setShow(false)
-		console.log("reTest: ", show)
 	}
 
 	return 	(

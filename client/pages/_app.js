@@ -1,18 +1,18 @@
 import '../css/style.css'
-import { useState } from 'react';
 
 import buildClient from '../services/build-client'
 import Layout from '../hoc/Layout'
+import {AppWrapper, useAppContext} from '../hooks/app-wrapper'
 
 const AppComponent = ({ Component, pageProps }) => {
 
 	
 	return 	(
-		<div>
+		<AppWrapper>
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>
-		</div>
+		</AppWrapper>
 	)
 }
 

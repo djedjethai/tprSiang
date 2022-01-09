@@ -1,14 +1,26 @@
 import Router from 'next/router'
 
 import Headerstyle from '../../components/cards/Headerstyle'
-import Cardstd from '../../components/cards/Cardstd'
-import Gotocontact from '../../components/cards/cardGlobal/Gotocontact'
+import renderCards from '../../services/renderCards'
 
 const StylePage = ({ pics, style }) => {
 	
 	const goToCar = value => {
 		Router.push(`/car/${value}`)
 	}
+
+	// to finish here ....................
+	// const showSelectedCar = () => {
+	// 	if(pics.selected.length > 0){
+	// 		return renderCards(
+	// 				"headerstyle",
+	// 				pics.selected[0],
+	// 				() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)
+	// 		)
+	// 	} else {
+	// 		return null
+	// 	}
+	// }
 
 	const showSelectedCar = () => {
 		if(pics.selected.length > 0){
@@ -23,21 +35,17 @@ const StylePage = ({ pics, style }) => {
 			return null
 		}
 	}
-
 	
 	const carsList = pics.list.map((car, index) => {
-			return (
-				<div key={car._id}>
-					<Cardstd
-						key={car._id}
-						carDetails={car}
-						clicked={() => goToCar(`${car._id}=${car.style}`)}
-					/>
-					<Gotocontact />
-				</div>
+			return renderCards(
+					"cardstd",
+					car,
+					() => goToCar(`${car._id}=${car.style}`),
+					car._id
 			)
+				
 	})	
-		
+	
 	return (
 		<div>
 			{showSelectedCar()}
