@@ -1,46 +1,17 @@
 import '../css/style.css'
 import { useState } from 'react';
 
-// import Navbar from '../components/templates/navbar'
-import Footer from '../components/templates/footer'
-import Sidebar from '../components/navigation/sidebar'
-import SmallSidebar from '../components/navigation/smallsidebar'
-import Backdrop from '../components/ui/backdrop'
 import buildClient from '../services/build-client'
-
-// import { AppWrapper, useAppContext } from '../hooks/app-wrapper';
+import Layout from '../hoc/Layout'
 
 const AppComponent = ({ Component, pageProps }) => {
 
-	// const { show } = useAppContext()
-	const [show, setShow] = useState(false)
-
-	const showSidebar = () => {
-		setShow(true)
-		console.log("myTest ", show)
-	}
-
-	const hideSidebar = () => {
-		setShow(false)
-		console.log("reTest: ", show)
-	}
-
+	
 	return 	(
-		<div className="container">
-			<div className="content">
-				{ show ? <Sidebar /> : <SmallSidebar clicked={() => showSidebar()} />}
-				<div className="views">
-					{ show ? 
-					<div className="views__backdrop" onClick={() => hideSidebar()}>
-							<Component {...pageProps} />
-					</div> :
-					<div className="views__component">
-						<Component {...pageProps} />
-					</div>
-					}
-				</div>
-			</div>
-			<Footer />
+		<div>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
 		</div>
 	)
 }
