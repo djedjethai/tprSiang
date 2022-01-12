@@ -3,7 +3,7 @@ import Router from 'next/router'
 import Cardreview from '../components/cards/Cardreview'
 import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
-import renderCards from '../services/renderCards'
+import { cardStd } from '../services/renderCards'
 
 
 import { useAppContext } from '../hooks/app-wrapper';
@@ -53,8 +53,7 @@ const MainPage = ({ pics }) => {
 	}
 
 	const carsList = pics.carsData.map(car => {
-		return renderCards(
-				"cardstd", 
+		return cardStd(
 				car, 
 				() => goToStyle(`${car.style}=${car._id}`),
 				car._id

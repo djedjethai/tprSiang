@@ -1,7 +1,7 @@
 import Router from 'next/router'
 
 import Headerstyle from '../../components/cards/Headerstyle'
-import renderCards from '../../services/renderCards'
+import { cardStd, headerStyle } from '../../services/renderCards'
 
 const StylePage = ({ pics, style }) => {
 	
@@ -10,35 +10,33 @@ const StylePage = ({ pics, style }) => {
 	}
 
 	// to finish here ....................
-	// const showSelectedCar = () => {
-	// 	if(pics.selected.length > 0){
-	// 		return renderCards(
-	// 				"headerstyle",
-	// 				pics.selected[0],
-	// 				() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)
-	// 		)
-	// 	} else {
-	// 		return null
-	// 	}
-	// }
-
 	const showSelectedCar = () => {
 		if(pics.selected.length > 0){
-			return (
-				<Headerstyle 
-					carDetails={pics.selected[0]}
-					clicked={() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)}
-				/>
-
+			return headerStyle(
+					pics.selected[0],
+					() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)
 			)
 		} else {
 			return null
 		}
 	}
+
+	// const showSelectedCar = () => {
+	// 	if(pics.selected.length > 0){
+	// 		return (
+	// 			<Headerstyle 
+	// 				carDetails={pics.selected[0]}
+	// 				clicked={() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)}
+	// 			/>
+
+	// 		)
+	// 	} else {
+	// 		return null
+	// 	}
+	// }
 	
 	const carsList = pics.list.map((car, index) => {
-			return renderCards(
-					"cardstd",
+			return cardStd(
 					car,
 					() => goToCar(`${car._id}=${car.style}`),
 					car._id

@@ -5,47 +5,51 @@ import Cardstd from '../components/cards/Cardstd'
 import Gotocontact from '../components/cards/cardGlobal/Gotocontact'
 
 
-export default (cardRef, carDetailsRef, clickedRef, keyRef ) => {
-
-		const { show } = useAppContext()
+const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
+	const { show } = useAppContext()
 		
-		if(show && cardRef === "cardstd"){
-			return (
-				<div key={keyRef}>
-					<Cardstd
-						key={keyRef}
-						carDetails={carDetailsRef}	
-					/>
-					<Gotocontact/>
-				</div>
-			)
-		} else {
-			return (
-				<div key={keyRef}>
-					<Cardstd
-						key={keyRef}
-						carDetails={carDetailsRef}	
-						clicked={clickedRef}
-					/>
-					<Gotocontact/>
-				</div>
-			)
-		}
-
-		if(show && cardRef === "headerstyle"){
-			return (
-				<Headerstyle
+	if(show){
+		return (
+			<div key={keyRef}>
+				<Cardstd
+					key={keyRef}
 					carDetails={carDetailsRef}	
 				/>
-			)
-		} else {
-			return (
-				<Headerstyle
+				<Gotocontact/>
+			</div>
+		)
+	} else {
+		return (
+			<div key={keyRef}>
+				<Cardstd
+					key={keyRef}
 					carDetails={carDetailsRef}	
 					clicked={clickedRef}
 				/>
-			)
-		}
-
+				<Gotocontact/>
+			</div>
+		)
+	}
 }
 
+const headerStyle = (carDetailsRef, clickedRef) => {
+		
+	const { show } = useAppContext()
+
+	if(show){
+		return (
+			<Headerstyle
+				carDetails={carDetailsRef}	
+			/>
+		)
+	} else {
+		return (
+			<Headerstyle
+				carDetails={carDetailsRef}	
+				clicked={clickedRef}
+			/>
+		)
+	}
+}
+
+export { cardStd, headerStyle }
