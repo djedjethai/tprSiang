@@ -7,7 +7,7 @@ export default (pics) => {
 		if(pics.length > 0) {
 			return (
 				<div>
-				<img src={pics[count].pic} style={{width:400}} />
+				<img src={pics[count].pic} className="slidingBanner" />
 				</div>
 			)
 			

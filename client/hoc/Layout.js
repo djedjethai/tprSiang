@@ -4,6 +4,7 @@ import Sidebar from '../components/navigation/sidebar'
 import SmallSidebar from '../components/navigation/smallsidebar'
 import Aux from './Aux'
 import Footer from '../components/templates/footer'
+import BannerLogoTop from '../components/templates/bannerLogoTop'
 
 const Layout = (props) => {
 
@@ -26,9 +27,11 @@ const Layout = (props) => {
 			<div className="views">
 			{ show ? 
 				<div className="views__backdrop" onClick={() => hideSidebar()}>
+					<BannerLogoTop />
 					{props.children}
 				</div> :
 				<div className="views__component">
+					<BannerLogoTop />
 					{props.children}
 				</div>
 			}

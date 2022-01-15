@@ -1,0 +1,13 @@
+.bannerLogoContainer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--color-grey-dark-2);
+	min-height: 7rem;
+
+	&__image{
+		max-height: 7rem;
+		max-width: 17rem;
+		overflow: hidden;
+	}
+}

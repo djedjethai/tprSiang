@@ -20,20 +20,6 @@ const StylePage = ({ pics, style }) => {
 			return null
 		}
 	}
-
-	// const showSelectedCar = () => {
-	// 	if(pics.selected.length > 0){
-	// 		return (
-	// 			<Headerstyle 
-	// 				carDetails={pics.selected[0]}
-	// 				clicked={() => goToCar(`${pics.selected[0]._id}=${pics.selected[0].style}`)}
-	// 			/>
-
-	// 		)
-	// 	} else {
-	// 		return null
-	// 	}
-	// }
 	
 	const carsList = pics.list.map((car, index) => {
 			return cardStd(
@@ -47,7 +33,10 @@ const StylePage = ({ pics, style }) => {
 	return (
 		<div>
 			{showSelectedCar()}
-			<h1>the style page: {style}</h1> 
+			<div className="navbar">
+				<h1>Navbar ........</h1>
+			</div>
+			<h2>the style page: {style}</h2> 
 			{carsList}
 		</div>
 	)

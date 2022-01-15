@@ -30,7 +30,10 @@ const TypePage = ({ pics, type }) => {
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
-			<h1>the typepage: {translator(type)}</h1> 
+			<div className="navbar">
+				<h1>Navbar ........</h1>
+			</div>
+			<h2>the typepage: {translator(type)}</h2> 
 			{carsList}
 		</div>
 	)

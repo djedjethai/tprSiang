@@ -63,13 +63,31 @@ const MainPage = ({ pics }) => {
 			
 	return (
 		<div className="index">
-			{renderBanner(pics.mainPics)}
-			<h1>Picture and Logo TPR </h1> 
-			<h1>Index !!!!, main page</h1>
-			{carsList}
-			<h1>Reviews ....</h1>
-			{reviewsList()}
-			{renderAccessToAllReviews()}
+			<div className="index__header">
+				<div className="index__header--banner">
+					{renderBanner(pics.mainPics)}
+				</div>
+				<div className="index__header--presentation">
+					<div className="index__header--presentation-Logo">
+						<p>Logo TPR </p>
+					</div>
+					<div className="index__header--presentation-moto">
+						<p>ประสบการณ์งายขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>
+					</div>
+					<div className="index__header--presentation-owner">
+						<p>pic SIANG</p>
+					</div>		
+				</div>
+			</div>
+			<div className="navbar">
+				<h1>Navbar ........</h1>
+			</div>
+			<div className="index__content">
+				{carsList}
+				<h1>Reviews ....</h1>
+				{reviewsList()}
+				{renderAccessToAllReviews()}
+			</div>
 		</div>
 	)
 }
