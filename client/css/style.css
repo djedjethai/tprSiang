@@ -106,19 +106,41 @@ h2 {
   align-items: center;
   background-color: var(--color-grey-dark-2);
   min-height: 7rem; }
+  @media only screen and (max-width: 56.25em) {
+    .bannerLogoContainer {
+      min-height: 6rem; } }
   .bannerLogoContainer__image {
     max-height: 7rem;
     max-width: 17rem;
     overflow: hidden; }
+    @media only screen and (max-width: 56.25em) {
+      .bannerLogoContainer__image {
+        max-height: 6rem; } }
 
 .index {
   flex: 1; }
   .index__header--presentation {
     display: flex;
     justify-content: space-between; }
+    .index__header--presentation-logo {
+      flex-grow: 2;
+      width: 50%; }
+      .index__header--presentation-logo-image {
+        max-height: 25rem; }
+    .index__header--presentation-moto {
+      flex-grow: 1;
+      background-color: orange;
+      width: 25%; }
+    .index__header--presentation-owner {
+      flex-grow: 1;
+      background-color: pink;
+      width: 25%; }
 
 .slidingBanner {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%; }
+  @media only screen and (max-width: 56.25em) {
+    .slidingBanner {
+      width: 75%; } }

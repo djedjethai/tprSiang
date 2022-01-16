@@ -1,9 +1,7 @@
 export default () => {
 	return (
-		<div>
 		<div className="bannerLogoContainer">
-			<img src="/images/logoGrey.jpg" className="bannerLogoContainer__image"/>
-		</div>
+			<img src="/images/logoGreyOk.jpg" className="bannerLogoContainer__image"/>
 		</div>
 	)
 }

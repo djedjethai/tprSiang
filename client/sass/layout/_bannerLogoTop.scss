@@ -5,9 +5,26 @@
 	background-color: var(--color-grey-dark-2);
 	min-height: 7rem;
 
+	@include respond(tab-port) {
+		min-height: 6rem;
+	}
+
+	@include respond(port) {
+		min-height: 5rem;
+	}
+
 	&__image{
 		max-height: 7rem;
 		max-width: 17rem;
 		overflow: hidden;
+		
+		@include respond(tab-port) {
+			max-height: 6rem;
+		}
+
+		@include respond(port) {
+			max-height: 5rem;
+		}
+
 	}
 }

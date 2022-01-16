@@ -4,7 +4,7 @@ import Cardreview from '../components/cards/Cardreview'
 import Accessbutton from '../components/buttons/Accessbutton'
 import renderBanner from '../services/renderBanner'
 import { cardStd } from '../services/renderCards'
-
+import Logo from '../components/ui/logo'
 
 import { useAppContext } from '../hooks/app-wrapper';
 
@@ -68,8 +68,8 @@ const MainPage = ({ pics }) => {
 					{renderBanner(pics.mainPics)}
 				</div>
 				<div className="index__header--presentation">
-					<div className="index__header--presentation-Logo">
-						<p>Logo TPR </p>
+					<div className="index__header--presentation-logo">
+						<Logo />
 					</div>
 					<div className="index__header--presentation-moto">
 						<p>ประสบการณ์งายขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>

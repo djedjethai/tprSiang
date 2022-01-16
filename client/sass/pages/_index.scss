@@ -10,13 +10,21 @@
 			display: flex;
 			justify-content: space-between;
 			&-logo {
-
+				flex-grow: 2;
+				width: 50%;
+				&-image{
+					max-height: 25rem;
+				}	
 			}
 			&-moto{
-
+				flex-grow: 1;
+				background-color: orange;
+				width: 25%;
 			}
 			&-owner{
-
+				flex-grow: 1;
+				background-color: pink;
+				width: 25%;
 			}
 		}
 	}
@@ -32,4 +40,17 @@
   	margin-left: auto;
   	margin-right: auto;
   	width: 50%;
+
+	@include respond(tab-port) {
+		width: 75%;
+	}
+
+	@include respond(port) {
+		width: 100%;
+	}
+
 }
+
+
+
+
