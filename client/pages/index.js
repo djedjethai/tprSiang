@@ -2,9 +2,9 @@ import Router from 'next/router'
 
 import Cardreview from '../components/cards/Cardreview'
 import Accessbutton from '../components/buttons/Accessbutton'
-import renderBanner from '../services/renderBanner'
 import { cardStd } from '../services/renderCards'
-import Logo from '../components/ui/logo'
+import renderBanner from '../services/renderBanner'
+import CpnIndexHeader from '../components/cpnpages/cpnindexheader' 
 
 import { useAppContext } from '../hooks/app-wrapper';
 
@@ -67,17 +67,7 @@ const MainPage = ({ pics }) => {
 				<div className="index__header--banner">
 					{renderBanner(pics.mainPics)}
 				</div>
-				<div className="index__header--presentation">
-					<div className="index__header--presentation-logo">
-						<Logo />
-					</div>
-					<div className="index__header--presentation-moto">
-						<p>ประสบการณ์งายขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>
-					</div>
-					<div className="index__header--presentation-owner">
-						<p>pic SIANG</p>
-					</div>		
-				</div>
+				<CpnIndexHeader />
 			</div>
 			<div className="navbar">
 				<h1>Navbar ........</h1>

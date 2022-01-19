@@ -1,4 +1,5 @@
 import '../css/style.css'
+import Head from 'next/head'
 
 import buildClient from '../services/build-client'
 import Layout from '../hoc/Layout'
@@ -9,6 +10,10 @@ const AppComponent = ({ Component, pageProps }) => {
 	
 	return 	(
 		<AppWrapper>
+			<Head>
+				<title>tpr2u</title>
+				<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet" />
+			</Head>
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>

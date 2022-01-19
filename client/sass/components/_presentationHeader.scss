@@ -1,0 +1,25 @@
+.thegrid__presentation{
+	&-logo {
+		background-color: orange;
+		grid-column: full-start / col-end 4;	
+
+		&-image{
+			max-height: 22rem;
+		}	
+	}
+	&-moto{
+		background-color: yellow;
+		grid-column: col-start 5 / col-end 6;
+	}
+
+	&-owner{
+		text-align: center;
+		background-color: var(--color-grey-light-4);
+		grid-column: col-start 7 / full-end;
+		vertical-align: middle;
+		&-image{
+			max-height: 15rem;
+		}
+	}
+}
+

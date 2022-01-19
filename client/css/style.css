@@ -12,6 +12,8 @@
   --color-white: #fff;
   --color-black: #000;
   --default-font-size: 2rem;
+  --font-primary: 'Nunito', sans-serif;
+  --font-display: 'Josefin Sans', sans-serif;
   --border-radius: 3px;
   --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3); }
 
@@ -45,16 +47,36 @@ body {
   box-sizing: border-box;
   font-size: var(--default-font-size); }
 
-h1 {
-  color: "red";
-  background-color: yellow; }
+.thegrid {
+  display: grid;
+  grid-template-rows: 60vh min-content;
+  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
 
-h2 {
-  color: "red";
-  background-color: green; }
+.heading-1, .heading-2, .heading-3, .heading-4 {
+  font-family: var(--font-display);
+  font-weight: 400; }
 
 .contactAccess {
   background-color: var(--color-primary-light); }
+
+.thegrid__presentation-logo {
+  background-color: orange;
+  grid-column: full-start / col-end 4; }
+  .thegrid__presentation-logo-image {
+    max-height: 22rem; }
+
+.thegrid__presentation-moto {
+  background-color: yellow;
+  grid-column: col-start 5 / col-end 6; }
+
+.thegrid__presentation-owner {
+  text-align: center;
+  background-color: var(--color-grey-light-4);
+  grid-column: col-start 7 / full-end; }
+  .thegrid__presentation-owner-container {
+    vertical-align: middle; }
+  .thegrid__presentation-owner-image {
+    max-height: 15rem; }
 
 .views {
   background-color: var(--color-white);
@@ -119,22 +141,6 @@ h2 {
 
 .index {
   flex: 1; }
-  .index__header--presentation {
-    display: flex;
-    justify-content: space-between; }
-    .index__header--presentation-logo {
-      flex-grow: 2;
-      width: 50%; }
-      .index__header--presentation-logo-image {
-        max-height: 25rem; }
-    .index__header--presentation-moto {
-      flex-grow: 1;
-      background-color: orange;
-      width: 25%; }
-    .index__header--presentation-owner {
-      flex-grow: 1;
-      background-color: pink;
-      width: 25%; }
 
 .slidingBanner {
   display: block;

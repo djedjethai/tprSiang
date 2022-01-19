@@ -16,6 +16,8 @@
 	--color-black: #000;
 	//FONT
 	--default-font-size: 2rem;
+	--font-primary: 'Nunito', sans-serif;
+	--font-display: 'Josefin Sans', sans-serif;
 	//BORDER
 	--border-radius: 3px;
 	--shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
@@ -59,5 +61,10 @@ body {
     		font-size: var(--default-font-size);
 }
 
-
+.thegrid {
+	display: grid;
+	// grid-template-rows: 80vh min-content 40vw min-content;
+	grid-template-rows: 60vh min-content;
+	grid-template-columns: [full-start]minmax(6rem, 1fr)[center-start]repeat(8,[col-start]minmax(min-content, 14rem)[col-end])[center-end]minmax(6rem, 1fr)[full-end];
+}
 
