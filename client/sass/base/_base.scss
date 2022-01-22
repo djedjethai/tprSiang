@@ -1,7 +1,10 @@
 :root {
-	--color-primary: #eb2f64; // red
-	--color-primary-light: #FF3366;
-	--color-primary-dark: #BA265D;
+	--color-primary: #ed343c; // red
+	// --color-primary: #eb2f64; // red
+	--color-primary-light: #ef4f56;
+	// --color-primary-light: #FF3366;
+	--color-primary-dark: #f01a26;
+	// --color-primary-dark: #BA265D;
 	
 	--color-grey-light-1: #faf9f9;
 	--color-grey-light-2: #f4f2f2;
@@ -43,22 +46,22 @@ html {
 }
 
 body {
-    		// background-color: red;
-		background-image:linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
-		background-size: cover;
-		background-repeat: no-repeat;
-		min-height: 100vh;
+    	// background-color: red;
+	background-image:linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
 	
-		// come from typo
-		font-family: "Lato", sans-serif;
-    		font-weight: 400;
-    		/*font-size: 16px;*/
-    		line-height: 1.6;
-    		/*predefine the line-height 1.7 fois bigger than the default one*/
-    		color: var(--color-grey-dark-2);
-    		/*so from ire all the child class of the doc herite de border-box*/
-    		box-sizing: border-box;
-    		font-size: var(--default-font-size);
+	// come from typo
+	font-family: "Nunito", sans-serif;
+    	font-weight: 400;
+    	/*font-size: 16px;*/
+    	line-height: 1.6;
+    	/*predefine the line-height 1.7 fois bigger than the default one*/
+    	color: var(--color-grey-dark-2);
+    	/*so from ire all the child class of the doc herite de border-box*/
+    	box-sizing: border-box;
+    	font-size: var(--default-font-size);
 }
 
 .thegrid {

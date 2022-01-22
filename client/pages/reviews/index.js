@@ -1,6 +1,6 @@
 import Router from 'next/router'
 
-import ContactButton from '../../components/buttons/contactButton'
+import AccessButton from '../../components/buttons/accessButton'
 import CardReview from '../../components/cards/cardReview'
 import renderBanner from '../../services/renderBanner'
 // import translator from '../../services/translator'
@@ -27,7 +27,12 @@ const ReviewsPage = ({ pics }) => {
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
-			<ContactButton clicked={() => goToContact()}>ติดต่อ</Contactbutton>
+			<AccessButton 
+				classname="btn"
+				clicked={() => goToContact()}
+			>
+				ติดต่อ
+			</AccessButton>
 			<h1>the reviews page</h1> 
 			{reviewsList}
 		</div>

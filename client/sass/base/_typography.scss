@@ -9,14 +9,27 @@
 
 .heading-2{
 	@extend %heading;	
+	font-size: 4rem;
+	font-style: italic;
+	line-height: 1;
+
+	&--light {color: var(--color-grey-light-1);}
+	&--dark {color: var(--color-grey-dark-1);}
 }
 
 .heading-3{
 	@extend %heading;	
+	font-size: 1.6rem;
+	color: var(--color-primary);
+	text-transform: uppercase;
+
 }
 
 .heading-4{	
 	@extend %heading;	
+	&--light {color: var(--color-grey-light-1);}
+	&--dark {color: var(--color-grey-dark-1);}
+
 }
 
 // .framework__body {

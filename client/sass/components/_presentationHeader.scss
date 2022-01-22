@@ -8,17 +8,33 @@
 		}	
 	}
 	&-moto{
-		background-color: yellow;
-		grid-column: col-start 5 / col-end 6;
+		// background-color: yellow;
+		background-color: var(--color-grey-light-4);
+		grid-column: col-start 5 / col-end 7;
+		padding: 3rem 3vw;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		&-text{
+			font-size: 2rem;
+			font-style: italic;
+		}
 	}
 
 	&-owner{
-		text-align: center;
 		background-color: var(--color-grey-light-4);
-		grid-column: col-start 7 / full-end;
-		vertical-align: middle;
+		grid-column: col-start 8 / full-end;
+		padding: 1.5rem 1vw;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
 		&-image{
-			max-height: 15rem;
+			max-height: 8rem;
+			border-radius: 50%;
 		}
 	}
 }

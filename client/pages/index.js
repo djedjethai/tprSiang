@@ -46,7 +46,12 @@ const MainPage = ({ pics }) => {
 	const renderAccessToAllReviews = () => {
 		
 		if(pics.reviews.length > 0){		
-			return <AccessButton clicked={() => goToReviews()}>See All Reviews</AccessButton>
+			return <AccessButton
+					classname="btn"
+					clicked={() => goToReviews()}
+				>
+					See All Reviews
+				</AccessButton>
 		} else {
 			return ""
 		}
