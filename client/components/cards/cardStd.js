@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Headerstyle = (props) => {
+const CardStd = (props) => {
 
 	return(
 		<div onClick={props.clicked}>
-			<img src={props.carDetails.pic} style={{width:300}} /><br />
+			<img src={props.carDetails.pic} style={{width:150}} /><br />
 			{props.carDetails.serie}<br/>
 			{props.carDetails.price}<br/>
 			{props.carDetails.style}<br/>
@@ -13,4 +13,4 @@ const Headerstyle = (props) => {
 	)
 }
 
-export default Headerstyle
+export default CardStd

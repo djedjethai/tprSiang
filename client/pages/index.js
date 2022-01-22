@@ -1,10 +1,10 @@
 import Router from 'next/router'
 
-import Cardreview from '../components/cards/Cardreview'
-import Accessbutton from '../components/buttons/Accessbutton'
+import CardReview from '../components/cards/cardReview'
+import AccessButton from '../components/buttons/accessButton'
 import { cardStd } from '../services/renderCards'
 import renderBanner from '../services/renderBanner'
-import CpnIndexHeader from '../components/cpnpages/cpnindexheader' 
+import CpnIndexHeader from '../components/cpnpages/cpnIndexHeader' 
 
 import { useAppContext } from '../hooks/app-wrapper';
 
@@ -26,7 +26,7 @@ const MainPage = ({ pics }) => {
 			return pics.reviews.map(review => {
 				return (
 					<div key={review._id}>
-						<Cardreview
+						<CardReview
 							key={review._id}
 							reviewDetails={review}
 						/>
@@ -46,7 +46,7 @@ const MainPage = ({ pics }) => {
 	const renderAccessToAllReviews = () => {
 		
 		if(pics.reviews.length > 0){		
-			return <Accessbutton clicked={() => goToReviews()}>See All Reviews</Accessbutton>
+			return <AccessButton clicked={() => goToReviews()}>See All Reviews</AccessButton>
 		} else {
 			return ""
 		}

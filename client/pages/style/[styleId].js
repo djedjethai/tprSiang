@@ -1,6 +1,6 @@
 import Router from 'next/router'
 
-import Headerstyle from '../../components/cards/Headerstyle'
+// import HeaderStyle from '../../components/cards/headerStyle'
 import { cardStd, headerStyle } from '../../services/renderCards'
 
 const StylePage = ({ pics, style }) => {

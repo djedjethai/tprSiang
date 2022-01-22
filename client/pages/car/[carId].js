@@ -1,8 +1,8 @@
 import Router from 'next/router'
 
-import Cardcardetails from '../../components/cards/Cardcardetails'
-import Cardpicdetails from '../../components/cards/Cardpicdetails.js'
-import Contactbutton from '../../components/buttons/Contactbutton'
+import CardCarDetails from '../../components/cards/cardCarDetails'
+import CardPicDetails from '../../components/cards/cardPicDetails.js'
+import ContactButton from '../../components/buttons/contactButton'
 
 const CarPage = ({ pics }) => {
 
@@ -13,7 +13,7 @@ const CarPage = ({ pics }) => {
 	const displayPicsStyle = pics.picsStyle.map(picture => {
 		return(
 			<div key={picture._id}>
-				<Cardpicdetails
+				<CardPicDetails
 					key={picture._id}
 					pict={picture.pic[0]}
 				/>
@@ -25,7 +25,7 @@ const CarPage = ({ pics }) => {
 	const carDetails = pics.carsData.map(car => {
 		return(
 			<div key={car._id}>
-				<Cardcardetails
+				<CardCarDetails
 					key={car._id}
 					carDts={car}
 				/>
@@ -38,7 +38,7 @@ const CarPage = ({ pics }) => {
 			<h1>the car page</h1> 
 			{carDetails}
 			<h1>car pics style</h1>
-			<Contactbutton clicked={() => goToContact()}>ติดต่อ</Contactbutton>
+			<ContactButton clicked={() => goToContact()}>ติดต่อ</ContactButton>
 			<p></p>
 			{displayPicsStyle}
 		</div>

@@ -1,7 +1,7 @@
 import {AppWrapper, useAppContext} from '../hooks/app-wrapper'
 
 import Sidebar from '../components/navigation/sidebar'
-import SmallSidebar from '../components/navigation/smallsidebar'
+import SmallSidebar from '../components/navigation/smallSidebar'
 import Aux from './Aux'
 import Footer from '../components/templates/footer'
 import BannerLogoTop from '../components/templates/bannerLogoTop'

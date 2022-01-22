@@ -6,7 +6,7 @@ const goToContact = () => {
 	}
 
 
-const Gotocontact = () => {
+const GoToContact = () => {
 	return (
 		<div onClick={() => goToContact()}>
 		<p className="contactAccess">Contact us</p>
@@ -14,4 +14,4 @@ const Gotocontact = () => {
 	)
 }
 
-export default Gotocontact
+export default GoToContact

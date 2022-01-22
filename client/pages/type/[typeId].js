@@ -2,8 +2,8 @@ import Router from 'next/router'
 import renderBanner from '../../services/renderBanner'
 import translator from '../../services/translator'
 
-import Cardstd from '../../components/cards/Cardstd' 
-import Gotocontact from '../../components/cards/cardGlobal/Gotocontact'
+import CardStd from '../../components/cards/cardStd' 
+import GoToContact from '../../components/cards/cardGlobal/goToContact'
 
 const TypePage = ({ pics, type }) => {
 	console.log('picsmain from type: ', pics)
@@ -17,12 +17,12 @@ const TypePage = ({ pics, type }) => {
 	const carsList = pics.carsData.map(car => {
 		return(
 			<div>
-				<Cardstd
+				<CardStd
 					key={car._id}
 					carDetails={car}
 					clicked={() => goToCar(`${car._id}=${car.style}`)}
 				/>
-				<Gotocontact />
+				<GoToContact />
 			</div>
 		)
 	})

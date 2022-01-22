@@ -1,8 +1,8 @@
 import { useAppContext } from '../hooks/app-wrapper';
 
-import Headerstyle from '../components/cards/Headerstyle'
-import Cardstd from '../components/cards/Cardstd'
-import Gotocontact from '../components/cards/cardGlobal/Gotocontact'
+import HeaderStyle from '../components/cards/headerStyle'
+import CardStd from '../components/cards/cardStd'
+import GoToContact from '../components/cards/cardGlobal/goToContact'
 
 
 const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
@@ -11,22 +11,22 @@ const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
 	if(show){
 		return (
 			<div key={keyRef}>
-				<Cardstd
+				<CardStd
 					key={keyRef}
 					carDetails={carDetailsRef}	
 				/>
-				<Gotocontact/>
+				<GoToContact/>
 			</div>
 		)
 	} else {
 		return (
 			<div key={keyRef}>
-				<Cardstd
+				<CardStd
 					key={keyRef}
 					carDetails={carDetailsRef}	
 					clicked={clickedRef}
 				/>
-				<Gotocontact/>
+				<GoToContact/>
 			</div>
 		)
 	}
@@ -38,13 +38,13 @@ const headerStyle = (carDetailsRef, clickedRef) => {
 
 	if(show){
 		return (
-			<Headerstyle
+			<HeaderStyle
 				carDetails={carDetailsRef}	
 			/>
 		)
 	} else {
 		return (
-			<Headerstyle
+			<HeaderStyle
 				carDetails={carDetailsRef}	
 				clicked={clickedRef}
 			/>

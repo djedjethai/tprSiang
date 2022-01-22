@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Accessbutton = (props) => {
+const ContactButton = (props) => {
 	return (
 		<button 
                 	onClick={props.clicked}
@@ -10,4 +10,4 @@ const Accessbutton = (props) => {
 	)
 }
 
-export default Accessbutton
+export default ContactButton

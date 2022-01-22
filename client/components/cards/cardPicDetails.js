@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cardpicdetails = (props) => {
+const CardPicDetails = (props) => {
 
 	return(
 		<div>
@@ -9,4 +9,4 @@ const Cardpicdetails = (props) => {
 	)
 }
 
-export default Cardpicdetails
+export default CardPicDetails

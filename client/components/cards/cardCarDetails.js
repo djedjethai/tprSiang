@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cardcardetails = (props) => {
+const CardCarDetails = (props) => {
 
 	return(
 		<div>
@@ -19,4 +19,4 @@ const Cardcardetails = (props) => {
 	)
 }
 
-export default Cardcardetails
+export default CardCarDetails
