@@ -4,7 +4,7 @@ import Sidebar from '../components/navigation/sidebar'
 import SmallSidebar from '../components/navigation/smallSidebar'
 import Aux from './Aux'
 import Footer from '../components/templates/footer'
-import BannerLogoTop from '../components/templates/bannerLogoTop'
+import DisplayImage from '../components/ui/displayImage'
 
 const Layout = (props) => {
 
@@ -18,6 +18,15 @@ const Layout = (props) => {
 		setShow(false)
 	}
 
+	const displayImage = () => {
+		return <DisplayImage 
+				classname="bannerLogoContainer"
+				imgalt="image banner top"
+				imgsrc="/images/logoGreyOk.jpg"
+				imgsrcClassname="bannerLogoContainer__image"
+			/>
+	}
+
 	return 	(
 		<Aux>
 		<div className="container">
@@ -27,11 +36,11 @@ const Layout = (props) => {
 			<div className="views">
 			{ show ? 
 				<div className="views__backdrop" onClick={() => hideSidebar()}>
-					<BannerLogoTop />
+					{displayImage()}
 					{props.children}
 				</div> :
 				<div className="views__component">
-					<BannerLogoTop />
+					{displayImage()}
 					{props.children}
 				</div>
 			}
