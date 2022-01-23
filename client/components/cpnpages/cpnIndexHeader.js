@@ -14,11 +14,15 @@ export default () => {
 	return (
 		<div className="thegrid">
 			<div className="thegrid__presentation-logo">
-				<DisplayImage 
-					classname=""
-					imgalt="logo with no background"
-					imgsrc="/images/logoNoBackground.png"
-					imgsrcClassname="thegrid__presentation-logo-image"
+				<img 
+					src="/images/carBrownRe.jpg" 
+					alt="picture car for presentarion"
+					className="thegrid__presentation-image1"
+				/>
+				<img 
+					src="/images/logoNoBackground.png"
+					alt="logo with no background"
+					className="thegrid__presentation-image2"
 				/>
 			</div>
 			<div className="thegrid__presentation-moto">

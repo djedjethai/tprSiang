@@ -80,10 +80,25 @@ body {
   background-color: var(--color-primary-light); }
 
 .thegrid__presentation-logo {
-  background-color: orange;
-  grid-column: full-start / col-end 4; }
-  .thegrid__presentation-logo-image {
-    max-height: 22rem; }
+  background-color: var(--color-primary);
+  grid-column: full-start / col-end 4;
+  background-image: linear-gradient(rgba(237, 52, 60, 0.5), rgba(237, 52, 60, 0.5)), url(../public/images/backRe2.jpg);
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center; }
+
+.thegrid__presentation-image1 {
+  width: 100%;
+  grid-row: 2/6;
+  grid-column: 2/6;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); }
+
+.thegrid__presentation-image2 {
+  width: 120%;
+  grid-row: 4/6;
+  grid-column: 4/7;
+  z-index: 20; }
 
 .thegrid__presentation-moto {
   background-color: var(--color-grey-light-4);
