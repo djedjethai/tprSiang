@@ -4,6 +4,8 @@
 	&__header{
 		&--banner{
 			// margin: 0 auto;
+			background-color: var(--color-grey-light-2);
+
 		}
 	}
 
@@ -12,18 +14,21 @@
 	}
 }
 
+
 .slidingBanner{
 	// width: 400;
 	display: block;
   	margin-left: auto;
   	margin-right: auto;
   	width: 50%;
+	background-color: white;
+	box-shadow: 0 2rem 5rem rgba(#000, .1);
 
 	@include respond(tab-port) {
 		width: 75%;
 	}
 
-	@include respond(port) {
+	@include respond(phone) {
 		width: 100%;
 	}
 

@@ -1,16 +1,30 @@
 .sidebar {
 	background-color: var(--color-grey-dark-1);
 	flex: 0 0 18%;
-	min-width: 150px;
+	min-width: 172px;
 	&__items{
 		position: fixed;
 	}
+
+	@include respond(phone) {
+		min-height: 23rem;
+	}
+
 }
 
 .smallsidebar {
 	background-color: var(--color-grey-dark-1);
-	min-width: 40px;
+	min-width: 55px;
 	flex: 0 0 5%;
+
+	@include respond(tab-port) {
+		min-width: 50px;
+		min-height: 4rem;
+	}
+
+	@include respond(phone) {
+		min-height: 4rem;
+	}
 }
 
 // .backdrop{

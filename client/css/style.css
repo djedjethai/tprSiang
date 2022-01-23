@@ -51,6 +51,9 @@ body {
   display: grid;
   grid-template-rows: 60vh min-content;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 37.5em) {
+    .thegrid {
+      grid-template-rows: 73vh min-content; } }
 
 .heading-1, .heading-2, .heading-3, .heading-4 {
   font-family: var(--font-display);
@@ -83,46 +86,73 @@ body {
   background-color: var(--color-primary);
   grid-column: full-start / col-end 4;
   background-image: linear-gradient(rgba(237, 52, 60, 0.5), rgba(237, 52, 60, 0.5)), url(../public/images/backRe2.jpg);
+  background-size: cover;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(6, 1fr);
   align-items: center; }
+  @media only screen and (max-width: 56.25em) {
+    .thegrid__presentation-logo {
+      grid-column: 1/-1;
+      padding: 3rem; } }
 
 .thegrid__presentation-image1 {
   width: 100%;
   grid-row: 2/6;
   grid-column: 2/6;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); }
+  @media only screen and (max-width: 56.25em) {
+    .thegrid__presentation-image1 {
+      grid-column: 1/5;
+      grid-row: 1/-1; } }
 
 .thegrid__presentation-image2 {
   width: 120%;
   grid-row: 4/6;
   grid-column: 4/7;
   z-index: 20; }
+  @media only screen and (max-width: 56.25em) {
+    .thegrid__presentation-image2 {
+      grid-row: 1/-1;
+      width: 100%; } }
 
 .thegrid__presentation-moto {
   background-color: var(--color-grey-light-4);
-  grid-column: col-start 5 / col-end 7;
+  grid-column: col-start 5 / full-end;
   padding: 3rem 3vw;
+  display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .thegrid__presentation-moto {
+      grid-column: 1/-1;
+      grid-row: 1/2; } }
+  @media only screen and (max-width: 37.5em) {
+    .thegrid__presentation-moto {
+      grid-column: 1/-1;
+      grid-row: 1/2;
+      flex-direction: column; } }
+
+.thegrid__presentation-moto1 {
+  padding: 0 2vw 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; }
-  .thegrid__presentation-moto-text {
+  .thegrid__presentation-moto1-text {
     font-size: 2rem;
     font-style: italic; }
 
-.thegrid__presentation-owner {
-  background-color: var(--color-grey-light-4);
-  grid-column: col-start 8 / full-end;
-  padding: 1.5rem 1vw;
+.thegrid__presentation-moto2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; }
-  .thegrid__presentation-owner-image {
+  .thegrid__presentation-moto2-image {
     max-height: 8rem;
     border-radius: 50%; }
+  @media only screen and (max-width: 37.5em) {
+    .thegrid__presentation-moto2 {
+      min-height: 23rem;
+      align-items: center; } }
 
 .btn {
   background-color: var(--color-primary);
@@ -145,14 +175,24 @@ body {
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%;
-  min-width: 150px; }
+  min-width: 172px; }
   .sidebar__items {
     position: fixed; }
+  @media only screen and (max-width: 37.5em) {
+    .sidebar {
+      min-height: 23rem; } }
 
 .smallsidebar {
   background-color: var(--color-grey-dark-1);
-  min-width: 40px;
+  min-width: 55px;
   flex: 0 0 5%; }
+  @media only screen and (max-width: 56.25em) {
+    .smallsidebar {
+      min-width: 50px;
+      min-height: 4rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .smallsidebar {
+      min-height: 4rem; } }
 
 .views {
   position: relative; }
@@ -174,6 +214,9 @@ body {
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 37.5em) {
+    .content {
+      flex-direction: column; } }
 
 .container {
   max-width: 120rem;
@@ -201,12 +244,19 @@ body {
 
 .index {
   flex: 1; }
+  .index__header--banner {
+    background-color: var(--color-grey-light-2); }
 
 .slidingBanner {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%; }
+  width: 50%;
+  background-color: white;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); }
   @media only screen and (max-width: 56.25em) {
     .slidingBanner {
       width: 75%; } }
+  @media only screen and (max-width: 37.5em) {
+    .slidingBanner {
+      width: 100%; } }
