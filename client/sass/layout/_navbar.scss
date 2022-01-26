@@ -1,0 +1,26 @@
+.navbar{
+	display: flex;
+	background-color: var(--color-grey-dark-1);
+	min-height: 6.2rem;
+	width: 100%;
+	
+	& a {
+		flex: 1;
+		color: white;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+
+	}
+	
+	@include respond(tab-port) {
+		display: none;
+	}
+
+	@include respond(phone) {
+		display: none;
+	}
+}

@@ -4,6 +4,7 @@ import AccessButton from '../../components/buttons/accessButton'
 import CardReview from '../../components/cards/cardReview'
 import renderBanner from '../../services/renderBanner'
 // import translator from '../../services/translator'
+import Navbar from '../../components/navigation/navbar' 
 
 
 const ReviewsPage = ({ pics }) => {
@@ -27,6 +28,7 @@ const ReviewsPage = ({ pics }) => {
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
+			<Navbar />
 			<AccessButton 
 				classname="btn"
 				clicked={() => goToContact()}

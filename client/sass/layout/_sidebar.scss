@@ -13,16 +13,19 @@
 }
 
 .smallsidebar {
+	//  display: none;
 	background-color: var(--color-grey-dark-1);
 	min-width: 55px;
 	flex: 0 0 5%;
 
 	@include respond(tab-port) {
+		// display: block;
 		min-width: 50px;
 		min-height: 4rem;
 	}
 
 	@include respond(phone) {
+		// display: block;
 		min-height: 4rem;
 	}
 }

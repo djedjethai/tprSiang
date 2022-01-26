@@ -1,7 +1,7 @@
 import Router from 'next/router'
 
-// import HeaderStyle from '../../components/cards/headerStyle'
 import { cardStd, headerStyle } from '../../services/renderCards'
+import Navbar from '../../components/navigation/navbar' 
 
 const StylePage = ({ pics, style }) => {
 	
@@ -9,7 +9,6 @@ const StylePage = ({ pics, style }) => {
 		Router.push(`/car/${value}`)
 	}
 
-	// to finish here ....................
 	const showSelectedCar = () => {
 		if(pics.selected.length > 0){
 			return headerStyle(
@@ -33,11 +32,11 @@ const StylePage = ({ pics, style }) => {
 	return (
 		<div>
 			{showSelectedCar()}
-			<div className="navbar">
-				<h1>Navbar ........</h1>
-			</div>
+			<Navbar />	
 			<h2>the style page: {style}</h2> 
-			{carsList}
+			<div className="cardStd">
+				{carsList}
+			</div>
 		</div>
 	)
 }

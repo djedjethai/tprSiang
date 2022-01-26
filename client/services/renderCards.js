@@ -7,10 +7,12 @@ import GoToContact from '../components/cards/cardGlobal/goToContact'
 
 const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
 	const { show } = useAppContext()
-		
+	
+	const classname = "cardStd__card"
+
 	if(show){
 		return (
-			<div key={keyRef}>
+			<div key={keyRef} className={classname}>
 				<CardStd
 					key={keyRef}
 					carDetails={carDetailsRef}	
@@ -20,7 +22,7 @@ const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
 		)
 	} else {
 		return (
-			<div key={keyRef}>
+			<div key={keyRef} className={classname}>
 				<CardStd
 					key={keyRef}
 					carDetails={carDetailsRef}	

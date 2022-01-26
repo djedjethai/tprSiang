@@ -2,7 +2,8 @@ import Router from 'next/router'
 
 import CardCarDetails from '../../components/cards/cardCarDetails'
 import CardPicDetails from '../../components/cards/cardPicDetails.js'
-import ContactButton from '../../components/buttons/contactButton'
+import AccessButton from '../../components/buttons/accessButton'
+import Navbar from '../../components/navigation/navbar' 
 
 const CarPage = ({ pics }) => {
 
@@ -37,10 +38,15 @@ const CarPage = ({ pics }) => {
 		<div>
 			<h1>the car page</h1> 
 			{carDetails}
-			<h1>car pics style</h1>
-			<ContactButton clicked={() => goToContact()}>ติดต่อ</ContactButton>
-			<p></p>
+			<Navbar />
 			{displayPicsStyle}
+			<AccessButton
+				classname="btn"
+				clicked={() => goToContact()}
+			>
+				ติดต่อ
+			</AccessButton>
+
 		</div>
 	)
 }

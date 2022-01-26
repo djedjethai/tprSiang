@@ -166,7 +166,38 @@ body {
   cursor: pointer;
   transition: all .2s; }
   .btn:hover {
-    background-color: var(--color-primary-dark); }
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+  .btn:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0); }
+
+.btn-link:link, .btn-link:visited {
+  text-decoration: none;
+  padding: 3px; }
+
+.btn-link:hover {
+  background-color: var(--color-primary);
+  text-decoration: none !important; }
+
+.btn-link:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
+
+.cardStd {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: var(--color-grey-light-2);
+  justify-content: space-around; }
+  .cardStd__card {
+    margin: 2rem 1.5rem;
+    flex: 1;
+    flex-basis: 30%;
+    background-color: white;
+    max-width: 300px;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+    cursor: pointer; }
 
 .views {
   background-color: var(--color-white);
@@ -211,6 +242,25 @@ body {
 .imgDrop img {
   position: relative;
   z-index: 50; }
+
+.navbar {
+  display: flex;
+  background-color: var(--color-grey-dark-1);
+  min-height: 6.2rem;
+  width: 100%; }
+  .navbar a {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  @media only screen and (max-width: 56.25em) {
+    .navbar {
+      display: none; } }
+  @media only screen and (max-width: 37.5em) {
+    .navbar {
+      display: none; } }
 
 .content {
   display: flex; }

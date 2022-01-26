@@ -9,7 +9,7 @@ const goToContact = () => {
 const GoToContact = () => {
 	return (
 		<div onClick={() => goToContact()}>
-		<p className="contactAccess">Contact us</p>
+		<p className="contactAccess">ติดต่อ</p>
 		</div>
 	)
 }

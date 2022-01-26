@@ -1,0 +1,20 @@
+.cardStd{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color: var(--color-grey-light-2);
+	justify-content: space-around;
+	// width: 100%;
+
+	&__card{
+		margin: 2rem 1.5rem;
+		flex: 1;
+		flex-basis: 30%;
+		background-color: white;
+		max-width: 300px;
+		box-shadow: 0 2rem 5rem rgba(#000, .15);
+		cursor: pointer;
+	}
+}
+
+
