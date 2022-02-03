@@ -682,3 +682,41 @@ info: Jan-26-2022 08:16:28: 	listen on port 5000
 info: Jan-26-2022 08:16:28: 	db connection successful
 info: Jan-29-2022 07:58:04: 	listen on port 5000
 info: Jan-29-2022 07:58:04: 	db connection successful
+info: Jan-29-2022 10:28:43: 	listen on port 5000
+info: Jan-29-2022 10:28:43: 	db connection successful
+info: Jan-29-2022 10:34:17: 	listen on port 5000
+info: Jan-29-2022 10:34:18: 	db connection successful
+info: Jan-29-2022 10:44:29: 	listen on port 5000
+info: Jan-29-2022 10:44:30: 	db connection successful
+info: Jan-30-2022 05:18:51: 	listen on port 5000
+error: Jan-30-2022 05:19:21: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Jan-30-2022 05:21:27: 	listen on port 5000
+info: Jan-30-2022 05:21:47: 	db connection successful
+info: Jan-30-2022 05:24:20: 	listen on port 5000
+info: Jan-30-2022 05:24:20: 	db connection successful
+info: Jan-30-2022 05:28:43: 	listen on port 5000
+info: Jan-30-2022 05:28:43: 	db connection successful
+info: Jan-30-2022 05:31:16: 	listen on port 5000
+info: Jan-30-2022 05:31:16: 	db connection successful
+info: Jan-30-2022 05:37:52: 	listen on port 5000
+info: Jan-30-2022 05:37:53: 	db connection successful
+info: Jan-30-2022 05:40:24: 	listen on port 5000
+info: Jan-30-2022 05:40:24: 	db connection successful
+info: Jan-30-2022 05:41:45: 	listen on port 5000
+info: Jan-30-2022 05:41:46: 	db connection successful
+info: Jan-30-2022 05:42:18: 	listen on port 5000
+info: Jan-30-2022 05:42:19: 	db connection successful
+info: Jan-30-2022 05:43:31: 	listen on port 5000
+info: Jan-30-2022 05:43:32: 	db connection successful
+info: Jan-30-2022 05:44:05: 	listen on port 5000
+info: Jan-30-2022 05:44:06: 	db connection successful
+info: Jan-30-2022 05:47:12: 	listen on port 5000
+info: Jan-30-2022 05:47:13: 	db connection successful
+info: Jan-30-2022 05:58:30: 	listen on port 5000
+info: Jan-30-2022 05:58:31: 	db connection successful
+info: Jan-30-2022 06:14:17: 	listen on port 5000
+info: Jan-30-2022 06:14:17: 	db connection successful
+info: Jan-30-2022 06:16:11: 	listen on port 5000
+info: Jan-30-2022 06:16:11: 	db connection successful
+info: Feb-03-2022 12:21:01: 	listen on port 5000
+info: Feb-03-2022 12:21:02: 	db connection successful

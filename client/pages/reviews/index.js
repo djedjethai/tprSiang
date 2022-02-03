@@ -30,7 +30,7 @@ const ReviewsPage = ({ pics }) => {
 			{renderBanner(pics.mainPics)}
 			<Navbar />
 			<AccessButton 
-				classname="btn"
+				classname="btn-thai"
 				clicked={() => goToContact()}
 			>
 				ติดต่อ

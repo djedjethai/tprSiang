@@ -17,4 +17,36 @@
 	}
 }
 
+.standart {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 
+
+	&__img{
+		// width: 300px;
+		width: 100%;
+		background-color: var(--color-grey-light-1);
+		grid-column: 1 / -1;
+	}
+
+	&__serie{
+		grid-column: 1 / -1;
+
+	}
+
+	&__style{
+
+	}
+
+	&__grade{
+
+	}
+
+	&__engine{
+
+	}
+
+	&__price{
+
+	}
+}
