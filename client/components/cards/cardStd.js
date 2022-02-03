@@ -7,7 +7,7 @@ const CardStd = (props) => {
 
 	return(
 		<div className="standart" onClick={props.clicked}>
-			<img src={props.carDetails.pic} className="standart__img" /><br />
+			<img src={props.carDetails.pic} className="standart__img" />
 			<h5 className="standart__serie">{props.carDetails.serie}</h5>
 			<div className="standart__style">
 				<span className="material-icons">bookmark</span>
