@@ -226,9 +226,79 @@ body {
   .standart__img {
     width: 100%;
     background-color: var(--color-grey-light-1);
-    grid-column: 1 / -1; }
+    grid-column: 1 / -1;
+    grid-row: 1/2; }
   .standart__serie {
-    grid-column: 1 / -1; }
+    grid-row: 1/2;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: end;
+    z-index: 3;
+    width: 80%;
+    font-family: var(--font-display);
+    font-size: 2.3rem;
+    text-align: center;
+    padding: 0.8rem;
+    background-color: var(--color-grey-dark-1);
+    color: var(--color-white);
+    font-weight: 400;
+    transform: translateY(75%); }
+  .standart__style, .standart__grade {
+    margin-top: 5rem;
+    min-height: 8.2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+    margin-left: 2rem; }
+    .standart__style span, .standart__grade span {
+      margin-right: 1rem; }
+  .standart__engine, .standart__price {
+    display: flex;
+    align-items: center;
+    min-height: 8rem;
+    font-size: 1.7rem;
+    margin-left: 2rem; }
+    .standart__engine span, .standart__price span {
+      margin-right: 1rem; }
+  .standart__icons {
+    color: var(--color-grey-dark-2); }
+
+.style {
+  background-color: var(--color-grey-light-2); }
+  .style__img {
+    display: block;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto; }
+    @media only screen and (max-width: 56.25em) {
+      .style__img {
+        width: 70%; } }
+    @media only screen and (max-width: 37.5em) {
+      .style__img {
+        width: 100%; } }
+  .style__info {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem; }
+    .style__info div {
+      display: flex; }
+    @media only screen and (max-width: 56.25em) {
+      .style__info {
+        width: 70%; } }
+    @media only screen and (max-width: 37.5em) {
+      .style__info {
+        width: 100%; } }
+  .style__title {
+    padding-right: 1rem; }
+  .style__choiced {
+    text-align: center;
+    font-size: 6rem;
+    color: var(--color-grey-dark-2);
+    text-shadow: 2px 2px 5px var(--color-primary-light); }
+  .style__icons {
+    color: var(--color-primary-light);
+    font-size: 3rem;
+    margin-right: 1rem; }
 
 .views {
   background-color: var(--color-white);
