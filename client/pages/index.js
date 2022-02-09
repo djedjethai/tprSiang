@@ -5,7 +5,7 @@ import AccessButton from '../components/buttons/accessButton'
 import { cardStd } from '../services/renderCards'
 import renderBanner from '../services/renderBanner'
 import CpnIndexHeader from '../components/cpnpages/cpnIndexHeader' 
-import Navbar from '../components/navigation/navbar' 
+import Title from '../components/ui/title' 
 
 import { useAppContext } from '../hooks/app-wrapper';
 
@@ -75,12 +75,14 @@ const MainPage = ({ pics }) => {
 				</div>
 				<CpnIndexHeader />
 			</div>
-			<Navbar />
 			<div className="index__content">
 				<div className="cardStd">
 					{carsList}
 				</div>
-				<h1>Reviews ....</h1>
+				<Title 
+					classname="title"
+					title="Reviews"
+				/>
 				<div className="reviews">
 					{reviewsList()}
 					{renderAccessToAllReviews()}

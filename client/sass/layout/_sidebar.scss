@@ -1,13 +1,45 @@
 .sidebar {
 	background-color: var(--color-grey-dark-1);
-	flex: 0 0 18%;
+	flex: 0 0 25%;
 	min-width: 172px;
 	&__items{
 		position: fixed;
+		// margin-top: 8rem;
+		width: 24rem;
+		// display: flex;
+		// flex-direction: column;
+
+		a {
+			margin-top: 2rem;
+			padding-left: 1rem;
+			position: fixed;
+			color: white;
+			text-decoration: none;
+			font-size: 2.5rem;
+			// padding: 1rem 0 1rem 0;
+		}
+
+		a:hover{
+
+			background-color: var(--color-primary-dark);
+			width: 50%;
+			
+			@include respond(phone) {
+				width: 100%;
+				// padding: 1rem 0 1rem 0;
+			}
+		}
+	}
+
+	@include respond(tab-port) {
+		// flex: 0 0 25%;
+		min-width: 25rem;
 	}
 
 	@include respond(phone) {
-		min-height: 23rem;
+		min-height: 28rem;
+		width: 100%;
+		// padding: 1rem 0 1rem 0;
 	}
 
 }

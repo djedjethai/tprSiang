@@ -1,7 +1,7 @@
 import Router from 'next/router'
 
 import { cardStd, headerStyle } from '../../services/renderCards'
-import Navbar from '../../components/navigation/navbar' 
+import Title from '../../components/ui/title' 
 
 const StylePage = ({ pics, style }) => {
 	
@@ -32,8 +32,10 @@ const StylePage = ({ pics, style }) => {
 	return (
 		<div>
 			{showSelectedCar()}
-			<Navbar />	
-			<h2>the style page: {style}</h2> 
+			<Title 
+				classname="title"
+				title={style}
+			/>
 			<div className="cardStd">
 				{carsList}
 			</div>

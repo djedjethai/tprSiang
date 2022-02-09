@@ -3,7 +3,7 @@ import renderBanner from '../../services/renderBanner'
 import { cardStd } from '../../services/renderCards'
 import translator from '../../services/translator'
 
-import Navbar from '../../components/navigation/navbar' 
+import Title from '../../components/ui/title' 
 //import GoToContact from '../../components/cards/cardGlobal/goToContact'
 
 const TypePage = ({ pics, type }) => {
@@ -23,12 +23,13 @@ const TypePage = ({ pics, type }) => {
 		)
 	})
 
-	
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
-			<Navbar />
-			<h2>the typepage: {translator(type)}</h2> 
+			<Title 
+				classname="title"
+				title={translator(type)}
+			/>
 			<div className="cardStd">
 				{carsList}
 			</div>

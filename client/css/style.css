@@ -209,7 +209,8 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: var(--color-grey-light-2);
-  justify-content: space-around; }
+  justify-content: space-around;
+  padding: 4rem 0 4rem 0; }
   .cardStd__card {
     margin: 2rem 1.5rem;
     flex: 1;
@@ -300,19 +301,45 @@ body {
     font-size: 3rem;
     margin-right: 1rem; }
 
+.title {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-grey-dark-1);
+  min-height: 6.2rem;
+  width: 100%;
+  color: var(--color-white); }
+
 .views {
   background-color: var(--color-white);
   flex: 1; }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  flex: 0 0 18%;
+  flex: 0 0 25%;
   min-width: 172px; }
   .sidebar__items {
-    position: fixed; }
+    position: fixed;
+    width: 24rem; }
+    .sidebar__items a {
+      margin-top: 2rem;
+      padding-left: 1rem;
+      position: fixed;
+      color: white;
+      text-decoration: none;
+      font-size: 2.5rem; }
+    .sidebar__items a:hover {
+      background-color: var(--color-primary-dark);
+      width: 50%; }
+      @media only screen and (max-width: 37.5em) {
+        .sidebar__items a:hover {
+          width: 100%; } }
+  @media only screen and (max-width: 56.25em) {
+    .sidebar {
+      min-width: 25rem; } }
   @media only screen and (max-width: 37.5em) {
     .sidebar {
-      min-height: 23rem; } }
+      min-height: 28rem;
+      width: 100%; } }
 
 .smallsidebar {
   background-color: var(--color-grey-dark-1);
@@ -396,6 +423,8 @@ body {
 .index {
   flex: 1; }
   .index__header--banner {
+    background-color: var(--color-grey-light-2); }
+  .index__content {
     background-color: var(--color-grey-light-2); }
 
 .slidingBanner {
