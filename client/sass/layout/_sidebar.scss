@@ -1,7 +1,7 @@
 .sidebar {
 	background-color: var(--color-grey-dark-1);
 	flex: 0 0 25%;
-	min-width: 172px;
+	min-width: 27rem;
 	&__items{
 		position: fixed;
 		// margin-top: 8rem;
@@ -15,7 +15,7 @@
 			position: fixed;
 			color: white;
 			text-decoration: none;
-			font-size: 2.5rem;
+			font-size: 3rem;
 			// padding: 1rem 0 1rem 0;
 		}
 
@@ -30,11 +30,15 @@
 			}
 		}
 	}
-
-	@include respond(tab-port) {
-		// flex: 0 0 25%;
-		min-width: 25rem;
+	&__icons{
+		// position: fixed;
+		color: var(--color-primary-light);
 	}
+
+	// @include respond(tab-port) {
+	// 	// flex: 0 0 25%;
+	// 	min-width: 27rem;
+	// }
 
 	@include respond(phone) {
 		min-height: 28rem;
@@ -47,18 +51,32 @@
 .smallsidebar {
 	//  display: none;
 	background-color: var(--color-grey-dark-1);
-	min-width: 55px;
+	min-width: 59px;
 	flex: 0 0 5%;
+	justify-content: center;
 
 	@include respond(tab-port) {
 		// display: block;
-		min-width: 50px;
+		// min-width: 50px;
 		min-height: 4rem;
 	}
 
 	@include respond(phone) {
 		// display: block;
 		min-height: 4rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__icons{
+		position: fixed;
+		font-size: 5.8rem;
+		color: var(--color-primary-light);
+		@include respond(phone) {
+			position: absolute;
+			font-size: 4.3rem;
+		}
+
 	}
 }
 

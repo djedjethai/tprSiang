@@ -1,8 +1,17 @@
 import { useAppContext } from '../hooks/app-wrapper';
+import Router from 'next/router'
 
 import HeaderStyle from '../components/cards/headerStyle'
 import CardStd from '../components/cards/cardStd'
-import GoToContact from '../components/cards/cardGlobal/goToContact'
+import AccessButton from '../components/buttons/accessButton'
+
+const goToReviews = () => {
+		Router.push(`/reviews`)
+	}
+
+const goToContacts = () => {
+		Router.push(`/contact`)
+	}
 
 
 const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
@@ -17,7 +26,12 @@ const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
 					key={keyRef}
 					carDetails={carDetailsRef}	
 				/>
-				<GoToContact/>
+
+				<AccessButton 
+					classname="btn-thai"
+				>
+					ติดต่อ
+				</AccessButton>
 			</div>
 		)
 	} else {
@@ -28,11 +42,17 @@ const cardStd = (carDetailsRef, clickedRef, keyRef ) => {
 					carDetails={carDetailsRef}	
 					clicked={clickedRef}
 				/>
-				<GoToContact/>
+				<AccessButton 
+					classname="btn-thai"
+					clicked={() => goToContacts()}
+				>
+					ติดต่อ
+				</AccessButton>
 			</div>
 		)
 	}
 }
+
 
 const headerStyle = (carDetailsRef, clickedRef) => {
 		
@@ -54,4 +74,52 @@ const headerStyle = (carDetailsRef, clickedRef) => {
 	}
 }
 
-export { cardStd, headerStyle }
+const renderButtonContacts = (classname, text) => {
+		
+	const { show } = useAppContext()
+
+	if(show){
+		return (
+			<AccessButton 
+				classname={classname}
+			>
+				{text}
+			</AccessButton>
+		)
+	} else {
+		return (
+			<AccessButton 
+				classname={classname}
+				clicked={() => goToContacts()}
+			>
+				{text}
+			</AccessButton>
+		)
+	}
+}
+
+const renderButtonReviews = (classname, text) => {
+		
+	const { show } = useAppContext()
+
+	if(show){
+		return (
+			<AccessButton 
+				classname={classname}
+			>
+				{text}
+			</AccessButton>
+		)
+	} else {
+		return (
+			<AccessButton 
+				classname={classname}
+				clicked={() => goToReviews()}
+			>
+				{text}
+			</AccessButton>
+		)
+	}
+}
+
+export { cardStd, headerStyle, renderButtonContacts, renderButtonReviews}

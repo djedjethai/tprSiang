@@ -3,7 +3,7 @@ import Router from 'next/router'
 import CardCarDetails from '../../components/cards/cardCarDetails'
 import CardPicDetails from '../../components/cards/cardPicDetails.js'
 import AccessButton from '../../components/buttons/accessButton'
-import Navbar from '../../components/navigation/navbar' 
+import Title from '../../components/ui/title' 
 
 const CarPage = ({ pics }) => {
 
@@ -36,9 +36,11 @@ const CarPage = ({ pics }) => {
 
 	return (
 		<div>
-			<h1>the car page</h1> 
 			{carDetails}
-			<Navbar />
+			<Title 
+				classname="title"
+				title="Details"
+			/>
 			{displayPicsStyle}
 			<AccessButton
 				classname="btn"

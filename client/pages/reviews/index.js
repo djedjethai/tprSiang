@@ -1,9 +1,8 @@
 import Router from 'next/router'
 
-import AccessButton from '../../components/buttons/accessButton'
+import { renderButtonContacts } from '../../services/renderCards'
 import CardReview from '../../components/cards/cardReview'
 import renderBanner from '../../services/renderBanner'
-// import translator from '../../services/translator'
 import Title from '../../components/ui/title' 
 
 
@@ -32,12 +31,7 @@ const ReviewsPage = ({ pics }) => {
 				classname="title"
 				title="All reviews"
 			/>
-			<AccessButton 
-				classname="btn-thai"
-				clicked={() => goToContact()}
-			>
-				ติดต่อ
-			</AccessButton>
+			{renderButtonContacts("btn", "ติดต่อ")}
 			{reviewsList}
 		</div>
 	)

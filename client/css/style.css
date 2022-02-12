@@ -184,7 +184,8 @@ body {
   padding: 1rem 3rem;
   cursor: pointer;
   transition: all .2s;
-  text-align: center; }
+  text-align: center;
+  width: 100%; }
   .btn-thai:hover {
     background-color: var(--color-primary-dark);
     transform: translateY(-2px);
@@ -217,7 +218,7 @@ body {
     flex-basis: 30%;
     background-color: white;
     max-width: 300px;
-    min-width: 270px;
+    min-width: 219px;
     box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
     cursor: pointer; }
 
@@ -253,6 +254,10 @@ body {
     margin-left: 2rem; }
     .standart__style span, .standart__grade span {
       margin-right: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .standart__style, .standart__grade {
+        flex-direction: column;
+        min-height: 11rem; } }
   .standart__engine, .standart__price {
     display: flex;
     align-items: center;
@@ -261,11 +266,15 @@ body {
     margin-left: 2rem; }
     .standart__engine span, .standart__price span {
       margin-right: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .standart__engine, .standart__price {
+        flex-direction: column; } }
   .standart__icons {
     color: var(--color-grey-dark-2); }
 
 .style {
-  background-color: var(--color-grey-light-2); }
+  background-color: var(--color-grey-light-2);
+  padding: 1rem 0; }
   .style__img {
     display: block;
     width: 50%;
@@ -280,15 +289,18 @@ body {
   .style__info {
     display: flex;
     justify-content: space-around;
-    padding: 2rem; }
+    padding: 2.4rem; }
     .style__info div {
       display: flex; }
-    @media only screen and (max-width: 56.25em) {
-      .style__info {
-        width: 70%; } }
     @media only screen and (max-width: 37.5em) {
       .style__info {
-        width: 100%; } }
+        width: 100%;
+        flex-direction: column; }
+        .style__info div {
+          margin: .5rem auto; } }
+  .style__btn {
+    display: flex;
+    justify-content: center; }
   .style__title {
     padding-right: 1rem; }
   .style__choiced {
@@ -304,7 +316,7 @@ body {
 .title {
   display: flex;
   justify-content: center;
-  background-color: var(--color-grey-dark-1);
+  background-color: var(--color-grey-dark-2);
   min-height: 6.2rem;
   width: 100%;
   color: var(--color-white); }
@@ -316,7 +328,7 @@ body {
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 25%;
-  min-width: 172px; }
+  min-width: 27rem; }
   .sidebar__items {
     position: fixed;
     width: 24rem; }
@@ -326,16 +338,15 @@ body {
       position: fixed;
       color: white;
       text-decoration: none;
-      font-size: 2.5rem; }
+      font-size: 3rem; }
     .sidebar__items a:hover {
       background-color: var(--color-primary-dark);
       width: 50%; }
       @media only screen and (max-width: 37.5em) {
         .sidebar__items a:hover {
           width: 100%; } }
-  @media only screen and (max-width: 56.25em) {
-    .sidebar {
-      min-width: 25rem; } }
+  .sidebar__icons {
+    color: var(--color-primary-light); }
   @media only screen and (max-width: 37.5em) {
     .sidebar {
       min-height: 28rem;
@@ -343,15 +354,25 @@ body {
 
 .smallsidebar {
   background-color: var(--color-grey-dark-1);
-  min-width: 55px;
-  flex: 0 0 5%; }
+  min-width: 59px;
+  flex: 0 0 5%;
+  justify-content: center; }
   @media only screen and (max-width: 56.25em) {
     .smallsidebar {
-      min-width: 50px;
       min-height: 4rem; } }
   @media only screen and (max-width: 37.5em) {
     .smallsidebar {
-      min-height: 4rem; } }
+      min-height: 4rem;
+      display: flex;
+      justify-content: center; } }
+  .smallsidebar__icons {
+    position: fixed;
+    font-size: 5.8rem;
+    color: var(--color-primary-light); }
+    @media only screen and (max-width: 37.5em) {
+      .smallsidebar__icons {
+        position: absolute;
+        font-size: 4.3rem; } }
 
 .views {
   position: relative; }
@@ -370,25 +391,6 @@ body {
 .imgDrop img {
   position: relative;
   z-index: 50; }
-
-.navbar {
-  display: flex;
-  background-color: var(--color-grey-dark-1);
-  min-height: 6.2rem;
-  width: 100%; }
-  .navbar a {
-    flex: 1;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-  @media only screen and (max-width: 56.25em) {
-    .navbar {
-      display: none; } }
-  @media only screen and (max-width: 37.5em) {
-    .navbar {
-      display: none; } }
 
 .content {
   display: flex; }

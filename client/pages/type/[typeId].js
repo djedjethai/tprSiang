@@ -4,7 +4,6 @@ import { cardStd } from '../../services/renderCards'
 import translator from '../../services/translator'
 
 import Title from '../../components/ui/title' 
-//import GoToContact from '../../components/cards/cardGlobal/goToContact'
 
 const TypePage = ({ pics, type }) => {
 	console.log('picsmain from type: ', pics)

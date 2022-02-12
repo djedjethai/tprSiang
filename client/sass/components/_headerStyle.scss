@@ -1,5 +1,6 @@
 .style{
 	background-color: var(--color-grey-light-2);
+	padding: 1rem 0;
 	
 
 	&__img{
@@ -22,20 +23,30 @@
 	&__info{
 		display: flex;
 		justify-content: space-around;
-		padding: 2rem;
+		padding: 2.4rem;
 
 		div{
 			display: flex;
 		}
 		
 		@include respond(tab-port) {
-			width: 70%;
+			// width: 70%;
 		}
 
 		@include respond(phone) {
 			width: 100%;
-		}
+			flex-direction: column;
 
+			div{
+				margin: .5rem auto;
+			}
+		}
+	}
+
+	&__btn{
+		display: flex;
+		justify-content: center;
+		// margin: 1rem 0;
 	}
 
 	&__title{

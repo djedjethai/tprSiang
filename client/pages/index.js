@@ -1,8 +1,7 @@
 import Router from 'next/router'
 
 import CardReview from '../components/cards/cardReview'
-import AccessButton from '../components/buttons/accessButton'
-import { cardStd } from '../services/renderCards'
+import { cardStd, renderButtonReviews } from '../services/renderCards'
 import renderBanner from '../services/renderBanner'
 import CpnIndexHeader from '../components/cpnpages/cpnIndexHeader' 
 import Title from '../components/ui/title' 
@@ -17,10 +16,7 @@ const MainPage = ({ pics }) => {
 		Router.push(`/style/${value}`)
 	}
 	
-	const goToReviews = () => {
-		Router.push(`/reviews`)
-	}
-
+	
 
 	const reviewsList = () => {
 		if(pics.reviews.length > 0){		
@@ -47,12 +43,7 @@ const MainPage = ({ pics }) => {
 	const renderAccessToAllReviews = () => {
 		
 		if(pics.reviews.length > 0){		
-			return <AccessButton
-					classname="btn"
-					clicked={() => goToReviews()}
-				>
-					See All Reviews
-				</AccessButton>
+			return renderButtonReviews("btn", "See All Reviews")
 		} else {
 			return ""
 		}
