@@ -75,8 +75,12 @@ const MainPage = ({ pics }) => {
 					title="Reviews"
 				/>
 				<div className="reviews">
-					{reviewsList()}
-					{renderAccessToAllReviews()}
+					<div className="reviews__listIndex">
+						{reviewsList()}
+					</div>
+					<div className="reviews__btnIndex">
+						{renderAccessToAllReviews()}
+					</div>
 				</div>
 			</div>
 		</div>

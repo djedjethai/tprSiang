@@ -1,15 +1,10 @@
-import Router from 'next/router'
-
 import CardCarDetails from '../../components/cards/cardCarDetails'
 import CardPicDetails from '../../components/cards/cardPicDetails.js'
 import AccessButton from '../../components/buttons/accessButton'
 import Title from '../../components/ui/title' 
+import { renderButtonContacts } from '../../services/renderCards'
 
 const CarPage = ({ pics }) => {
-
-	const goToContact = () => {
-		Router.push('/contact')
-	}
 
 	const displayPicsStyle = pics.picsStyle.map(picture => {
 		return(
@@ -42,13 +37,7 @@ const CarPage = ({ pics }) => {
 				title="Details"
 			/>
 			{displayPicsStyle}
-			<AccessButton
-				classname="btn"
-				clicked={() => goToContact()}
-			>
-				ติดต่อ
-			</AccessButton>
-
+			{renderButtonContacts("btn", "ติดต่อ")}	
 		</div>
 	)
 }

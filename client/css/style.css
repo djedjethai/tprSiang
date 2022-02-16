@@ -274,7 +274,8 @@ body {
 
 .style {
   background-color: var(--color-grey-light-2);
-  padding: 1rem 0; }
+  padding: 1rem 0;
+  cursor: pointer; }
   .style__img {
     display: block;
     width: 50%;
@@ -313,6 +314,10 @@ body {
     font-size: 3rem;
     margin-right: 1rem; }
 
+.back__btn {
+  background-color: var(--color-grey-light-2);
+  padding: 0 0 1rem 0; }
+
 .title {
   display: flex;
   justify-content: center;
@@ -320,6 +325,74 @@ body {
   min-height: 6.2rem;
   width: 100%;
   color: var(--color-white); }
+
+.reviews__listIndex {
+  padding: 4rem 0; }
+
+.reviews__btnIndex {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0; }
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(var(--color-black), 0.1);
+  background-color: rgba(var(--color-white), 0.6);
+  border-radius: 3px;
+  padding: 2rem 6rem 12rem 6rem;
+  font-size: 2rem;
+  border-bottom: 2px solid var(--color-grey-dark-3); }
+  @media only screen and (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 4rem;
+      padding-left: 7rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .story {
+      transform: skewX(0); } }
+  .story__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative; }
+    @media only screen and (max-width: 37.5em) {
+      .story__shape {
+        transform: translateX(-3rem) skewX(0deg); } }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: none; } }
+  .story__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all .5s; }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .story:hover .story__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); }
+  @media only screen and (max-width: 37.5em) {
+    .story__text {
+      transform: skewX(0); } }
 
 .views {
   background-color: var(--color-white);

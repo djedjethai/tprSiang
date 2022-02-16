@@ -1,5 +1,3 @@
-import Router from 'next/router'
-
 import DisplayImage from '../ui/displayImage'
 import { renderButtonContacts } from '../../services/renderCards'
 

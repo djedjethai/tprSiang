@@ -1,6 +1,6 @@
 import Router from 'next/router'
 
-import { cardStd, headerStyle } from '../../services/renderCards'
+import { cardStd, headerStyle, renderButtonContacts } from '../../services/renderCards'
 import Title from '../../components/ui/title' 
 
 const StylePage = ({ pics, style }) => {
@@ -32,6 +32,11 @@ const StylePage = ({ pics, style }) => {
 	return (
 		<div>
 			{showSelectedCar()}
+			<div className="back__btn">
+				<div className="style__btn">	
+					{renderButtonContacts("btn", "contact us")}
+				</div>
+			</div>
 			<Title 
 				classname="title"
 				title={style}

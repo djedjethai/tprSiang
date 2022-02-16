@@ -1,5 +1,3 @@
-import Router from 'next/router'
-
 import { renderButtonContacts } from '../../services/renderCards'
 import CardReview from '../../components/cards/cardReview'
 import renderBanner from '../../services/renderBanner'
@@ -8,11 +6,7 @@ import Title from '../../components/ui/title'
 
 
 const ReviewsPage = ({ pics }) => {
-
-	const goToContact = () => {
-		Router.push(`/contact`)
-	}
-
+	
 	const reviewsList = pics.reviews.map(review => {
 		return(
 			<div key={review._id}>
@@ -31,8 +25,14 @@ const ReviewsPage = ({ pics }) => {
 				classname="title"
 				title="All reviews"
 			/>
-			{renderButtonContacts("btn", "ติดต่อ")}
-			{reviewsList}
+			<div className="reviews">
+				<div className="reviews__btnIndex">
+					{renderButtonContacts("btn", "ติดต่อ")}
+				</div>
+				<div className="reviews__listIndex">
+					{reviewsList}
+				</div>
+			</div>
 		</div>
 	)
 }

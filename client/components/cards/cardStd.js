@@ -1,13 +1,11 @@
 import React from 'react'
 
-
 const CardStd = (props) => {
-
-	// <img src={props.carDetails.pic} style={{width:300}} /><br />
 
 	return(
 		<div className="standart" onClick={props.clicked}>
-			<img src={props.carDetails.pic} className="standart__img" />
+			<img src={props.carDetails.pic} alt="image-standard" className="standart__img" />
+
 			<h5 className="standart__serie">{props.carDetails.serie}</h5>
 			<div className="standart__style">
 				<span className="material-icons standart__icons">bookmark</span>

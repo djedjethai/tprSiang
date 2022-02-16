@@ -6,10 +6,8 @@ import translator from '../../services/translator'
 import Title from '../../components/ui/title' 
 
 const TypePage = ({ pics, type }) => {
-	console.log('picsmain from type: ', pics)
 
 	const goToCar = value => {
-		console.log(value)
 		// here we push for single car details
 		Router.push(`/car/${value}`)
 	}
