@@ -1,0 +1,116 @@
+.footer{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--color-grey-dark-2);
+	min-height: 26rem;
+
+	@include respond(tab-port) {
+		flex-direction: column;
+	}
+
+	&__company{
+		@include respond(tab-port) {
+			min-height: 6rem;
+			margin: 3rem 0;
+		}
+
+		@include respond(port) {
+			min-height: 5rem;
+		}
+
+		&__logo{
+			background-color: var(--color-grey-dark-2);
+			// flex: 1;
+			flex-basis: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+	}
+	
+
+	&__company__image{
+		max-height: 7rem;
+		max-width: 17rem;
+		overflow: hidden;
+		
+		@include respond(tab-port) {
+			min-height: 6rem;
+			margin: 3rem 0;
+		}
+
+		@include respond(port) {
+			max-height: 5rem;
+		}
+	}
+
+	&__menu{
+		color: var(--color-primary-dark);
+		text-decoration: none;
+		margin: 0 1rem 0 1.5rem;
+	}
+
+	&__menu a{
+		color: var(--color-grey-light-3);
+		text-decoration: none;
+	}
+
+	&__contact{
+		// flex: 1;
+		flex-basis: 100%;
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		align-items: center;
+
+		&__list{
+			display: flex;
+		}
+
+		&__text {
+			color: var(--color-grey-light-3);
+       			padding: .5rem 0;
+			font-size: 2.4rem;
+			// background-color: white;
+		}
+	}
+
+
+	&__moto{
+		// flex: 1;
+		flex-basis: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include respond(tab-port) {
+			min-height: 6rem;
+			margin: 3rem 0;
+		}
+
+		@include respond(port) {
+			max-height: 5rem;
+		}
+
+
+		&__name{
+			font-size: 2.5rem;
+			color: var(--color-primary);
+		}
+
+		&__text{
+			color: var(--color-grey-light-3);
+			font-size: 2.2rem;
+			font-style: italic;
+			padding: .5rem 1.5rem;
+		}
+	}
+}
+
+.footer__icons{
+	color: var(--color-primary);
+	font-size: 4rem;
+       	padding: .5rem .5rem;
+}
+

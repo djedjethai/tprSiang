@@ -1,4 +1,5 @@
 .reviews{
+    	background-color: var(--color-grey-light-3);
 	&__listIndex{
 		padding: 4rem 0;
 	}
@@ -13,20 +14,26 @@
 
 .story {
     width: 75%;
-    margin: 0 auto;
+    margin: 1rem auto;
     box-shadow: 0 3rem 6rem rgba(var(--color-black), .1);
-    background-color: rgba(var(--color-white), .6);
+    // background-color: rgba(var(--color-white), .6);
+    background-color: var(--color-grey-light-1);
     border-radius: 3px;
     padding: 2rem 6rem 12rem 6rem;
     font-size: 2rem;
     border-bottom: 2px solid var(--color-grey-dark-3);
+    box-shadow: 0 2rem 5rem rgba(#000, .15);
 
     @include respond(tab-port) {
-        width: 100%;
+        width: 90%;
         padding: 4rem;
         padding-left: 7rem;
+	min-height: 23rem;
+    	background-color: var(--color-grey-light-3);
+    	margin: .5rem auto;
     }
     @include respond(phone) {
+        width: 95%;
         transform: skewX(0);
     }
     &__shape {

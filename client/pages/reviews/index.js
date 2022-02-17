@@ -18,6 +18,7 @@ const ReviewsPage = ({ pics }) => {
 		)
 	})
 
+
 	return (
 		<div>
 			{renderBanner(pics.mainPics)}
@@ -27,7 +28,7 @@ const ReviewsPage = ({ pics }) => {
 			/>
 			<div className="reviews">
 				<div className="reviews__btnIndex">
-					{renderButtonContacts("btn", "ติดต่อ")}
+					{renderButtonContacts("btn-thai-text", "ติดต่อ")}
 				</div>
 				<div className="reviews__listIndex">
 					{reviewsList}

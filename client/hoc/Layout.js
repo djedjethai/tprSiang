@@ -38,15 +38,16 @@ const Layout = (props) => {
 				<div className="views__backdrop" onClick={() => hideSidebar()}>
 					{displayImage()}
 					{props.children}
+					<Footer/>
 				</div> :
 				<div className="views__component">
 					{displayImage()}
 					{props.children}
+					<Footer/>
 				</div>
 			}
 			</div>
 			</div>
-			<Footer/>
 		</div>
 		</Aux>
 	)
