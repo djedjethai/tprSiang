@@ -39,6 +39,7 @@ const StylePage = ({ pics, style }) => {
 			</div>
 			<Title 
 				classname="title"
+				classtitle="heading-1"
 				title={style}
 			/>
 			<div className="cardStd">

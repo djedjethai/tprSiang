@@ -81,6 +81,7 @@
         filter: blur(3px) brightness(80%); // make it blur and darker
     }
     &__text {
+	font-family: var(--font-thai-1); 
         @include respond(phone) {
             transform: skewX(0);
         }

@@ -14,19 +14,19 @@ export default (props) => {
 		<div className="sidebar">
 			<div className="sidebar__items">
 				<Link href="/" >
-					<a onClick={() => hideSidebar()}>หน๊าหลัก</a>
+					<a onClick={() => hideSidebar()}>หน้าหลัก</a>
 				</Link><br />
 				<Link href="/type/[typeId]" as="/type/model">
 					<a onClick={() => hideSidebar()}>รุ่นรถพิเศษ</a>
 				</Link><br />
 				<Link href="/type/[typeId]" as="/type/passenger">
-					<a onClick={() => hideSidebar()}>รถยนฅ์นั่งส่วนบุคคล</a>
+					<a onClick={() => hideSidebar()}>รถยนต์นั่งส่วนบุคคล</a>
 				</Link><br />
 				<Link href="/type/[typeId]" as="/type/commercial">
-					<a onClick={() => hideSidebar()}>รถยนฅ์เพื่อการพาณิซย์</a>
+					<a onClick={() => hideSidebar()}>รถยนต์เพื่อการพาณิซย์</a>
 				</Link><br />
 				<Link href="/type/[typeId]" as="/type/utility">
-					<a onClick={() => hideSidebar()}>รถยนฅ์อเนกประสงค์</a>
+					<a onClick={() => hideSidebar()}>รถยนต์อเนกประสงค์</a>
 				</Link><br />
 				<Link href="/" >
 					<a onClick={() => hideSidebar()}>second hand cars</a>

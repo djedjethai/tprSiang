@@ -14,7 +14,7 @@ const AppComponent = ({ Component, pageProps }) => {
 				<title>tpr2u</title>
 				<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
-				<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet" />
+				<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i|Kanit:300|Sarabun:300" rel="stylesheet" />
 			</Head>
 			<Layout>
 				<Component {...pageProps} />

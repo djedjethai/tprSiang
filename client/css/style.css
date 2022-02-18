@@ -14,8 +14,13 @@
   --default-font-size: 2rem;
   --font-primary: 'Nunito', sans-serif;
   --font-display: 'Josefin Sans', sans-serif;
+  --font-thai: 'Kanit', sans-serif;
+  --font-thai-1: 'Sarabun', sans-serif;
   --border-radius: 3px;
-  --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3); }
+  --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+  --color-facebook: #4267B2;
+  --color-email: #0489c9;
+  --color-line: #00b900; }
 
 /* universal selector will select all elements on the page and apply it to them. to prevent pre-setting of the differents browser.
 Like it s the same for all*/
@@ -59,6 +64,18 @@ body {
   font-family: var(--font-display);
   font-weight: 400; }
 
+@media only screen and (max-width: 56.25em) {
+  .heading-1 {
+    font-size: 4.2rem; } }
+
+@media only screen and (max-width: 37.5em) {
+  .heading-1 {
+    font-size: 4.2rem; } }
+
+@media only screen and (max-width: 20em) {
+  .heading-1 {
+    font-size: 3.2rem; } }
+
 .heading-2 {
   font-size: 4rem;
   font-style: italic;
@@ -78,6 +95,16 @@ body {
 
 .heading-4--dark {
   color: var(--color-grey-dark-1); }
+
+.heading-thai-1 {
+  font-family: var(--font-thai);
+  font-size: 4.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .heading-thai-1 {
+      font-size: 4rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .heading-thai-1 {
+      font-size: 3.2rem; } }
 
 .contactAccess {
   background-color: var(--color-primary-light); }
@@ -139,7 +166,8 @@ body {
   align-items: flex-start; }
   .thegrid__presentation-moto1-text {
     font-size: 2rem;
-    font-style: italic; }
+    font-style: italic;
+    font-family: var(--font-thai); }
 
 .thegrid__presentation-moto2 {
   display: flex;
@@ -416,9 +444,11 @@ body {
   .story:hover .story__img {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(80%); }
-  @media only screen and (max-width: 37.5em) {
-    .story__text {
-      transform: skewX(0); } }
+  .story__text {
+    font-family: var(--font-thai-1); }
+    @media only screen and (max-width: 37.5em) {
+      .story__text {
+        transform: skewX(0); } }
 
 .views {
   background-color: var(--color-white);
@@ -427,7 +457,7 @@ body {
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 25%;
-  min-width: 27rem; }
+  min-width: 30rem; }
   .sidebar__items {
     position: fixed;
     width: 24rem; }
@@ -437,7 +467,11 @@ body {
       position: fixed;
       color: white;
       text-decoration: none;
-      font-size: 3rem; }
+      font-size: 3rem;
+      font-family: var(--font-thai); }
+      @media only screen and (max-width: 20em) {
+        .sidebar__items a {
+          font-size: 2.2rem; } }
     .sidebar__items a:hover {
       background-color: var(--color-primary-dark);
       width: 50%; }
@@ -450,6 +484,9 @@ body {
     .sidebar {
       min-height: 28rem;
       width: 100%; } }
+  @media only screen and (max-width: 20em) {
+    .sidebar {
+      min-height: 26rem; } }
 
 .smallsidebar {
   background-color: var(--color-grey-dark-1);
@@ -552,12 +589,21 @@ body {
       color: var(--color-grey-light-3);
       font-size: 2.2rem;
       font-style: italic;
+      font-family: var(--font-thai);
       padding: .5rem 1.5rem; }
 
 .footer__icons {
   color: var(--color-primary);
   font-size: 4rem;
   padding: .5rem .5rem; }
+  .footer__icons-blue {
+    font-size: 4rem;
+    padding: .5rem .5rem;
+    color: var(--color-facebook); }
+  .footer__icons-mail {
+    font-size: 4rem;
+    padding: .5rem .5rem;
+    color: var(--color-email); }
 
 .content {
   display: flex; }

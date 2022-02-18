@@ -43,11 +43,11 @@ export default () => {
 			</div>
 			<div className="footer__contact">
 				<div className="footer__contact__list">
-					<span className="material-icons footer__icons">facebook</span>
+					<span className="material-icons footer__icons-blue">facebook</span>
 					<p className="footer__contact__text">Facebook</p>
 				</div>
 				<div className="footer__contact__list">
-					<span className="material-icons footer__icons">email</span>
+					<span className="material-icons footer__icons-mail">email</span>
 					<p className="footer__contact__text">siang@siang.com</p>
 				</div>
 				<div className="footer__contact__list">
@@ -57,7 +57,7 @@ export default () => {
 			</div>
 			<div className="footer__moto">
 				<h3 className="footer__moto__name heading-3">about us</h3>
-				<p className="footer__moto__text">ประสบการณ์งายขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>
+				<p className="footer__moto__text">ประสบการณ์งานขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>
 			</div>
 		</div>
 	)

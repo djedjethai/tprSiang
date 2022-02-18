@@ -103,6 +103,7 @@
 			color: var(--color-grey-light-3);
 			font-size: 2.2rem;
 			font-style: italic;
+			font-family: var(--font-thai);
 			padding: .5rem 1.5rem;
 		}
 	}
@@ -112,5 +113,18 @@
 	color: var(--color-primary);
 	font-size: 4rem;
        	padding: .5rem .5rem;
+
+	&-blue{
+		font-size: 4rem;
+       		padding: .5rem .5rem;
+		color: var(--color-facebook);
+	}
+
+	&-mail{
+		font-size: 4rem;
+       		padding: .5rem .5rem;
+		color: var(--color-email);
+	}
 }
+
 

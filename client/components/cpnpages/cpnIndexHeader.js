@@ -21,7 +21,7 @@ export default () => {
 				<div className="thegrid__presentation-moto1">
 					<h3 className="heading-3">Who are we</h3>
 					<h2 className="heading-2 heading-2-light">Best place to buy Toyota</h2>
-					<p className="thegrid__presentation-moto1-text">ประสบการณ์งายขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>
+					<p className="thegrid__presentation-moto1-text">ประสบการณ์งานขายกว่า 10 ปี ช่วยทุกคัน ดันให้ผ่าน ออกได้ทุกอาชีพ คุยกันก่อนได้นะคะ</p>
 					{renderButtonContacts("btn", "contact us")}
 				</div>		
 				<div className="thegrid__presentation-moto2">

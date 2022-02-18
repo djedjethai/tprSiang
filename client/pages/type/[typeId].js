@@ -25,6 +25,7 @@ const TypePage = ({ pics, type }) => {
 			{renderBanner(pics.mainPics)}
 			<Title 
 				classname="title"
+				classtitle="heading-thai-1"
 				title={translator(type)}
 			/>
 			<div className="cardStd">

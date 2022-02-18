@@ -21,9 +21,16 @@
 	--default-font-size: 2rem;
 	--font-primary: 'Nunito', sans-serif;
 	--font-display: 'Josefin Sans', sans-serif;
+	--font-thai: 'Kanit', sans-serif;
+	--font-thai-1: 'Sarabun', sans-serif;
 	//BORDER
 	--border-radius: 3px;
 	--shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+
+	//LOGO
+	--color-facebook: #4267B2;
+	--color-email: #0489c9;
+	--color-line: #00b900;
 }
 /* universal selector will select all elements on the page and apply it to them. to prevent pre-setting of the differents browser.
 Like it s the same for all*/
