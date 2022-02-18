@@ -740,3 +740,34 @@ info: Feb-18-2022 01:55:57: 	listen on port 5000
 info: Feb-18-2022 01:55:58: 	db connection successful
 info: Feb-18-2022 06:06:29: 	listen on port 5000
 info: Feb-18-2022 06:06:30: 	db connection successful
+info: Feb-18-2022 07:16:01: 	listen on port 5000
+info: Feb-18-2022 07:16:06: 	db connection successful
+info: Feb-18-2022 07:52:12: 	listen on port 5000
+info: Feb-18-2022 07:52:13: 	db connection successful
+info: Feb-18-2022 08:40:16: 	listen on port 5000
+info: Feb-18-2022 08:40:17: 	db connection successful
+info: Feb-18-2022 08:41:13: 	listen on port 5000
+info: Feb-18-2022 08:41:14: 	db connection successful
+info: Feb-18-2022 08:42:18: 	listen on port 5000
+info: Feb-18-2022 08:42:19: 	db connection successful
+info: Feb-18-2022 08:43:00: 	listen on port 5000
+info: Feb-18-2022 08:43:00: 	db connection successful
+error: Feb-18-2022 08:43:02: 	clientCt mainPageCt: TypeError: reviewsData[0].quand.getTime is not a function
+info: Feb-18-2022 08:44:04: 	listen on port 5000
+info: Feb-18-2022 08:44:04: 	db connection successful
+info: Feb-18-2022 08:47:18: 	listen on port 5000
+info: Feb-18-2022 08:47:19: 	db connection successful
+error: Feb-18-2022 08:48:18: 	adminCt reviewCt postAddReview: TypeError: Date.now(...).getTime is not a function
+info: Feb-18-2022 08:48:54: 	listen on port 5000
+info: Feb-18-2022 08:48:54: 	db connection successful
+info: Feb-18-2022 08:53:02: 	listen on port 5000
+info: Feb-18-2022 08:53:03: 	db connection successful
+info: Feb-18-2022 08:54:19: 	listen on port 5000
+info: Feb-18-2022 08:54:19: 	db connection successful
+info: Feb-18-2022 08:57:45: 	listen on port 5000
+info: Feb-18-2022 08:57:46: 	db connection successful
+error: Feb-18-2022 08:58:01: 	adminCt reviewCt postAddReview: TypeError: Date.now(...).getDate is not a function
+info: Feb-18-2022 08:58:13: 	listen on port 5000
+info: Feb-18-2022 08:58:14: 	db connection successful
+info: Feb-18-2022 09:48:57: 	listen on port 5000
+info: Feb-18-2022 09:49:09: 	db connection successful

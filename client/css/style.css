@@ -84,6 +84,9 @@ body {
     color: var(--color-grey-light-1); }
   .heading-2--dark {
     color: var(--color-grey-dark-1); }
+  @media only screen and (max-width: 20em) {
+    .heading-2 {
+      font-size: 3rem; } }
 
 .heading-3 {
   font-size: 1.6rem;
@@ -95,6 +98,20 @@ body {
 
 .heading-4--dark {
   color: var(--color-grey-dark-1); }
+
+.heading-title-1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 4.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .heading-title-1 {
+      font-size: 4.2rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .heading-title-1 {
+      font-size: 4.2rem; } }
+  @media only screen and (max-width: 20em) {
+    .heading-title-1 {
+      font-size: 3.2rem; } }
 
 .heading-thai-1 {
   font-family: var(--font-thai);
@@ -181,6 +198,10 @@ body {
     .thegrid__presentation-moto2 {
       min-height: 23rem;
       align-items: center; } }
+  @media only screen and (max-width: 20em) {
+    .thegrid__presentation-moto2 {
+      min-height: 23rem;
+      align-items: center; } }
 
 .btn {
   background-color: var(--color-primary);
@@ -200,6 +221,14 @@ body {
   .btn:active {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(0); }
+  @media only screen and (max-width: 37.5em) {
+    .btn {
+      padding: 1.4rem 1.5rem;
+      font-size: 1.4rem; } }
+  @media only screen and (max-width: 20em) {
+    .btn {
+      padding: 1.2rem 1.5rem;
+      font-size: 1.3rem; } }
 
 .btn-thai {
   background-color: var(--color-primary);
@@ -241,6 +270,10 @@ body {
   .btn-thai-text:active {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(0); }
+  @media only screen and (max-width: 20em) {
+    .btn-thai-text {
+      padding: 1.3rem 2rem;
+      font-size: 2.2rem; } }
 
 .btn-link:link, .btn-link:visited {
   text-decoration: none;
@@ -357,6 +390,12 @@ body {
     font-size: 6rem;
     color: var(--color-grey-dark-2);
     text-shadow: 2px 2px 5px var(--color-primary-light); }
+    @media only screen and (max-width: 37.5em) {
+      .style__choiced {
+        font-size: 5rem; } }
+    @media only screen and (max-width: 20em) {
+      .style__choiced {
+        font-size: 4.3rem; } }
   .style__icons {
     color: var(--color-primary-light);
     font-size: 3rem;
@@ -404,17 +443,30 @@ body {
   @media only screen and (max-width: 37.5em) {
     .story {
       width: 95%;
-      transform: skewX(0); } }
+      transform: skewX(0);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 3rem 6rem 3rem; } }
+  @media only screen and (max-width: 20em) {
+    .story {
+      padding: 1rem 1.5rem 6rem 1.5rem; } }
   .story__shape {
-    width: 15rem;
-    height: 15rem;
+    width: 13rem;
+    height: 13rem;
     float: left;
     border-radius: 50%;
     overflow: hidden;
     position: relative; }
     @media only screen and (max-width: 37.5em) {
       .story__shape {
-        transform: translateX(-3rem) skewX(0deg); } }
+        transform: translateX(-3rem) skewX(0deg);
+        width: 10rem;
+        height: 10rem;
+        margin: 0 auto; } }
+    @media only screen and (max-width: 20em) {
+      .story__shape {
+        width: 7rem;
+        height: 7rem; } }
     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
       .story__shape {
         -webkit-clip-path: circle(50% at 50% 50%);
@@ -426,6 +478,12 @@ body {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
     transition: all .5s; }
+    @media only screen and (max-width: 37.5em) {
+      .story__img {
+        transform: translateX(-3rem) scale(1.4); } }
+    @media only screen and (max-width: 20em) {
+      .story__img {
+        transform: translateX(-2rem) scale(1.4); } }
   .story__caption {
     position: absolute;
     top: 50%;
@@ -444,11 +502,32 @@ body {
   .story:hover .story__img {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(80%); }
+    @media only screen and (max-width: 37.5em) {
+      .story:hover .story__img {
+        transform: translateX(-2rem) scale(1); } }
   .story__text {
     font-family: var(--font-thai-1); }
     @media only screen and (max-width: 37.5em) {
       .story__text {
-        transform: skewX(0); } }
+        transform: skewX(0);
+        display: flex;
+        flex-direction: column; } }
+    .story__text-details {
+      display: flex; }
+      @media only screen and (max-width: 37.5em) {
+        .story__text-details {
+          transform: skewX(0);
+          display: flex;
+          flex-direction: column; } }
+      .story__text-details-blc {
+        padding: 0 .5rem; }
+    .story__text-mr {
+      font-family: var(--font-thai-1);
+      font-size: 2.2rem;
+      font-weight: bold; }
+      @media only screen and (max-width: 37.5em) {
+        .story__text-mr {
+          font-size: 1.8rem; } }
 
 .views {
   background-color: var(--color-white);

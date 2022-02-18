@@ -24,6 +24,7 @@ const ReviewsPage = ({ pics }) => {
 			{renderBanner(pics.mainPics)}
 			<Title 
 				classname="title"
+				classtitle="heading-title-1"
 				title="All reviews"
 			/>
 			<div className="reviews">

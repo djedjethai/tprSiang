@@ -72,6 +72,7 @@ const MainPage = ({ pics }) => {
 				</div>
 				<Title 
 					classname="title"
+					classtitle="heading-title-1"
 					title="Reviews"
 				/>
 				<div className="reviews">

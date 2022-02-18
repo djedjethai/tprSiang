@@ -91,6 +91,12 @@
 			min-height: 23rem;
 			align-items: center;
 		}
+		
+		@include respond(phone-small) {
+			// display: none;
+			min-height: 23rem;
+			align-items: center;
+		}
 
 	}
 }

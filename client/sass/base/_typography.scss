@@ -27,6 +27,10 @@
 
 	&--light {color: var(--color-grey-light-1);}
 	&--dark {color: var(--color-grey-dark-1);}
+
+	@include respond(phone-small) {
+		font-size: 3rem;
+	}
 }
 
 .heading-3{
@@ -42,6 +46,24 @@
 	&--light {color: var(--color-grey-light-1);}
 	&--dark {color: var(--color-grey-dark-1);}
 
+}
+
+.heading-title-1{
+	font-family: var(--font-display);
+	font-weight: 400;
+	font-size: 4.5rem;
+
+	@include respond(tab-port) {
+		font-size: 4.2rem;
+	}
+
+	@include respond(phone) {
+		font-size: 4.2rem;
+	}
+
+	@include respond(phone-small) {
+		font-size: 3.2rem;
+	}
 }
 
 

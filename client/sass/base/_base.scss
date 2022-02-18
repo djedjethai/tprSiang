@@ -80,6 +80,9 @@ body {
 	@include respond(phone) {
 		grid-template-rows: 73vh min-content;
 	}
+	// @include respond(phone-small) {
+	// 	grid-template-rows: 83vh min-content;
+	// }
 
 }
 
