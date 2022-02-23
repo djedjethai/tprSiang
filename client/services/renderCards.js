@@ -5,6 +5,7 @@ import HeaderStyle from '../components/cards/headerStyle'
 import CardStd from '../components/cards/cardStd'
 import AccessButton from '../components/buttons/accessButton'
 
+
 const goToReviews = () => {
 		Router.push(`/reviews`)
 	}

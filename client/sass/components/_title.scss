@@ -7,4 +7,13 @@
 	color: var(--color-white); 
 }
 
+.title-alone{
+	display: flex;
+	justify-content: center;
+	// background-color: var(--color-grey-dark-2);
+	min-height: 6.2rem;
+	padding: 2rem 0 1rem 0;
+	width: 100%;
+	color: var(--color-white); 
+}
 

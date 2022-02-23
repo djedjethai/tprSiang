@@ -1,3 +1,4 @@
+
 import useBanner  from '../hooks/use-banner'
 
 export default (pics) => {

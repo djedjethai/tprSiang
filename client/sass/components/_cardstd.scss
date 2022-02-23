@@ -4,7 +4,7 @@
 	flex-wrap: wrap;
 	background-color: var(--color-grey-light-2);
 	justify-content: space-around;
-	padding: 4rem 0 4rem 0;
+	padding: 0rem 0 4rem 0;
 
 	&__card{
 		margin: 2rem 1.5rem;
@@ -22,6 +22,12 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	// grid-row-gap: 4.5rem;
+
+	@include respond(phone-small) {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
 
 
 	&__img{
@@ -49,6 +55,15 @@
 		color: var(--color-white);
 		font-weight: 400;
 		transform: translateY(75%);
+
+		@include respond(phone) {
+			padding: 0rem;
+		}
+		
+		@include respond(phone-small) {
+			width: 100%;
+			transform: translateY(0%);
+		}
 	}
 
 
@@ -63,10 +78,18 @@
 		span {
 			margin-right: 1rem;
 		}
+
+		@include respond(phone) {
+			// min-height: 10.7rem;
+		}
 		
 		@include respond(phone) {
 			flex-direction: column;
-			min-height: 11rem;
+			min-height: 10.7rem;
+		}
+
+		@include respond(phone-small) {
+			display: none;
 		}
 
 		
@@ -82,9 +105,15 @@
 		span {
 			margin-right: 1rem;
 		}
+
 		@include respond(phone) {
 			flex-direction: column;
 		}
+
+		@include respond(phone-small) {
+			display: none;
+		}
+
 	}
 
 	&__icons{

@@ -8,6 +8,8 @@ import Title from '../components/ui/title'
 
 import { useAppContext } from '../hooks/app-wrapper';
 
+
+
 const MainPage = ({ pics }) => {
 	
 	const { show } = useAppContext()
@@ -16,8 +18,6 @@ const MainPage = ({ pics }) => {
 		Router.push(`/style/${value}`)
 	}
 	
-	
-
 	const reviewsList = () => {
 		if(pics.reviews.length > 0){		
 			return pics.reviews.map(review => {
@@ -67,12 +67,17 @@ const MainPage = ({ pics }) => {
 				<CpnIndexHeader />
 			</div>
 			<div className="index__content">
+				<Title 
+					classname="title-alone"
+					classtitle="heading-primary"
+					title="Best Selling"
+				/>
 				<div className="cardStd">
 					{carsList}
 				</div>
 				<Title 
 					classname="title"
-					classtitle="heading-title-1"
+					classtitle="heading-primary"
 					title="Reviews"
 				/>
 				<div className="reviews">
