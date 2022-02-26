@@ -32,10 +32,6 @@ export default () => {
 						<a>รถยนฅ์อเนกประสงค์</a>
 					</Link>
 					<span> | </span>
-					<Link href="/" >
-						<a>second hand cars</a>
-					</Link>
-					<span> | </span>
 					<Link href="/contact" >
 						<a>ติดต่อ</a>
 					</Link>

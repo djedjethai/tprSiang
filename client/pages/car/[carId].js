@@ -1,17 +1,20 @@
 import CardCarDetails from '../../components/cards/cardCarDetails'
-import CardPicDetails from '../../components/cards/cardPicDetails.js'
 import AccessButton from '../../components/buttons/accessButton'
 import Title from '../../components/ui/title' 
+import DisplayImage from '../../components/ui/displayImage' 
 import { renderButtonContacts } from '../../services/renderCards'
 
 const CarPage = ({ pics }) => {
 
+
 	const displayPicsStyle = pics.picsStyle.map(picture => {
 		return(
 			<div key={picture._id}>
-				<CardPicDetails
+				<DisplayImage
 					key={picture._id}
-					pict={picture.pic[0]}
+					imgsrc={picture.pic[0]}
+					imgalt="image style"
+					imgsrcClassname="detailImages__img"
 				/>
 			</div>
 		)
@@ -34,6 +37,7 @@ const CarPage = ({ pics }) => {
 			{carDetails}
 			<Title 
 				classname="title"
+				classtitle="heading-primary"
 				title="Details"
 			/>
 			{displayPicsStyle}

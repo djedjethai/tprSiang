@@ -1,0 +1,76 @@
+.carDetails{
+	&__imgbox{
+		// margin: 0 auto;
+	}
+
+	&__img{
+		// text-align: center;
+		display: block;
+		margin: 0 auto;
+		width: 700px;
+	}
+
+	&__serie{
+			// width: auto;
+			// display: inline-block;
+			text-align: center;
+			margin: 2rem 0 3rem 0;
+		&-h{
+			box-shadow: 0 2rem 5rem rgba(#000, .15);
+			display: inline-block;
+			// text-align: center;
+			font-size: 6rem;
+			color: var(--color-grey-dark-2);
+			text-shadow: 2px 2px 5px var(--color-primary-light);
+			border:5.5px solid red;
+			padding: 1rem 3rem;
+		}	
+	}
+
+	&__info{
+		display: flex;
+		justify-content: space-around;
+		padding: 4rem 0;
+		&-1{
+
+		}
+
+		&-2{
+
+		}
+	}
+}
+
+.detailImages{
+	&__img{
+		width: 200px;
+	}
+}
+
+.detailInfos{
+	display: flex;
+	justify-content: space-between;
+	&__title{
+		font-family: var(--font-display);
+		font-size: 3rem;
+		color: red;
+		padding: 0 1rem 0 0;
+	}
+
+
+	&__info{
+		font-family: var(--font-primary);
+		font-size: 3rem;
+		color: green;
+	}
+	
+	&__details{
+		text-align: center; 
+		padding: 0 0 4rem 0;
+		&-info{
+			font-family: var(--font-thai-1);
+			font-size: 3rem;
+		}
+	}
+
+}

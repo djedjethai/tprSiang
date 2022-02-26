@@ -28,9 +28,6 @@ export default (props) => {
 				<Link href="/type/[typeId]" as="/type/utility">
 					<a onClick={() => hideSidebar()}>รถยนต์อเนกประสงค์</a>
 				</Link><br />
-				<Link href="/" >
-					<a onClick={() => hideSidebar()}>second hand cars</a>
-				</Link><br />
 				<Link href="/contact" >
 					<a onClick={() => hideSidebar()}>ติดต่อ</a>
 				</Link><br />

@@ -135,7 +135,8 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: .2rem;
-  transition: all .2s; }
+  transition: all .2s;
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
   @media only screen and (max-width: 56.25em) {
     .heading-primary {
       font-size: 4rem; } }
@@ -143,8 +144,7 @@ body {
     .heading-primary {
       font-size: 3.3rem; } }
   .heading-primary:hover {
-    transform: scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(var(--color-black), 0.2); }
+    transform: scale(1.1); }
 
 .heading-primary-thai {
   font-family: var(--font-thai);
@@ -297,6 +297,10 @@ body {
   .btn-thai:active {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(0); }
+  @media only screen and (max-width: 20em) {
+    .btn-thai {
+      padding: .4rem 1.5rem;
+      font-size: 2rem; } }
 
 .btn-thai-text {
   background-color: var(--color-primary);
@@ -601,6 +605,50 @@ body {
       @media only screen and (max-width: 37.5em) {
         .story__text-mr {
           font-size: 1.8rem; } }
+
+.carDetails__img {
+  display: block;
+  margin: 0 auto;
+  width: 700px; }
+
+.carDetails__serie {
+  text-align: center;
+  margin: 2rem 0 3rem 0; }
+  .carDetails__serie-h {
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    font-size: 6rem;
+    color: var(--color-grey-dark-2);
+    text-shadow: 2px 2px 5px var(--color-primary-light);
+    border: 5.5px solid red;
+    padding: 1rem 3rem; }
+
+.carDetails__info {
+  display: flex;
+  justify-content: space-around;
+  padding: 4rem 0; }
+
+.detailImages__img {
+  width: 200px; }
+
+.detailInfos {
+  display: flex;
+  justify-content: space-between; }
+  .detailInfos__title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: red;
+    padding: 0 1rem 0 0; }
+  .detailInfos__info {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    color: green; }
+  .detailInfos__details {
+    text-align: center;
+    padding: 0 0 4rem 0; }
+    .detailInfos__details-info {
+      font-family: var(--font-thai-1);
+      font-size: 3rem; }
 
 .views {
   background-color: var(--color-white);
