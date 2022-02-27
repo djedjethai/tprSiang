@@ -7,7 +7,19 @@
 		// text-align: center;
 		display: block;
 		margin: 0 auto;
-		width: 700px;
+		width: 70%;
+
+		@include respond(tab-port) {
+			width: 85%;
+		}
+
+		@include respond(phone) {
+			width: 100%;
+		}
+		
+		@include respond(phone-small) {
+			width: 100%;
+		}
 	}
 
 	&__serie{
@@ -24,6 +36,26 @@
 			text-shadow: 2px 2px 5px var(--color-primary-light);
 			border:5.5px solid red;
 			padding: 1rem 3rem;
+
+			@include respond(tab-port) {
+				font-size: 4rem;
+				padding: 1.3rem 3.5rem;
+				// width: 85%;
+			}
+
+			@include respond(phone) {
+				font-size: 3.7rem;
+				padding: 1.3rem 2.9rem;
+				border:3.5px solid red;
+				// width: 100%;
+			}
+		
+			@include respond(phone-small) {
+				font-size: 2.9rem;
+				border:2.5px solid red;
+				// padding: .6rem 1.5rem;
+				// width: 100%;
+			}
 		}	
 	}
 
@@ -31,6 +63,19 @@
 		display: flex;
 		justify-content: space-around;
 		padding: 4rem 0;
+
+		@include respond(tab-port) {
+		}
+
+		@include respond(phone) {
+			flex-direction: column;
+			padding: 3rem 2.5rem;
+		}
+		
+		@include respond(phone-small) {
+			padding: 0rem .5rem;
+		}
+
 		&-1{
 
 		}
@@ -42,34 +87,105 @@
 }
 
 .detailImages{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 3rem 0; 
+	
+	&__block{
+	}
+
 	&__img{
-		width: 200px;
+		flex: 1;
+		margin: 2px;
+		width: 17rem;
+		box-shadow: 0 2rem 5rem rgba(#000, .15);
 	}
 }
 
 .detailInfos{
 	display: flex;
 	justify-content: space-between;
+
+	@include respond(tab-port) {
+	}
+
+	@include respond(phone) {
+	}
+		
+	@include respond(phone-small) {
+		flex-direction: column;
+		text-align: center;
+	}
+
+
 	&__title{
 		font-family: var(--font-display);
 		font-size: 3rem;
 		color: red;
 		padding: 0 1rem 0 0;
+
+		@include respond(tab-port) {
+			font-size: 2.9rem;
+		}
+
+		@include respond(phone) {
+			font-size: 2.4rem;
+		}
+		
+		@include respond(phone-small) {
+		}
+
 	}
 
 
 	&__info{
 		font-family: var(--font-primary);
 		font-size: 3rem;
-		color: green;
+		// color: var();
+
+		@include respond(tab-port) {
+			font-size: 2.9rem;
+		}
+
+		@include respond(phone) {
+			font-size: 2.4rem;
+		}
+		
+		@include respond(phone-small) {
+		}
+
 	}
 	
 	&__details{
 		text-align: center; 
 		padding: 0 0 4rem 0;
+
+		@include respond(phone) {
+			padding: 2rem 2.5rem;
+		}
+
+		@include respond(phone-small) {
+			padding: 2rem .5rem; 	
+		}
+
 		&-info{
 			font-family: var(--font-thai-1);
 			font-size: 3rem;
+			
+			@include respond(tab-port) {
+				font-size: 2.9rem;
+			}
+
+			@include respond(phone) {
+				font-size: 2.2rem;
+				// padding: 2rem 2.5rem;
+			}
+		
+			@include respond(phone-small) {
+				// padding: 2rem .5rem;
+			}
+
 		}
 	}
 

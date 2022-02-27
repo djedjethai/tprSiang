@@ -609,7 +609,16 @@ body {
 .carDetails__img {
   display: block;
   margin: 0 auto;
-  width: 700px; }
+  width: 70%; }
+  @media only screen and (max-width: 56.25em) {
+    .carDetails__img {
+      width: 85%; } }
+  @media only screen and (max-width: 37.5em) {
+    .carDetails__img {
+      width: 100%; } }
+  @media only screen and (max-width: 20em) {
+    .carDetails__img {
+      width: 100%; } }
 
 .carDetails__serie {
   text-align: center;
@@ -622,33 +631,88 @@ body {
     text-shadow: 2px 2px 5px var(--color-primary-light);
     border: 5.5px solid red;
     padding: 1rem 3rem; }
+    @media only screen and (max-width: 56.25em) {
+      .carDetails__serie-h {
+        font-size: 4rem;
+        padding: 1.3rem 3.5rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .carDetails__serie-h {
+        font-size: 3.7rem;
+        padding: 1.3rem 2.9rem;
+        border: 3.5px solid red; } }
+    @media only screen and (max-width: 20em) {
+      .carDetails__serie-h {
+        font-size: 2.9rem;
+        border: 2.5px solid red; } }
 
 .carDetails__info {
   display: flex;
   justify-content: space-around;
   padding: 4rem 0; }
+  @media only screen and (max-width: 37.5em) {
+    .carDetails__info {
+      flex-direction: column;
+      padding: 3rem 2.5rem; } }
+  @media only screen and (max-width: 20em) {
+    .carDetails__info {
+      padding: 0rem .5rem; } }
 
-.detailImages__img {
-  width: 200px; }
+.detailImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3rem 0; }
+  .detailImages__img {
+    flex: 1;
+    margin: 2px;
+    width: 17rem;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15); }
 
 .detailInfos {
   display: flex;
   justify-content: space-between; }
+  @media only screen and (max-width: 20em) {
+    .detailInfos {
+      flex-direction: column;
+      text-align: center; } }
   .detailInfos__title {
     font-family: var(--font-display);
     font-size: 3rem;
     color: red;
     padding: 0 1rem 0 0; }
+    @media only screen and (max-width: 56.25em) {
+      .detailInfos__title {
+        font-size: 2.9rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .detailInfos__title {
+        font-size: 2.4rem; } }
   .detailInfos__info {
     font-family: var(--font-primary);
-    font-size: 3rem;
-    color: green; }
+    font-size: 3rem; }
+    @media only screen and (max-width: 56.25em) {
+      .detailInfos__info {
+        font-size: 2.9rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .detailInfos__info {
+        font-size: 2.4rem; } }
   .detailInfos__details {
     text-align: center;
     padding: 0 0 4rem 0; }
+    @media only screen and (max-width: 37.5em) {
+      .detailInfos__details {
+        padding: 2rem 2.5rem; } }
+    @media only screen and (max-width: 20em) {
+      .detailInfos__details {
+        padding: 2rem .5rem; } }
     .detailInfos__details-info {
       font-family: var(--font-thai-1);
       font-size: 3rem; }
+      @media only screen and (max-width: 56.25em) {
+        .detailInfos__details-info {
+          font-size: 2.9rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .detailInfos__details-info {
+          font-size: 2.2rem; } }
 
 .views {
   background-color: var(--color-white);

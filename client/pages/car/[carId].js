@@ -1,5 +1,4 @@
 import CardCarDetails from '../../components/cards/cardCarDetails'
-import AccessButton from '../../components/buttons/accessButton'
 import Title from '../../components/ui/title' 
 import DisplayImage from '../../components/ui/displayImage' 
 import { renderButtonContacts } from '../../services/renderCards'
@@ -15,10 +14,12 @@ const CarPage = ({ pics }) => {
 					imgsrc={picture.pic[0]}
 					imgalt="image style"
 					imgsrcClassname="detailImages__img"
+					classname="detailImages__block"
 				/>
 			</div>
 		)
 	})
+
 
 
 	const carDetails = pics.carsData.map(car => {
@@ -32,6 +33,7 @@ const CarPage = ({ pics }) => {
 		)
 	})
 
+
 	return (
 		<div>
 			{carDetails}
@@ -40,8 +42,12 @@ const CarPage = ({ pics }) => {
 				classtitle="heading-primary"
 				title="Details"
 			/>
-			{displayPicsStyle}
-			{renderButtonContacts("btn", "ติดต่อ")}	
+			<div className="detailImages">
+				{displayPicsStyle}
+			</div>
+			<div className="reviews__btnIndex">
+				{renderButtonContacts("btn-thai-text", "ติดต่อ")}
+			</div>
 		</div>
 	)
 }
