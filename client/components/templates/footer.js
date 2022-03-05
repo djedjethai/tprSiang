@@ -40,11 +40,11 @@ export default () => {
 			<div className="footer__contact">
 				<div className="footer__contact__list">
 					<span className="material-icons footer__icons-blue">facebook</span>
-					<p className="footer__contact__text">Facebook</p>
+					<p className="footer__contact__text"><a href="https://m.facebook.com/Toyota.Rama4.Sales/">Go to facebook</a></p>
 				</div>
 				<div className="footer__contact__list">
 					<span className="material-icons footer__icons-mail">email</span>
-					<p className="footer__contact__text">siang@siang.com</p>
+					<p className="footer__contact__text">siangtoyota@gmail.com</p>
 				</div>
 				<div className="footer__contact__list">
 					<span className="material-icons footer__icons">smartphone</span>

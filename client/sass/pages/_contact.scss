@@ -1,0 +1,65 @@
+.contact{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	&__bloc{
+		display: flex;
+		align-items: center;
+		margin: 3rem 0;
+
+
+		@include respond(tab-port) {
+
+		}
+
+		@include respond(phone) {
+
+		}
+
+		@include respond(phone-small) {
+			
+		}
+
+		&--info{
+			// display: flex;
+			// flex-direction: column;
+			font-size: 3.5rem;
+
+			@include respond(tab-port) {
+
+			}
+
+			@include respond(phone) {
+
+			}
+
+			@include respond(phone-small) {
+			
+			}
+		}	
+
+		&--info a{
+			text-decoration: none;
+		}
+	}
+
+	&__qrcode{
+		width: 20rem;
+	}
+
+	&__facebook{
+		width: 20rem;
+
+	}
+
+	&__line{
+		width: 20rem;
+
+	}
+
+	&__mail{
+		width: 20rem;
+
+	}
+}
