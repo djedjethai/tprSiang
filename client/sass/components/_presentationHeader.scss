@@ -83,6 +83,14 @@
 			font-style: italic;
 			font-family: var(--font-thai);
 		}
+
+		&-btn{
+			margin: 0 0 0 8rem;
+			@include respond(tab-port) {
+				margin: 0;
+
+			}
+		}
 	}
 
 	&-moto2{

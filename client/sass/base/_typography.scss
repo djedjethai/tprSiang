@@ -94,7 +94,8 @@
     	color: transparent;
     	letter-spacing: .2rem;
     	transition: all .2s;
-    	text-shadow: .5rem 1rem 2rem rgba(black, .2);
+    	// text-shadow: .5rem 1rem 2rem rgba(black, .2);
+    	text-shadow: 0rem 1rem 1.5rem rgba(white, .2);
     	@include respond(tab-port) {
     	    	font-size: 4rem;
     	}
@@ -125,6 +126,7 @@
     	color: transparent;
     	letter-spacing: .2rem;
     	transition: all .2s;
+    	text-shadow: 0rem 1rem 1.5rem rgba(white, .2);
     	@include respond(tab-port) {
     	    	font-size: 4rem;
     	}

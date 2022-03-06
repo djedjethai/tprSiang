@@ -15,7 +15,7 @@
 			margin: 3rem 0;
 		}
 
-		@include respond(port) {
+		@include respond(phone) {
 			min-height: 5rem;
 		}
 
@@ -40,7 +40,7 @@
 			margin: 3rem 0;
 		}
 
-		@include respond(port) {
+		@include respond(phone) {
 			max-height: 5rem;
 		}
 	}
@@ -66,6 +66,11 @@
 
 		&__list{
 			display: flex;
+			@include respond(phone) {
+				flex-direction: column;
+				align-items: center;
+				margin: 1.2rem 0;
+			}
 		}
 
 		&__text {
@@ -73,10 +78,19 @@
        			padding: .5rem 0;
 			font-size: 2.4rem;
 			// background-color: white;
+			
+			@include respond(phone-small) {
+				font-size: 2.1rem;
+			}
+
 		}
 
 		&__text a{
 			text-decoration: none;
+			
+			@include respond(phone-small) {
+				font-size: 2.1rem;
+			}
 		}
 	}
 
@@ -93,8 +107,8 @@
 			margin: 3rem 0;
 		}
 
-		@include respond(port) {
-			max-height: 5rem;
+		@include respond(phone) {
+			// max-height: 5rem;
 		}
 
 
@@ -109,7 +123,8 @@
 			font-style: italic;
 			font-family: var(--font-thai);
 			padding: .5rem 1.5rem;
-		}
+
+		}	
 	}
 }
 
