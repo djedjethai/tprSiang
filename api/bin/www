@@ -10,10 +10,15 @@ var http = require('http');
 const mongoose = require('mongoose')
 const logger = require('../services/logger')
 
-const keys = require('../config/keys')
+const {prod, dev} = require('../services/secrets')
 
 mongoose.Promise = global.Promise
-const MONGO_URI = keys.mongoURI
+
+let MONGO_URI = '' 
+process.env.NODE_ENV === "production" ? 
+	MONGO_URI = prod(process.env.MONGO_URI) : 
+	MONGO_URI = dev('MONGO_URI')
+
 if (!MONGO_URI) {
 	throw new Error("incorrect mongoURI")
 }

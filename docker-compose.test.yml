@@ -1,0 +1,78 @@
+version: "3.9"
+
+services: 
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+    - "80:80"
+    - "443:443"
+    depends_on:
+    - client
+    networks:
+    - app-network
+
+  client:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+    - ./client:/app/src
+    ports:
+    - "3000:3000"
+    depends_on:
+    - api                    
+    networks:
+    - app-network
+
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./api
+    volumes:
+    - ./api:/opt/app
+    ports:
+    - "5000:5000"
+    environment:
+      ACCESS_KEY_ID: /run/secrets/access-key-id
+      SECRET_ACCESS_KEY: /run/secrets/secret-access-key
+      BUCKET_NAME: /run/secrets/bucket-name
+      SESSION_SECRET: /run/secrets/session-secret
+      MONGO_URI: /run/secrets/mongo-uri
+      PASSWORD_ADMIN: /run/secrets/password-admin
+      ADMIN: /run/secrets/admin
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    networks:
+    - app-network
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+    - "6379:6379"
+    networks:
+    - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+secrets:
+  access-key-id:
+    external: true
+  secret-access-key:
+    external: true
+  bucket-name:
+    external: true
+  session-secret:
+    external: true
+  mongo-uri:
+    external: true
+  password-admin:
+    external: true
+  admin:
+    external: true

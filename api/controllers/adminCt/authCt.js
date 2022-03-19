@@ -1,14 +1,25 @@
 const bcrypt = require('bcryptjs');
 const logger = require('../../services/logger')
-const keys = require('../../config/keys')
+const { prod, dev } = require('../../services/secrets')
 const { AuthError } = require('../../error/listErrors')
 const { setDataInRedis, cacheEnum } = require('../../services/cache')
 const { encrypt, saveToken } = require('../../services/token') 
 
+let ADMIN = ''
+let PASSWORD_ADMIN = ''
+if(process.env.NODE_ENV === 'production'){
+	ADMIN = prod(process.env.ADMIN)
+	PASSWORD_ADMIN = prod(process.env.PASSWORD_ADMIN)
+} else {
+	ADMIN = dev('ADMIN')
+	PASSWORD_ADMIN = dev('PASSWORD_ADMIN')
+}
+
+
 exports.getSignin = (req, res, next) => {
     	// temporary code to generate the password for the admin envVar
 	// const saltRounds = 10;
-	// const myPlaintextPassword = 'jerome';
+	// const myPlaintextPassword = 'enter a password';
 	// bcrypt.genSalt(saltRounds, function(err, salt) {
 	// 	bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
 	// 		// Store hash in your password DB
@@ -29,14 +40,14 @@ exports.postSignin = async (req, res, next) => {
     	const user = req.body.name
 	const password = req.body.password
 
-	if (!password || (user !== keys.adminName1)) {
+	if (!password || (user !== ADMIN)) {
 		logger.error(`auth signin ${password} or ${user} are incorrect`)
 		res.redirect('/admin/getsignin')
 		return
 	}
 
 	try {
-		const match = await bcrypt.compare(password, keys.adminPassword1)
+		const match = await bcrypt.compare(password, PASSWORD_ADMIN)
 
 		if(match) {
 			//login 

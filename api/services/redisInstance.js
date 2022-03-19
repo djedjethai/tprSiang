@@ -1,4 +1,3 @@
-const keys = require('../config/keys')
 const redis = process.env.NODE_ENV === 'test' ? require('redis-mock') : require('redis')
 
 class RedisInstance {
@@ -18,5 +17,5 @@ class RedisInstance {
 	}
 }
 	
-module.exports = new RedisInstance(redis, keys.redisHost, keys.redisPort)
+module.exports = new RedisInstance(redis, process.env.REDIS_HOST, process.env.REDIS_PORT)
 

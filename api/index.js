@@ -5,15 +5,12 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const mongoose = require('mongoose')
 
-
-
 // const authRouter = require('./routes/adminRt/authRt')
 const { errorHandler } = require('./middleware/errorHandler')
 
-const keys = require('./config/keys')
+const { prod, dev } = require('./services/secrets')
 
 const app = express()
-
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -42,10 +39,16 @@ app.set('views', 'views')
 // various routes to manage account')
 // app.use(authRouter)
 
+let SESSION_SECRET = ''
+process.env.NODE_ENV === "production" ? 
+	SESSION_SECRET = prod(process.env.SESSION_SECRET) : 
+	SESSION_SECRET = dev('SESSION_SECRET')
+
+
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: keys.secretSession,
+  secret: SESSION_SECRET,
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     autoReconnect: true
