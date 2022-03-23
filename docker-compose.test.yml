@@ -3,35 +3,25 @@ version: "3.9"
 services: 
   nginx:
     restart: always
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./nginx
+    image: djedjethai/tprnginx:latest
     ports:
     - "80:80"
     - "443:443"
-    depends_on:
-    - client
     networks:
-    - app-network
+    - mynet
 
   client:
     restart: always
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./client
+    image: djedjethai/tprclient:latest
     volumes:
     - ./client:/app/src
     ports:
     - "3000:3000"
-    depends_on:
-    - api                    
     networks:
-    - app-network
+    - mynet
 
   api:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./api
+    image: djedjethai/tprapi:latest
     volumes:
     - ./api:/opt/app
     ports:
@@ -46,8 +36,16 @@ services:
       ADMIN: /run/secrets/admin
       REDIS_HOST: redis
       REDIS_PORT: 6379
+    secrets:
+    - access-key-id
+    - secret-access-key
+    - bucket-name
+    - session-secret
+    - mongo-uri
+    - password-admin
+    - admin 
     networks:
-    - app-network
+    - mynet
 
   redis:
     image: redis:latest
@@ -55,11 +53,10 @@ services:
     ports:
     - "6379:6379"
     networks:
-    - app-network
+    - mynet
 
 networks:
-  app-network:
-    driver: bridge
+  mynet:
 
 secrets:
   access-key-id:

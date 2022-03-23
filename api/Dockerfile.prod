@@ -1,10 +1,21 @@
 FROM node:alpine
+
 ENV NODE_ENV=production
-WORKDIR '/app'
+
+WORKDIR /opt
+
 COPY package*.json ./
+
 RUN npm install --only=production \
- && npm cache clean --force 
+&& npm cache clean --force
+
+WORKDIR /opt/app 
+
 COPY . .
 # add --tiny for shutting down
+
 EXPOSE 5000
-CMD ["node bin/www"]
+
+CMD ["node", "./bin/www"]
+# CMD ["npm", "run", "prod"]
+

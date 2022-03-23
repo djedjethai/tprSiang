@@ -5,6 +5,8 @@
   "main": "next.config.js",
   "scripts": {
     "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "compile:sass": "node-sass sass/main.scss css/style.css",
     "compile:Wsass": "node-sass sass/main.scss css/style.css -w"
   },

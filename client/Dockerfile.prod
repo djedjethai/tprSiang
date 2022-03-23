@@ -1,0 +1,20 @@
+FROM node:alpine
+
+ENV NODE_ENV=production 
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install --only=production \
+	&& npm cache clean --force
+
+WORKDIR /app/src
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm","run","start"]
