@@ -19,8 +19,6 @@ process.env.NODE_ENV === "production" ?
 	MONGO_URI = prod(process.env.MONGO_URI) : 
 	MONGO_URI = dev('MONGO_URI')
 
-console.log("this is mongo: ", MONGO_URI)
-
 if (!MONGO_URI) {
 	throw new Error("incorrect mongoURI")
 }
@@ -40,7 +38,7 @@ mongoose.connection
 
 
 
-if(process.env.NODE_ENV === 'development'){
+if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development'){
 	app.listen(5000, () => {
 		console.log('listen on port 5000');
 		logger.info('listen on port 5000')

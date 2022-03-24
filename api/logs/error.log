@@ -125,3 +125,22 @@ error: Feb-18-2022 08:43:02: 	clientCt mainPageCt: TypeError: reviewsData[0].qua
 error: Feb-18-2022 08:48:18: 	adminCt reviewCt postAddReview: TypeError: Date.now(...).getTime is not a function
 error: Feb-18-2022 08:58:01: 	adminCt reviewCt postAddReview: TypeError: Date.now(...).getDate is not a function
 error: Mar-05-2022 11:50:42: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+error: Mar-24-2022 05:40:36: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 05:40:53: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 06:15:18: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 06:15:18: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 07:23:25: 	verif password from env $2a$10$0Vc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:23:39: 	verif password from env $2a$10$0Vc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:24:30: 	verif password from env $2a$10$0Vc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:28:22: 	db connection error: MongooseServerSelectionError: connection timed out
+error: Mar-24-2022 07:28:59: 	db connection error: MongooseServerSelectionError: connection timed out
+error: Mar-24-2022 07:29:36: 	db connection error: MongooseServerSelectionError: connection timed out
+error: Mar-24-2022 07:30:13: 	db connection error: MongooseServerSelectionError: connection timed out
+error: Mar-24-2022 07:30:51: 	db connection error: MongooseServerSelectionError: connection timed out
+error: Mar-24-2022 07:33:48: 	db connection error: MongooseServerSelectionError: connection timed out
+error: Mar-24-2022 07:37:56: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:37:56: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 08:25:50: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 08:25:50: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 08:28:20: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 08:28:20: 	err when bcrypt compare password: Error: password incorrect

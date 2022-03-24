@@ -861,3 +861,54 @@ info: Mar-23-2022 13:46:20: 	db connection successful
 info: Mar-23-2022 13:56:49: 	db connection successful
 info: Mar-23-2022 14:11:07: 	db connection successful
 info: Mar-23-2022 14:14:14: 	db connection successful
+info: Mar-24-2022 04:54:23: 	db connection successful
+info: Mar-24-2022 05:05:19: 	listen on port 5000
+info: Mar-24-2022 05:05:20: 	db connection successful
+info: Mar-24-2022 05:08:43: 	listen on port 5000
+info: Mar-24-2022 05:08:43: 	db connection successful
+info: Mar-24-2022 05:15:38: 	listen on port 5000
+info: Mar-24-2022 05:15:39: 	db connection successful
+info: Mar-24-2022 05:19:56: 	listen on port 5000
+info: Mar-24-2022 05:19:57: 	db connection successful
+info: Mar-24-2022 05:30:23: 	listen on port 5000
+info: Mar-24-2022 05:30:23: 	db connection successful
+info: Mar-24-2022 05:35:55: 	listen on port 5000
+info: Mar-24-2022 05:35:55: 	db connection successful
+error: Mar-24-2022 05:40:36: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 05:40:53: 	err when bcrypt compare password: Error: password incorrect
+info: Mar-24-2022 06:13:52: 	listen on port 5000
+info: Mar-24-2022 06:13:53: 	db connection successful
+error: Mar-24-2022 06:15:18: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 06:15:18: 	err when bcrypt compare password: Error: password incorrect
+info: Mar-24-2022 07:23:17: 	listen on port 5000
+info: Mar-24-2022 07:23:17: 	db connection successful
+error: Mar-24-2022 07:23:25: 	verif password from env $2a$10$0Vc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:23:39: 	verif password from env $2a$10$0Vc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:24:30: 	verif password from env $2a$10$0Vc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+info: Mar-24-2022 07:27:51: 	listen on port 5000
+error: Mar-24-2022 07:28:22: 	db connection error: MongooseServerSelectionError: connection timed out
+info: Mar-24-2022 07:28:29: 	listen on port 5000
+error: Mar-24-2022 07:28:59: 	db connection error: MongooseServerSelectionError: connection timed out
+info: Mar-24-2022 07:29:06: 	listen on port 5000
+error: Mar-24-2022 07:29:36: 	db connection error: MongooseServerSelectionError: connection timed out
+info: Mar-24-2022 07:29:43: 	listen on port 5000
+error: Mar-24-2022 07:30:13: 	db connection error: MongooseServerSelectionError: connection timed out
+info: Mar-24-2022 07:30:21: 	listen on port 5000
+error: Mar-24-2022 07:30:51: 	db connection error: MongooseServerSelectionError: connection timed out
+info: Mar-24-2022 07:33:17: 	listen on port 5000
+error: Mar-24-2022 07:33:48: 	db connection error: MongooseServerSelectionError: connection timed out
+info: Mar-24-2022 07:33:55: 	listen on port 5000
+info: Mar-24-2022 07:36:58: 	listen on port 5000
+info: Mar-24-2022 07:36:59: 	db connection successful
+error: Mar-24-2022 07:37:56: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 07:37:56: 	err when bcrypt compare password: Error: password incorrect
+info: Mar-24-2022 07:41:52: 	listen on port 5000
+info: Mar-24-2022 07:41:53: 	db connection successful
+info: Mar-24-2022 08:24:43: 	listen on port 5000
+info: Mar-24-2022 08:24:43: 	db connection successful
+error: Mar-24-2022 08:25:50: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 08:25:50: 	err when bcrypt compare password: Error: password incorrect
+error: Mar-24-2022 08:28:20: 	verif password from env a0bashVc1fhHO6t1gbesG7nUmHOMni3jbwAaknl4SLpBYUI5BBUj1yDEF2
+error: Mar-24-2022 08:28:20: 	err when bcrypt compare password: Error: password incorrect
+info: Mar-24-2022 08:39:44: 	listen on port 5000
+info: Mar-24-2022 08:39:45: 	db connection successful

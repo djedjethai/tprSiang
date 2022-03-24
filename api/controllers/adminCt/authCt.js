@@ -15,11 +15,10 @@ if(process.env.NODE_ENV === 'production'){
 	PASSWORD_ADMIN = dev('PASSWORD_ADMIN')
 }
 
-
 exports.getSignin = (req, res, next) => {
     	// temporary code to generate the password for the admin envVar
 	// const saltRounds = 10;
-	// const myPlaintextPassword = 'enter a password';
+	// const myPlaintextPassword = 'whyaredevsonaz';
 	// bcrypt.genSalt(saltRounds, function(err, salt) {
 	// 	bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
 	// 		// Store hash in your password DB
@@ -39,6 +38,8 @@ exports.getSignin = (req, res, next) => {
 exports.postSignin = async (req, res, next) => {	
     	const user = req.body.name
 	const password = req.body.password
+
+	logger.error(`verif password from env ${PASSWORD_ADMIN}`)
 
 	if (!password || (user !== ADMIN)) {
 		logger.error(`auth signin ${password} or ${user} are incorrect`)
