@@ -9,7 +9,8 @@ export default ({ req }) => {
 	}
 	else {
 		return axios.create({
-			baseURL:'http://localhost:5000',
+			// baseURL:'http://localhost:5000',
+			baseURL:'http://tpr2u.com:5000',
 			accept:{'Accept':'application/json'}
 		})
 	}

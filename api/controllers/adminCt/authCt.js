@@ -1,9 +1,8 @@
-const bcrypt = require('bcryptjs');
 const logger = require('../../services/logger')
 const { prod, dev } = require('../../services/secrets')
 const { AuthError } = require('../../error/listErrors')
 const { setDataInRedis, cacheEnum } = require('../../services/cache')
-const { encrypt, saveToken } = require('../../services/token') 
+const { encrypt, saveToken, verify } = require('../../services/token') 
 
 let ADMIN = ''
 let PASSWORD_ADMIN = ''
@@ -15,16 +14,10 @@ if(process.env.NODE_ENV === 'production'){
 	PASSWORD_ADMIN = dev('PASSWORD_ADMIN')
 }
 
-exports.getSignin = (req, res, next) => {
-    	// temporary code to generate the password for the admin envVar
-	// const saltRounds = 10;
-	// const myPlaintextPassword = 'whyaredevsonaz';
-	// bcrypt.genSalt(saltRounds, function(err, salt) {
-	// 	bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-	// 		// Store hash in your password DB
-	// 		console.log('the hash to save: ',hash)
-	// 	}); 	
-	// });
+exports.getSignin = async(req, res, next) => {
+    		
+	// const passwordEnc = await encrypt('thePassword')
+	// console.log("passEncoded: ", passwordEnc)
 
 	res.render('auth/signin', {
         	pageTitle: 'signInForm',
@@ -39,8 +32,6 @@ exports.postSignin = async (req, res, next) => {
     	const user = req.body.name
 	const password = req.body.password
 
-	logger.error(`verif password from env ${PASSWORD_ADMIN}`)
-
 	if (!password || (user !== ADMIN)) {
 		logger.error(`auth signin ${password} or ${user} are incorrect`)
 		res.redirect('/admin/getsignin')
@@ -48,7 +39,8 @@ exports.postSignin = async (req, res, next) => {
 	}
 
 	try {
-		const match = await bcrypt.compare(password, PASSWORD_ADMIN)
+		// const match = await bcrypt.compare(password, PASSWORD_ADMIN)
+		const match = await verify(password, PASSWORD_ADMIN)
 
 		if(match) {
 			//login 

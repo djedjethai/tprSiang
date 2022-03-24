@@ -8,8 +8,6 @@ const logger = require('./logger')
 // from dockerSecrets
 const prod = (secretNameAndPath) => {
 	try {
-    		// return fs.readFileSync(`${secretNameAndPath}`, 'utf8');
-		// Buffer.from('QUtJQTZPN1RKWldQV0MzQlA0UFc=', 'base64').toString()
     		const encSecret = fs.readFileSync(`${secretNameAndPath}`, 'utf8');
 		return Buffer.from(encSecret, 'base64').toString()
   	} catch(err) {

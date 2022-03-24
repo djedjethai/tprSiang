@@ -1,21 +1,24 @@
 FROM node:alpine
 
-ENV NODE_ENV=production 
+ENV NODE_ENV=production
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --only=production \
-	&& npm cache clean --force
+RUN npm install \
+&& npm cache clean --force
 
-WORKDIR /app/src
+# WORKDIR /app/src
 
 COPY . .
+# COPY ./.next ./.next
+# COPY ./public ./public
+# COPY ./css ./css
+# COPY ./next.config.js ./next.config.js
 
-# RUN npm run build
+RUN npm run build
 
 EXPOSE 3000
 
-# CMD ["npm","run","start"]
-CMD ["npm","run","dev"]
+CMD ["npm","run","start"]
