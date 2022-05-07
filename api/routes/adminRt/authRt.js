@@ -2,6 +2,7 @@ const { body } = require('express-validator')
 const { getSignin, postSignin, getLogout } = require('../../controllers/adminCt/authCt')
 
 module.exports = app => {
+
 	app.get('/getsignin', getSignin)
 	app.post('/postsignin', 
 		[	

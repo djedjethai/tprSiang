@@ -943,3 +943,139 @@ info: Mar-24-2022 10:21:31: 	listen on port 5000
 info: Mar-24-2022 10:21:31: 	db connection successful
 info: Mar-24-2022 10:31:09: 	listen on port 5000
 info: Mar-24-2022 10:31:10: 	db connection successful
+info: Apr-02-2022 08:25:21: 	listen on port 5000
+info: Apr-02-2022 08:25:23: 	db connection successful
+info: Apr-02-2022 08:27:37: 	listen on port 5000
+info: Apr-02-2022 08:27:41: 	db connection successful
+info: Apr-02-2022 08:31:10: 	listen on port 5000
+info: Apr-02-2022 08:31:10: 	db connection successful
+info: Apr-02-2022 08:46:29: 	listen on port 5000
+info: Apr-02-2022 08:46:29: 	db connection successful
+info: Apr-02-2022 09:08:35: 	listen on port 5000
+info: Apr-02-2022 09:08:36: 	db connection successful
+info: Apr-04-2022 13:43:40: 	db connection successful
+info: Apr-04-2022 13:45:51: 	db connection successful
+info: Apr-04-2022 13:47:58: 	db connection successful
+info: Apr-04-2022 13:49:54: 	db connection successful
+info: Apr-04-2022 13:50:49: 	listen on port 5000
+info: Apr-04-2022 13:50:50: 	db connection successful
+info: Apr-04-2022 13:52:06: 	listen on port 5000
+info: Apr-04-2022 13:52:06: 	db connection successful
+info: Apr-06-2022 10:35:54: 	listen on port 5000
+error: Apr-06-2022 10:36:24: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Apr-06-2022 11:02:30: 	listen on port 5000
+info: Apr-06-2022 11:02:32: 	db connection successful
+info: Apr-06-2022 11:25:56: 	listen on port 5000
+info: Apr-06-2022 11:25:57: 	db connection successful
+info: Apr-06-2022 11:30:13: 	listen on port 5000
+info: Apr-06-2022 11:30:14: 	db connection successful
+info: Apr-06-2022 11:33:19: 	listen on port 5000
+info: Apr-06-2022 11:33:19: 	db connection successful
+info: Apr-06-2022 11:38:46: 	listen on port 5000
+info: Apr-06-2022 11:38:47: 	db connection successful
+info: Apr-06-2022 11:40:03: 	listen on port 5000
+info: Apr-06-2022 11:40:04: 	db connection successful
+info: Apr-06-2022 11:49:01: 	listen on port 5000
+info: Apr-06-2022 11:49:01: 	db connection successful
+info: Apr-06-2022 12:07:39: 	listen on port 5000
+info: Apr-06-2022 12:07:40: 	db connection successful
+info: Apr-06-2022 12:08:26: 	listen on port 5000
+info: Apr-06-2022 12:08:27: 	db connection successful
+info: Apr-06-2022 12:26:23: 	listen on port 5000
+info: Apr-06-2022 12:26:24: 	db connection successful
+info: Apr-06-2022 12:36:35: 	listen on port 5000
+info: Apr-06-2022 12:36:36: 	db connection successful
+info: Apr-06-2022 12:47:15: 	listen on port 5000
+info: Apr-06-2022 12:47:16: 	db connection successful
+info: Apr-06-2022 12:52:35: 	listen on port 5000
+info: Apr-06-2022 12:52:35: 	db connection successful
+info: Apr-06-2022 12:58:25: 	listen on port 5000
+info: Apr-06-2022 12:58:26: 	db connection successful
+info: Apr-07-2022 12:07:34: 	listen on port 5000
+info: Apr-07-2022 12:07:46: 	db connection successful
+info: Apr-07-2022 12:19:44: 	listen on port 5000
+info: Apr-07-2022 12:19:45: 	db connection successful
+info: Apr-07-2022 12:34:53: 	listen on port 5000
+info: Apr-07-2022 12:34:54: 	db connection successful
+info: Apr-07-2022 13:03:12: 	listen on port 5000
+error: Apr-07-2022 13:03:42: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Apr-07-2022 13:03:47: 	listen on port 5000
+info: Apr-07-2022 13:04:06: 	listen on port 5000
+error: Apr-07-2022 13:04:36: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Apr-07-2022 13:04:49: 	listen on port 5000
+error: Apr-07-2022 13:05:19: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Apr-07-2022 13:05:37: 	listen on port 5000
+info: Apr-07-2022 13:05:44: 	db connection successful
+error: Apr-07-2022 13:13:00: 	err when bcrypt compare password: Error: password incorrect
+info: Apr-07-2022 14:16:29: 	listen on port 5000
+info: Apr-07-2022 14:16:30: 	db connection successful
+info: Apr-07-2022 14:17:50: 	listen on port 5000
+info: Apr-07-2022 14:17:51: 	db connection successful
+info: Apr-07-2022 14:17:57: 	listen on port 5000
+info: Apr-07-2022 14:17:57: 	db connection successful
+info: Apr-07-2022 14:20:24: 	listen on port 5000
+error: Apr-07-2022 14:20:54: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Apr-07-2022 14:21:36: 	listen on port 5000
+error: Apr-07-2022 14:22:07: 	db connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+info: Apr-08-2022 13:29:49: 	listen on port 5000
+error: Apr-08-2022 13:29:49: 	db connection error: Error: querySrv ENODATA _mongodb._tcp.cluster0.mwur9.mongodb.net
+info: Apr-08-2022 13:31:23: 	listen on port 5000
+error: Apr-08-2022 13:31:23: 	db connection error: Error: querySrv ENODATA _mongodb._tcp.cluster0.mwur9.mongodb.net
+info: Apr-08-2022 13:31:49: 	listen on port 5000
+error: Apr-08-2022 13:31:49: 	db connection error: Error: querySrv ENODATA _mongodb._tcp.cluster0.mwur9.mongodb.net
+info: Apr-08-2022 13:32:43: 	listen on port 5000
+error: Apr-08-2022 13:32:43: 	db connection error: Error: querySrv ENODATA _mongodb._tcp.cluster0.mwur9.mongodb.net
+info: Apr-08-2022 13:36:10: 	listen on port 5000
+error: Apr-08-2022 13:36:10: 	db connection error: Error: querySrv ENODATA _mongodb._tcp.cluster0.mwur9.mongodb.net
+info: Apr-08-2022 13:41:10: 	listen on port 5000
+info: Apr-08-2022 13:41:10: 	db connection successful
+info: Apr-08-2022 13:42:15: 	listen on port 5000
+info: Apr-08-2022 13:42:15: 	db connection successful
+info: Apr-08-2022 13:42:45: 	listen on port 5000
+info: Apr-08-2022 13:42:46: 	db connection successful
+info: Apr-08-2022 13:43:54: 	listen on port 5000
+info: Apr-08-2022 13:43:54: 	db connection successful
+info: Apr-08-2022 13:47:50: 	listen on port 5000
+info: Apr-08-2022 13:47:51: 	db connection successful
+info: Apr-08-2022 13:53:14: 	listen on port 5000
+info: Apr-08-2022 13:53:15: 	db connection successful
+info: Apr-08-2022 14:03:12: 	listen on port 5000
+info: Apr-08-2022 14:03:13: 	db connection successful
+info: Apr-08-2022 14:05:28: 	listen on port 5000
+info: Apr-08-2022 14:05:28: 	db connection successful
+info: Apr-08-2022 14:08:24: 	listen on port 5000
+info: Apr-08-2022 14:08:25: 	db connection successful
+info: Apr-08-2022 14:14:51: 	listen on port 5000
+info: Apr-08-2022 14:14:51: 	db connection successful
+info: Apr-08-2022 14:16:33: 	listen on port 5000
+info: Apr-08-2022 14:16:33: 	db connection successful
+info: Apr-08-2022 14:18:24: 	listen on port 5000
+info: Apr-08-2022 14:18:25: 	db connection successful
+info: Apr-08-2022 14:19:43: 	listen on port 5000
+info: Apr-08-2022 14:19:43: 	db connection successful
+info: Apr-08-2022 14:20:30: 	listen on port 5000
+info: Apr-08-2022 14:20:30: 	db connection successful
+info: Apr-08-2022 14:21:37: 	listen on port 5000
+info: Apr-08-2022 14:21:38: 	db connection successful
+info: Apr-08-2022 14:23:43: 	listen on port 5000
+info: Apr-08-2022 14:23:43: 	db connection successful
+info: Apr-08-2022 14:25:50: 	listen on port 5000
+info: Apr-08-2022 14:25:50: 	db connection successful
+info: Apr-08-2022 14:27:49: 	listen on port 5000
+info: Apr-08-2022 14:27:49: 	db connection successful
+info: Apr-08-2022 15:03:05: 	listen on port 5000
+info: Apr-08-2022 15:03:05: 	db connection successful
+info: Apr-09-2022 11:55:49: 	listen on port 5000
+info: Apr-09-2022 11:55:50: 	db connection successful
+info: Apr-09-2022 12:26:16: 	listen on port 5000
+info: Apr-09-2022 12:26:16: 	db connection successful
+info: Apr-09-2022 12:36:53: 	listen on port 5000
+info: Apr-09-2022 12:36:54: 	db connection successful
+info: Apr-09-2022 12:45:11: 	listen on port 5000
+info: Apr-09-2022 12:45:11: 	db connection successful
+info: Apr-09-2022 12:46:15: 	listen on port 5000
+info: Apr-09-2022 12:46:16: 	db connection successful
+info: Apr-09-2022 13:59:26: 	listen on port 5000
+info: Apr-09-2022 13:59:26: 	db connection successful
+info: Apr-18-2022 12:39:28: 	listen on port 5000
+info: Apr-18-2022 12:39:29: 	db connection successful

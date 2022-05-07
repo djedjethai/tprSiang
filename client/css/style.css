@@ -58,7 +58,10 @@ body {
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
   @media only screen and (max-width: 37.5em) {
     .thegrid {
-      grid-template-rows: 73vh min-content; } }
+      grid-template-rows: 75vh min-content; } }
+  @media only screen and (max-width: 20em) {
+    .thegrid {
+      grid-template-rows: 77vh min-content; } }
 
 .heading-1, .heading-2, .heading-3, .heading-4 {
   font-family: var(--font-display);
@@ -112,6 +115,10 @@ body {
   @media only screen and (max-width: 20em) {
     .heading-title-1 {
       font-size: 3.2rem; } }
+
+.heading-thai-name {
+  font-family: var(--font-thai);
+  font-size: 2.2rem; }
 
 .heading-thai-1 {
   font-family: var(--font-thai);
@@ -249,7 +256,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; }
+  align-items: center;
+  text-align: center; }
   .thegrid__presentation-moto2-image {
     max-height: 8rem;
     border-radius: 50%; }

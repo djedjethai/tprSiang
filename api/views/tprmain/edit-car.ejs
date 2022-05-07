@@ -55,10 +55,10 @@
 			<div class="form-group">
                                     	<label for="type">Type:</label>
                                     	<select name="type" id="type" class="form-control" />
-		<option <%= car.type === 'รุนรถพิเศษ' ? 'selected' : '' %>>รุนรถพิเศษ</option>
-		<option <%= car.type === 'รถยนฅ์นั่งส่วนบุคคล' ? 'selected' : '' %>>รถยนฅ์นั่งส่วนบุคคล</option>
-		<option <%= car.type === 'รถยนฅ์เพื่อการพาณิซย์' ? 'selected' : '' %>>รถยนฅ์เพื่อการพาณิซย์</option>
-		<option <%= car.type === 'รถยนฅ์อเนกประสงค์' ? 'selected' : '' %>>รถยนฅ์อเนกประสงค์</option>
+		<option <%= car.type === 'รถยนต์รุ่นพิเศษ' ? 'selected' : '' %>>รถยนต์รุ่นพิเศษ</option>
+		<option <%= car.type === 'รถยนต์นั่งส่วนบุคคล' ? 'selected' : '' %>>รถยนต์นั่งส่วนบุคคล</option>
+		<option <%= car.type === 'รถยนต์เพื่อการพาณิซย์' ? 'selected' : '' %>>รถยนต์เพื่อการพาณิซย์</option>
+		<option <%= car.type === 'รถยนต์อเนกประสงค์' ? 'selected' : '' %>>รถยนต์อเนกประสงค์</option>
 					</select>
                          </div>
 		<div>
@@ -68,14 +68,12 @@
 			<label class="radio-inline">
 			<input type="radio" name="bestSeller" value='true' <%=car.bestSeller === 'true' ? 'checked' : ''%>>True</label>
 		</div>
-
 			<input type="hidden" value="<%=car._id%>" name="carId" />
                         <button class="btn btn-primary " type="submit">Update Car</button>
 			<p></p>
 		<% } else { %>
 			
 			<p id="token" hidden><%=token%></p>		
-
 			<div class="form-group">
                         <label for="style">Style:</label>
                         <select name="style" id="style" class="form-control" onchange="loadStyle(event)" />
@@ -89,10 +87,10 @@
 			<div class="form-group">
                         <label for="type">Type:</label>
                         <select name="type" id="type" class="form-control" onchange="loadType(event)" />
-		<option selected>รุนรถพิเศษ</option>
-		<option>รถยนฅ์นั่งส่วนบุคคล</option>
-		<option>รถยนฅ์เพื่อการพาณิซย์</option>
-		<option>รถยนฅ์อเนกประสงค์</option>
+		<option selected>รถยนต์รุ่นพิเศษ</option>
+		<option>รถยนต์นั่งส่วนบุคคล</option>
+		<option>รถยนต์เพื่อการพาณิซย์</option>
+		<option>รถยนต์อเนกประสงค์</option>
 					</select>
                          </div>
 		<div>
@@ -120,7 +118,6 @@
 	
 	<% if(!editing) { %>
 		<script type="text/javascript">
-
 			let key = ''
 			let serie = ''
 			let loadSerie = function() {serie = event.target.value}
@@ -140,7 +137,7 @@
 			let loadDetails = function(event) {details = event.target.value}
 			let style = "Sedan"
 			let loadStyle = function(event) {style = event.target.value}
-			let type = "รุนรถพิเศษ"
+			let type = "รถยนต์รุ่นพิเศษ"
 			let loadType = function(event) {type = event.target.value}
 			let bestSeller = false
 			let loadBestSeller = function(event) {bestSeller = event.target.value}
@@ -149,7 +146,6 @@
 				// console.log(dt)
 				verifPic = dt
 			}
-
 			const token = document.getElementById('token').textContent
 		
 			var form = document.getElementById('eventForm');
@@ -164,8 +160,7 @@
 					section: 'car',
 					picture: event.target[0].files[0].name
 				}
-
-				fetch('http://tpr2u.com/admin/upload', {
+				fetch('https://tpr2u.com/admin/upload', {
 					method: 'POST',
 					mode: 'no-cors',
 					body: JSON.stringify(data),
@@ -206,27 +201,24 @@
 					picUrl,
 					token
 				}
-				return fetch('http://tpr2u.com/admin/add-car', {
+				return fetch('https://tpr2u.com/admin/add-car', {
 					method: 'POST',
 					mode: 'no-cors',
 					body: JSON.stringify(dataForDb),
 					headers: {
 				'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8"
 					}
-
 				})
 				})
 				.then(d => {
 					if (d) {
 						setTimeout(() => {
-			window.location.replace("http://tpr2u.com/admin/cars")
+			window.location.replace("https://tpr2u.com/admin/cars")
 						}, 500)
 					}	
 				})
 				.catch(e => console.log(e))
-
 			})
-
       		</script >
 		<% } else { %>
 		

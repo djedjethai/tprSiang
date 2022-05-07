@@ -45,7 +45,6 @@ exports.postSignin = async (req, res, next) => {
 		if(match) {
 			//login 
 			req.session.isLoggedIn = true
-			req.session.user = user
 			
 			res.redirect('/admin/cars')
 			return

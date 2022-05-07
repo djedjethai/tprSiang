@@ -6,5 +6,6 @@ RUN npm install \
 	&& npm cache clean --force
 WORKDIR /app/src
 COPY . .
+RUN cp _document.js .next/server/pages/_document.js 
 EXPOSE 3000
 CMD ["npm","run","dev"]

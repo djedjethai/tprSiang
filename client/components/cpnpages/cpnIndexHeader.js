@@ -32,8 +32,7 @@ export default () => {
 						imgsrc="/images/siang.jpg"
 						imgsrcClassname="thegrid__presentation-moto2-image"
 					/>
-					<h4 className="heading-4">Siang</h4>
-					<p className="thegrid__presentation-owner-container-perf">Sold more than 1000 cars</p>
+					<p className="heading-thai-name">เซี้ยง</p>
 				</div>
 			</div>
 		</div>

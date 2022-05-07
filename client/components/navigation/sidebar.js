@@ -17,7 +17,7 @@ export default (props) => {
 					<a onClick={() => hideSidebar()}>หน้าหลัก</a>
 				</Link><br />
 				<Link href="/type/[typeId]" as="/type/model">
-					<a onClick={() => hideSidebar()}>รุ่นรถพิเศษ</a>
+					<a onClick={() => hideSidebar()}>รถยนต์รุ่นพิเศษ</a>
 				</Link><br />
 				<Link href="/type/[typeId]" as="/type/passenger">
 					<a onClick={() => hideSidebar()}>รถยนต์นั่งส่วนบุคคล</a>

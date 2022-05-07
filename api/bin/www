@@ -17,8 +17,7 @@ mongoose.Promise = global.Promise
 let MONGO_URI = '' 
 process.env.NODE_ENV === "production" ? 
 	MONGO_URI = prod(process.env.MONGO_URI) : 
-	MONGO_URI = dev('MONGO_URI')
-
+	MONGO_URI = dev('MONGO_URI_DEV')
 if (!MONGO_URI) {
 	throw new Error("incorrect mongoURI")
 }

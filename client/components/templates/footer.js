@@ -13,23 +13,23 @@ export default () => {
 				/>
 				<div className="footer__menu">
 					<Link href="/" >
-						<a>หน๊าหลัก</a>
+						<a>หน้าหลัก</a>
 					</Link>
 					<span> | </span>
 					<Link href="/type/[typeId]" as="/type/model">
-						<a>รุ่นรถพิเศษ</a>
+						<a>รถยนต์รุ่นพิเศษ</a>
 					</Link>
 					<span> | </span>
 					<Link href="/type/[typeId]" as="/type/passenger">
-						<a>รถยนฅ์นั่งส่วนบุคคล</a>
+						<a>รถยนต์นั่งส่วนบุคคล</a>
 					</Link>
 					<span> | </span>
 					<Link href="/type/[typeId]" as="/type/commercial">
-						<a>รถยนฅ์เพื่อการพาณิซย์</a>
+						<a>รถยนต์เพื่อการพาณิซย์</a>
 					</Link>
 					<span> | </span>
 					<Link href="/type/[typeId]" as="/type/utility">
-						<a>รถยนฅ์อเนกประสงค์</a>
+						<a>รถยนต์อเนกประสงค์</a>
 					</Link>
 					<span> | </span>
 					<Link href="/contact" >

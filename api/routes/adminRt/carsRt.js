@@ -33,10 +33,10 @@ module.exports = app => {
 							input.style.toString() !== 'Double-cab'
 						){
 							throw new Error('badInput')
-						} else if(input.type.toString() !== 'รุนรถพิเศษ' &&
-							input.type.toString() !== 'รถยนฅ์นั่งส่วนบุคคล'&&
-							input.type.toString() !== 'รถยนฅ์เพื่อการพาณิซย์'&&
-							input.type.toString() !== 'รถยนฅ์อเนกประสงค์'
+						} else if(input.type.toString() !== 'รถยนต์รุ่นพิเศษ'&&
+							input.type.toString() !== 'รถยนต์นั่งส่วนบุคคล'&&
+							input.type.toString() !== 'รถยนต์เพื่อการพาณิซย์'&&
+							input.type.toString() !== 'รถยนต์อเนกประสงค์'
 						){
 							throw new Error('badInput')
 						} else if(input.bestSeller.toString() !== 'false' &&
@@ -79,10 +79,10 @@ module.exports = app => {
 							input.style.toString() !== 'Double-cab'
 						){
 							throw new Error('badInput')
-						} else if(input.type.toString() !== 'รุนรถพิเศษ' &&
-							input.type.toString() !== 'รถยนฅ์นั่งส่วนบุคคล'&&
-							input.type.toString() !== 'รถยนฅ์เพื่อการพาณิซย์'&&
-							input.type.toString() !== 'รถยนฅ์อเนกประสงค์'
+						} else if(input.type.toString() !== 'รถยนต์รุ่นพิเศษ' &&
+							input.type.toString() !== 'รถยนต์นั่งส่วนบุคคล'&&
+							input.type.toString() !== 'รถยนต์เพื่อการพาณิซย์'&&
+							input.type.toString() !== 'รถยนต์อเนกประสงค์'
 						){
 							throw new Error('badInput')
 						} else if(input.bestSeller.toString() !== 'false' &&
